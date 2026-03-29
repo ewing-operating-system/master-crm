@@ -422,6 +422,14 @@ Return ONLY valid JSON. No markdown fences."""
     quality = proposal_data.get("quality_score", 0)
     log(f"PROPOSAL COMPLETE: {company_name} | Quality: {quality} | ID: {proposal_id}")
 
+    # Auto-refresh hub and dashboard
+    try:
+        from lib.auto_refresh import refresh_hub, refresh_dashboard
+        refresh_hub(company_name)
+        refresh_dashboard()
+    except Exception as e:
+        log(f"  Auto-refresh failed (non-blocking): {e}")
+
     return proposal_id
 
 def generate_proposal_html(company_name, data, proposal):
