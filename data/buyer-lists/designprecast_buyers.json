@@ -1,0 +1,119 @@
+{
+  "company": "Design Precast & Pipe",
+  "vertical": "Precast / Pipe",
+  "location": "Gulfport, MS",
+  "revenue": "$15M",
+  "employees": 52,
+  "buyers": [
+    {
+      "buyer_name": "Commercial Metals Company (CMC)",
+      "buyer_type": "Strategic Acquirer",
+      "city": "Irving",
+      "state": "TX",
+      "thesis": "CMC acquired CP&P for $675M and Foley Products in 2025 to build the largest precast platform in the US, focused on Mid-Atlantic and Southeast. Design Precast's Gulf Coast/Mississippi operations fill a critical geographic gap between CMC's Southeast and Texas operations.",
+      "contact_name": "Peter Matt",
+      "contact_title": "President & CEO",
+      "fit_score": 10,
+      "source": "Exa - CMC/CP&P and Foley acquisitions 2025"
+    },
+    {
+      "buyer_name": "NWPX Infrastructure",
+      "buyer_type": "Industry Consolidator",
+      "city": "Portland",
+      "state": "OR",
+      "thesis": "3 acquisitions in 6 years building national precast/pipe platform (Geneva Pipe 2020, ParkUSA 2021, Boughton's 2026). Design Precast adds Gulf Coast pipe manufacturing to their growing national footprint.",
+      "contact_name": "Scott Montross",
+      "contact_title": "President & CEO",
+      "fit_score": 9,
+      "source": "Exa - NWPX 3 acquisitions pattern"
+    },
+    {
+      "buyer_name": "Oldcastle Infrastructure (CRH)",
+      "buyer_type": "Strategic Acquirer",
+      "city": "Atlanta",
+      "state": "GA",
+      "thesis": "CRH/Oldcastle Infrastructure is the largest precast infrastructure company in North America. Design Precast's Gulf Coast pipe and precast operations add Mississippi manufacturing capacity to Oldcastle's Southeast network.",
+      "contact_name": "",
+      "contact_title": "President, Oldcastle Infrastructure",
+      "fit_score": 8,
+      "source": "Industry knowledge - Oldcastle national precast platform"
+    },
+    {
+      "buyer_name": "Forterra (Quikrete Holdings)",
+      "buyer_type": "Strategic Acquirer",
+      "city": "Irving",
+      "state": "TX",
+      "thesis": "Forterra is a leading precast pipe and concrete products manufacturer, taken private by Quikrete. Design Precast's Gulfport MS location and pipe manufacturing capabilities are directly complementary to Forterra's product line.",
+      "contact_name": "",
+      "contact_title": "CEO, Forterra",
+      "fit_score": 8,
+      "source": "Industry knowledge - Forterra pipe and precast operations"
+    },
+    {
+      "buyer_name": "Alcrete LLC",
+      "buyer_type": "Industry Consolidator",
+      "city": "Conway",
+      "state": "SC",
+      "thesis": "Actively acquiring Southeast precast companies (Benton Precast in SC, Dec 2024). Design Precast's Mississippi operations extend Alcrete's footprint west along the Gulf Coast.",
+      "contact_name": "Justin D. Norman",
+      "contact_title": "CEO",
+      "fit_score": 7,
+      "source": "Exa - Alcrete/Benton Precast acquisition"
+    },
+    {
+      "buyer_name": "Eagle Corporation",
+      "buyer_type": "PE Roll-up",
+      "city": "Various",
+      "state": "Southeast",
+      "thesis": "Just exited CP&P to CMC for $675M. Proven precast roll-up operator. May redeploy capital into Gulf Coast precast platform with Design Precast as a foundation or add-on.",
+      "contact_name": "",
+      "contact_title": "Managing Partner",
+      "fit_score": 7,
+      "source": "Exa - Eagle CP&P $675M exit"
+    },
+    {
+      "buyer_name": "Knife River Corporation",
+      "buyer_type": "Strategic Acquirer",
+      "city": "Bismarck",
+      "state": "ND",
+      "thesis": "Major construction materials company expanding through acquisition. Design Precast's pipe and precast operations in Mississippi add Gulf Coast infrastructure products to Knife River's materials portfolio.",
+      "contact_name": "Brian Gray",
+      "contact_title": "President & CEO",
+      "fit_score": 5,
+      "source": "Industry knowledge - Knife River growth strategy"
+    },
+    {
+      "buyer_name": "Rinker Materials (Quikrete)",
+      "buyer_type": "Strategic Acquirer",
+      "city": "Palm Beach Gardens",
+      "state": "FL",
+      "thesis": "Rinker Materials (under Quikrete) manufactures concrete pipe and precast products across the Southeast. Design Precast's Gulfport MS facility fills a manufacturing gap between their Florida and Texas operations.",
+      "contact_name": "",
+      "contact_title": "President, Rinker Materials",
+      "fit_score": 7,
+      "source": "Industry knowledge - Rinker Southeast pipe operations"
+    },
+    {
+      "buyer_name": "Thompson Pipe Group",
+      "buyer_type": "Strategic Acquirer",
+      "city": "Los Angeles",
+      "state": "CA",
+      "thesis": "Thompson Pipe Group manufactures reinforced concrete pipe, precast structures, and steel pipe. Design Precast's Gulf Coast pipe manufacturing extends their geographic reach into the Southeast infrastructure market.",
+      "contact_name": "",
+      "contact_title": "CEO",
+      "fit_score": 6,
+      "source": "Industry knowledge - Thompson Pipe national expansion"
+    },
+    {
+      "buyer_name": "Summit Materials",
+      "buyer_type": "Strategic Acquirer",
+      "city": "Denver",
+      "state": "CO",
+      "thesis": "Summit Materials (NYSE: SUM) acquired Argos USA for $3.2B. Actively expanding concrete and construction materials through M&A. Design Precast adds precast/pipe manufacturing in growing Gulf Coast infrastructure market.",
+      "contact_name": "Anne Noonan",
+      "contact_title": "President & CEO",
+      "fit_score": 5,
+      "source": "Industry knowledge - Summit Materials M&A strategy"
+    }
+  ]
+}

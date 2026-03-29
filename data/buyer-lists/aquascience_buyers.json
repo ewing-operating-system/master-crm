@@ -1,0 +1,120 @@
+{
+  "company": "AquaScience",
+  "vertical": "Water Treatment",
+  "location": "Wyoming, RI",
+  "revenue": "$8M",
+  "employees": 11,
+  "years_in_business": 41,
+  "buyers": [
+    {
+      "buyer_name": "Culligan International",
+      "buyer_type": "Strategic Acquirer",
+      "city": "Rosemont",
+      "state": "IL",
+      "thesis": "Culligan has executed 200+ acquisitions since 2017 building the world's largest consumer water services platform. AquaScience's 41-year RI presence and residential/commercial water treatment expertise fits Culligan's tuck-in model perfectly for Northeast density.",
+      "contact_name": "Scott Curl",
+      "contact_title": "CEO",
+      "fit_score": 9,
+      "source": "Exa - Culligan acquisition history, BDT/Castik portfolio"
+    },
+    {
+      "buyer_name": "Grundfos",
+      "buyer_type": "Strategic Acquirer",
+      "city": "Brookshire",
+      "state": "TX",
+      "thesis": "Grundfos completed acquisition of Newterra (US water treatment) in 2025 for $350M+ revenue platform. Actively expanding US water treatment footprint. AquaScience adds New England service territory.",
+      "contact_name": "Inge Delobelle",
+      "contact_title": "EVP & Divisional CEO, Industry Division",
+      "fit_score": 7,
+      "source": "Exa - Grundfos/Newterra acquisition Aug 2025"
+    },
+    {
+      "buyer_name": "Whitewater Management",
+      "buyer_type": "Industry Consolidator",
+      "city": "Calgary",
+      "state": "AB (Canada)",
+      "thesis": "Whitewater acquired Orion Water Solutions in March 2025 to expand water treatment capabilities. Growing through acquisition across multiple sectors including municipal and commercial water treatment.",
+      "contact_name": "Rod Stearn",
+      "contact_title": "President & CEO",
+      "fit_score": 5,
+      "source": "Exa - Whitewater/Orion acquisition March 2025"
+    },
+    {
+      "buyer_name": "BDT & MSD Partners",
+      "buyer_type": "PE Roll-up",
+      "city": "Chicago",
+      "state": "IL",
+      "thesis": "Owns Culligan International. Actively acquiring water treatment businesses as tuck-ins to Culligan platform. Would route AquaScience through Culligan's M&A team for Northeast market expansion.",
+      "contact_name": "Byron Trott",
+      "contact_title": "Chairman & CEO",
+      "fit_score": 8,
+      "source": "Exa - BDT/Culligan ownership structure"
+    },
+    {
+      "buyer_name": "Pentair",
+      "buyer_type": "Strategic Acquirer",
+      "city": "Golden Valley",
+      "state": "MN",
+      "thesis": "Pentair is a $4B+ publicly traded water treatment company (NYSE: PNR) that has historically acquired residential/commercial water treatment dealers and service companies. AquaScience adds New England dealer network.",
+      "contact_name": "John Stauch",
+      "contact_title": "President & CEO",
+      "fit_score": 7,
+      "source": "Industry knowledge - Pentair M&A history"
+    },
+    {
+      "buyer_name": "Essential Utilities (Aqua America)",
+      "buyer_type": "Strategic Acquirer",
+      "city": "Bryn Mawr",
+      "state": "PA",
+      "thesis": "Essential Utilities (NYSE: WTRG) is the largest publicly traded water utility in the US. Growing through acquisitions of water treatment and service companies. AquaScience's 41-year track record and RI territory complement their Northeast operations.",
+      "contact_name": "Chris Franklin",
+      "contact_title": "Chairman, President & CEO",
+      "fit_score": 6,
+      "source": "Industry knowledge - Essential Utilities growth strategy"
+    },
+    {
+      "buyer_name": "Advent International",
+      "buyer_type": "PE Roll-up",
+      "city": "Boston",
+      "state": "MA",
+      "thesis": "Former majority owner of Culligan, retains minority stake. Has deep water treatment sector expertise and built Culligan into a global water services champion. May invest in standalone water platforms or route through Culligan.",
+      "contact_name": "David Mussafer",
+      "contact_title": "Managing Partner",
+      "fit_score": 6,
+      "source": "Exa - Advent/Culligan portfolio history"
+    },
+    {
+      "buyer_name": "Evoqua Water Technologies (Xylem)",
+      "buyer_type": "Strategic Acquirer",
+      "city": "Pittsburgh",
+      "state": "PA",
+      "thesis": "Xylem acquired Evoqua for $7.5B in 2023. The combined entity is aggressively growing water treatment services. AquaScience would add residential/commercial treatment services to their industrial-heavy portfolio.",
+      "contact_name": "Patrick Decker",
+      "contact_title": "President & CEO, Xylem",
+      "fit_score": 6,
+      "source": "Industry knowledge - Xylem/Evoqua merger"
+    },
+    {
+      "buyer_name": "Capstone Partners (Advisory Lead)",
+      "buyer_type": "Industry Consolidator",
+      "city": "Boston",
+      "state": "MA",
+      "thesis": "Published August 2025 report highlighting heightened M&A in water treatment/remediation services. Active advisor connecting PE buyers with water treatment targets. Could introduce AquaScience to their PE buyer network.",
+      "contact_name": "John Ferrara",
+      "contact_title": "President",
+      "fit_score": 5,
+      "source": "Exa - Capstone IES Market Update Aug 2025"
+    },
+    {
+      "buyer_name": "The McLean Group",
+      "buyer_type": "Industry Consolidator",
+      "city": "McLean",
+      "state": "VA",
+      "thesis": "Published major 2025 water sector M&A review. Specializes in water industry investment banking. Could connect AquaScience with active PE/strategic acquirers in their water sector deal pipeline.",
+      "contact_name": "Tom McLean",
+      "contact_title": "Managing Director",
+      "fit_score": 4,
+      "source": "Exa - McLean Group water sector M&A report 2025"
+    }
+  ]
+}

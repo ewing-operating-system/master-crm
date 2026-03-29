@@ -1,0 +1,119 @@
+{
+  "company": "Air Control LLC",
+  "vertical": "HVAC",
+  "location": "McLean, VA",
+  "revenue": "$3M",
+  "employees": 5,
+  "buyers": [
+    {
+      "buyer_name": "Ally Services",
+      "buyer_type": "PE Roll-up",
+      "city": "Rockville",
+      "state": "MD",
+      "thesis": "Ally completed 3 add-on HVAC acquisitions in 2025 (J Hood-Manassas VA, Tri-County Aire-MD, Above & Beyond-DE), more than doubling revenue. Mid-Atlantic HVAC platform backed by Watchtower Capital. Air Control's McLean VA location fills NoVA territory gap perfectly.",
+      "contact_name": "Rick Schomburger",
+      "contact_title": "CEO",
+      "fit_score": 10,
+      "source": "Exa - Ally Services 3 acquisitions in 2025, Yahoo Finance Feb 2026"
+    },
+    {
+      "buyer_name": "Watchtower Capital (via Ally Services)",
+      "buyer_type": "PE Roll-up",
+      "city": "New York",
+      "state": "NY",
+      "thesis": "PE backer of Ally Services. Pursuing disciplined HVAC acquisition strategy in Mid-Atlantic. Air Control is exactly the type of local brand they acquire and integrate into Ally's platform.",
+      "contact_name": "Mike Minchella",
+      "contact_title": "Managing Partner",
+      "fit_score": 10,
+      "source": "Exa - Watchtower/Ally partnership"
+    },
+    {
+      "buyer_name": "Paramount Mechanical Corporation (Stonebridge Partners)",
+      "buyer_type": "PE Roll-up",
+      "city": "Suffolk",
+      "state": "VA",
+      "thesis": "Stonebridge Partners-backed HVAC platform acquired Comfort Solutions (Suffolk VA) in May 2025 and Math Mechanical in Nov 2024. Building Eastern US HVAC service platform. Air Control adds Northern Virginia commercial/residential HVAC capability.",
+      "contact_name": "",
+      "contact_title": "CEO, Paramount Mechanical",
+      "fit_score": 9,
+      "source": "Exa - Paramount/Comfort Solutions acquisition May 2025"
+    },
+    {
+      "buyer_name": "Apex Service Partners",
+      "buyer_type": "PE Roll-up",
+      "city": "Tampa",
+      "state": "FL",
+      "thesis": "Alpine Investors-backed HVAC/plumbing/electrical platform with 140+ investments and 50%+ employee growth YoY. 8,000+ employees across US. Air Control adds Virginia market density to their national platform.",
+      "contact_name": "",
+      "contact_title": "CEO",
+      "fit_score": 8,
+      "source": "Exa - Apex Service Partners 140 investments, PitchBook profile"
+    },
+    {
+      "buyer_name": "Wrench Group",
+      "buyer_type": "PE Roll-up",
+      "city": "Atlanta",
+      "state": "GA",
+      "thesis": "Operates 25 brands across 27 markets in 14 states with 7,300 employees. Manages 400K+ service agreements. Air Control's McLean VA market extends Wrench Group into the high-value DC metro HVAC market.",
+      "contact_name": "",
+      "contact_title": "CEO",
+      "fit_score": 8,
+      "source": "Exa - Wrench Group portfolio overview (CraftFlow)"
+    },
+    {
+      "buyer_name": "Littlejohn & Co. / United Air Temp",
+      "buyer_type": "PE Roll-up",
+      "city": "Springfield",
+      "state": "VA",
+      "thesis": "Littlejohn acquired United Air Temp (Northern Virginia HVAC) in April 2024. Inc. magazine recognized company. Air Control is a direct competitor in NoVA — acquisition eliminates competition and adds density.",
+      "contact_name": "",
+      "contact_title": "Managing Director, Littlejohn",
+      "fit_score": 9,
+      "source": "Exa - Littlejohn/United Air Temp acquisition April 2024"
+    },
+    {
+      "buyer_name": "Service Experts",
+      "buyer_type": "Industry Consolidator",
+      "city": "Plano",
+      "state": "TX",
+      "thesis": "National HVAC service company with 100+ locations. Actively acquiring local HVAC operators to fill market gaps. Air Control's DC metro territory is a high-demand, high-margin market.",
+      "contact_name": "Scott Boose",
+      "contact_title": "CEO",
+      "fit_score": 7,
+      "source": "Industry knowledge - Service Experts acquisition model"
+    },
+    {
+      "buyer_name": "Horizon Services",
+      "buyer_type": "Industry Consolidator",
+      "city": "Wilmington",
+      "state": "DE",
+      "thesis": "Major HVAC/plumbing provider in Mid-Atlantic (DE, PA, MD, NJ). Expansion into Northern Virginia through Air Control acquisition would extend their service territory south into the DC metro.",
+      "contact_name": "David Geiger",
+      "contact_title": "CEO",
+      "fit_score": 7,
+      "source": "Industry knowledge - Horizon Mid-Atlantic expansion"
+    },
+    {
+      "buyer_name": "Redwood Services",
+      "buyer_type": "PE Roll-up",
+      "city": "Charlotte",
+      "state": "NC",
+      "thesis": "Home services platform backed by Alpine Investors, actively acquiring HVAC and plumbing companies. Air Control fits their model of partnering with established local brands.",
+      "contact_name": "",
+      "contact_title": "CEO",
+      "fit_score": 7,
+      "source": "Industry knowledge - Redwood Services PE model"
+    },
+    {
+      "buyer_name": "F.H. Furr Plumbing, Heating, AC & Electrical",
+      "buyer_type": "Industry Consolidator",
+      "city": "Manassas",
+      "state": "VA",
+      "thesis": "Major NoVA home services provider. Acquiring Air Control would consolidate McLean-area HVAC market share and add technicians in a tight labor market.",
+      "contact_name": "",
+      "contact_title": "Owner",
+      "fit_score": 6,
+      "source": "Industry knowledge - F.H. Furr NoVA presence"
+    }
+  ]
+}

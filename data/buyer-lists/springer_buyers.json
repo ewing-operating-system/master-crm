@@ -1,0 +1,118 @@
+{
+  "company": "Springer Floor Care",
+  "vertical": "Floor Care / Carpet Cleaning",
+  "location": "Des Moines, IA",
+  "revenue": "$900K",
+  "buyers": [
+    {
+      "buyer_name": "Roark Capital / ServiceMaster Brands",
+      "buyer_type": "PE Roll-up",
+      "city": "Atlanta",
+      "state": "GA",
+      "thesis": "Roark acquired ServiceMaster Brands for $5.5B, rolling up fragmented cleaning and restoration services including ServiceMaster Clean, Merry Maids, and ServiceMaster Restore. Springer fits as a Midwest tuck-in to expand floor care density in Iowa.",
+      "contact_name": "Neal Aronson",
+      "contact_title": "Managing Partner, Roark Capital",
+      "fit_score": 8,
+      "source": "Exa - Roark/ServiceMaster $5.5B acquisition"
+    },
+    {
+      "buyer_name": "The Riverside Company / milliCare",
+      "buyer_type": "PE Roll-up",
+      "city": "New York",
+      "state": "NY",
+      "thesis": "Riverside acquired milliCare Floor & Textile Care (commercial carpet/floor care, $25M rev, 40+ locations) as add-on to their Clintar platform. Springer's Des Moines territory fills a Midwest gap in milliCare's franchise network.",
+      "contact_name": "Stewart Kohl",
+      "contact_title": "Co-CEO, Riverside Company",
+      "fit_score": 9,
+      "source": "Exa - Riverside/milliCare acquisition 2022"
+    },
+    {
+      "buyer_name": "Rainier Partners",
+      "buyer_type": "PE Roll-up",
+      "city": "Seattle",
+      "state": "WA",
+      "thesis": "Acquired Kleen-Tech Services (national janitorial, 2000 employees, 30+ states) in September 2025. Actively pursuing M&A in janitorial/cleaning. Springer adds specialized floor care capability to their commercial cleaning platform.",
+      "contact_name": "Alex Rolfe",
+      "contact_title": "Co-Founder & Managing Partner",
+      "fit_score": 7,
+      "source": "Exa - Rainier/Kleen-Tech acquisition Sep 2025"
+    },
+    {
+      "buyer_name": "NEXClean",
+      "buyer_type": "Industry Consolidator",
+      "city": "West Chester",
+      "state": "PA",
+      "thesis": "Acquired TriState Janitorial specifically for floor care specialization. Actively acquiring commercial cleaning companies with floor care expertise. Springer's Iowa market extends their geographic reach westward.",
+      "contact_name": "Dan Nestor",
+      "contact_title": "President",
+      "fit_score": 6,
+      "source": "Exa - NEXClean/TriState Janitorial acquisition"
+    },
+    {
+      "buyer_name": "ABM Industries",
+      "buyer_type": "Strategic Acquirer",
+      "city": "New York",
+      "state": "NY",
+      "thesis": "ABM (NYSE: ABM) is a $8B+ facility services company. Regularly acquires specialized cleaning/janitorial operators. Springer's floor care specialization in Des Moines adds Midwest density to ABM's national platform.",
+      "contact_name": "Scott Salmirs",
+      "contact_title": "President & CEO",
+      "fit_score": 6,
+      "source": "Industry knowledge - ABM acquisition strategy"
+    },
+    {
+      "buyer_name": "Cintas Corporation",
+      "buyer_type": "Strategic Acquirer",
+      "city": "Cincinnati",
+      "state": "OH",
+      "thesis": "Cintas (Nasdaq: CTAS) just announced $5.5B acquisition of UniFirst in March 2026. Expanding facility services capabilities. Springer's floor care services complement Cintas's uniform and facility services offering.",
+      "contact_name": "Todd Schneider",
+      "contact_title": "President & CEO",
+      "fit_score": 5,
+      "source": "Exa - Cintas/UniFirst $5.5B acquisition March 2026"
+    },
+    {
+      "buyer_name": "COIT Cleaning and Restoration",
+      "buyer_type": "Industry Consolidator",
+      "city": "San Francisco",
+      "state": "CA",
+      "thesis": "COIT operates 100+ locations providing carpet cleaning, floor care, and restoration services. Iowa market fills a Midwest territory gap. Springer's 41-year brand and recurring customer base are attractive franchise/acquisition targets.",
+      "contact_name": "Jeff Faulkner",
+      "contact_title": "CEO",
+      "fit_score": 6,
+      "source": "Industry knowledge - COIT franchise expansion"
+    },
+    {
+      "buyer_name": "Stanley Steemer",
+      "buyer_type": "Industry Consolidator",
+      "city": "Dublin",
+      "state": "OH",
+      "thesis": "Stanley Steemer is the largest carpet/floor cleaning franchise in the US with 300+ locations. Springer's Des Moines market and floor care specialization make it a natural territory acquisition or conversion.",
+      "contact_name": "Justin Bates",
+      "contact_title": "CEO",
+      "fit_score": 7,
+      "source": "Industry knowledge - Stanley Steemer growth strategy"
+    },
+    {
+      "buyer_name": "Marsden Holding",
+      "buyer_type": "Industry Consolidator",
+      "city": "St. Paul",
+      "state": "MN",
+      "thesis": "Marsden is a large Midwest-based facility services company with multiple janitorial and cleaning brands. Springer's Des Moines floor care business is geographically adjacent and operationally complementary.",
+      "contact_name": "Guy Mingo",
+      "contact_title": "CEO",
+      "fit_score": 7,
+      "source": "Industry knowledge - Marsden Midwest presence"
+    },
+    {
+      "buyer_name": "Pritchard Industries",
+      "buyer_type": "Industry Consolidator",
+      "city": "New York",
+      "state": "NY",
+      "thesis": "Pritchard is a growing facility services company backed by PE, actively acquiring regional cleaning operators. Springer adds specialized floor care capabilities and Iowa market presence.",
+      "contact_name": "Robert Pritchard",
+      "contact_title": "CEO",
+      "fit_score": 5,
+      "source": "Industry knowledge - Pritchard PE-backed growth"
+    }
+  ]
+}

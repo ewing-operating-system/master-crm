@@ -1,0 +1,119 @@
+{
+  "company": "HR.com Ltd",
+  "vertical": "HR Technology & Media",
+  "location": "Burlington, ON / US Operations",
+  "revenue": "$42M",
+  "ceo": "Debbie McGrath",
+  "buyers": [
+    {
+      "buyer_name": "Paychex",
+      "buyer_type": "Strategic Acquirer",
+      "city": "Rochester",
+      "state": "NY",
+      "thesis": "Paychex completed $4.1B acquisition of Paycor in April 2025 and now serves 790,000 customers. HR.com's media, events and certification platform gives Paychex a content and lead-generation engine for their 790K customer base. Strategic content moat.",
+      "contact_name": "John Gibson",
+      "contact_title": "President & CEO",
+      "fit_score": 8,
+      "source": "Exa - Paychex/Paycor acquisition April 2025"
+    },
+    {
+      "buyer_name": "Workday",
+      "buyer_type": "Strategic Acquirer",
+      "city": "Pleasanton",
+      "state": "CA",
+      "thesis": "Workday made 3 acquisitions in 2025 (Paradox, Sana, FlowiseAI) expanding from system of record to system of action. HR.com's community of 2M+ HR professionals provides audience, content, and lead-gen that complements Workday's enterprise HCM suite.",
+      "contact_name": "Carl Eschenbach",
+      "contact_title": "CEO",
+      "fit_score": 7,
+      "source": "Exa - Workday 2025 acquisition spree (Lighthouse Research)"
+    },
+    {
+      "buyer_name": "SAP SuccessFactors",
+      "buyer_type": "Strategic Acquirer",
+      "city": "Walldorf",
+      "state": "Germany (US: Newtown Square, PA)",
+      "thesis": "SAP acquired SmartRecruiters in August 2025 to strengthen HCM suite. HR.com's HR certification, community, and media platform would give SAP a content marketing engine and direct line to HR decision-makers globally.",
+      "contact_name": "Muhammad Alam",
+      "contact_title": "Member, Executive Board - Product & Engineering",
+      "fit_score": 7,
+      "source": "Exa - SAP/SmartRecruiters acquisition Aug 2025"
+    },
+    {
+      "buyer_name": "Thoma Bravo",
+      "buyer_type": "PE Roll-up",
+      "city": "San Francisco",
+      "state": "CA",
+      "thesis": "Took Dayforce private for $12.3B in 2025 — largest HR tech PE deal of the year. HR.com's media platform could serve as content/community bolt-on to any of Thoma Bravo's HR tech portfolio companies.",
+      "contact_name": "Orlando Bravo",
+      "contact_title": "Managing Partner",
+      "fit_score": 7,
+      "source": "Exa - Thoma Bravo/Dayforce $12.3B take-private 2025"
+    },
+    {
+      "buyer_name": "ADP",
+      "buyer_type": "Strategic Acquirer",
+      "city": "Roseland",
+      "state": "NJ",
+      "thesis": "ADP serves 1M+ clients globally. HR.com's HR professional community and certification programs create a powerful lead-gen and thought-leadership channel that strengthens ADP's brand authority with HR buyers.",
+      "contact_name": "Maria Black",
+      "contact_title": "President & CEO",
+      "fit_score": 7,
+      "source": "Industry knowledge - ADP growth strategy"
+    },
+    {
+      "buyer_name": "Deel",
+      "buyer_type": "Strategic Acquirer",
+      "city": "San Francisco",
+      "state": "CA",
+      "thesis": "Deel was highlighted as one of the top HR M&A movers in 2025. Growing rapidly in global HR/payroll. HR.com's content platform and 2M+ HR professional audience would accelerate Deel's brand awareness and enterprise sales.",
+      "contact_name": "Alex Bouaziz",
+      "contact_title": "Co-founder & CEO",
+      "fit_score": 6,
+      "source": "Exa - UNLEASH HR M&A roundup 2025"
+    },
+    {
+      "buyer_name": "Lighthouse Research & Advisory",
+      "buyer_type": "Industry Consolidator",
+      "city": "Birmingham",
+      "state": "AL",
+      "thesis": "HR tech research and advisory firm tracking 650+ HR tech transactions in 2025. HR.com would combine research, media, and events into a comprehensive HR intelligence platform. Strategic content consolidation play.",
+      "contact_name": "Ben Eubanks",
+      "contact_title": "Chief Research Officer",
+      "fit_score": 5,
+      "source": "Exa - Lighthouse Research HR Tech M&A recap"
+    },
+    {
+      "buyer_name": "Drake Star Partners (Advisory Lead)",
+      "buyer_type": "Industry Consolidator",
+      "city": "New York",
+      "state": "NY",
+      "thesis": "Recorded 650+ HR tech transactions globally through Q3 2025 with $22.3B in disclosed capital. Premier HR tech M&A advisor who could introduce HR.com to their active PE/strategic buyer network.",
+      "contact_name": "Greg Revesz",
+      "contact_title": "Managing Partner",
+      "fit_score": 5,
+      "source": "Exa - Drake Star HR Tech transaction data 2025"
+    },
+    {
+      "buyer_name": "Randstad / Randstad Digital",
+      "buyer_type": "Strategic Acquirer",
+      "city": "Diemen",
+      "state": "Netherlands (US: Atlanta, GA)",
+      "thesis": "Global HR services giant with $25B+ revenue. HR.com's media platform and HR certification programs would give Randstad a direct channel to HR buyers across industries, strengthening their talent solutions positioning.",
+      "contact_name": "Sander van 't Noordende",
+      "contact_title": "CEO",
+      "fit_score": 6,
+      "source": "Industry knowledge - Randstad strategic acquisitions"
+    },
+    {
+      "buyer_name": "HG Capital",
+      "buyer_type": "PE Roll-up",
+      "city": "London",
+      "state": "UK",
+      "thesis": "Invested $5.9B secondary stake in P&I (HR software) in 2025. Active PE investor in HR technology. HR.com's media and community platform would be a strategic content layer on top of any HG HR tech portfolio company.",
+      "contact_name": "Nic Humphries",
+      "contact_title": "Senior Partner",
+      "fit_score": 6,
+      "source": "Exa - HG Capital/P&I $5.9B investment 2025"
+    }
+  ]
+}
