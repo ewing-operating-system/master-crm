@@ -11,7 +11,7 @@ Admin view shows everything. Client view shows curated subset.
 import json, os, sys, time, psycopg2
 from datetime import datetime
 
-DB_CONN = "postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase.co:5432/postgres"
+DB_CONN = "postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase.co:6543/postgres"
 HUB_DIR = os.path.expanduser("~/Projects/master-crm/data/company-hubs")
 DL_DIR = os.path.expanduser("~/Downloads/master-crm-proposals")
 os.makedirs(HUB_DIR, exist_ok=True)
@@ -128,12 +128,13 @@ def get_all_company_assets(company_name):
     # Local HTML files
     slug = company_name.lower().replace(" ", "-").replace(".", "").replace(",", "").replace("&", "and")[:30]
     assets["files"] = {}
-    for subdir, label in [("proposals", "Proposal"), ("data-rooms", "Data Room"), ("meetings", "Meeting Prep")]:
+    slug_for_links = company_name.lower().replace(" ", "-").replace(".", "").replace(",", "").replace("&", "and")[:30]
+    for subdir, label, route in [("proposals", "Proposal", "proposal"), ("data-rooms", "Data Room", "dataroom"), ("meetings", "Meeting Prep", "meeting")]:
         dirpath = os.path.expanduser(f"~/Projects/master-crm/data/{subdir}")
         if os.path.exists(dirpath):
             for f in os.listdir(dirpath):
                 if slug in f.lower() or company_name.split()[0].lower() in f.lower():
-                    assets["files"][f"{label}: {f}"] = f"data/{subdir}/{f}"
+                    assets["files"][f"{label}: {f}"] = f"/company/{slug_for_links}/{route}"
 
     conn.close()
     return assets
