@@ -66,9 +66,11 @@ def sb_insert(table, rows):
     resp = urllib.request.urlopen(req, context=ctx, timeout=30)
     return json.loads(resp.read())
 
-def sb_upsert(table, rows):
+def sb_upsert(table, rows, on_conflict=None):
     """Upsert rows (merge on conflict)."""
     url = f"{SUPABASE_URL}/rest/v1/{table}"
+    if on_conflict:
+        url += f"?on_conflict={on_conflict}"
     payload = json.dumps(rows, default=str).encode()
     req = urllib.request.Request(url, data=payload,
         headers=sb_headers("return=representation,resolution=merge-duplicates"), method="POST")
@@ -100,137 +102,17 @@ def run_ddl(sql_statement):
 # ─── Step 1 & 2: Create tables via helper script ───────────────────────────
 
 def create_tables():
-    """Create tables using Supabase Management API or direct connection workaround."""
-    log("Steps 1-2: Creating research_methods and research_executions tables...")
-
-    # Use subprocess to call the Supabase CLI if available, or
-    # create tables by trying to insert and letting them exist already.
-    # Best approach: use the Supabase Management API v1
-    import subprocess
-
-    ddl = """
-    CREATE TABLE IF NOT EXISTS research_methods (
-        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-        method_code TEXT UNIQUE NOT NULL,
-        method_name TEXT NOT NULL,
-        description TEXT,
-        category TEXT,
-        tool TEXT,
-        query_template TEXT,
-        expected_output TEXT[],
-        success_rate NUMERIC,
-        avg_cost NUMERIC,
-        discovered_by TEXT,
-        discovery_context TEXT,
-        times_used INTEGER DEFAULT 0,
-        times_succeeded INTEGER DEFAULT 0,
-        is_active BOOLEAN DEFAULT true,
-        created_at TIMESTAMPTZ DEFAULT now(),
-        updated_at TIMESTAMPTZ DEFAULT now()
-    );
-
-    CREATE TABLE IF NOT EXISTS research_executions (
-        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-        company_id UUID,
-        company_name TEXT NOT NULL,
-        method_code TEXT REFERENCES research_methods(method_code),
-        actual_query TEXT,
-        tool TEXT,
-        raw_response JSONB,
-        extracted_fields JSONB,
-        result_quality NUMERIC,
-        result_count INTEGER,
-        status TEXT DEFAULT 'complete',
-        error_message TEXT,
-        cost_usd NUMERIC DEFAULT 0,
-        executed_at TIMESTAMPTZ DEFAULT now(),
-        duration_ms INTEGER,
-        source_urls TEXT[],
-        source_excerpts TEXT[],
-        entity TEXT DEFAULT 'next_chapter'
-    );
-
-    CREATE INDEX IF NOT EXISTS idx_re_company ON research_executions(company_name);
-    CREATE INDEX IF NOT EXISTS idx_re_method ON research_executions(method_code);
-    """
-
-    # Try using npx supabase db
-    # or try using the management API
-    # Simplest: pipe SQL through a node script that uses fetch
-    node_script = f"""
-const https = require('https');
-
-const sql = `{ddl}`;
-
-const data = JSON.stringify({{ query: sql }});
-
-const options = {{
-  hostname: 'api.supabase.com',
-  path: '/v1/projects/dwrnfpjcvydhmhnvyzov/database/query',
-  method: 'POST',
-  headers: {{
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer ' + process.env.SUPABASE_ACCESS_TOKEN,
-    'Content-Length': Buffer.byteLength(data),
-  }},
-}};
-
-// Fallback: connect directly via pg
-const {{ Client }} = require('pg');
-const client = new Client({{
-  host: 'db.dwrnfpjcvydhmhnvyzov.supabase.co',
-  port: 5432,
-  database: 'postgres',
-  user: 'postgres',
-  password: '{DB_PASSWORD}',
-  ssl: {{ rejectUnauthorized: false }},
-}});
-
-async function run() {{
-  try {{
-    await client.connect();
-    await client.query(sql);
-    console.log('DDL executed successfully via pg');
-    await client.end();
-  }} catch (e) {{
-    console.error('pg error:', e.message);
-    process.exit(1);
-  }}
-}}
-
-run();
-"""
-
-    # Write and run
-    script_path = "/tmp/create_tables.js"
-    with open(script_path, 'w') as f:
-        f.write(node_script)
-
-    try:
-        result = subprocess.run(["node", script_path], capture_output=True, text=True, timeout=30)
-        if result.returncode == 0:
-            log(f"  Tables created: {result.stdout.strip()}")
-        else:
-            log(f"  Node pg attempt: {result.stderr.strip()}")
-            # Fallback: try with psql via IPv6
-            raise Exception("Node failed")
-    except Exception as e:
-        log(f"  Trying psql fallback...")
-        # Write DDL to file and try psql
-        ddl_file = "/tmp/create_tables.sql"
-        with open(ddl_file, 'w') as f:
-            f.write(ddl)
-
-        result = subprocess.run(
-            ["psql", f"postgresql://postgres:{DB_PASSWORD}@db.dwrnfpjcvydhmhnvyzov.supabase.co:5432/postgres"],
-            input=ddl, capture_output=True, text=True, timeout=30,
-            env={**os.environ, "PGSSLMODE": "require"}
-        )
-        if result.returncode == 0:
-            log(f"  Tables created via psql: {result.stdout.strip()}")
-        else:
-            log(f"  psql also failed: {result.stderr[:200]}")
-            log(f"  Attempting REST-only approach (tables may already exist)")
+    """Create tables. Tables should already exist (created via supabase db push).
+    Verify they are accessible via REST API."""
+    log("Steps 1-2: Verifying research_methods and research_executions tables...")
+    for table in ["research_methods", "research_executions"]:
+        try:
+            sb_get(table, "select=id&limit=1")
+            log(f"  {table}: accessible")
+        except Exception as e:
+            log(f"  WARNING: {table} not accessible: {e}")
+            log(f"  Run: supabase db push -p PASSWORD to create tables")
+            raise
 
 
 # ─── Step 3: Seed research_methods ──────────────────────────────────────────
@@ -488,7 +370,7 @@ def seed_research_methods():
         rows.append(row)
 
     try:
-        result = sb_upsert("research_methods", rows)
+        result = sb_upsert("research_methods", rows, on_conflict="method_code")
         log(f"  Seeded {len(result)} research methods")
     except urllib.error.HTTPError as e:
         body = e.read().decode()
@@ -733,6 +615,15 @@ def backfill_executions():
         log(f"    {len(rows)} executions")
         all_rows.extend(rows)
 
+    # Normalize all rows to have the same keys (PostgREST requirement)
+    all_keys = set()
+    for row in all_rows:
+        all_keys.update(row.keys())
+    for row in all_rows:
+        for key in all_keys:
+            if key not in row:
+                row[key] = None
+
     # Insert all at once
     try:
         result = sb_insert("research_executions", all_rows)
@@ -822,6 +713,15 @@ def generate_html_pages():
             pass
 
     log("  Updated method usage counts and success rates")
+
+
+def _build_method_badges(executions):
+    badges = []
+    for e in executions:
+        css_class = "active" if e.get("status") == "complete" else "failed"
+        name = _esc(e.get("method_name", e.get("method_code", "?")))
+        badges.append(f'<span class="method-badge {css_class}">{name}</span>')
+    return "".join(badges)
 
 
 def _build_html(company_name, info, executions, total_searches, total_cost,
@@ -1096,7 +996,7 @@ def _build_html(company_name, info, executions, total_searches, total_cost,
   </div>
   <div class="method-library">
     <h3>Methods Used</h3>
-    {''.join(f\'<span class="method-badge {"active" if e.get("status") == "complete" else "failed"}">{_esc(e.get("method_name", e.get("method_code", "?")))}</span>\' for e in executions)}
+    {_build_method_badges(executions)}
   </div>
   <h2 class="section-header">Research Execution Log</h2>
   {all_execs}

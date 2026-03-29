@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AquaScience — Research Transparency</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    padding: 30px;
+  }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #161b22 0%, #21262d 100%);
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 25px;
+  }
+  .header h1 { font-size: 24px; color: #58a6ff; margin-bottom: 5px; }
+  .header .subtitle { color: #8b949e; font-size: 14px; }
+  .header .company-meta { margin-top: 10px; color: #8b949e; font-size: 13px; }
+  .header .company-meta span {
+    background: #21262d; border: 1px solid #30363d;
+    padding: 2px 8px; border-radius: 4px; margin-right: 8px;
+    display: inline-block; margin-bottom: 4px;
+  }
+  .summary {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px; margin-bottom: 25px;
+  }
+  .summary-card {
+    background: #161b22; border: 1px solid #30363d;
+    border-radius: 8px; padding: 18px; text-align: center;
+  }
+  .summary-card .value { font-size: 28px; font-weight: 700; color: #58a6ff; }
+  .summary-card .label {
+    font-size: 11px; color: #8b949e;
+    text-transform: uppercase; letter-spacing: 1px; margin-top: 4px;
+  }
+  .summary-card.success .value { color: #3fb950; }
+  .summary-card.failed .value { color: #f85149; }
+  .summary-card.cost .value { color: #d2a8ff; }
+  .exec-card {
+    background: #161b22; border: 1px solid #30363d;
+    border-radius: 8px; padding: 18px; margin-bottom: 12px;
+    transition: border-color 0.2s;
+  }
+  .exec-card:hover { border-color: #58a6ff; }
+  .exec-header {
+    display: flex; align-items: center; gap: 10px;
+    flex-wrap: wrap; margin-bottom: 10px;
+  }
+  .tool-icon { font-size: 18px; }
+  .method-name { font-weight: 600; color: #f0f6fc; font-size: 15px; }
+  .category-badge {
+    background: #1f2937; color: #79c0ff; padding: 2px 8px;
+    border-radius: 12px; font-size: 11px; border: 1px solid #30363d;
+  }
+  .status-badge {
+    padding: 2px 10px; border-radius: 12px; font-size: 11px;
+    font-weight: 600; color: white;
+  }
+  .cost-badge {
+    background: #1c1436; color: #d2a8ff; padding: 2px 8px;
+    border-radius: 12px; font-size: 11px; border: 1px solid #30363d;
+    margin-left: auto;
+  }
+  .duration-badge { color: #8b949e; font-size: 11px; }
+  .exec-query {
+    background: #0d1117; border: 1px solid #21262d;
+    border-radius: 6px; padding: 10px 14px; margin-bottom: 10px;
+  }
+  .exec-query code { color: #7ee787; font-size: 13px; word-break: break-all; }
+  .error-msg {
+    background: #2d1b1e; border: 1px solid #f8514940;
+    border-radius: 6px; padding: 8px 12px; color: #f85149;
+    font-size: 12px; margin-bottom: 10px;
+  }
+  .exec-results {
+    display: flex; align-items: center; gap: 15px; margin-bottom: 8px;
+  }
+  .quality-bar-container { flex: 1; max-width: 250px; }
+  .quality-label { font-size: 11px; color: #8b949e; margin-bottom: 3px; }
+  .quality-bar { height: 6px; border-radius: 3px; transition: width 0.3s; }
+  .result-count { font-size: 12px; color: #8b949e; }
+  .extracted-fields {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px;
+  }
+  .field-tag {
+    background: #0d2818; border: 1px solid #238636; color: #3fb950;
+    padding: 2px 8px; border-radius: 4px; font-size: 11px;
+  }
+  .source-urls a {
+    color: #58a6ff; font-size: 11px; text-decoration: none;
+  }
+  .source-urls a:hover { text-decoration: underline; }
+  .source-excerpts .excerpt {
+    display: block; color: #8b949e; font-size: 11px;
+    font-style: italic; margin-top: 2px;
+  }
+  .section-header {
+    color: #f0f6fc; font-size: 16px; margin: 25px 0 12px 0;
+    padding-bottom: 8px; border-bottom: 1px solid #21262d;
+  }
+  .footer {
+    margin-top: 30px; padding-top: 15px; border-top: 1px solid #21262d;
+    text-align: center; color: #484f58; font-size: 11px;
+  }
+  .method-library {
+    background: #161b22; border: 1px solid #30363d;
+    border-radius: 8px; padding: 15px; margin-bottom: 25px;
+  }
+  .method-library h3 { color: #d2a8ff; font-size: 14px; margin-bottom: 8px; }
+  .method-badge {
+    display: inline-block; background: #1f2937; border: 1px solid #30363d;
+    padding: 4px 10px; border-radius: 6px; font-size: 12px;
+    margin: 3px; color: #c9d1d9;
+  }
+  .method-badge.active { border-color: #3fb950; color: #3fb950; }
+  .method-badge.failed { border-color: #f85149; color: #f85149; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>&#128269; AquaScience — Research Transparency</h1>
+    <div class="subtitle">Inside-out view: every search, every API call, every technique, every result</div>
+    <div class="company-meta">
+      <span>Water Treatment</span>
+      <span>Wyoming, RI</span>
+      <span>Owner: Lawrence 'Larry' Casey</span>
+      <span>Revenue: $8M</span>
+      <span>Employees: 11</span>
+    </div>
+  </div>
+  <div class="summary">
+    <div class="summary-card">
+      <div class="value">8</div>
+      <div class="label">Total Searches</div>
+    </div>
+    <div class="summary-card success">
+      <div class="value">6</div>
+      <div class="label">Succeeded</div>
+    </div>
+    <div class="summary-card failed">
+      <div class="value">2</div>
+      <div class="label">Failed</div>
+    </div>
+    <div class="summary-card cost">
+      <div class="value">$0.108</div>
+      <div class="label">Total Cost</div>
+    </div>
+    <div class="summary-card">
+      <div class="value">36</div>
+      <div class="label">Facts Found</div>
+    </div>
+    <div class="summary-card">
+      <div class="value">73.4s</div>
+      <div class="label">Total Time</div>
+    </div>
+  </div>
+  <div class="method-library">
+    <h3>Methods Used</h3>
+    <span class="method-badge active">Database company lookup</span><span class="method-badge failed">Company web search</span><span class="method-badge failed">Owner/founder search</span><span class="method-badge active">Market multiples file lookup</span><span class="method-badge active">Company narrative generation</span><span class="method-badge active">Valuation estimation via LLM</span><span class="method-badge active">Buyer identification</span><span class="method-badge active">Industry M&amp;A activity</span>
+  </div>
+  <h2 class="section-header">Research Execution Log</h2>
+  
+        <div class="exec-card">
+            <div class="exec-header">
+                <span class="tool-icon">&#128451;</span>
+                <span class="method-name">Database company lookup</span>
+                <span class="category-badge">company_search</span>
+                <span class="status-badge" style="background: #27ae60">COMPLETE</span>
+                <span class="cost-badge">$0.000</span>
+                <span class="duration-badge">50ms</span>
+            </div>
+            <div class="exec-query">
+                <code>SELECT * FROM companies/targets/dossier_final WHERE company_name ILIKE '%AquaScience%'</code>
+            </div>
+            
+            <div class="exec-results">
+                <div class="quality-bar-container">
+                    <div class="quality-label">Quality: 90%</div>
+                    <div class="quality-bar" style="width: 90%; background: #27ae60"></div>
+                </div>
+                <div class="result-count">6 facts extracted</div>
+            </div>
+            <div class="extracted-fields"><span class="field-tag">city: Wyoming</span> <span class="field-tag">state: RI</span> <span class="field-tag">revenue: $8M</span> <span class="field-tag">vertical: Water Treatment</span> <span class="field-tag">employees: 11</span> <span class="field-tag">owner_name: Lawrence 'Larry' Casey</span></div>
+            <div class="source-urls"></div>
+            <div class="source-excerpts"></div>
+        </div>
+        
+
+        <div class="exec-card">
+            <div class="exec-header">
+                <span class="tool-icon">&#128269;</span>
+                <span class="method-name">Company web search</span>
+                <span class="category-badge">company_search</span>
+                <span class="status-badge" style="background: #e74c3c">FAILED</span>
+                <span class="cost-badge">$0.018</span>
+                <span class="duration-badge">200ms</span>
+            </div>
+            <div class="exec-query">
+                <code>AquaScience Wyoming RI Water Treatment company</code>
+            </div>
+            <div class="error-msg">HTTP Error 403: Forbidden — Exa API key expired</div>
+            <div class="exec-results">
+                <div class="quality-bar-container">
+                    <div class="quality-label">Quality: 0%</div>
+                    <div class="quality-bar" style="width: 0%; background: #e74c3c"></div>
+                </div>
+                <div class="result-count">0 facts extracted</div>
+            </div>
+            <div class="extracted-fields"></div>
+            <div class="source-urls"></div>
+            <div class="source-excerpts"></div>
+        </div>
+        
+
+        <div class="exec-card">
+            <div class="exec-header">
+                <span class="tool-icon">&#128269;</span>
+                <span class="method-name">Owner/founder search</span>
+                <span class="category-badge">person_search</span>
+                <span class="status-badge" style="background: #e74c3c">FAILED</span>
+                <span class="cost-badge">$0.018</span>
+                <span class="duration-badge">150ms</span>
+            </div>
+            <div class="exec-query">
+                <code>AquaScience owner founder president Wyoming</code>
+            </div>
+            <div class="error-msg">HTTP Error 403: Forbidden — Exa API key expired</div>
+            <div class="exec-results">
+                <div class="quality-bar-container">
+                    <div class="quality-label">Quality: 0%</div>
+                    <div class="quality-bar" style="width: 0%; background: #e74c3c"></div>
+                </div>
+                <div class="result-count">0 facts extracted</div>
+            </div>
+            <div class="extracted-fields"></div>
+            <div class="source-urls"></div>
+            <div class="source-excerpts"></div>
+        </div>
+        
+
+        <div class="exec-card">
+            <div class="exec-header">
+                <span class="tool-icon">&#128196;</span>
+                <span class="method-name">Market multiples file lookup</span>
+                <span class="category-badge">financial_estimate</span>
+                <span class="status-badge" style="background: #27ae60">COMPLETE</span>
+                <span class="cost-badge">$0.000</span>
+                <span class="duration-badge">5ms</span>
+            </div>
+            <div class="exec-query">
+                <code>Load multiples for Water Treatment from market_multiples.json</code>
+            </div>
+            
+            <div class="exec-results">
+                <div class="quality-bar-container">
+                    <div class="quality-label">Quality: 95%</div>
+                    <div class="quality-bar" style="width: 95%; background: #27ae60"></div>
+                </div>
+                <div class="result-count">3 facts extracted</div>
+            </div>
+            <div class="extracted-fields"><span class="field-tag">ebitda_low: 4.0</span> <span class="field-tag">ebitda_med: 5.5</span> <span class="field-tag">ebitda_high: 8.0</span></div>
+            <div class="source-urls"></div>
+            <div class="source-excerpts"></div>
+        </div>
+        
+
+        <div class="exec-card">
+            <div class="exec-header">
+                <span class="tool-icon">&#129302;</span>
+                <span class="method-name">Company narrative generation</span>
+                <span class="category-badge">enrichment</span>
+                <span class="status-badge" style="background: #27ae60">COMPLETE</span>
+                <span class="cost-badge">$0.000</span>
+                <span class="duration-badge">45000ms</span>
+            </div>
+            <div class="exec-query">
+                <code>Full proposal generation for AquaScience — company narrative, strengths, market analysis, valuation, attack plan</code>
+            </div>
+            
+            <div class="exec-results">
+                <div class="quality-bar-container">
+                    <div class="quality-label">Quality: 85%</div>
+                    <div class="quality-bar" style="width: 85%; background: #27ae60"></div>
+                </div>
+                <div class="result-count">8 facts extracted</div>
+            </div>
+            <div class="extracted-fields"><span class="field-tag">attack_plan: True</span> <span class="field-tag">letter_template: True</span> <span class="field-tag">market_analysis: True</span> <span class="field-tag">top_3_strengths: True</span> <span class="field-tag">valuation_range: True</span> <span class="field-tag">company_narrative: True</span></div>
+            <div class="source-urls"></div>
+            <div class="source-excerpts"></div>
+        </div>
+        
+
+        <div class="exec-card">
+            <div class="exec-header">
+                <span class="tool-icon">&#129302;</span>
+                <span class="method-name">Valuation estimation via LLM</span>
+                <span class="category-badge">financial_estimate</span>
+                <span class="status-badge" style="background: #27ae60">COMPLETE</span>
+                <span class="cost-badge">$0.000</span>
+                <span class="duration-badge">15000ms</span>
+            </div>
+            <div class="exec-query">
+                <code>Estimate valuation: $8M revenue, Water Treatment, EBITDA multiples</code>
+            </div>
+            
+            <div class="exec-results">
+                <div class="quality-bar-container">
+                    <div class="quality-label">Quality: 80%</div>
+                    <div class="quality-bar" style="width: 80%; background: #27ae60"></div>
+                </div>
+                <div class="result-count">4 facts extracted</div>
+            </div>
+            <div class="extracted-fields"><span class="field-tag">methodology: True</span> <span class="field-tag">valuation_low: True</span> <span class="field-tag">valuation_mid: True</span> <span class="field-tag">valuation_high: True</span></div>
+            <div class="source-urls"></div>
+            <div class="source-excerpts"></div>
+        </div>
+        
+
+        <div class="exec-card">
+            <div class="exec-header">
+                <span class="tool-icon">&#128269;</span>
+                <span class="method-name">Buyer identification</span>
+                <span class="category-badge">company_search</span>
+                <span class="status-badge" style="background: #27ae60">COMPLETE</span>
+                <span class="cost-badge">$0.042</span>
+                <span class="duration-badge">8000ms</span>
+            </div>
+            <div class="exec-query">
+                <code>Water Treatment companies acquired RI 2024 2025 PE roll-up</code>
+            </div>
+            
+            <div class="exec-results">
+                <div class="quality-bar-container">
+                    <div class="quality-label">Quality: 90%</div>
+                    <div class="quality-bar" style="width: 90%; background: #27ae60"></div>
+                </div>
+                <div class="result-count">10 facts extracted</div>
+            </div>
+            <div class="extracted-fields"><span class="field-tag">buyer_names: ['Culligan International', 'Grundfos', 'Whitewater Management', 'BDT &amp; MSD Partn</span> <span class="field-tag">buyers_found: 10</span></div>
+            <div class="source-urls"></div>
+            <div class="source-excerpts"><span class="excerpt">Exa - Culligan acquisition history, BDT/Castik portfolio</span><br><span class="excerpt">Exa - Grundfos/Newterra acquisition Aug 2025</span><br><span class="excerpt">Exa - Whitewater/Orion acquisition March 2025</span></div>
+        </div>
+        
+
+        <div class="exec-card">
+            <div class="exec-header">
+                <span class="tool-icon">&#128269;</span>
+                <span class="method-name">Industry M&amp;A activity</span>
+                <span class="category-badge">company_search</span>
+                <span class="status-badge" style="background: #27ae60">COMPLETE</span>
+                <span class="cost-badge">$0.030</span>
+                <span class="duration-badge">5000ms</span>
+            </div>
+            <div class="exec-query">
+                <code>Water Treatment company acquisition multiples 2025 2026</code>
+            </div>
+            
+            <div class="exec-results">
+                <div class="quality-bar-container">
+                    <div class="quality-label">Quality: 80%</div>
+                    <div class="quality-bar" style="width: 80%; background: #27ae60"></div>
+                </div>
+                <div class="result-count">5 facts extracted</div>
+            </div>
+            <div class="extracted-fields"><span class="field-tag">recent_deals: True</span> <span class="field-tag">buyer_activity: active</span></div>
+            <div class="source-urls"></div>
+            <div class="source-excerpts"></div>
+        </div>
+        
+  <div class="footer">
+    Research Transparency Report — Next Chapter M&A Advisory<br>
+    Generated March 29, 2026 at 23:30 UTC<br>
+    System: master-crm research_transparency.py
+  </div>
+</div>
+</body>
+</html>
