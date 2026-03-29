@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monday Dashboard — March 29, 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0d1117; color: #c9d1d9; }
+  .header { background: linear-gradient(135deg, #161b22, #1a5276); padding: 25px 30px; }
+  .header h1 { color: #58a6ff; font-size: 24px; }
+  .header .meta { color: #8b949e; font-size: 13px; margin-top: 5px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; padding: 20px; max-width: 1400px; margin: 0 auto; }
+  .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 18px; }
+  .card.full { grid-column: 1 / -1; }
+  .card.half { grid-column: span 2; }
+  .card h2 { font-size: 14px; color: #58a6ff; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+  .metric { font-size: 36px; font-weight: bold; color: #f0f6fc; }
+  .metric-label { font-size: 12px; color: #8b949e; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; padding: 6px 8px; color: #8b949e; border-bottom: 1px solid #30363d; }
+  td { padding: 6px 8px; border-bottom: 1px solid #21262d; }
+  ul { list-style: none; }
+  li { padding: 4px 0; }
+  .stat-row { display: flex; gap: 20px; margin: 10px 0; }
+  .stat { text-align: center; }
+  .stat .num { font-size: 28px; font-weight: bold; color: #f0f6fc; }
+  .stat .label { font-size: 11px; color: #8b949e; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Next Chapter — Command Center</h1>
+  <div class="meta">Sunday, March 29, 2026 12:10 PM | 31,815 rows | 224 companies | 1,937 contacts</div>
+</div>
+
+<div class="grid">
+
+  <div class="card">
+    <h2>📊 Pipeline</h2>
+    <table><tr><td>engagement_active</td><td>4</td></tr><tr><td>needs_review</td><td>1</td></tr><tr><td>certified</td><td>1</td></tr></table>
+  </div>
+
+  <div class="card">
+    <h2>🎯 Outbound Activity</h2>
+    <div class="stat-row">
+      <div class="stat"><div class="num">6</div><div class="label">Plays Run (7d)</div></div>
+      <div class="stat"><div class="num">27</div><div class="label">Items Sent (7d)</div></div>
+      <div class="stat"><div class="num">50/60</div><div class="label">Buyers Scripted</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>💰 Budget</h2>
+    <table><tr><th>Entity</th><th>Daily Cap</th><th>Spent</th></tr><tr><td>and_capital</td><td>$3.00</td><td style='color:#27ae60'>$0.00 (0%)</td></tr><tr><td>next_chapter</td><td>$5.00</td><td style='color:#27ae60'>$0.00 (0%)</td></tr><tr><td>revsup</td><td>$1.00</td><td style='color:#27ae60'>$0.00 (0%)</td></tr><tr><td>system</td><td>$2.00</td><td style='color:#27ae60'>$0.00 (0%)</td></tr></table>
+  </div>
+
+  <div class="card half">
+    <h2>📋 Proposals</h2>
+    <table><tr><th>Company</th><th>Status</th><th>Quality</th></tr><tr><td>HR.com Ltd</td><td style='color:#f39c12;font-weight:bold'>engagement_active</td><td>90</td></tr><tr><td>AquaScience</td><td style='color:#f39c12;font-weight:bold'>engagement_active</td><td>88</td></tr><tr><td>Springer Floor</td><td style='color:#e74c3c;font-weight:bold'>needs_review</td><td>82</td></tr><tr><td>Air Control</td><td style='color:#f39c12;font-weight:bold'>engagement_active</td><td>82</td></tr><tr><td>Wieser Concrete Products, Inc.</td><td style='color:#27ae60;font-weight:bold'>certified</td><td>82</td></tr><tr><td>Design Precast & Pipe, Inc.</td><td style='color:#f39c12;font-weight:bold'>engagement_active</td><td>82</td></tr></table>
+  </div>
+
+  <div class="card">
+    <h2>🔍 Pending Reviews</h2>
+    <div class="metric">0</div>
+    <div class="metric-label">items awaiting human review</div>
+  </div>
+
+  <div class="card half">
+    <h2>🤖 Agent Performance (7d)</h2>
+    <table><tr><th>Agent</th><th>Success</th><th>Avg Cost</th></tr><tr><td>certifier</td><td>6/12</td><td>$0.0000</td></tr></table>
+  </div>
+
+  <div class="card">
+    <h2>⚠️ Problems</h2>
+    <ul><li>✅ No problems detected</li></ul>
+  </div>
+
+  <div class="card full">
+    <h2>🏗️ Campaigns</h2>
+    <table><tr><th>Active</th><th>Campaign</th><th>Entity</th><th>Name</th></tr><tr><td>🔴</td><td>NC-AZ-FULL-V3</td><td>next_chapter</td><td>Legacy: az-full-v3</td></tr><tr><td>🔴</td><td>NC-AZ-MULTI-LLM-TEST</td><td>next_chapter</td><td>Legacy: az-multi-llm-test</td></tr><tr><td>🔴</td><td>NC-AZ-OPENCLAW-V1</td><td>next_chapter</td><td>Legacy: az-openclaw-v1</td></tr><tr><td>🔴</td><td>NC-AZ-PRODUCTION-V1</td><td>next_chapter</td><td>Legacy: az-production-v1</td></tr><tr><td>🟢</td><td>NC-BUY-OUTREACH</td><td>next_chapter</td><td>Buy-Side Outreach</td></tr><tr><td>🟢</td><td>NC-SELL-CALL</td><td>next_chapter</td><td>Prospect Cold Calling</td></tr><tr><td>🟢</td><td>NC-SELL-LETTER</td><td>next_chapter</td><td>Owner Letter Campaign</td></tr><tr><td>🟢</td><td>NC-TAM</td><td>next_chapter</td><td>TAM Engine</td></tr><tr><td>🟢</td><td>NC-TRANSCRIPT</td><td>next_chapter</td><td>Transcript Mining</td></tr><tr><td>🟢</td><td>AND-DEAL-SOURCE</td><td>and_capital</td><td>Deal Sourcing Cold Calls</td></tr><tr><td>🟢</td><td>AND-FUND-DISTRO</td><td>and_capital</td><td>Fund Brochure Distribution</td></tr><tr><td>🟢</td><td>AND-LP-CALL</td><td>and_capital</td><td>LP Cold Calling</td></tr><tr><td>🟢</td><td>AND-LP-LETTER</td><td>and_capital</td><td>LP Letter Campaign</td></tr><tr><td>🟢</td><td>AND-LP-LINKEDIN</td><td>and_capital</td><td>LP LinkedIn Outreach</td></tr><tr><td>🟢</td><td>RU-CANDIDATE</td><td>revsup</td><td>Candidate Sourcing</td></tr><tr><td>🟢</td><td>RU-CLIENT</td><td>revsup</td><td>Recruiting Client Outreach</td></tr><tr><td>🟢</td><td>RU-REFERRAL</td><td>revsup</td><td>Referral Program</td></tr><tr><td>🟢</td><td>FORGE-BOOMERANG</td><td>the_forge</td><td>Boomerang Athlete Outreach</td></tr><tr><td>🟢</td><td>BIOLEV-SALE</td><td>biolev</td><td>BioLev Sale Process</td></tr><tr><td>🟢</td><td>SEASWEET-ROOFING</td><td>sea_sweet</td><td>Sea Sweet Roofing Rollup</td></tr><tr><td>🟢</td><td>PEC-FRAUD</td><td>precision_exploration</td><td>PEC Fraud Case Management</td></tr></table>
+  </div>
+
+</div>
+
+</body>
+</html>
