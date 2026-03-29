@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design Precast & Pipe, Inc. — Confidential Assessment</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1a1a2e; line-height: 1.6; background: #f0f2f5; }
+  .gate { max-width: 500px; margin: 100px auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); text-align: center; }
+  .gate h1 { font-size: 22px; margin-bottom: 10px; color: #16213e; }
+  .gate p { color: #666; margin-bottom: 25px; font-size: 14px; }
+  .gate input { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; margin-bottom: 15px; }
+  .gate button { width: 100%; padding: 14px; background: #27ae60; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; }
+  .gate button:hover { background: #219a52; }
+  .container { max-width: 900px; margin: 0 auto; padding: 30px; display: none; }
+  .header { background: linear-gradient(135deg, #16213e 0%, #1a5276 100%); color: white; padding: 40px 35px; border-radius: 12px; margin-bottom: 25px; }
+  .header h1 { font-size: 28px; margin-bottom: 5px; }
+  .header .sub { opacity: 0.8; font-size: 14px; }
+  .card { background: white; border-radius: 12px; padding: 30px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); }
+  .card h2 { font-size: 18px; color: #16213e; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #f0f2f5; }
+  .strength { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #f8f9fa; }
+  .strength .num { width: 30px; height: 30px; background: #27ae60; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; flex-shrink: 0; }
+  .val-box { display: flex; gap: 15px; margin: 20px 0; }
+  .val-item { flex: 1; background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; }
+  .val-item .label { font-size: 12px; color: #999; text-transform: uppercase; }
+  .val-item .amount { font-size: 24px; font-weight: bold; color: #16213e; margin: 8px 0; }
+  .val-method { font-size: 13px; color: #888; font-style: italic; margin-top: 10px; }
+  table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+  table td { padding: 10px 15px; border-bottom: 1px solid #f0f2f5; }
+  table td:first-child { font-weight: 500; color: #555; width: 40%; }
+  .cta-box { background: linear-gradient(135deg, #27ae60, #2ecc71); color: white; padding: 30px; border-radius: 12px; text-align: center; }
+  .cta-box h2 { color: white; border: none; margin-bottom: 10px; }
+  .cta-box a { display: inline-block; background: white; color: #27ae60; padding: 14px 40px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 16px; margin-top: 15px; }
+  .footer { text-align: center; padding: 30px; color: #999; font-size: 12px; }
+  @media (max-width: 600px) { .val-box { flex-direction: column; } .container { padding: 15px; } }
+</style>
+</head>
+<body>
+
+<div class="gate" id="gate">
+  <h1>Confidential Assessment</h1>
+  <p>This page was prepared exclusively for Pat Fore III (Founder/President/Owner) at Design Precast & Pipe, Inc..<br>Enter your email to access.</p>
+  <input type="email" id="email" placeholder="your@email.com" autocomplete="email">
+  <button onclick="document.getElementById('gate').style.display='none'; document.getElementById('content').style.display='block';">Access Assessment</button>
+</div>
+
+<div class="container" id="content">
+  <div class="header">
+    <h1>Design Precast & Pipe, Inc.</h1>
+    <div class="sub">Gulfport, MS — Precast Concrete & Pipe Manufacturing</div>
+    <div class="sub">Confidential Assessment — Prepared by Next Chapter M&A Advisory</div>
+  </div>
+  
+  <div class="card">
+    <h2>Your Company</h2>
+    <p>Design Precast & Pipe, Inc. is a premier family-owned precast concrete and pipe manufacturer founded in 2004 by Pat Fore III in Gulfport, Mississippi. What began as a local precaster focused on drainage structures and sewer manholes has evolved into a regional powerhouse spanning the entire Gulf Coast corridor. The company's trajectory from a single Mississippi facility to a two-plant operation — adding an Arnaudville, Louisiana location — demonstrates the kind of disciplined, organic growth that acquirers prize. With an estimated $15 million in annual revenue and a workforce between 31 and 52 employees depending on project load, Design Precast operates at the sweet spot where owner-operator excellence meets scalable infrastructure.
+
+The company's product portfolio is exceptionally broad f</p>
+  </div>
+  
+  <div class="card">
+    <h2>Your Top Strengths</h2>
+    <div class="strength"><span class="num">1</span>Patented Lifting Eye technology (PF3 Global/DPPI patent) — proprietary IP in a commodity industry creates defensible competitive moat and margin premium that no competitor can replicate without licensing</div><div class="strength"><span class="num">2</span>Two-plant regional footprint spanning Houston TX to Tallahassee FL — dual manufacturing facilities in Gulfport MS and Arnaudville LA provide geographic coverage across the fastest-growing infrastructure corridor in the US, with built-in redundancy and logistics advantages</div><div class="strength"><span class="num">3</span>Exceptional product breadth with custom design-build capability — full-spectrum precast and pipe manufacturing (RCP, RCAP, RCB, manholes, lift stations, marine structures, custom work) makes them a one-stop shop for contractors and dramatically increases customer switching costs</div>
+  </div>
+  
+  <div class="card">
+    <h2>Estimated Value Range</h2>
+    <div class="val-box">
+      <div class="val-item"><div class="label">Conservative</div><div class="amount">$6.8M</div></div>
+      <div class="val-item"><div class="label">Likely</div><div class="amount" style="color:#27ae60;">$10.8M</div></div>
+      <div class="val-item"><div class="label">Optimistic</div><div class="amount">$16.2M</div></div>
+    </div>
+    <div class="val-method">Primary method: EBITDA multiple applied to estimated earnings. Estimated revenue of $15M (per RocketReach/KonaEquity) with assumed EBITDA margin of 18% (industry standard for precast manufacturers with custom capability and proprietary products) yields estimated EBITDA of approximately $2.7M. Applied certified market multiples: Low = $2.7M × 2.5x = $6.75M; Mid = $2.7M × 4.0x = $10.8M; High = $2.7M × 6.0x = $16.2M. Cross-checked via revenue multiples: Low = $15M × 0.3x = $4.5M; Mid = $15M × 0.6x = $9.0M; High = $15M × 1.0x = $15.0M. The EBITDA-based range is used as primary because it better captures the profitability impact of proprietary technology and custom fabrication margins. NOTE: Actual EBITDA margins could be higher (20-25%) given patented Lifting Eye technology and custom design-build work, which would push the range upward. The CMC/CP&P comparable at 9.5x EBITDA suggests premium multiples are achievable for scaled platforms, though that transaction involved 17 facilities and 700 employees — a significantly larger operation. All estimates should be validated through financial due diligence; these ranges are based on publicly available revenue data and industry-standard margin assumptions.</div>
+  </div>
+  
+  <div class="card">
+    <h2>Your Market</h2>
+    <p>The precast concrete and pipe manufacturing sector is experiencing a historic wave of consolidation driven by three converging forces: massive federal infrastructure spending (IIJA/Bipartisan Infrastructure Law), aging municipal water and sewer systems requiring replacement, and strategic acquirers seeking to build regional platforms. The landmark transaction in this space was CMC's acquisition of Concrete Pipe & Precast LLC for $675 million in December 2025 — a deal valued at approximately 9.5x EBITDA that sent a clear signal about the premium valuations available for scaled precast/pipe plat</p>
+    
+    
+  </div>
+  
+  <div class="card">
+    <h2>Our Approach</h2>
+    <p>This is a buy-side approach — we represent acquirers actively seeking precast and pipe manufacturing platforms in the Gulf Coast region. The positioning is: 'We work with buyers who are specifically interested in companies like yours — established, well-run precast manufacturers with strong regional positions.' This is NOT a solicitation to sell; it is an introduction to explore whether there might be mutual interest. The approach must respect that Pat Fore III built this company from scratch over 20+ years and likely has deep emotional attachment to the business, the employees, and the commun</p>
+  </div>
+  
+  <div class="cta-box">
+    <h2>Ready to Explore Your Options?</h2>
+    <p>No commitment. No upfront fees. Just a conversation about what's possible.</p>
+    <a href="mailto:ewing@chapter.guide?subject=Interested%20-%20Design%20Precast%20&%20Pipe,%20Inc.">Schedule a Call</a>
+  </div>
+  
+  <div class="footer">
+    CONFIDENTIAL — Prepared exclusively for Pat Fore III (Founder/President/Owner) at Design Precast & Pipe, Inc.<br>
+    Next Chapter M&A Advisory | Mark DeChant | 818-747-9668<br>
+    Generated March 29, 2026
+  </div>
+</div>
+
+</body>
+</html>

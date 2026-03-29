@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AquaScience — Confidential Assessment</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1a1a2e; line-height: 1.6; background: #f0f2f5; }
+  .gate { max-width: 500px; margin: 100px auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); text-align: center; }
+  .gate h1 { font-size: 22px; margin-bottom: 10px; color: #16213e; }
+  .gate p { color: #666; margin-bottom: 25px; font-size: 14px; }
+  .gate input { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; margin-bottom: 15px; }
+  .gate button { width: 100%; padding: 14px; background: #27ae60; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; }
+  .gate button:hover { background: #219a52; }
+  .container { max-width: 900px; margin: 0 auto; padding: 30px; display: none; }
+  .header { background: linear-gradient(135deg, #16213e 0%, #1a5276 100%); color: white; padding: 40px 35px; border-radius: 12px; margin-bottom: 25px; }
+  .header h1 { font-size: 28px; margin-bottom: 5px; }
+  .header .sub { opacity: 0.8; font-size: 14px; }
+  .card { background: white; border-radius: 12px; padding: 30px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); }
+  .card h2 { font-size: 18px; color: #16213e; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #f0f2f5; }
+  .strength { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #f8f9fa; }
+  .strength .num { width: 30px; height: 30px; background: #27ae60; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; flex-shrink: 0; }
+  .val-box { display: flex; gap: 15px; margin: 20px 0; }
+  .val-item { flex: 1; background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; }
+  .val-item .label { font-size: 12px; color: #999; text-transform: uppercase; }
+  .val-item .amount { font-size: 24px; font-weight: bold; color: #16213e; margin: 8px 0; }
+  .val-method { font-size: 13px; color: #888; font-style: italic; margin-top: 10px; }
+  table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+  table td { padding: 10px 15px; border-bottom: 1px solid #f0f2f5; }
+  table td:first-child { font-weight: 500; color: #555; width: 40%; }
+  .cta-box { background: linear-gradient(135deg, #27ae60, #2ecc71); color: white; padding: 30px; border-radius: 12px; text-align: center; }
+  .cta-box h2 { color: white; border: none; margin-bottom: 10px; }
+  .cta-box a { display: inline-block; background: white; color: #27ae60; padding: 14px 40px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 16px; margin-top: 15px; }
+  .footer { text-align: center; padding: 30px; color: #999; font-size: 12px; }
+  @media (max-width: 600px) { .val-box { flex-direction: column; } .container { padding: 15px; } }
+</style>
+</head>
+<body>
+
+<div class="gate" id="gate">
+  <h1>Confidential Assessment</h1>
+  <p>This page was prepared exclusively for Lawrence "Larry" Casey at AquaScience.<br>Enter your email to access.</p>
+  <input type="email" id="email" placeholder="your@email.com" autocomplete="email">
+  <button onclick="document.getElementById('gate').style.display='none'; document.getElementById('content').style.display='block';">Access Assessment</button>
+</div>
+
+<div class="container" id="content">
+  <div class="header">
+    <h1>AquaScience</h1>
+    <div class="sub">Wyoming, RI — Water Treatment / eCommerce</div>
+    <div class="sub">Confidential Assessment — Prepared by Next Chapter M&A Advisory</div>
+  </div>
+  
+  <div class="card">
+    <h2>Your Company</h2>
+    <p>AquaScience was founded in 1984 by Lawrence Casey on a promise that still lives on the company's website today: to bring the world's finest water treatment equipment and well water supplies directly to the public at the lowest prices in the country. That was before the internet existed as a commercial channel — and yet Larry built a direct-to-consumer model that anticipated by decades what the rest of the industry would eventually try to replicate. Forty-one years later, AquaScience has served over 100,000 customers and completed more than 120,000 service calls in a three-year window alone, establishing itself as one of the most trusted water treatment providers in the northeastern United States.
+
+What makes AquaScience particularly remarkable is the breadth of its competitive moat. The co</p>
+  </div>
+  
+  <div class="card">
+    <h2>Your Top Strengths</h2>
+    <div class="strength"><span class="num">1</span>41-year operating history with a dual-channel model (local service + national eCommerce) that creates both recurring revenue and a scalable digital acquisition engine — a combination almost no competitor has replicated</div><div class="strength"><span class="num">2</span>Specialized PFAS, radon, and Legionella treatment capabilities positioned directly in the path of accelerating federal and state regulatory mandates, converting what was once discretionary spending into compliance-driven demand</div><div class="strength"><span class="num">3</span>Over 100,000 customers served, 120,000+ service calls in three years, BBB accreditation, and a 4.8 Google rating — an earned reputation that represents decades of compounding trust and is the single hardest asset for any acquirer to build from scratch</div>
+  </div>
+  
+  <div class="card">
+    <h2>Estimated Value Range</h2>
+    <div class="val-box">
+      <div class="val-item"><div class="label">Conservative</div><div class="amount">$6.4M</div></div>
+      <div class="val-item"><div class="label">Likely</div><div class="amount" style="color:#27ae60;">$8.8M</div></div>
+      <div class="val-item"><div class="label">Optimistic</div><div class="amount">$12.8M</div></div>
+    </div>
+    <div class="val-method">Valuation based on estimated EBITDA of $1,600,000 (calculated as 20% EBITDA margin applied to $8,000,000 estimated revenue — consistent with well-run water treatment companies with recurring service revenue and eCommerce margins). Applied water treatment industry EBITDA multiples: 4.0x (conservative, reflecting single-location risk), 5.5x (market median for established operators with recurring revenue), and 8.0x (premium, reflecting regulatory specialization in PFAS/radon, 41-year track record, dual-channel model, and eCommerce scalability). Multiples sourced from comparable water treatment and environmental services transactions in the 2024-2025 period.</div>
+  </div>
+  
+  <div class="card">
+    <h2>Your Market</h2>
+    <p>The water treatment industry is experiencing a generational shift in M&A activity. Private equity firms and strategic consolidators have recognized that water treatment sits at the intersection of three mega-trends: aging infrastructure requiring remediation, tightening EPA and state-level water quality regulations (particularly around PFAS 'forever chemicals'), and the essential-service nature of clean water that makes these businesses recession-resistant. In 2024-2025, water treatment and environmental services companies traded at EBITDA multiples of 4.0x to 8.0x, with premium valuations goi</p>
+    <table>
+        <tr><td>EBITDA Multiple Range</td><td>4.0x — 6.5x — 10.0x</td></tr>
+        <tr><td>Revenue Multiple Range</td><td>1.0x — 1.5x — 2.0x</td></tr>
+        <tr><td>Typical SDE Range</td><td>$250K-$1M</td></tr></table>
+    <h3>Recent Transactions in Your Market</h3><ul><li><strong></strong> — acquired by Ecolab >$1.5B</li><li><strong></strong> — acquired by Veolia >$1.5B</li><li><strong></strong> — acquired by Various $26B aggregate disclosed</li></ul>
+  </div>
+  
+  <div class="card">
+    <h2>Our Approach</h2>
+    <p>Phase 1 (Days 1-15): Build a curated buyer list of 40-60 targets across three categories — PE-backed water/environmental platforms (15-20), national strategic acquirers (10-15), and family offices/independent sponsors with essential-services mandates (15-25). Prepare a blind teaser highlighting key metrics (41 years, 100K+ customers, dual-channel model, PFAS/radon specialty) without revealing the company name. Phase 2 (Days 15-30): Execute a controlled outreach campaign — personalized letters to the top 20 targets, followed by direct calls to corporate development and operating partners. Simul</p>
+  </div>
+  
+  <div class="cta-box">
+    <h2>Ready to Explore Your Options?</h2>
+    <p>No commitment. No upfront fees. Just a conversation about what's possible.</p>
+    <a href="mailto:ewing@chapter.guide?subject=Interested%20-%20AquaScience">Schedule a Call</a>
+  </div>
+  
+  <div class="footer">
+    CONFIDENTIAL — Prepared exclusively for Lawrence "Larry" Casey at AquaScience<br>
+    Next Chapter M&A Advisory | Mark DeChant | 818-747-9668<br>
+    Generated March 29, 2026
+  </div>
+</div>
+
+</body>
+</html>

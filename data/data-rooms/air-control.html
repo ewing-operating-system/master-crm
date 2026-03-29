@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Air Control — Confidential Assessment</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1a1a2e; line-height: 1.6; background: #f0f2f5; }
+  .gate { max-width: 500px; margin: 100px auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); text-align: center; }
+  .gate h1 { font-size: 22px; margin-bottom: 10px; color: #16213e; }
+  .gate p { color: #666; margin-bottom: 25px; font-size: 14px; }
+  .gate input { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; margin-bottom: 15px; }
+  .gate button { width: 100%; padding: 14px; background: #27ae60; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; }
+  .gate button:hover { background: #219a52; }
+  .container { max-width: 900px; margin: 0 auto; padding: 30px; display: none; }
+  .header { background: linear-gradient(135deg, #16213e 0%, #1a5276 100%); color: white; padding: 40px 35px; border-radius: 12px; margin-bottom: 25px; }
+  .header h1 { font-size: 28px; margin-bottom: 5px; }
+  .header .sub { opacity: 0.8; font-size: 14px; }
+  .card { background: white; border-radius: 12px; padding: 30px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); }
+  .card h2 { font-size: 18px; color: #16213e; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #f0f2f5; }
+  .strength { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #f8f9fa; }
+  .strength .num { width: 30px; height: 30px; background: #27ae60; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; flex-shrink: 0; }
+  .val-box { display: flex; gap: 15px; margin: 20px 0; }
+  .val-item { flex: 1; background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; }
+  .val-item .label { font-size: 12px; color: #999; text-transform: uppercase; }
+  .val-item .amount { font-size: 24px; font-weight: bold; color: #16213e; margin: 8px 0; }
+  .val-method { font-size: 13px; color: #888; font-style: italic; margin-top: 10px; }
+  table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+  table td { padding: 10px 15px; border-bottom: 1px solid #f0f2f5; }
+  table td:first-child { font-weight: 500; color: #555; width: 40%; }
+  .cta-box { background: linear-gradient(135deg, #27ae60, #2ecc71); color: white; padding: 30px; border-radius: 12px; text-align: center; }
+  .cta-box h2 { color: white; border: none; margin-bottom: 10px; }
+  .cta-box a { display: inline-block; background: white; color: #27ae60; padding: 14px 40px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 16px; margin-top: 15px; }
+  .footer { text-align: center; padding: 30px; color: #999; font-size: 12px; }
+  @media (max-width: 600px) { .val-box { flex-direction: column; } .container { padding: 15px; } }
+</style>
+</head>
+<body>
+
+<div class="gate" id="gate">
+  <h1>Confidential Assessment</h1>
+  <p>This page was prepared exclusively for Fred Lowry at Air Control.<br>Enter your email to access.</p>
+  <input type="email" id="email" placeholder="your@email.com" autocomplete="email">
+  <button onclick="document.getElementById('gate').style.display='none'; document.getElementById('content').style.display='block';">Access Assessment</button>
+</div>
+
+<div class="container" id="content">
+  <div class="header">
+    <h1>Air Control</h1>
+    <div class="sub">McLean, VA — HVAC</div>
+    <div class="sub">Confidential Assessment — Prepared by Next Chapter M&A Advisory</div>
+  </div>
+  
+  <div class="card">
+    <h2>Your Company</h2>
+    <p>Air Control LLC is the kind of company that only gets built once. Fred Lowry didn't start with a business plan or an investor deck — he started with a toolbox and a work ethic forged over three decades in the trade. From his first repair calls in Dublin, Georgia in 1990, through seven years mastering large-scale commercial systems in Northern Virginia, Fred earned something that can't be bought: the trust of homeowners in one of America's most affluent communities. When he co-founded Air Control LLC in 2008, he bet on himself — and McLean, Virginia bet right back.
+
+Eighteen years later, Air Control operates from the heart of Fairfax County, serving McLean, Great Falls, Tysons, and the surrounding communities where median household incomes exceed $200,000. This isn't a company that competes</p>
+  </div>
+  
+  <div class="card">
+    <h2>Your Top Strengths</h2>
+    <div class="strength"><span class="num">1</span>Premium market positioning in McLean, VA (22102) — one of the wealthiest zip codes in America, where customers pay for quality and rarely shop on price</div><div class="strength"><span class="num">2</span>Exceptional revenue-per-employee efficiency at ~$600K/person (industry average: $150K–$250K), indicating strong pricing power and operational discipline</div><div class="strength"><span class="num">3</span>18-year track record with owner-operator continuity — Fred Lowry's personal reputation IS the brand, creating deep customer loyalty and referral networks that competitors cannot replicate</div>
+  </div>
+  
+  <div class="card">
+    <h2>Estimated Value Range</h2>
+    <div class="val-box">
+      <div class="val-item"><div class="label">Conservative</div><div class="amount">$2.1M</div></div>
+      <div class="val-item"><div class="label">Likely</div><div class="amount" style="color:#27ae60;">$3.6M</div></div>
+      <div class="val-item"><div class="label">Optimistic</div><div class="amount">$4.8M</div></div>
+    </div>
+    <div class="val-method">Based on Air Control's estimated EBITDA of $600,000 (calculated as 5 employees × $600,000 revenue/employee = $3,000,000 revenue, applying a 20% EBITDA margin consistent with well-run residential HVAC operations). Low estimate uses 3.5x EBITDA (floor for profitable HVAC businesses). Mid estimate uses 6.0x EBITDA (current median for private HVAC companies per FirstPageSage Q1 2025 data and Breakwater M&A 2026 analysis). High estimate uses 8.0x EBITDA (achievable premium for residential-focused operations in affluent markets with strong owner transition support). Multiples sourced from FirstPageSage, Breakwater M&A, TheDealSheet, and Talk24.ai industry reports covering 2024–2025 transaction data.</div>
+  </div>
+  
+  <div class="card">
+    <h2>Your Market</h2>
+    <p>The HVAC industry is experiencing the most aggressive private equity consolidation wave in home services history. PE-backed platforms completed over 200 HVAC acquisitions in 2024 alone, and 2025 has already logged 149 transactions through mid-year — a 12.9% increase year-over-year. Major platforms like Sila (Morgan Stanley Capital Partners), Orion Group (Alpine Investors), and FirstCall Mechanical (SkyKnight Capital) are actively acquiring in the Mid-Atlantic and Southeast, with several specifically targeting the Washington, D.C. metro corridor for geographic density.
+
+This buyer appetite is d</p>
+    <table>
+        <tr><td>EBITDA Multiple Range</td><td>3.5x — 6.0x — 10.0x</td></tr>
+        <tr><td>Revenue Multiple Range</td><td>0.5x — 0.9x — 1.5x</td></tr>
+        <tr><td>Typical SDE Range</td><td>$200K-$800K</td></tr></table>
+    <h3>Recent Transactions in Your Market</h3><ul><li><strong></strong> — acquired by Various PE platforms (Wrench Group, Apex Service Partners, Hoffman Family) Undisclosed aggregate</li><li><strong></strong> — acquired by Morgan Stanley Capital Partners / Sila Undisclosed</li><li><strong></strong> — acquired by Alpine Investors / Orion Group Undisclosed</li></ul>
+  </div>
+  
+  <div class="card">
+    <h2>Our Approach</h2>
+    <p>Phase 1 — Targeted Buyer Identification (Days 1–15): Build a curated list of 40–60 qualified buyers in three tiers. Tier 1 (10–15 buyers): PE-backed HVAC platforms with active Mid-Atlantic acquisition mandates — Sila, Orion Group, Apex Service Partners, Wrench Group, FirstCall Mechanical, Hoffman Family of Companies, and similar. Tier 2 (15–20 buyers): Regional HVAC companies with $10M+ revenue in Virginia, Maryland, and D.C. that have acquisition history or succession gaps. Tier 3 (15–25 buyers): Family offices and independent sponsors actively deploying in home services. Source from PitchBoo</p>
+  </div>
+  
+  <div class="cta-box">
+    <h2>Ready to Explore Your Options?</h2>
+    <p>No commitment. No upfront fees. Just a conversation about what's possible.</p>
+    <a href="mailto:ewing@chapter.guide?subject=Interested%20-%20Air%20Control">Schedule a Call</a>
+  </div>
+  
+  <div class="footer">
+    CONFIDENTIAL — Prepared exclusively for Fred Lowry at Air Control<br>
+    Next Chapter M&A Advisory | Mark DeChant | 818-747-9668<br>
+    Generated March 29, 2026
+  </div>
+</div>
+
+</body>
+</html>
