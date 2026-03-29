@@ -1,0 +1,41 @@
+2026-03-29T18:30:34.551053 | PROFILE | 
+============================================================
+2026-03-29T18:30:34.552143 | PROFILE | BUILDING PROFILES FOR 6 COMPANIES
+2026-03-29T18:30:34.552382 | PROFILE | ============================================================
+2026-03-29T18:30:34.552520 | PROFILE | Building profile for Air Control
+2026-03-29T18:31:01.943763 | PROFILE | 
+============================================================
+2026-03-29T18:31:01.944727 | PROFILE | BUILDING PROFILES FOR 6 COMPANIES
+2026-03-29T18:31:01.945080 | PROFILE | ============================================================
+2026-03-29T18:31:01.945324 | PROFILE | Building profile for Air Control
+2026-03-29T18:31:02.859429 | PROFILE |   Data sources: db=Y, dossier=N, proposal=Y, known=N
+2026-03-29T18:31:02.860565 | PROFILE |   Generating profile via Claude CLI...
+2026-03-29T18:32:01.576896 | PROFILE |   Profile COMPLETE: Air Control | Quality: 82 | Completeness: 72%
+2026-03-29T18:32:03.582833 | PROFILE | Building profile for AquaScience
+2026-03-29T18:32:04.553495 | PROFILE |   Data sources: db=Y, dossier=Y, proposal=Y, known=N
+2026-03-29T18:32:04.553950 | PROFILE |   Generating profile via Claude CLI...
+2026-03-29T18:33:06.203300 | PROFILE |   Profile COMPLETE: AquaScience | Quality: 88 | Completeness: 82%
+2026-03-29T18:33:08.206400 | PROFILE | Building profile for Design Precast & Pipe, Inc.
+2026-03-29T18:33:09.097504 | PROFILE |   Data sources: db=Y, dossier=N, proposal=Y, known=N
+2026-03-29T18:33:09.098282 | PROFILE |   Generating profile via Claude CLI...
+2026-03-29T18:34:07.827316 | PROFILE |   Profile COMPLETE: Design Precast & Pipe, Inc. | Quality: 82 | Completeness: 72%
+2026-03-29T18:34:09.832797 | PROFILE | Building profile for HR.com Ltd
+2026-03-29T18:34:10.823627 | PROFILE |   Data sources: db=N, dossier=N, proposal=Y, known=N
+2026-03-29T18:34:10.824403 | PROFILE |   Generating profile via Claude CLI...
+2026-03-29T18:35:04.170181 | PROFILE |   Profile COMPLETE: HR.com Ltd | Quality: 90 | Completeness: 62%
+2026-03-29T18:35:06.176249 | PROFILE | Building profile for Springer Floor
+2026-03-29T18:35:07.049494 | PROFILE |   Data sources: db=Y, dossier=N, proposal=Y, known=N
+2026-03-29T18:35:07.050254 | PROFILE |   Generating profile via Claude CLI...
+2026-03-29T18:36:17.839921 | PROFILE |   Profile COMPLETE: Springer Floor | Quality: 82 | Completeness: 72%
+2026-03-29T18:36:19.851111 | PROFILE | Building profile for Wieser Concrete Products, Inc.
+2026-03-29T18:36:20.840298 | PROFILE |   Data sources: db=Y, dossier=N, proposal=Y, known=N
+2026-03-29T18:36:20.840726 | PROFILE |   Generating profile via Claude CLI...
+2026-03-29T18:37:25.778024 | PROFILE |   Profile COMPLETE: Wieser Concrete Products, Inc. | Quality: 82 | Completeness: 72%
+2026-03-29T18:37:27.788937 | PROFILE | 
+Results:
+2026-03-29T18:37:27.789693 | PROFILE |   Air Control: SUCCESS
+2026-03-29T18:37:27.790048 | PROFILE |   AquaScience: SUCCESS
+2026-03-29T18:37:27.790271 | PROFILE |   Design Precast & Pipe, Inc.: SUCCESS
+2026-03-29T18:37:27.790415 | PROFILE |   HR.com Ltd: SUCCESS
+2026-03-29T18:37:27.790525 | PROFILE |   Springer Floor: SUCCESS
+2026-03-29T18:37:27.790630 | PROFILE |   Wieser Concrete Products, Inc.: SUCCESS
