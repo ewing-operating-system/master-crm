@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: Commercial Metals Company (CMC) | Design Precast &amp; Pipe, Inc.</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f8f9fa; color: #2c3e50; line-height: 1.6;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .page { max-width: 900px; margin: 0 auto; background: white; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+  @media print { body { background: white; } .page { box-shadow: none; max-width: 100%; } }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 12px; flex-wrap: wrap; }
+  .header-meta span { font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 400; }
+  .header-meta span strong { color: rgba(255,255,255,0.95); font-weight: 600; }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #27ae60;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+  .context-bar {
+    background: #f1f5f9; border-bottom: 1px solid #e2e8f0; padding: 16px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  }
+  .context-bar .seller-info { font-size: 14px; color: #475569; }
+  .context-bar .seller-info strong { color: #1e293b; }
+  .context-bar .date { font-size: 12px; color: #94a3b8; }
+  .content { padding: 36px 48px 48px; }
+  .section { margin-bottom: 32px; }
+  .section-title {
+    font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;
+    color: #0f3460; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0;
+  }
+  .section p { font-size: 14.5px; line-height: 1.75; color: #374151; margin-bottom: 12px; white-space: pre-line; }
+  .section ul { list-style: none; padding: 0; }
+  .section ul li {
+    font-size: 14px; line-height: 1.7; color: #374151;
+    padding: 6px 0 6px 24px; position: relative; border-bottom: 1px solid #f1f5f9;
+  }
+  .section ul li:last-child { border-bottom: none; }
+  .section ul li::before {
+    content: ''; position: absolute; left: 0; top: 14px;
+    width: 8px; height: 8px; border-radius: 50%; background: #0f3460; opacity: 0.4;
+  }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  @media (max-width: 700px) {
+    .two-col { grid-template-columns: 1fr; }
+    .header { padding: 24px; } .content { padding: 24px; }
+    .context-bar { padding: 12px 24px; } .score-badge { top: 24px; right: 24px; }
+  }
+  .approach-box {
+    background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;
+    padding: 20px 24px; margin-top: 8px;
+  }
+  .approach-box p { color: #166534 !important; font-size: 14px !important; }
+  .risk-box {
+    background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px;
+    padding: 20px 24px; margin-top: 8px;
+  }
+  .risk-box li::before { background: #dc2626 !important; }
+  .risk-box li { color: #991b1b !important; border-bottom-color: #fee2e2 !important; font-size: 13.5px; }
+  .timeline-box {
+    background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px;
+    padding: 20px 24px; margin-top: 8px;
+  }
+  .timeline-box p { color: #1e40af !important; font-size: 14px !important; }
+  .footer {
+    background: #1a1a2e; color: rgba(255,255,255,0.4); text-align: center;
+    padding: 16px; font-size: 11px; letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Commercial Metals Company (CMC)</h1>
+    <div class="header-meta">
+      <span><strong>Strategic Acquirer</strong></span>
+      <span>Irving, TX</span>
+      <span>Contact: <strong>Peter Matt</strong>, President &amp; CEO</span>
+    </div>
+    <div class="score-badge">
+      <span class="score-num">10</span>
+      <span class="score-label">FIT</span>
+    </div>
+  </div>
+  <div class="context-bar">
+    <div class="seller-info">
+      Prepared for <strong>Design Precast &amp; Pipe, Inc.</strong> &mdash; Precast Concrete &amp; Pipe Manufacturing &mdash; Gulfport, MS &mdash; Est. Revenue: $NaN
+    </div>
+    <div class="date">Generated March 29, 2026</div>
+  </div>
+  <div class="content">
+    <div class="section">
+      <div class="section-title">Buyer Profile</div>
+      <p>Commercial Metals Company (CMC) is a leading vertically integrated steel and metal manufacturer with a strategic focus on expanding its precast concrete and pipe manufacturing platform. CMC has aggressively pursued acquisitions to build the largest precast platform in the US, notably acquiring CP&amp;P for $675M and Foley Products in 2025 to strengthen its presence in the Mid-Atlantic and Southeast regions. Their investment thesis centers on geographic consolidation, operational synergies, and vertical integration to serve infrastructure and construction markets more efficiently. Post-acquisition, CMC typically integrates acquired companies into its existing platform, leveraging shared resources, supply chains, and customer relationships while maintaining local management teams to ensure continuity.</p>
+    </div>
+    <div class="two-col">
+      <div class="section">
+        <div class="section-title">Acquisition History</div>
+        <ul><li>CP&amp;P: Acquired for $675M to expand precast capabilities in the Mid-Atlantic and Southeast.</li><li>Foley Products: Acquired in 2025 to bolster CMC's Southeast precast operations.</li><li>Riverbend Materials: Added West Coast precast manufacturing capacity in 2024.</li></ul>
+      </div>
+      <div class="section">
+        <div class="section-title">Why Design Precast &amp; Pipe, Inc.</div>
+        <p>Design Precast &amp; Pipe, Inc. fills a critical geographic gap in CMC's precast network, bridging their Southeast and Texas operations. Located in Gulfport, MS, the company provides access to the Gulf Coast market, a region with growing infrastructure demands. Operationally, Design Precast's focus on precast concrete and pipe manufacturing aligns perfectly with CMC's vertical integration strategy. Financially, the $15M revenue target fits CMC's appetite for mid-sized, well-run regional players that can be scaled within their platform.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Approach Strategy</div>
+      <div class="approach-box">
+        <p>The approach should emphasize that we represent owners exploring strategic options, not a solicitation to sell. Frame the conversation as a selective discussion with buyers who have a proven track record of valuing founder-built businesses like Design Precast. Highlight CMC's history of acquiring and nurturing similar companies, focusing on mutual fit rather than pushing for a transaction.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Talking Points</div>
+      <ul><li>CMC's recent acquisitions in the precast space demonstrate their commitment to building a national platform.</li><li>Design Precast's Gulf Coast location fills a strategic gap between CMC's Southeast and Texas operations.</li><li>CMC values founder-led businesses and has a history of retaining local management post-acquisition.</li><li>The infrastructure boom in the Gulf Coast region presents significant growth opportunities for a combined entity.</li><li>This is an exploratory conversation to gauge mutual interest, not a formal sales process.</li></ul>
+    </div>
+    <div class="two-col">
+      <div class="section">
+        <div class="section-title">Risk Factors</div>
+        <div class="risk-box">
+          <ul><li>CMC may be hesitant to acquire a smaller player if they prioritize larger platform add-ons.</li><li>Integration risks could arise if Design Precast's operations differ significantly from CMC's existing units.</li><li>Pat Fore III's emotional attachment to the business may complicate negotiations.</li><li>Market conditions or internal priorities could shift CMC's acquisition focus away from the Gulf Coast.</li></ul>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Expected Timeline</div>
+        <div class="timeline-box">
+          <p>Strategic acquirers like CMC typically move quickly, with initial contact to LOI taking 4-8 weeks if interest is high. Due diligence and closing can add another 2-3 months, depending on complexity. Given CMC's active acquisition strategy, this deal could progress rapidly if alignment is found early.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    CONFIDENTIAL &mdash; PREPARED BY GILLASPY HOLDINGS &mdash; 2026
+  </div>
+</div>
+</body>
+</html>
