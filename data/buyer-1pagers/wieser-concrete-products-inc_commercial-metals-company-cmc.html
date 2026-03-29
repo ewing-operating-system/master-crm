@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: Commercial Metals Company (CMC) | Wieser Concrete Products, Inc.</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f8f9fa; color: #2c3e50; line-height: 1.6;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .page { max-width: 900px; margin: 0 auto; background: white; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+  @media print { body { background: white; } .page { box-shadow: none; max-width: 100%; } }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 12px; flex-wrap: wrap; }
+  .header-meta span { font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 400; }
+  .header-meta span strong { color: rgba(255,255,255,0.95); font-weight: 600; }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #27ae60;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+  .context-bar {
+    background: #f1f5f9; border-bottom: 1px solid #e2e8f0; padding: 16px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  }
+  .context-bar .seller-info { font-size: 14px; color: #475569; }
+  .context-bar .seller-info strong { color: #1e293b; }
+  .context-bar .date { font-size: 12px; color: #94a3b8; }
+  .content { padding: 36px 48px 48px; }
+  .section { margin-bottom: 32px; }
+  .section-title {
+    font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;
+    color: #0f3460; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0;
+  }
+  .section p { font-size: 14.5px; line-height: 1.75; color: #374151; margin-bottom: 12px; white-space: pre-line; }
+  .section ul { list-style: none; padding: 0; }
+  .section ul li {
+    font-size: 14px; line-height: 1.7; color: #374151;
+    padding: 6px 0 6px 24px; position: relative; border-bottom: 1px solid #f1f5f9;
+  }
+  .section ul li:last-child { border-bottom: none; }
+  .section ul li::before {
+    content: ''; position: absolute; left: 0; top: 14px;
+    width: 8px; height: 8px; border-radius: 50%; background: #0f3460; opacity: 0.4;
+  }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  @media (max-width: 700px) {
+    .two-col { grid-template-columns: 1fr; }
+    .header { padding: 24px; } .content { padding: 24px; }
+    .context-bar { padding: 12px 24px; } .score-badge { top: 24px; right: 24px; }
+  }
+  .approach-box {
+    background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;
+    padding: 20px 24px; margin-top: 8px;
+  }
+  .approach-box p { color: #166534 !important; font-size: 14px !important; }
+  .risk-box {
+    background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px;
+    padding: 20px 24px; margin-top: 8px;
+  }
+  .risk-box li::before { background: #dc2626 !important; }
+  .risk-box li { color: #991b1b !important; border-bottom-color: #fee2e2 !important; font-size: 13.5px; }
+  .timeline-box {
+    background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px;
+    padding: 20px 24px; margin-top: 8px;
+  }
+  .timeline-box p { color: #1e40af !important; font-size: 14px !important; }
+  .footer {
+    background: #1a1a2e; color: rgba(255,255,255,0.4); text-align: center;
+    padding: 16px; font-size: 11px; letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Commercial Metals Company (CMC)</h1>
+    <div class="header-meta">
+      <span><strong>Strategic Acquirer</strong></span>
+      <span>Irving, TX</span>
+      <span>Contact: <strong>Peter Matt</strong>, President &amp; CEO</span>
+    </div>
+    <div class="score-badge">
+      <span class="score-num">10</span>
+      <span class="score-label">FIT</span>
+    </div>
+  </div>
+  <div class="context-bar">
+    <div class="seller-info">
+      Prepared for <strong>Wieser Concrete Products, Inc.</strong> &mdash; Precast Concrete Manufacturing &mdash; Maiden Rock, WI &mdash; Est. Revenue: $NaN
+    </div>
+    <div class="date">Generated March 29, 2026</div>
+  </div>
+  <div class="content">
+    <div class="section">
+      <div class="section-title">Buyer Profile</div>
+      <p>Commercial Metals Company (CMC) is a publicly traded (NYSE: CMC) vertically integrated steel and building materials manufacturer headquartered in Irving, Texas, with annual revenues exceeding $7.5 billion. Under CEO Peter Matt's leadership, CMC has executed a deliberate platform-building strategy in precast concrete and infrastructure products, layering onto their core steel manufacturing and fabrication business. The landmark $675 million acquisition of Concrete Pipe &amp; Precast (CP&amp;P) in December 2025 signaled CMC's commitment to becoming the dominant precast concrete platform in the United States, adding over 40 manufacturing facilities across the Sun Belt and Southeast. This was followed by the acquisition of Foley Products, a leading precast concrete producer in the Southeast, further consolidating their position.
+
+CMC's investment thesis is straightforward: leverage their existing steel and rebar distribution network, massive balance sheet, and operational scale to roll up regional precast concrete manufacturers into a national platform. They target companies with strong regional market positions, diversified product lines (utility vaults, stormwater systems, structural precast, agricultural products), and multi-facility footprints that create geographic density. Post-acquisition, CMC integrates procurement and raw material supply chains — particularly steel and rebar — to drive immediate margin improvement, while leaving local management and customer relationships largely intact. They have publicly stated their intention to continue pursuing bolt-on acquisitions in the precast space, with particular interest in regions where they lack manufacturing capacity.
+
+CMC operates with the discipline of a public company but the appetite of a platform builder in growth mode. Their balance sheet supports significant additional acquisition capacity, with investment-grade credit ratings and strong free cash flow generation from their legacy steel operations. Peter Matt has been explicit on earnings calls that the precast concrete vertical is a long-term strategic priority, not an opportunistic pivot, and that geographic expansion into underserved regions — particularly the Upper Midwest and Northern Plains — is a stated objective for 2026 and beyond.</p>
+    </div>
+    <div class="two-col">
+      <div class="section">
+        <div class="section-title">Acquisition History</div>
+        <ul><li>Concrete Pipe &amp; Precast (CP&amp;P) — $675M acquisition closed December 2025; added 40+ precast manufacturing facilities across the Southern US, making CMC one of the largest precast producers in North America</li><li>Foley Products — Regional precast concrete manufacturer in the Southeast US; bolt-on acquisition to complement CP&amp;P footprint and add structural precast and stormwater product lines</li><li>Tensar International — Acquired for approximately $1.37 billion in 2022; geosynthetics and soil reinforcement products, expanding CMC's infrastructure materials portfolio beyond steel</li><li>?</li><li> — CMC has completed over a dozen smaller bolt-on acquisitions across steel fabrication and construction services between 2020-2025, demonstrating a consistent tuck-in acquisition playbook</li><li>Multiple steel micro-mills constructed and acquired across the US and Poland, including the Mesa, Arizona micro-mill (2023), reflecting CMC's dual strategy of organic builds and acquisitions</li></ul>
+      </div>
+      <div class="section">
+        <div class="section-title">Why Wieser Concrete Products, Inc.</div>
+        <p>Wieser Concrete Products fills the most critical geographic gap in CMC's emerging precast platform. After CP&amp;P (Sun Belt/Southeast) and Foley Products (Southeast), CMC has virtually no precast manufacturing capacity in the Upper Midwest — Wisconsin, Minnesota, Iowa, and the surrounding states. Wieser operates multiple manufacturing facilities across Wisconsin and neighboring states, giving CMC immediate production capacity in a region experiencing significant infrastructure investment from the federal Infrastructure Investment and Jobs Act. Wieser's multi-generational family ownership (the Wieser family, led by Andy Wieser) signals operational stability, deep customer relationships, and a workforce culture that CMC values in its integration playbook. The company's estimated $30-64M revenue range makes it an ideal bolt-on size — material enough to justify CMC's attention but small enough for a clean, non-competitive transaction.
+
+Operationally, Wieser's product diversification across utility precast, agricultural precast, stormwater management, and structural products mirrors exactly what CMC acquired in CP&amp;P and Foley. This means CMC's integration playbook — centralizing steel and rebar procurement, sharing engineering resources, cross-selling across product lines — can be deployed immediately without retooling. Wieser's Wisconsin manufacturing base also positions CMC to serve major infrastructure projects across the Upper Midwest, including highway reconstruction, municipal water systems, and data center construction, all of which are accelerating in the region. The Wieser family's reputation as builders, not flippers, aligns with CMC's public messaging about preserving the legacy and culture of acquired companies, which de-risks the narrative for both sides.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Approach Strategy</div>
+      <div class="approach-box">
+        <p>This is a buy-side introduction — we represent well-capitalized acquirers, former business owners themselves, who have identified Wieser Concrete as the caliber of company they want to be in business with. The framing is not that Wieser is for sale; rather, our clients have done their homework and believe the Wieser family has built something exceptional that deserves a conversation about what the next chapter could look like. We are reaching out selectively — this is not a mass mailing — because Wieser's multi-generational track record, geographic footprint, and product quality stood out in our clients' research.
+
+The tone should be respectful of the family legacy and non-presumptuous about their intentions. Andy Wieser may have no interest in selling, and that is perfectly fine — many of the best conversations our clients have had started with owners who were not actively looking but were open to understanding what a partnership with a well-resourced platform could mean for their employees, customers, and family legacy. We should position the conversation as exploratory and confidential, with no obligation, and emphasize that our clients — as former operators themselves — understand that a business like Wieser is more than a balance sheet.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Talking Points</div>
+      <ul><li>CMC has invested over $2 billion in precast concrete acquisitions since 2025 and has publicly identified the Upper Midwest as their priority expansion region — Wieser is the exact profile they are seeking</li><li>Our clients understand multi-generational family businesses because they were operators before they were investors — they are interested in preserving the Wieser name, culture, and workforce, not dismantling what the family built over decades</li><li>The federal infrastructure bill is driving unprecedented demand for precast concrete products in Wisconsin and surrounding states — a partnership with a well-capitalized platform means Wieser could pursue projects and capacity expansions that would be difficult to finance independently</li><li>CMC's integration model keeps local management in place and preserves customer relationships — their track record with CP&amp;P and Foley demonstrates they do not gut-and-flip regional operators</li><li>This is an exploratory, confidential conversation with no obligation — we are reaching out to a very small number of companies that our clients have specifically identified, and we would welcome the chance to simply introduce the parties and let Andy decide if a further conversation makes sense</li></ul>
+    </div>
+    <div class="two-col">
+      <div class="section">
+        <div class="section-title">Risk Factors</div>
+        <div class="risk-box">
+          <ul><li>Revenue uncertainty — estimates range from $30M to $64M, and CMC will need audited financials early in diligence to validate platform-bolt-on economics and appropriate valuation</li><li>Family succession dynamics — if Andy Wieser has a next generation actively involved in the business, there may be strong emotional resistance to selling, or complex family dynamics around who controls the decision</li><li>Integration distance — Wieser's Wisconsin operations are geographically remote from CMC's existing precast footprint in the South, which could limit near-term procurement synergies and increase management oversight costs compared to bolt-ons closer to existing facilities</li><li>Public company valuation discipline — as a NYSE-listed company, CMC must justify acquisition multiples to Wall Street analysts; if Wieser's margins or growth profile do not meet public-company hurdle rates, CMC may offer a lower multiple than a private equity buyer would</li></ul>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Expected Timeline</div>
+        <div class="timeline-box">
+          <p>CMC moves with public-company discipline but has demonstrated the ability to execute quickly when a target fits their stated strategy. Based on their CP&amp;P and Foley timelines, expect 2-4 weeks from initial introduction to a first meeting between principals, followed by 4-6 weeks of preliminary diligence and valuation discussion before a Letter of Intent is issued. From signed LOI to close, CMC typically runs a 60-90 day confirmatory diligence process, with regulatory review (Hart-Scott-Rodino filing if required) running concurrently. Total timeline from first conversation to close is typically 5-7 months, though a clean deal with cooperative sellers and no regulatory complications could close in as few as 4 months. CMC has the internal corporate development team and outside counsel to run multiple workstreams simultaneously, so delays are more likely to come from seller-side readiness (financial statement preparation, environmental assessments) than from CMC's execution speed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    CONFIDENTIAL &mdash; PREPARED BY GILLASPY HOLDINGS &mdash; 2026
+  </div>
+</div>
+</body>
+</html>
