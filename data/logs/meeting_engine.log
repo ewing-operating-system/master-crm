@@ -1,0 +1,50 @@
+2026-03-29T18:49:07.571301 | MEETING | Generating meeting pages for 6 companies
+2026-03-29T18:49:07.572222 | MEETING | Generating meeting page: HR.com Ltd (discovery) for 2026-03-29
+2026-03-29T18:49:08.430675 | MEETING | ERROR on HR.com Ltd: column reference "status" is ambiguous
+LINE 1: ...ntact_name, buyer_type, fit_score, approach_strategy, status
+                                                                 ^
+
+2026-03-29T18:49:10.436569 | MEETING | Generating meeting page: AquaScience (discovery) for 2026-03-29
+2026-03-29T18:49:11.515164 | MEETING | ERROR on AquaScience: column reference "status" is ambiguous
+LINE 1: ...ntact_name, buyer_type, fit_score, approach_strategy, status
+                                                                 ^
+
+2026-03-29T18:49:13.521371 | MEETING | Generating meeting page: Springer Floor (discovery) for 2026-03-29
+2026-03-29T18:49:14.527197 | MEETING | ERROR on Springer Floor: column reference "status" is ambiguous
+LINE 1: ...ntact_name, buyer_type, fit_score, approach_strategy, status
+                                                                 ^
+
+2026-03-29T18:49:16.533636 | MEETING | Generating meeting page: Air Control (discovery) for 2026-03-29
+2026-03-29T18:49:17.533470 | MEETING | ERROR on Air Control: column reference "status" is ambiguous
+LINE 1: ...ntact_name, buyer_type, fit_score, approach_strategy, status
+                                                                 ^
+
+2026-03-29T18:49:19.539849 | MEETING | Generating meeting page: Wieser Concrete Products, Inc. (discovery) for 2026-03-29
+2026-03-29T18:49:20.561882 | MEETING | ERROR on Wieser Concrete Products, Inc.: column reference "status" is ambiguous
+LINE 1: ...ntact_name, buyer_type, fit_score, approach_strategy, status
+                                                                 ^
+
+2026-03-29T18:49:22.566012 | MEETING | Generating meeting page: Design Precast & Pipe, Inc. (discovery) for 2026-03-29
+2026-03-29T18:49:23.558652 | MEETING | ERROR on Design Precast & Pipe, Inc.: column reference "status" is ambiguous
+LINE 1: ...ntact_name, buyer_type, fit_score, approach_strategy, status
+                                                                 ^
+
+2026-03-29T18:49:40.147213 | MEETING | Generating meeting pages for 6 companies
+2026-03-29T18:49:40.148173 | MEETING | Generating meeting page: HR.com Ltd (discovery) for 2026-03-29
+2026-03-29T18:49:41.130241 | MEETING |   Generating via Claude CLI...
+2026-03-29T18:50:25.446148 | MEETING |   Meeting page saved: /Users/clawdbot/Projects/master-crm/data/meetings/hrcom-ltd_2026-03-29_discovery.html
+2026-03-29T18:50:27.448130 | MEETING | Generating meeting page: AquaScience (discovery) for 2026-03-29
+2026-03-29T18:50:28.581045 | MEETING |   Generating via Claude CLI...
+2026-03-29T18:51:14.199851 | MEETING |   Meeting page saved: /Users/clawdbot/Projects/master-crm/data/meetings/aquascience_2026-03-29_discovery.html
+2026-03-29T18:51:16.206072 | MEETING | Generating meeting page: Springer Floor (discovery) for 2026-03-29
+2026-03-29T18:51:17.271712 | MEETING |   Generating via Claude CLI...
+2026-03-29T18:52:06.644039 | MEETING |   Meeting page saved: /Users/clawdbot/Projects/master-crm/data/meetings/springer-floor_2026-03-29_discovery.html
+2026-03-29T18:52:08.649793 | MEETING | Generating meeting page: Air Control (discovery) for 2026-03-29
+2026-03-29T18:52:09.696702 | MEETING |   Generating via Claude CLI...
+2026-03-29T18:52:52.489293 | MEETING |   Meeting page saved: /Users/clawdbot/Projects/master-crm/data/meetings/air-control_2026-03-29_discovery.html
+2026-03-29T18:52:54.499665 | MEETING | Generating meeting page: Wieser Concrete Products, Inc. (discovery) for 2026-03-29
+2026-03-29T18:52:55.700955 | MEETING |   Generating via Claude CLI...
+2026-03-29T18:53:43.707661 | MEETING |   Meeting page saved: /Users/clawdbot/Projects/master-crm/data/meetings/wieser-concrete-products-inc_2026-03-29_discovery.html
+2026-03-29T18:53:45.718725 | MEETING | Generating meeting page: Design Precast & Pipe, Inc. (discovery) for 2026-03-29
+2026-03-29T18:53:46.819629 | MEETING |   Generating via Claude CLI...
+2026-03-29T18:54:28.839425 | MEETING |   Meeting page saved: /Users/clawdbot/Projects/master-crm/data/meetings/design-precast-and-pipe-inc_2026-03-29_discovery.html
