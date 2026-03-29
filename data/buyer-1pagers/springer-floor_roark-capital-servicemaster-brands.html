@@ -3,167 +3,182 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Buyer Dossier: Roark Capital / ServiceMaster Brands | Springer Floor</title>
+<title>Buyer Dossier: Roark Capital / ServiceMaster Brands for Springer Floor</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: #f8f9fa; color: #2c3e50; line-height: 1.6;
-    -webkit-print-color-adjust: exact; print-color-adjust: exact;
-  }
-  .page { max-width: 900px; margin: 0 auto; background: white; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
-  @media print { body { background: white; } .page { box-shadow: none; max-width: 100%; } }
-  .header {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
-  }
-  .header::after {
-    content: ''; position: absolute; top: -50%; right: -20%;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-  .header-label {
-    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
-    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
-  }
-  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; }
-  .header-meta { display: flex; gap: 24px; margin-top: 12px; flex-wrap: wrap; }
-  .header-meta span { font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 400; }
-  .header-meta span strong { color: rgba(255,255,255,0.95); font-weight: 600; }
-  .score-badge {
-    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
-    border-radius: 50%; background: #27ae60;
-    display: flex; align-items: center; justify-content: center; flex-direction: column;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  }
-  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
-  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
-  .context-bar {
-    background: #f1f5f9; border-bottom: 1px solid #e2e8f0; padding: 16px 48px;
-    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
-  }
-  .context-bar .seller-info { font-size: 14px; color: #475569; }
-  .context-bar .seller-info strong { color: #1e293b; }
-  .context-bar .date { font-size: 12px; color: #94a3b8; }
-  .content { padding: 36px 48px 48px; }
-  .section { margin-bottom: 32px; }
-  .section-title {
-    font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;
-    color: #0f3460; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0;
-  }
-  .section p { font-size: 14.5px; line-height: 1.75; color: #374151; margin-bottom: 12px; white-space: pre-line; }
-  .section ul { list-style: none; padding: 0; }
-  .section ul li {
-    font-size: 14px; line-height: 1.7; color: #374151;
-    padding: 6px 0 6px 24px; position: relative; border-bottom: 1px solid #f1f5f9;
-  }
-  .section ul li:last-child { border-bottom: none; }
-  .section ul li::before {
-    content: ''; position: absolute; left: 0; top: 14px;
-    width: 8px; height: 8px; border-radius: 50%; background: #0f3460; opacity: 0.4;
-  }
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-  @media (max-width: 700px) {
-    .two-col { grid-template-columns: 1fr; }
-    .header { padding: 24px; } .content { padding: 24px; }
-    .context-bar { padding: 12px 24px; } .score-badge { top: 24px; right: 24px; }
-  }
-  .approach-box {
-    background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;
-    padding: 20px 24px; margin-top: 8px;
-  }
-  .approach-box p { color: #166534 !important; font-size: 14px !important; }
-  .risk-box {
-    background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px;
-    padding: 20px 24px; margin-top: 8px;
-  }
-  .risk-box li::before { background: #dc2626 !important; }
-  .risk-box li { color: #991b1b !important; border-bottom-color: #fee2e2 !important; font-size: 13.5px; }
-  .timeline-box {
-    background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px;
-    padding: 20px 24px; margin-top: 8px;
-  }
-  .timeline-box p { color: #1e40af !important; font-size: 14px !important; }
-  .footer {
-    background: #1a1a2e; color: rgba(255,255,255,0.4); text-align: center;
-    padding: 16px; font-size: 11px; letter-spacing: 1px;
-  }
+    @media print {
+        body { margin: 0; }
+        .page-break { page-break-before: always; }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: 'Georgia', 'Times New Roman', serif;
+        color: #2c2c2c;
+        background: #f8f8f8;
+        line-height: 1.6;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    }
+    .header {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        color: white;
+        padding: 40px;
+        position: relative;
+    }
+    .header::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #e94560, #f5a623, #e94560);
+    }
+    .header h1 {
+        font-size: 28px;
+        margin-bottom: 8px;
+        letter-spacing: -0.5px;
+    }
+    .header .subtitle {
+        font-size: 16px;
+        opacity: 0.85;
+        font-style: italic;
+    }
+    .meta-bar {
+        display: flex;
+        gap: 24px;
+        padding: 16px 40px;
+        background: #f0f0f0;
+        border-bottom: 1px solid #ddd;
+        font-size: 14px;
+        flex-wrap: wrap;
+    }
+    .meta-bar .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    .meta-bar .label {
+        font-weight: bold;
+        color: #666;
+        text-transform: uppercase;
+        font-size: 11px;
+        letter-spacing: 0.5px;
+    }
+    .meta-bar .value {
+        color: #1a1a2e;
+        font-weight: 600;
+    }
+    .fit-score {
+        display: inline-block;
+        background: #e74c3c;
+        color: white;
+        padding: 2px 10px;
+        border-radius: 12px;
+        font-weight: bold;
+        font-size: 13px;
+    }
+    .pitch-bar {
+        padding: 20px 40px;
+        background: #fafbfc;
+        border-bottom: 2px solid #e94560;
+        font-size: 18px;
+        font-style: italic;
+        color: #333;
+        text-align: center;
+    }
+    .content {
+        padding: 32px 40px;
+    }
+    .section {
+        margin-bottom: 28px;
+    }
+    .section h2 {
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #0f3460;
+        border-bottom: 2px solid #e8e8e8;
+        padding-bottom: 8px;
+        margin-bottom: 14px;
+    }
+    .section p {
+        margin-bottom: 12px;
+        text-align: justify;
+    }
+    .section ul {
+        padding-left: 20px;
+    }
+    .section ul li {
+        margin-bottom: 8px;
+    }
+    .section ul.risks li {
+        color: #c0392b;
+    }
+    .approach-box {
+        background: #f0f7ff;
+        border-left: 4px solid #0f3460;
+        padding: 16px 20px;
+        border-radius: 0 8px 8px 0;
+        margin-top: 12px;
+    }
+    .footer {
+        padding: 20px 40px;
+        background: #1a1a2e;
+        color: rgba(255,255,255,0.5);
+        font-size: 11px;
+        text-align: center;
+    }
 </style>
 </head>
 <body>
-<div class="page">
-  <div class="header">
-    <div class="header-label">Buyer Dossier</div>
-    <h1>Roark Capital / ServiceMaster Brands</h1>
-    <div class="header-meta">
-      <span><strong>PE Roll-up</strong></span>
-      <span>Atlanta, GA</span>
-      <span>Contact: <strong>Neal Aronson</strong>, Managing Partner, Roark Capital</span>
+<div class="container">
+    <div class="header">
+        <h1>Roark Capital / ServiceMaster Brands</h1>
+        <div class="subtitle">Buyer Dossier &mdash; Prepared for Springer Floor</div>
     </div>
-    <div class="score-badge">
-      <span class="score-num">8</span>
-      <span class="score-label">FIT</span>
+    <div class="meta-bar">
+        <div class='meta-item'><span class='label'>Contact</span><span class='value'>Neal Aronson</span></div>
+        <div class='meta-item'><span class='label'>Type</span><span class='value'>PE Roll-up</span></div>
+        <div class='meta-item'><span class='label'>Location</span><span class='value'>Atlanta, GA</span></div>
+        <div class='meta-item'><span class='label'>Fit Score</span><span class='fit-score'>8</span></div>
     </div>
-  </div>
-  <div class="context-bar">
-    <div class="seller-info">
-      Prepared for <strong>Springer Floor</strong> &mdash; Floor Care / Carpet Cleaning &mdash; Des Moines, IA &mdash; Est. Revenue: $900,000
-    </div>
-    <div class="date">Generated March 29, 2026</div>
-  </div>
-  <div class="content">
-    <div class="section">
-      <div class="section-title">Buyer Profile</div>
-      <p>Roark Capital Group is an Atlanta-based private equity firm founded in 2001 by Neal Aronson, managing approximately $37 billion in assets under management across its fund family. Roark specializes in franchise and multi-location business models, with a portfolio that includes Inspire Brands (Arby's, Dunkin', Buffalo Wild Wings, Sonic), CKE Restaurants, and ServiceMaster Brands. Their thesis is built around acquiring market-leading franchise platforms in fragmented industries, then using operational discipline, technology investment, and tuck-in acquisitions to drive same-store growth and geographic density. They are patient capital — Roark holds investments longer than typical PE, often 7-10 years, because their returns come from compounding operational improvements rather than financial engineering.
-
-In 2020, Roark acquired ServiceMaster Brands from Terminix parent ServiceMaster Global Holdings for approximately $1.5 billion (the broader ServiceMaster enterprise has been valued at $5.5B+ across various transactions). ServiceMaster Brands encompasses ServiceMaster Clean, ServiceMaster Restore, Merry Maids, and other franchise cleaning and restoration concepts operating through approximately 4,800 franchise locations across North America. Post-acquisition, Roark has invested heavily in franchisee support systems, technology platforms for scheduling and routing, and national account programs that drive volume to local operators. Their stated goal is to make ServiceMaster Brands the dominant platform in every subcategory of residential and commercial cleaning services.
-
-Roark's playbook at ServiceMaster Brands follows their broader strategy: acquire the platform, professionalize operations, then aggressively fill geographic white space through both organic franchisee development and strategic tuck-in acquisitions of independent operators. They have been particularly focused on converting independent cleaning and floor care businesses into ServiceMaster franchise locations or acquiring them outright to operate as company-owned units in markets where franchise recruitment has been slow. The Midwest represents a key expansion corridor where ServiceMaster Brands has historically been under-penetrated relative to coastal markets.</p>
-    </div>
-    <div class="two-col">
-      <div class="section">
-        <div class="section-title">Acquisition History</div>
-        <ul><li>ServiceMaster Brands (2020) — Acquired the franchise cleaning and restoration platform including ServiceMaster Clean, Merry Maids, and ServiceMaster Restore from ServiceMaster Global Holdings for approximately $1.5B, forming the foundation of their home services vertical.</li><li>Inspire Brands (2018-2021) — Built a $30B+ restaurant platform through serial acquisitions including Arby's, Buffalo Wild Wings, Sonic Drive-In, Jimmy John's, and Dunkin', demonstrating Roark's ability to execute roll-up strategies at massive scale.</li><li>CKE Restaurants (2013) — Acquired the parent of Carl's Jr. and Hardee's, applying operational improvements and franchisee support to turn around underperforming locations across 3,800+ units.</li><li>Driven Brands (2015) — Invested in the automotive services franchisor (Meineke, Maaco, Take 5 Oil Change), scaling it from 2,000 to over 4,800 locations before its 2021 IPO, proving the tuck-in acquisition model in fragmented services.</li></ul>
-      </div>
-      <div class="section">
-        <div class="section-title">Why Springer Floor</div>
-        <p>Springer Floor fits the ServiceMaster Brands acquisition strategy on three critical dimensions. Geographically, Des Moines represents exactly the kind of mid-market Midwest metro where ServiceMaster Brands needs density. Iowa is a state where their franchise footprint is thin relative to population — they have ServiceMaster Clean franchisees but lack the floor care specialization that Springer brings. Acquiring an established operator with 30+ years of customer relationships, commercial contracts, and local brand equity is dramatically faster and cheaper than recruiting a new franchisee or building from scratch. Springer's estimated $900K revenue base, while modest, represents a proven book of recurring commercial and residential floor care business that can be immediately scaled using ServiceMaster's national account relationships, marketing infrastructure, and cross-selling with Merry Maids and ServiceMaster Restore customers in the region.
-
-Operationally, Springer Floor under Terri Holman has built exactly the kind of business Roark looks for in tuck-ins: owner-operated, profitable at a sub-$1M scale, with deep local knowledge and customer loyalty that would take years to replicate. Roark's ServiceMaster platform can layer technology (CRM, routing optimization, online booking), purchasing power (equipment, chemicals, insurance), and national account revenue on top of Springer's existing base. The financial profile is also attractive — at $900K revenue, this is small enough that it won't require board-level approval or extensive diligence, fitting into the category of bolt-on acquisitions that a platform's M&amp;A team can process efficiently. Floor care is a natural adjacency to ServiceMaster Clean's existing janitorial and carpet cleaning services, making integration straightforward with minimal operational risk.</p>
-      </div>
-    </div>
-    <div class="section">
-      <div class="section-title">Approach Strategy</div>
-      <div class="approach-box">
-        <p>The approach to Roark Capital should be through their ServiceMaster Brands operating team, not through Roark's fund-level deal team. Roark's fund professionals are evaluating $500M+ platform acquisitions — a $900K revenue tuck-in routes through the VP of Corporate Development or Director of Franchise Development at ServiceMaster Brands. The conversation should be framed as: we represent a group of former business owners who invest in and acquire companies in the home services space. We've identified floor care as an attractive vertical, particularly in the Midwest, and in our research ServiceMaster Brands keeps coming up as the most logical strategic partner for operators in this space. We'd like to understand how ServiceMaster thinks about geographic expansion in Iowa and whether owner-operated floor care businesses fit their acquisition criteria.
-
-Never position this as a company for sale. Instead, frame it as a selective conversation about how ServiceMaster Brands is building density in the Midwest and whether there might be mutual interest in exploring a relationship with a well-established Des Moines floor care operator. Reference their public statements about franchise growth and tuck-in strategy. If the conversation progresses, introduce Springer Floor as a specific opportunity where the owner may be open to exploring strategic options with the right partner who can preserve the business's reputation while providing growth resources.</p>
-      </div>
-    </div>
-    <div class="section">
-      <div class="section-title">Talking Points</div>
-      <ul><li>ServiceMaster Brands has publicly discussed filling geographic gaps in the Midwest — Des Moines is a top-50 metro with strong commercial density in insurance, healthcare, and education sectors that drive recurring floor care demand.</li><li>Springer Floor has an established commercial contract base generating approximately $900K annually with high customer retention — this is a plug-and-play revenue stream that immediately benefits from ServiceMaster's national account cross-selling.</li><li>The floor care vertical is a natural extension of ServiceMaster Clean's existing capabilities, requiring minimal incremental training or equipment investment to integrate into the platform.</li><li>Owner Terri Holman has built strong relationships with Des Moines property managers and facilities directors that would take a new franchisee 3-5 years to develop — acquisition preserves this institutional knowledge and customer trust.</li><li>Iowa's business environment (low cost of labor, limited competition from national chains in floor care) creates favorable unit economics that should exceed ServiceMaster's average franchise contribution margins.</li></ul>
-    </div>
-    <div class="two-col">
-      <div class="section">
-        <div class="section-title">Risk Factors</div>
-        <div class="risk-box">
-          <ul><li>Size concern — at $900K revenue, Springer may fall below ServiceMaster Brands' minimum acquisition threshold. Many PE-backed platforms set floors at $1-2M revenue for tuck-ins to justify transaction costs, legal fees, and integration overhead.</li><li>Owner dependency — if Terri Holman IS the business (key customer relationships, daily operations management), ServiceMaster may worry about post-acquisition revenue attrition without a management team in place to ensure continuity.</li><li>Franchise model conflict — ServiceMaster Brands primarily grows through franchising. They may prefer to recruit a new franchisee in Des Moines rather than acquire an independent operator, especially if the economics of a franchise fee plus ongoing royalties exceed the returns on an outright acquisition.</li><li>Market size limitation — Des Moines metro population of roughly 700K may not support the growth trajectory ServiceMaster needs from a company-owned location, raising questions about whether the addressable market justifies the acquisition versus organic franchise development.</li></ul>
+    <div class='pitch-bar'>&ldquo;Established Des Moines floor care operation with commercial density and recurring revenue in a market where ServiceMaster Brands has a clear geographic gap — a ready-made tuck-in to expand Midwest cleaning vertical coverage.&rdquo;</div>
+    <div class="content">
+        <div class="section">
+            <h2>Buyer Narrative</h2>
+            <p>Roark Capital Group is one of the largest and most operationally focused private equity firms in the franchise and multi-unit service space, managing over $37 billion in assets. Founded by Neal Aronson in Atlanta in 2001, Roark has built its reputation by acquiring franchise-driven businesses and systematically scaling them through disciplined operations, brand investment, and geographic expansion. Their portfolio reads like a who's-who of American service and restaurant brands — from Inspire Brands (Arby's, Buffalo Wild Wings, Dunkin') to ServiceMaster, CKE Restaurants, and dozens more.</p><p>In 2020, Roark acquired ServiceMaster Brands in a deal valued at approximately $5.5 billion, carving out the franchise services division from what was then ServiceMaster Global Holdings. That acquisition gave Roark control of ServiceMaster Clean, Merry Maids, ServiceMaster Restore, and Amerispec — a portfolio of cleaning, restoration, and home inspection brands with over 5,000 franchise locations. The thesis is straightforward: fragmented residential and commercial cleaning services represent a massive addressable market where brand trust, operational consistency, and local density drive outsized returns.</p><p>For a seller evaluating Roark as a potential acquirer, the key differentiator is operational seriousness. This is not a financial buyer looking to strip costs and flip — Roark builds brands over long hold periods, invests in the people and systems that make local operations work, and has a proven track record of integrating tuck-in acquisitions without disrupting what made the acquired business successful in the first place. They understand owner-operators because their entire model depends on them.</p>
         </div>
-      </div>
-      <div class="section">
-        <div class="section-title">Expected Timeline</div>
-        <div class="timeline-box">
-          <p>PE-backed platform tuck-in acquisitions at this size typically move faster than platform-level deals but still require corporate process. From first meaningful conversation to an indication of interest (IOI) is usually 3-5 weeks, as the corporate development team evaluates strategic fit and requests basic financial information. If interest is confirmed, a formal LOI typically follows within 2-4 weeks after receiving a confidential information memorandum. Due diligence for a sub-$1M revenue acquisition is streamlined — usually 30-45 days focused on customer concentration, contract transferability, and employee/equipment assessment rather than extensive financial audits. Total timeline from first contact to close is typically 90-120 days, though ServiceMaster's corporate structure could add 2-3 weeks for internal approvals. The key accelerant is getting to the right person quickly — if this routes through Roark's fund team first, add 3-4 weeks of internal redirection before substantive conversations begin.</p>
+        
+        <div class="section">
+            <h2>Acquisition History</h2>
+            <ul><li>ServiceMaster Brands — $5.5B acquisition (2020), including ServiceMaster Clean, Merry Maids, ServiceMaster Restore, and Amerispec</li><li>Inspire Brands — built through acquisitions of Arby's, Buffalo Wild Wings, Sonic Drive-In, Jimmy John's, Dunkin', and Baskin-Robbins</li><li>CKE Restaurants — acquired Hardee's and Carl's Jr. parent company</li><li>Corner Bakery Cafe — franchise restaurant acquisition</li><li>Driven Brands — portfolio including Meineke, Maaco, and Take 5 Oil Change before IPO</li><li>Multiple regional ServiceMaster Clean franchise territories consolidated under corporate umbrella post-2020 acquisition</li><li>Ongoing tuck-in strategy across ServiceMaster Brands to fill geographic white space in cleaning and restoration verticals</li></ul>
         </div>
-      </div>
+        <div class="section">
+            <h2>Why This Seller</h2>
+            <p>Springer Floor operates in exactly the kind of market that ServiceMaster Brands targets for geographic infill — a mid-sized Midwestern metro where the company currently has limited floor care density. Des Moines is a stable, growing market with strong commercial and residential demand for floor care services, and Springer has already done the hard work of building local brand recognition, establishing recurring customer relationships, and developing the operational infrastructure that ServiceMaster would otherwise need to build from scratch. At approximately $900K in revenue, this is a clean tuck-in size — large enough to have real customers and systems, small enough to integrate without disruption. For a platform rolling up fragmented cleaning verticals across thousands of locations, adding proven local density in an underserved market is exactly how they fill the map.</p>
+        </div>
+        <div class="section">
+            <h2>Approach Angle</h2>
+            <div class="approach-box">Position as a targeted, discreet conversation — not a broad auction. Frame the opportunity around ServiceMaster Brands' stated strategy of expanding cleaning vertical density in underserved Midwest markets. Emphasize that this is an established local operation with the kind of commercial account base and recurring revenue profile that maps directly to their existing service categories. Lead with strategic fit, not price.</div>
+        </div>
+        
+        <div class="section">
+            <h2>Talking Points</h2>
+            <ul><li>ServiceMaster Brands' floor care footprint in Iowa is currently thin — Springer represents an established local operation that fills a clear geographic gap in their Midwest coverage map</li><li>The company has built strong commercial and residential density in central Iowa with recurring revenue characteristics that align with ServiceMaster Clean's franchise model</li><li>At this size, the integration is straightforward — proven local brand, existing customer relationships, and operational infrastructure already in place, minimizing transition risk</li><li>Des Moines is a growing metro with favorable demographics for residential and commercial cleaning services, offering expansion runway beyond the current customer base</li><li>This is a targeted conversation, not a broad process — we're speaking with a small number of strategic groups where the operational fit is self-evident</li></ul>
+        </div>
+        
+        <div class="section">
+            <h2>Risk Factors</h2>
+            <ul class="risks"><li>Roark operates primarily through franchise models — they may prefer to plant a new ServiceMaster Clean franchise in Des Moines rather than acquire an independent operator, especially at this revenue size where franchise economics might be comparable to acquisition cost</li><li>At $900K in revenue, the deal size may fall below Roark's corporate development radar — the opportunity may need to be routed through a regional ServiceMaster Brands franchise development team rather than Neal Aronson directly, which could slow or redirect the conversation</li><li>ServiceMaster Brands may have existing franchise territory commitments in the Des Moines market that create complications for integrating an independent acquisition, requiring careful diligence on territorial rights and franchise agreements</li></ul>
+        </div>
     </div>
-  </div>
-  <div class="footer">
-    CONFIDENTIAL &mdash; PREPARED BY GILLASPY HOLDINGS &mdash; 2026
-  </div>
+    <div class="footer">
+        Generated March 29, 2026 &bull; Confidential
+    </div>
 </div>
 </body>
 </html>

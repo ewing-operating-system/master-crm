@@ -3,167 +3,182 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Buyer Dossier: Culligan International | AquaScience</title>
+<title>Buyer Dossier: Culligan International for AquaScience</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: #f8f9fa; color: #2c3e50; line-height: 1.6;
-    -webkit-print-color-adjust: exact; print-color-adjust: exact;
-  }
-  .page { max-width: 900px; margin: 0 auto; background: white; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
-  @media print { body { background: white; } .page { box-shadow: none; max-width: 100%; } }
-  .header {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
-  }
-  .header::after {
-    content: ''; position: absolute; top: -50%; right: -20%;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-  .header-label {
-    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
-    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
-  }
-  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; }
-  .header-meta { display: flex; gap: 24px; margin-top: 12px; flex-wrap: wrap; }
-  .header-meta span { font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 400; }
-  .header-meta span strong { color: rgba(255,255,255,0.95); font-weight: 600; }
-  .score-badge {
-    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
-    border-radius: 50%; background: #27ae60;
-    display: flex; align-items: center; justify-content: center; flex-direction: column;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  }
-  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
-  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
-  .context-bar {
-    background: #f1f5f9; border-bottom: 1px solid #e2e8f0; padding: 16px 48px;
-    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
-  }
-  .context-bar .seller-info { font-size: 14px; color: #475569; }
-  .context-bar .seller-info strong { color: #1e293b; }
-  .context-bar .date { font-size: 12px; color: #94a3b8; }
-  .content { padding: 36px 48px 48px; }
-  .section { margin-bottom: 32px; }
-  .section-title {
-    font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;
-    color: #0f3460; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0;
-  }
-  .section p { font-size: 14.5px; line-height: 1.75; color: #374151; margin-bottom: 12px; white-space: pre-line; }
-  .section ul { list-style: none; padding: 0; }
-  .section ul li {
-    font-size: 14px; line-height: 1.7; color: #374151;
-    padding: 6px 0 6px 24px; position: relative; border-bottom: 1px solid #f1f5f9;
-  }
-  .section ul li:last-child { border-bottom: none; }
-  .section ul li::before {
-    content: ''; position: absolute; left: 0; top: 14px;
-    width: 8px; height: 8px; border-radius: 50%; background: #0f3460; opacity: 0.4;
-  }
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-  @media (max-width: 700px) {
-    .two-col { grid-template-columns: 1fr; }
-    .header { padding: 24px; } .content { padding: 24px; }
-    .context-bar { padding: 12px 24px; } .score-badge { top: 24px; right: 24px; }
-  }
-  .approach-box {
-    background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;
-    padding: 20px 24px; margin-top: 8px;
-  }
-  .approach-box p { color: #166534 !important; font-size: 14px !important; }
-  .risk-box {
-    background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px;
-    padding: 20px 24px; margin-top: 8px;
-  }
-  .risk-box li::before { background: #dc2626 !important; }
-  .risk-box li { color: #991b1b !important; border-bottom-color: #fee2e2 !important; font-size: 13.5px; }
-  .timeline-box {
-    background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px;
-    padding: 20px 24px; margin-top: 8px;
-  }
-  .timeline-box p { color: #1e40af !important; font-size: 14px !important; }
-  .footer {
-    background: #1a1a2e; color: rgba(255,255,255,0.4); text-align: center;
-    padding: 16px; font-size: 11px; letter-spacing: 1px;
-  }
+    @media print {
+        body { margin: 0; }
+        .page-break { page-break-before: always; }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: 'Georgia', 'Times New Roman', serif;
+        color: #2c2c2c;
+        background: #f8f8f8;
+        line-height: 1.6;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    }
+    .header {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        color: white;
+        padding: 40px;
+        position: relative;
+    }
+    .header::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #e94560, #f5a623, #e94560);
+    }
+    .header h1 {
+        font-size: 28px;
+        margin-bottom: 8px;
+        letter-spacing: -0.5px;
+    }
+    .header .subtitle {
+        font-size: 16px;
+        opacity: 0.85;
+        font-style: italic;
+    }
+    .meta-bar {
+        display: flex;
+        gap: 24px;
+        padding: 16px 40px;
+        background: #f0f0f0;
+        border-bottom: 1px solid #ddd;
+        font-size: 14px;
+        flex-wrap: wrap;
+    }
+    .meta-bar .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    .meta-bar .label {
+        font-weight: bold;
+        color: #666;
+        text-transform: uppercase;
+        font-size: 11px;
+        letter-spacing: 0.5px;
+    }
+    .meta-bar .value {
+        color: #1a1a2e;
+        font-weight: 600;
+    }
+    .fit-score {
+        display: inline-block;
+        background: #e74c3c;
+        color: white;
+        padding: 2px 10px;
+        border-radius: 12px;
+        font-weight: bold;
+        font-size: 13px;
+    }
+    .pitch-bar {
+        padding: 20px 40px;
+        background: #fafbfc;
+        border-bottom: 2px solid #e94560;
+        font-size: 18px;
+        font-style: italic;
+        color: #333;
+        text-align: center;
+    }
+    .content {
+        padding: 32px 40px;
+    }
+    .section {
+        margin-bottom: 28px;
+    }
+    .section h2 {
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #0f3460;
+        border-bottom: 2px solid #e8e8e8;
+        padding-bottom: 8px;
+        margin-bottom: 14px;
+    }
+    .section p {
+        margin-bottom: 12px;
+        text-align: justify;
+    }
+    .section ul {
+        padding-left: 20px;
+    }
+    .section ul li {
+        margin-bottom: 8px;
+    }
+    .section ul.risks li {
+        color: #c0392b;
+    }
+    .approach-box {
+        background: #f0f7ff;
+        border-left: 4px solid #0f3460;
+        padding: 16px 20px;
+        border-radius: 0 8px 8px 0;
+        margin-top: 12px;
+    }
+    .footer {
+        padding: 20px 40px;
+        background: #1a1a2e;
+        color: rgba(255,255,255,0.5);
+        font-size: 11px;
+        text-align: center;
+    }
 </style>
 </head>
 <body>
-<div class="page">
-  <div class="header">
-    <div class="header-label">Buyer Dossier</div>
-    <h1>Culligan International</h1>
-    <div class="header-meta">
-      <span><strong>Strategic Acquirer</strong></span>
-      <span>Rosemont, IL</span>
-      <span>Contact: <strong>Scott Curl</strong>, CEO</span>
+<div class="container">
+    <div class="header">
+        <h1>Culligan International</h1>
+        <div class="subtitle">Buyer Dossier &mdash; Prepared for AquaScience</div>
     </div>
-    <div class="score-badge">
-      <span class="score-num">9</span>
-      <span class="score-label">FIT</span>
+    <div class="meta-bar">
+        <div class='meta-item'><span class='label'>Contact</span><span class='value'>Scott Curl</span></div>
+        <div class='meta-item'><span class='label'>Type</span><span class='value'>Strategic Acquirer</span></div>
+        <div class='meta-item'><span class='label'>Location</span><span class='value'>Rosemont, IL</span></div>
+        <div class='meta-item'><span class='label'>Fit Score</span><span class='fit-score'>9</span></div>
     </div>
-  </div>
-  <div class="context-bar">
-    <div class="seller-info">
-      Prepared for <strong>AquaScience</strong> &mdash; Water Treatment / eCommerce &mdash; Wyoming, RI &mdash; Est. Revenue: $8,000,000
-    </div>
-    <div class="date">Generated March 29, 2026</div>
-  </div>
-  <div class="content">
-    <div class="section">
-      <div class="section-title">Buyer Profile</div>
-      <p>Culligan International is the world's largest consumer water treatment company, founded in 1936 and currently backed by Advent International (with BDT &amp; MSD Partners as co-investors). Headquartered in Rosemont, Illinois, Culligan has transformed from a legacy water softener brand into a global platform spanning residential, commercial, and industrial water treatment across 90+ countries. Since Advent's acquisition in 2017, Culligan has executed over 200 tuck-in acquisitions — an extraordinary pace that signals both deep capital reserves and a well-oiled integration playbook. Their 2022 merger with Waterlogic, a $4.5 billion transaction, cemented their position as the undisputed global leader in consumer water services.
-
-Culligan's acquisition thesis is straightforward and battle-tested: acquire established local water treatment operators with loyal customer bases and skilled technicians, then layer in Culligan's national brand, product portfolio, supply chain purchasing power, and operational infrastructure. They pay fair multiples for quality businesses because they know exactly how to extract synergies — route density optimization, cross-selling filtration and softening products into acquired customer bases, and converting one-time equipment sales into recurring service revenue streams. Their corporate development team, led by CEO Scott Curl, evaluates hundreds of opportunities annually and has refined a diligence-to-close process that is among the fastest and most predictable in the industry.
-
-For a seller evaluating Culligan, the signal is clear: this is not a financial buyer looking to cut costs and flip. Culligan keeps local teams intact, retains customer relationships, and invests in growth. They have closed hundreds of deals, which means a smooth diligence process, certainty of close, and a buyer who won't get cold feet. Sellers typically stay on through a transition period, employees are retained, and the local operation gains access to Culligan's national brand recognition, marketing resources, and product catalog — making it a genuine 'best of both worlds' outcome for founders who care about their legacy.</p>
-    </div>
-    <div class="two-col">
-      <div class="section">
-        <div class="section-title">Acquisition History</div>
-        <ul><li>Waterlogic Group (2022) — $4.5B merger creating the world's largest water treatment platform combining Culligan's residential strength with Waterlogic's commercial point-of-use dispensing network</li><li>AquaVenture Holdings — acquired to add desalination and water-as-a-service operations, expanding beyond traditional softening and filtration into infrastructure-level water solutions</li><li>Zip Water (Australia) — premium filtered water dispensing brand acquisition expanding Culligan's commercial capabilities in the Asia-Pacific market</li><li>Harvey Water Softeners (UK) — acquisition to expand European residential water softening footprint and gain density in the British market</li><li>200+ regional US water treatment dealers and service companies since 2017 — systematic tuck-in program spanning the Midwest, South, West Coast, and Northeast corridor to build route density and market coverage in every major metro</li></ul>
-      </div>
-      <div class="section">
-        <div class="section-title">Why AquaScience</div>
-        <p>AquaScience checks every box in Culligan's tuck-in acquisition playbook. A 41-year operating history in Rhode Island means an entrenched customer base with deep local trust — exactly the kind of goodwill that Culligan cannot replicate organically. The business serves both residential and commercial segments, giving Culligan immediate cross-sell opportunities across their full product line including softeners, filtration systems, reverse osmosis units, and bottle-free coolers. Rhode Island and the broader Southern New England corridor represent one of the highest-density, highest-value water treatment markets in the country due to aging municipal infrastructure, elevated PFAS and radon contamination concerns, and growing consumer awareness of water quality. At an estimated $8M in revenue, AquaScience is sized perfectly for Culligan's tuck-in model — large enough to be strategically meaningful, small enough to integrate without organizational disruption.
-
-The operational profile is equally compelling. Larry Casey's four decades of ownership signal a stable, well-run business with institutional knowledge embedded in the team — precisely the kind of operator-built company Culligan prefers to acquire. The dual-channel model (service/installation plus eCommerce) shows a business that has evolved with consumer behavior rather than staying static. AquaScience's 100,000+ customer relationships represent a captive base for Culligan's recurring revenue model, and their PFAS and radon remediation specialty positions them in the fastest-growing segment of residential water treatment. For Culligan, this is a Northeast density play that immediately fills a geographic gap while adding specialty capabilities in contaminants that are driving regulatory action and homeowner demand across New England.</p>
-      </div>
-    </div>
-    <div class="section">
-      <div class="section-title">Approach Strategy</div>
-      <div class="approach-box">
-        <p>Position this as a confidential, principal-to-principal introduction — not a sales pitch. We represent the owners of a well-established, 41-year Northeast water treatment company who are quietly evaluating whether a conversation with the right strategic partner makes sense for the next chapter of the business. Lead with Culligan's own acquisition track record as the reason we're reaching out: 'We've studied your growth strategy and believe our clients' business is exactly the type of operation you've been building your platform around.' This flatters their strategy, signals that we've done our homework, and immediately differentiates this from the hundreds of cold inbound pitches their corp dev team receives.
-
-Critically, never suggest the company is 'for sale' or that there is a formal process underway. Frame it as owners who built something valuable over four decades and want to have a selective, quiet conversation with the one or two strategic partners who could genuinely take the business to its next level. Emphasize that there is no banker, no auction, and no book — this is a direct conversation at the owners' request, which gives Culligan the speed, simplicity, and competitive advantage they prefer. The ask is simple: a 30-minute call to share the high-level profile and see if there's mutual interest in exploring further.</p>
-      </div>
-    </div>
-    <div class="section">
-      <div class="section-title">Talking Points</div>
-      <ul><li>AquaScience has operated continuously in Rhode Island for 41 years, serving over 100,000 residential and commercial customers — this is an entrenched local franchise with the kind of customer loyalty and brand trust that cannot be built from scratch.</li><li>The Northeast is a premium water treatment market with the highest household density in the country, aging municipal water infrastructure, and accelerating regulatory action on PFAS and radon contamination — all of which are driving record consumer demand for point-of-use and whole-home treatment systems.</li><li>AquaScience serves both residential and commercial segments with trained, in-market service teams who know the territory and the customers — Culligan can layer in brand, products, and national purchasing power without disrupting the operation that's been working for four decades.</li><li>There is no formal process, no investment banker, and no auction — this is a confidential, principal-to-principal conversation at the owners' request, which means Culligan gets the speed, simplicity, and deal certainty they prefer over competitive processes.</li><li>The business includes specialty expertise in PFAS remediation and radon treatment — the two fastest-growing segments in residential water treatment — positioning it as a center of excellence that could inform Culligan's broader Northeast strategy as regulatory mandates expand.</li></ul>
-    </div>
-    <div class="two-col">
-      <div class="section">
-        <div class="section-title">Risk Factors</div>
-        <div class="risk-box">
-          <ul><li>At $8M in revenue, AquaScience may fall below Culligan's current minimum threshold if their post-Waterlogic integration strategy has shifted focus toward larger platform acquisitions — need to confirm they are still actively executing sub-$10M tuck-ins in the Northeast corridor.</li><li>If a significant portion of AquaScience's revenue comes from eCommerce product sales rather than recurring route-based service and installation, Culligan may discount that revenue stream since their operating model and valuation framework is built around predictable, recurring service contracts — understanding the service vs. product revenue mix is critical before detailed discussions.</li><li>Culligan's corporate development team evaluates hundreds of opportunities annually, creating real noise and prioritization challenges — without a warm introduction or data-forward initial outreach that immediately signals fit against their stated criteria, this opportunity risks sitting in a queue behind larger or better-connected deals.</li><li>Owner transition risk: Larry Casey has run the business for 41 years, and Culligan will want assurance that the customer relationships, vendor partnerships, and operational knowledge are transferable to the team rather than concentrated in a single founder — a structured transition period and strong second-level management will be important to their diligence.</li></ul>
+    <div class='pitch-bar'>&ldquo;A 41-year Rhode Island water treatment company with loyal residential and commercial customers offering Culligan a turnkey Northeast tuck-in with zero greenfield risk.&rdquo;</div>
+    <div class="content">
+        <div class="section">
+            <h2>Buyer Narrative</h2>
+            <p>Culligan International is the world's largest consumer water treatment company, headquartered in Rosemont, Illinois, with operations spanning over 90 countries. Since Advent International and BDT Capital Partners took a controlling stake, Culligan has executed an extraordinary roll-up strategy — completing over 200 acquisitions since 2017 to build a vertically integrated water services empire. Their playbook is proven: acquire established local water treatment operators, retain the teams and customer relationships, then layer in Culligan's national brand, proprietary product lines, supply chain advantages, and operational infrastructure to accelerate growth.</p><p>What makes Culligan a credible acquirer for a family-owned water treatment business is their track record of honoring the legacy of the companies they acquire. They understand that 40+ years of customer trust isn't something you can replicate — it's something you buy and build on. Their tuck-in model is specifically designed for operators like AquaScience: companies with deep local roots, loyal customer bases, and experienced service teams. Culligan doesn't gut these businesses; they fuel them with capital, technology, and brand recognition while keeping the local DNA intact.</p><p>Scott Curl operates within Culligan's corporate development function, and conversations with his team tend to move efficiently. Culligan knows how to value water treatment businesses, they understand the recurring revenue models, and they close deals without the protracted diligence theater that private equity buyers sometimes impose. For a seller who cares about their employees and customers being taken care of post-close, Culligan's integration model is among the most seller-friendly in the industry.</p>
         </div>
-      </div>
-      <div class="section">
-        <div class="section-title">Expected Timeline</div>
-        <div class="timeline-box">
-          <p>Culligan is one of the fastest-moving strategic acquirers in the water treatment space, having refined their process over 200+ transactions. From a productive first call to a signed Letter of Intent, expect 4-6 weeks — their corp dev team knows exactly what they need to see (trailing twelve months financials, customer concentration data, service contract breakdown, and equipment inventory) and can move to LOI quickly if the profile matches. From LOI to close, Culligan's standard diligence and integration planning process runs 60-90 days for a tuck-in of this size, meaning a total timeline from first meaningful conversation to closed transaction of approximately 3-5 months. This is materially faster than a PE buyer or family office, who typically require 6-9 months and more extensive diligence. Culligan's speed advantage is one of the strongest selling points for a founder who values certainty and wants to avoid a prolonged, disruptive sale process.</p>
+        
+        <div class="section">
+            <h2>Acquisition History</h2>
+            <ul><li>AO Smith Water Treatment (2021) — expanded residential water purification capabilities</li><li>Zip Water (Australia) — premium filtered water dispensing systems</li><li>Harvey Water Softeners (UK) — dominant UK residential water softener brand</li><li>Waterlogic (2022, ~$1.1B) — commercial water purification and dispensing across 18 countries</li><li>Numerous regional US water treatment dealers and service companies across the Midwest, Southeast, and West Coast as tuck-in acquisitions</li><li>BWT (Best Water Technology) — European water treatment leader, merged to create global platform</li><li>Multiple independent Culligan franchise/dealer operations consolidated under corporate ownership</li></ul>
         </div>
-      </div>
+        <div class="section">
+            <h2>Why This Seller</h2>
+            <p>AquaScience is a textbook Culligan tuck-in target. Forty-one years in Rhode Island gives the company exactly what Culligan cannot build organically: deep local customer relationships, an established service reputation, and trained technicians who already know the territory. Rhode Island and the broader Southern New England corridor represent a high-density residential market for water treatment services, and AquaScience gives Culligan an immediate, turnkey foothold without the cost and time of a greenfield buildout. The dual residential and commercial capability means Culligan can cross-sell its full product portfolio — softeners, filtration, drinking water systems, and commercial solutions — through an existing customer base and sales team from day one. At an estimated $8M in revenue, AquaScience sits squarely in Culligan's tuck-in sweet spot: large enough to be meaningful, small enough to integrate cleanly.</p>
+        </div>
+        <div class="section">
+            <h2>Approach Angle</h2>
+            <div class="approach-box">Position the outreach as representing a well-established, generational water treatment business whose owners are confidentially exploring whether a strategic partnership with the right national platform makes sense. Emphasize the Rhode Island market density and the 41-year operating history. Never indicate the company is for sale — frame it as owners determining if the right conversation exists. Culligan's team evaluates hundreds of these opportunities, so lead with specifics that signal quality: years in business, dual resi/commercial capability, geographic fit.</div>
+        </div>
+        
+        <div class="section">
+            <h2>Talking Points</h2>
+            <ul><li>AquaScience has operated continuously for 41 years in Rhode Island — the kind of local entrenchment and customer loyalty that takes decades to build and cannot be replicated by a new market entrant</li><li>The business serves both residential and commercial customers, giving Culligan immediate dual-channel revenue and a platform to cross-sell its full product and service lineup across both segments</li><li>Rhode Island and Southern New England represent one of the highest-density markets for water treatment services in the US, and AquaScience provides a turnkey entry point without greenfield buildout costs</li><li>The owners are exploring this confidentially with no formal process — this is an off-market opportunity where Culligan would have first-mover advantage before any competitive auction dynamics</li><li>AquaScience's existing service teams and customer base align directly with Culligan's proven tuck-in integration model, minimizing transition risk and accelerating time-to-value</li></ul>
+        </div>
+        
+        <div class="section">
+            <h2>Risk Factors</h2>
+            <ul class="risks"><li>Culligan's acquisition volume means their corporate development team is highly selective and may deprioritize smaller tuck-ins if larger platform deals are in flight — timing and internal bandwidth could delay engagement</li><li>At $8M revenue, AquaScience may fall below Culligan's minimum threshold for direct corporate acquisitions versus being routed to a regional franchise operator or dealer network partner, which could change deal economics</li><li>Culligan's post-acquisition integration typically involves rebranding to the Culligan name and standardizing operations — if AquaScience's owners have strong legacy preservation requirements, this could create friction during negotiations</li></ul>
+        </div>
     </div>
-  </div>
-  <div class="footer">
-    CONFIDENTIAL &mdash; PREPARED BY GILLASPY HOLDINGS &mdash; 2026
-  </div>
+    <div class="footer">
+        Generated March 29, 2026 &bull; Confidential
+    </div>
 </div>
 </body>
 </html>

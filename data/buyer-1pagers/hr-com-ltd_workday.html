@@ -3,182 +3,167 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Buyer Dossier: Workday for HR.com Ltd</title>
+<title>Buyer Dossier: Workday | HR.com Ltd</title>
 <style>
-    @media print {
-        body { margin: 0; }
-        .page-break { page-break-before: always; }
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-        font-family: 'Georgia', 'Times New Roman', serif;
-        color: #2c2c2c;
-        background: #f8f8f8;
-        line-height: 1.6;
-    }
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        background: white;
-        box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-    }
-    .header {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-        color: white;
-        padding: 40px;
-        position: relative;
-    }
-    .header::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, #e94560, #f5a623, #e94560);
-    }
-    .header h1 {
-        font-size: 28px;
-        margin-bottom: 8px;
-        letter-spacing: -0.5px;
-    }
-    .header .subtitle {
-        font-size: 16px;
-        opacity: 0.85;
-        font-style: italic;
-    }
-    .meta-bar {
-        display: flex;
-        gap: 24px;
-        padding: 16px 40px;
-        background: #f0f0f0;
-        border-bottom: 1px solid #ddd;
-        font-size: 14px;
-        flex-wrap: wrap;
-    }
-    .meta-bar .meta-item {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    }
-    .meta-bar .label {
-        font-weight: bold;
-        color: #666;
-        text-transform: uppercase;
-        font-size: 11px;
-        letter-spacing: 0.5px;
-    }
-    .meta-bar .value {
-        color: #1a1a2e;
-        font-weight: 600;
-    }
-    .fit-score {
-        display: inline-block;
-        background: #e74c3c;
-        color: white;
-        padding: 2px 10px;
-        border-radius: 12px;
-        font-weight: bold;
-        font-size: 13px;
-    }
-    .pitch-bar {
-        padding: 20px 40px;
-        background: #fafbfc;
-        border-bottom: 2px solid #e94560;
-        font-size: 18px;
-        font-style: italic;
-        color: #333;
-        text-align: center;
-    }
-    .content {
-        padding: 32px 40px;
-    }
-    .section {
-        margin-bottom: 28px;
-    }
-    .section h2 {
-        font-size: 16px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #0f3460;
-        border-bottom: 2px solid #e8e8e8;
-        padding-bottom: 8px;
-        margin-bottom: 14px;
-    }
-    .section p {
-        margin-bottom: 12px;
-        text-align: justify;
-    }
-    .section ul {
-        padding-left: 20px;
-    }
-    .section ul li {
-        margin-bottom: 8px;
-    }
-    .section ul.risks li {
-        color: #c0392b;
-    }
-    .approach-box {
-        background: #f0f7ff;
-        border-left: 4px solid #0f3460;
-        padding: 16px 20px;
-        border-radius: 0 8px 8px 0;
-        margin-top: 12px;
-    }
-    .footer {
-        padding: 20px 40px;
-        background: #1a1a2e;
-        color: rgba(255,255,255,0.5);
-        font-size: 11px;
-        text-align: center;
-    }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f8f9fa; color: #2c3e50; line-height: 1.6;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .page { max-width: 900px; margin: 0 auto; background: white; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+  @media print { body { background: white; } .page { box-shadow: none; max-width: 100%; } }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 12px; flex-wrap: wrap; }
+  .header-meta span { font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 400; }
+  .header-meta span strong { color: rgba(255,255,255,0.95); font-weight: 600; }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #f39c12;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+  .context-bar {
+    background: #f1f5f9; border-bottom: 1px solid #e2e8f0; padding: 16px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  }
+  .context-bar .seller-info { font-size: 14px; color: #475569; }
+  .context-bar .seller-info strong { color: #1e293b; }
+  .context-bar .date { font-size: 12px; color: #94a3b8; }
+  .content { padding: 36px 48px 48px; }
+  .section { margin-bottom: 32px; }
+  .section-title {
+    font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;
+    color: #0f3460; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0;
+  }
+  .section p { font-size: 14.5px; line-height: 1.75; color: #374151; margin-bottom: 12px; white-space: pre-line; }
+  .section ul { list-style: none; padding: 0; }
+  .section ul li {
+    font-size: 14px; line-height: 1.7; color: #374151;
+    padding: 6px 0 6px 24px; position: relative; border-bottom: 1px solid #f1f5f9;
+  }
+  .section ul li:last-child { border-bottom: none; }
+  .section ul li::before {
+    content: ''; position: absolute; left: 0; top: 14px;
+    width: 8px; height: 8px; border-radius: 50%; background: #0f3460; opacity: 0.4;
+  }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  @media (max-width: 700px) {
+    .two-col { grid-template-columns: 1fr; }
+    .header { padding: 24px; } .content { padding: 24px; }
+    .context-bar { padding: 12px 24px; } .score-badge { top: 24px; right: 24px; }
+  }
+  .approach-box {
+    background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;
+    padding: 20px 24px; margin-top: 8px;
+  }
+  .approach-box p { color: #166534 !important; font-size: 14px !important; }
+  .risk-box {
+    background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px;
+    padding: 20px 24px; margin-top: 8px;
+  }
+  .risk-box li::before { background: #dc2626 !important; }
+  .risk-box li { color: #991b1b !important; border-bottom-color: #fee2e2 !important; font-size: 13.5px; }
+  .timeline-box {
+    background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px;
+    padding: 20px 24px; margin-top: 8px;
+  }
+  .timeline-box p { color: #1e40af !important; font-size: 14px !important; }
+  .footer {
+    background: #1a1a2e; color: rgba(255,255,255,0.4); text-align: center;
+    padding: 16px; font-size: 11px; letter-spacing: 1px;
+  }
 </style>
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        <h1>Workday</h1>
-        <div class="subtitle">Buyer Dossier &mdash; Prepared for HR.com Ltd</div>
+<div class="page">
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Workday</h1>
+    <div class="header-meta">
+      <span><strong>Strategic Acquirer</strong></span>
+      <span>Pleasanton, CA</span>
+      <span>Contact: <strong>Carl Eschenbach</strong>, CEO</span>
     </div>
-    <div class="meta-bar">
-        <div class='meta-item'><span class='label'>Contact</span><span class='value'>Carl Eschenbach</span></div>
-        <div class='meta-item'><span class='label'>Type</span><span class='value'>Strategic Acquirer</span></div>
-        <div class='meta-item'><span class='label'>Location</span><span class='value'>Pleasanton, CA</span></div>
-        <div class='meta-item'><span class='label'>Fit Score</span><span class='fit-score'>7</span></div>
+    <div class="score-badge">
+      <span class="score-num">7</span>
+      <span class="score-label">FIT</span>
     </div>
-    <div class='pitch-bar'>&ldquo;HR.com's 2M+ HR professional community offers Workday an owned distribution channel to accelerate adoption of its expanding HCM and system-of-action capabilities.&rdquo;</div>
-    <div class="content">
-        <div class="section">
-            <h2>Buyer Narrative</h2>
-            <p>Workday is a leading enterprise cloud applications provider specializing in human capital management (HCM) and financial management. Under the leadership of Carl Eschenbach, Workday has expanded its focus from being a system of record to becoming a system of action, as evidenced by recent acquisitions like Paradox, Sana, and FlowiseAI. With a strong foothold in the enterprise market, Workday seeks to enhance its ecosystem through strategic acquisitions that complement its HCM suite. The company is a credible acquirer due to its robust financial position, history of successful integrations, and commitment to expanding its capabilities beyond core offerings.</p>
-        </div>
-        
-        <div class="section">
-            <h2>Acquisition History</h2>
-            <ul><li>Paradox (2025)</li><li>Sana (2025)</li><li>FlowiseAI (2025)</li><li>Peakon (2021)</li><li>Adaptive Insights (2018)</li></ul>
-        </div>
-        <div class="section">
-            <h2>Why This Seller</h2>
-            <p>HR.com Ltd, with its community of over two million HR professionals, aligns perfectly with Workday's strategic expansion. The platform's content ecosystem, certification programs, and direct relationships with HR decision-makers offer Workday an owned audience for organic distribution of its expanding product suite. This acquisition would accelerate Workday's go-to-market strategy, particularly in mid-market and enterprise segments.</p>
-        </div>
-        <div class="section">
-            <h2>Approach Angle</h2>
-            <div class="approach-box">Frame the outreach as an exploration of strategic alignment, emphasizing the complementary nature of HR.com's audience and content with Workday's recent acquisitions. Avoid indicating that HR.com is for sale, instead focusing on potential synergies.</div>
-        </div>
-        
-        <div class="section">
-            <h2>Talking Points</h2>
-            <ul><li>HR.com's owned audience of 2M+ HR professionals mirrors Workday's ideal customer profile.</li><li>Content and certification programs provide organic distribution for Workday's new capabilities.</li><li>No formal process—exploring fit with select strategic partners.</li><li>Opportunity to turn paid acquisition into organic adoption through HR.com's community.</li><li>Potential to enhance Workday's thought leadership and customer education efforts.</li></ul>
-        </div>
-        
-        <div class="section">
-            <h2>Risk Factors</h2>
-            <ul class="risks"><li>Workday may prioritize technology acquisitions over media/content platforms.</li><li>Integration challenges with a community-driven model versus a product-driven company.</li><li>Potential overlap with Workday's existing partnerships or internal initiatives.</li></ul>
-        </div>
+  </div>
+  <div class="context-bar">
+    <div class="seller-info">
+      Prepared for <strong>HR.com Ltd</strong> &mdash; HR Technology &amp; Media &mdash; Grimsby, Ontario &mdash; Est. Revenue: $NaN
     </div>
-    <div class="footer">
-        Generated March 29, 2026 &bull; Confidential
+    <div class="date">Generated March 29, 2026</div>
+  </div>
+  <div class="content">
+    <div class="section">
+      <div class="section-title">Buyer Profile</div>
+      <p>Workday, headquartered in Pleasanton, California, is a $7.2B+ annual revenue enterprise software company that has become the dominant cloud-based platform for human capital management (HCM) and financial management. Under CEO Carl Eschenbach, who took the reins from co-founder Aneel Bhusri in 2024, Workday has accelerated its M&amp;A cadence with a clear thesis: evolve from a system of record into a system of action. The 2025 acquisitions of Paradox (conversational AI for recruiting), Sana (AI-powered learning platform), and FlowiseAI (workflow automation) signal a deliberate push to embed intelligence and automation across the entire employee lifecycle. Workday is no longer content to be the database HR teams log into — they want to be the platform HR teams live in.
+
+Historically, Workday has been a disciplined acquirer, preferring tuck-in acquisitions that fill capability gaps rather than transformative megadeals. They acquired Peakon in 2021 for employee engagement analytics, VNDLY in 2021 for extended workforce management, and HiredScore in 2024 for AI-powered talent orchestration. The pattern is unmistakable: Workday buys companies that add a new data signal or interaction layer on top of their core HCM platform, then integrates them deeply. Post-acquisition, Workday typically retains the acquired team, sunsets the standalone brand within 12-18 months, and folds the technology into Workday's unified platform under their own product naming. They have the balance sheet to move — over $7B in cash and equivalents — and Eschenbach has publicly stated that M&amp;A will be a key growth lever alongside organic R&amp;D.
+
+Workday's competitive moat is their installed base of 10,000+ enterprise customers, including over 60% of the Fortune 500. But they face intensifying competition from SAP SuccessFactors, Oracle HCM Cloud, and a wave of AI-native startups. Their strategic imperative is to lock in their customer base by becoming indispensable across every HR touchpoint — not just payroll and benefits administration, but learning, engagement, recruiting, compliance, and now content and community. This is precisely where the HR.com opportunity becomes compelling.</p>
     </div>
+    <div class="two-col">
+      <div class="section">
+        <div class="section-title">Acquisition History</div>
+        <ul><li>Paradox (2025) — Conversational AI recruiting platform; expanded Workday's talent acquisition capabilities with AI-driven candidate engagement and interview scheduling</li><li>Sana (2025) — AI-powered learning and knowledge management platform; bolstered Workday Learning with next-generation adaptive learning capabilities</li><li>HiredScore (2024) — AI-powered talent orchestration platform; added predictive matching and proactive talent pipeline management to Workday Recruiting</li><li>Peakon (2021, ~$700M) — Employee engagement and listening platform; became Workday Peakon Employee Voice, adding continuous feedback and sentiment analytics</li><li>VNDLY (2021) — Extended workforce and vendor management platform; filled the contingent labor gap in Workday's HCM suite, enabling total workforce management</li></ul>
+      </div>
+      <div class="section">
+        <div class="section-title">Why HR.com Ltd</div>
+        <p>HR.com represents a uniquely complementary asset to Workday's platform strategy. While Workday owns the transactional layer of HR — payroll, benefits, talent management — HR.com owns the knowledge and community layer. With over 2 million HR professional members, 400+ annual webcasts, dozens of proprietary research reports, and certification programs used across the industry, HR.com is the largest dedicated HR professional community in the world. For Workday, acquiring HR.com would mean owning the top-of-funnel for enterprise HR decision-makers: the conferences they attend, the research they cite in RFPs, the certifications they pursue, and the peer community they trust. This is a content-to-commerce flywheel that no other HCM vendor currently controls.
+
+From a strategic fit perspective, HR.com solves three problems Workday cannot build organically. First, community and trust — HR.com's two-decade relationship with HR professionals gives Workday an authentic, vendor-neutral voice that their own marketing cannot replicate. Second, lead generation and intent data — HR.com's engagement data (who is reading what content, attending which webcasts, researching which topics) is a goldmine of buyer intent signals that Workday's sales organization could leverage to identify accounts in-market for HCM solutions. Third, content and thought leadership — as Workday pushes deeper into AI-driven HR, owning the platform where HR professionals learn about and evaluate these technologies creates a powerful distribution advantage. Geographically, HR.com's Ontario headquarters and lean operating model mean low integration complexity and strong margin expansion potential under Workday's scale. Debbie McGrath has built an asset with sticky recurring revenue from memberships, sponsorships, and events — exactly the kind of predictable revenue model Workday's finance team values.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Approach Strategy</div>
+      <div class="approach-box">
+        <p>The approach to Workday should be positioned as a selective, off-market conversation — not a sales pitch. We represent a group of experienced operators and former business owners who have built successful enterprises and now invest in companies they believe in. We've been studying the HCM ecosystem and have identified a unique asset that we believe aligns with Workday's stated strategy of expanding from system of record to system of action. We are not investment bankers running an auction. We are reaching out to a small number of strategic parties who we believe would be the right long-term home for this asset.
+
+The initial outreach should target Workday's corporate development team — likely led by their SVP of Corporate Development — with a warm introduction through a shared connection if possible. Carl Eschenbach's public comments about M&amp;A as a growth lever give us permission to reference his own strategic framework. The message should be brief: we represent the owners of a platform that serves 2M+ HR professionals with content, community, and credentialing — and we believe there is a conversation worth having about how this asset could accelerate Workday's platform strategy. No deck on first contact. No valuation. Just a conversation about strategic fit. Let Workday's corp dev team pull the thread.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Talking Points</div>
+      <ul><li>Workday's 2025 acquisitions signal a clear shift toward owning the full HR professional experience — HR.com's community of 2M+ members is the largest unowned audience of HR decision-makers in the market</li><li>HR.com generates proprietary research and intent data on what HR professionals are evaluating, adopting, and prioritizing — this is first-party data that no amount of ad spend can replicate</li><li>The content-to-commerce model (webcasts, certifications, research, events) creates a natural distribution channel for Workday's AI-driven products like Workday Illuminate, reducing customer acquisition costs</li><li>HR.com's vendor-neutral positioning gives Workday an authentic voice in the market — similar to how Salesforce leveraged the Trailblazer community to build trust beyond their own brand</li><li>The asset has been founder-led for over 20 years with a loyal membership base and recurring revenue streams from sponsorships, subscriptions, and events — this is a proven business with integration upside, not a speculative bet</li></ul>
+    </div>
+    <div class="two-col">
+      <div class="section">
+        <div class="section-title">Risk Factors</div>
+        <div class="risk-box">
+          <ul><li>Vendor neutrality erosion — Workday may worry that acquiring HR.com would alienate the community if members perceive it as becoming a Workday marketing channel, potentially driving engagement to competing platforms like SHRM or LinkedIn</li><li>Revenue quality scrutiny — Workday's finance team will examine whether HR.com's revenue is truly recurring or event-dependent, and may discount sponsorship revenue that relies on third-party vendor budgets that could evaporate post-acquisition</li><li>Build vs. buy calculus — Workday already has Workday Community and significant content marketing resources; their corp dev team may argue they can build a similar community organically, underestimating the 20+ years of trust and network effects HR.com has compounded</li><li>Integration complexity with existing Workday content strategy — Workday has invested in their own thought leadership, Workday Rising conference, and customer community; they may see overlap rather than complement, requiring a clear narrative about how HR.com extends rather than duplicates existing efforts</li></ul>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Expected Timeline</div>
+        <div class="timeline-box">
+          <p>Workday operates on a disciplined but deliberate acquisition timeline. From initial strategic conversation to signed LOI, expect 8-12 weeks if there is genuine interest — Workday's corp dev team is sophisticated and moves efficiently once they see strategic alignment. They will want 2-3 meetings to understand the business model, unit economics, and community engagement metrics before advancing to diligence. Full due diligence to close typically runs an additional 60-90 days for an asset of this size, with Workday's legal and integration teams running parallel workstreams. Total timeline from first meaningful conversation to close is typically 5-7 months. However, Workday's fiscal year ends in January, so if this conversation begins in Q2 2026, there is a natural incentive to close before their FY28 planning cycle locks in Q4 — creating a potential accelerant if we time the outreach correctly. Workday has demonstrated they can move faster when motivated: the HiredScore acquisition in 2024 went from first meeting to announcement in under four months.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    CONFIDENTIAL &mdash; PREPARED BY GILLASPY HOLDINGS &mdash; 2026
+  </div>
 </div>
 </body>
 </html>
