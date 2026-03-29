@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: Rainier Partners | Springer Floor</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f8f9fa; color: #2c3e50; line-height: 1.6;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .page { max-width: 900px; margin: 0 auto; background: white; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+  @media print { body { background: white; } .page { box-shadow: none; max-width: 100%; } }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 12px; flex-wrap: wrap; }
+  .header-meta span { font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 400; }
+  .header-meta span strong { color: rgba(255,255,255,0.95); font-weight: 600; }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #f39c12;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+  .context-bar {
+    background: #f1f5f9; border-bottom: 1px solid #e2e8f0; padding: 16px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  }
+  .context-bar .seller-info { font-size: 14px; color: #475569; }
+  .context-bar .seller-info strong { color: #1e293b; }
+  .context-bar .date { font-size: 12px; color: #94a3b8; }
+  .content { padding: 36px 48px 48px; }
+  .section { margin-bottom: 32px; }
+  .section-title {
+    font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;
+    color: #0f3460; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0;
+  }
+  .section p { font-size: 14.5px; line-height: 1.75; color: #374151; margin-bottom: 12px; white-space: pre-line; }
+  .section ul { list-style: none; padding: 0; }
+  .section ul li {
+    font-size: 14px; line-height: 1.7; color: #374151;
+    padding: 6px 0 6px 24px; position: relative; border-bottom: 1px solid #f1f5f9;
+  }
+  .section ul li:last-child { border-bottom: none; }
+  .section ul li::before {
+    content: ''; position: absolute; left: 0; top: 14px;
+    width: 8px; height: 8px; border-radius: 50%; background: #0f3460; opacity: 0.4;
+  }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  @media (max-width: 700px) {
+    .two-col { grid-template-columns: 1fr; }
+    .header { padding: 24px; } .content { padding: 24px; }
+    .context-bar { padding: 12px 24px; } .score-badge { top: 24px; right: 24px; }
+  }
+  .approach-box {
+    background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;
+    padding: 20px 24px; margin-top: 8px;
+  }
+  .approach-box p { color: #166534 !important; font-size: 14px !important; }
+  .risk-box {
+    background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px;
+    padding: 20px 24px; margin-top: 8px;
+  }
+  .risk-box li::before { background: #dc2626 !important; }
+  .risk-box li { color: #991b1b !important; border-bottom-color: #fee2e2 !important; font-size: 13.5px; }
+  .timeline-box {
+    background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px;
+    padding: 20px 24px; margin-top: 8px;
+  }
+  .timeline-box p { color: #1e40af !important; font-size: 14px !important; }
+  .footer {
+    background: #1a1a2e; color: rgba(255,255,255,0.4); text-align: center;
+    padding: 16px; font-size: 11px; letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Rainier Partners</h1>
+    <div class="header-meta">
+      <span><strong>PE Roll-up</strong></span>
+      <span>Seattle, WA</span>
+      <span>Contact: <strong>Alex Rolfe</strong>, Co-Founder &amp; Managing Partner</span>
+    </div>
+    <div class="score-badge">
+      <span class="score-num">7</span>
+      <span class="score-label">FIT</span>
+    </div>
+  </div>
+  <div class="context-bar">
+    <div class="seller-info">
+      Prepared for <strong>Springer Floor</strong> &mdash; Floor Care / Carpet Cleaning &mdash; Des Moines, IA &mdash; Est. Revenue: $900,000
+    </div>
+    <div class="date">Generated March 29, 2026</div>
+  </div>
+  <div class="content">
+    <div class="section">
+      <div class="section-title">Buyer Profile</div>
+      <p>Rainier Partners is a Seattle-based private equity firm founded by Alex Rolfe and partners with a thesis centered on acquiring and building essential commercial services platforms. Their most significant move came in September 2025 when they acquired Kleen-Tech Services, a national janitorial and commercial cleaning operator with approximately 2,000 employees servicing clients across 30+ states. This acquisition signaled Rainier's commitment to building a scaled platform in the fragmented commercial cleaning and facility services sector — a market estimated at $90B+ in the U.S. alone.
+
+Rainier's playbook follows a classic PE roll-up strategy: acquire a platform company with national reach and operational infrastructure, then bolt on smaller regional specialists that add capability, density, or geographic coverage. With Kleen-Tech as their anchor, they now have the back-office infrastructure — HR, payroll, insurance, fleet, procurement — to absorb smaller operators at minimal incremental overhead. The firm's Pacific Northwest roots and Kleen-Tech's national footprint suggest they are geography-agnostic in their add-on strategy, prioritizing capability gaps and customer cross-sell over strict regional adjacency.
+
+Post-acquisition, Rainier typically preserves the acquired company's brand identity and local customer relationships while centralizing procurement, insurance, and administrative functions. This approach reduces friction for existing customers and employees while capturing margin through scale. Their stated focus on 'actively pursuing M&amp;A in janitorial and cleaning' indicates they are in the early innings of a deliberate consolidation strategy with Kleen-Tech as the platform, likely targeting 5-10 add-on acquisitions over a 3-5 year hold period to build a differentiated, multi-service commercial cleaning platform.</p>
+    </div>
+    <div class="two-col">
+      <div class="section">
+        <div class="section-title">Acquisition History</div>
+        <ul><li>Kleen-Tech Services (September 2025) — National janitorial services provider with ~2,000 employees operating across 30+ states; acquired as platform investment to anchor commercial cleaning roll-up strategy</li><li>Actively pursuing additional add-on acquisitions in janitorial, cleaning, and related facility services verticals (2025-present)</li><li>Pre-Kleen-Tech portfolio likely includes earlier investments in business services and commercial operations verticals typical of Pacific Northwest lower-middle-market PE firms</li><li>Rainier's acquisition pipeline is reported to be focused on specialized cleaning operators that add vertical capability (floor care, window cleaning, specialty restoration) to the Kleen-Tech platform</li></ul>
+      </div>
+      <div class="section">
+        <div class="section-title">Why Springer Floor</div>
+        <p>Springer Floor Care is a compelling add-on target for Rainier Partners because it fills a critical capability gap in the Kleen-Tech platform. Kleen-Tech is a generalist janitorial operator — they sweep, mop, and maintain facilities at scale, but they lack specialized floor care expertise. Springer brings 41+ years of specialized floor care and carpet cleaning capability in Des Moines, Iowa, including deep cleaning, restoration, hard surface care, and ongoing maintenance programs. This is exactly the kind of vertical specialization that transforms a janitorial platform from a commodity vendor into a differentiated, higher-margin service provider. When Kleen-Tech's national sales team can cross-sell Springer's specialized floor care services to their existing client base across 30+ states, the revenue synergy potential far exceeds Springer's standalone $900K top line.
+
+Geographically, Des Moines positions Springer in the heart of the Midwest — a region where Kleen-Tech likely has existing janitorial contracts but limited specialized floor care capability. Iowa is a low-cost operating environment with a stable workforce, making it an efficient hub for regional expansion into Nebraska, Minnesota, Missouri, and Illinois. At $900K in revenue, Springer is sized perfectly as a tuck-in acquisition: small enough to integrate without disruption to the platform, large enough to have proven processes, trained technicians, and an established customer base. The acquisition would give Rainier both a proven floor care operation and a replicable model they can use to add floor care capability in other Kleen-Tech markets nationwide.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Approach Strategy</div>
+      <div class="approach-box">
+        <p>The approach to Alex Rolfe at Rainier Partners should be framed as a selective, peer-to-peer conversation between principals. We represent the owners of a specialized floor care operation in the Midwest who are exploring their strategic options. The positioning is that we are reaching out to a small number of acquirers who we believe would be the best long-term stewards of this business — not running an auction, not shopping the company. Rainier should feel like they are getting an early, privileged look at an opportunity that fits their stated thesis before it hits the broader market.
+
+The call should lead with what we know about Rainier's Kleen-Tech acquisition and their stated interest in building out commercial cleaning capabilities. Reference the September 2025 acquisition specifically — it shows we have done our homework. The question to pose is whether Rainier has considered adding specialized floor care as a service line to Kleen-Tech's platform, and if so, whether they would be open to a brief conversation about a business that could accelerate that strategy. Never say Springer is for sale. The framing is exploratory — the owners are evaluating what a partnership or combination might look like with the right platform, and Rainier's Kleen-Tech investment caught their attention as a potentially ideal fit.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Talking Points</div>
+      <ul><li>Kleen-Tech's 30+ state footprint creates massive cross-sell potential — specialized floor care can be offered to every existing janitorial client as an upsell, potentially generating revenue multiples beyond Springer's current standalone base</li><li>Springer's 41+ years in business demonstrates durability, customer loyalty, and proven operational processes — this is not a startup, it is a turnkey operation with trained technicians and established vendor relationships</li><li>Floor care specialization commands higher margins than general janitorial — typical floor care gross margins run 45-55% versus 25-35% for commodity janitorial, immediately accretive to the platform's blended margin profile</li><li>Des Moines serves as a low-cost Midwest hub for geographic expansion — Springer's operational model can be replicated in other Kleen-Tech markets, creating a scalable floor care division across the platform</li><li>The commercial floor care market is highly fragmented with most operators under $2M in revenue — Springer represents an opportunity to begin consolidating this niche vertical as a sub-platform within the broader Kleen-Tech strategy</li></ul>
+    </div>
+    <div class="two-col">
+      <div class="section">
+        <div class="section-title">Risk Factors</div>
+        <div class="risk-box">
+          <ul><li>Revenue scale concern — at $900K, Springer may be below Rainier's typical acquisition threshold for PE add-ons, and integration costs could represent a disproportionate percentage of deal value; must emphasize the strategic capability acquisition over standalone financials</li><li>Geographic distance from Seattle HQ and potential lack of existing Kleen-Tech density in Iowa could make hands-on integration and oversight more challenging than a bolt-on in a market where they already have management infrastructure</li><li>Owner dependency risk — in a $900K floor care business, Terri Holman likely holds key customer relationships and operational knowledge; Rainier will want to understand management depth and transition planning</li><li>Service line adjacency gap — while floor care and janitorial are related, they require different equipment, chemicals, training, and certifications; Rainier may question whether the operational synergies are as strong as they appear on paper versus building floor care capability organically within Kleen-Tech</li></ul>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Expected Timeline</div>
+        <div class="timeline-box">
+          <p>PE roll-up buyers with an active platform acquisition like Kleen-Tech typically move faster than traditional PE firms because they have already established their thesis, built management infrastructure, and pre-approved add-on acquisition criteria with their investment committee. From first substantive conversation to a signed LOI, expect 4-8 weeks if there is genuine strategic interest — Rainier will want to validate revenue quality, customer concentration, and technician retention before committing. From LOI to close, budget 45-75 days for confirmatory due diligence, legal documentation, and any regulatory or lease assignment requirements. Total timeline from first call to close is typically 3-5 months for a tuck-in of this size. The key accelerant is whether Rainier has already identified floor care as a priority capability gap — if so, this could move to the front of their pipeline quickly. The key risk to timeline is if Springer falls below their minimum revenue threshold and requires internal advocacy to justify the transaction costs relative to deal size.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    CONFIDENTIAL &mdash; PREPARED BY GILLASPY HOLDINGS &mdash; 2026
+  </div>
+</div>
+</body>
+</html>

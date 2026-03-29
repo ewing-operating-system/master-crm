@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: The Riverside Company / milliCare | Springer Floor</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f8f9fa; color: #2c3e50; line-height: 1.6;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .page { max-width: 900px; margin: 0 auto; background: white; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+  @media print { body { background: white; } .page { box-shadow: none; max-width: 100%; } }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 12px; flex-wrap: wrap; }
+  .header-meta span { font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 400; }
+  .header-meta span strong { color: rgba(255,255,255,0.95); font-weight: 600; }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #27ae60;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+  .context-bar {
+    background: #f1f5f9; border-bottom: 1px solid #e2e8f0; padding: 16px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  }
+  .context-bar .seller-info { font-size: 14px; color: #475569; }
+  .context-bar .seller-info strong { color: #1e293b; }
+  .context-bar .date { font-size: 12px; color: #94a3b8; }
+  .content { padding: 36px 48px 48px; }
+  .section { margin-bottom: 32px; }
+  .section-title {
+    font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;
+    color: #0f3460; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0;
+  }
+  .section p { font-size: 14.5px; line-height: 1.75; color: #374151; margin-bottom: 12px; white-space: pre-line; }
+  .section ul { list-style: none; padding: 0; }
+  .section ul li {
+    font-size: 14px; line-height: 1.7; color: #374151;
+    padding: 6px 0 6px 24px; position: relative; border-bottom: 1px solid #f1f5f9;
+  }
+  .section ul li:last-child { border-bottom: none; }
+  .section ul li::before {
+    content: ''; position: absolute; left: 0; top: 14px;
+    width: 8px; height: 8px; border-radius: 50%; background: #0f3460; opacity: 0.4;
+  }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  @media (max-width: 700px) {
+    .two-col { grid-template-columns: 1fr; }
+    .header { padding: 24px; } .content { padding: 24px; }
+    .context-bar { padding: 12px 24px; } .score-badge { top: 24px; right: 24px; }
+  }
+  .approach-box {
+    background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;
+    padding: 20px 24px; margin-top: 8px;
+  }
+  .approach-box p { color: #166534 !important; font-size: 14px !important; }
+  .risk-box {
+    background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px;
+    padding: 20px 24px; margin-top: 8px;
+  }
+  .risk-box li::before { background: #dc2626 !important; }
+  .risk-box li { color: #991b1b !important; border-bottom-color: #fee2e2 !important; font-size: 13.5px; }
+  .timeline-box {
+    background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px;
+    padding: 20px 24px; margin-top: 8px;
+  }
+  .timeline-box p { color: #1e40af !important; font-size: 14px !important; }
+  .footer {
+    background: #1a1a2e; color: rgba(255,255,255,0.4); text-align: center;
+    padding: 16px; font-size: 11px; letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>The Riverside Company / milliCare</h1>
+    <div class="header-meta">
+      <span><strong>PE Roll-up</strong></span>
+      <span>New York, NY</span>
+      <span>Contact: <strong>Stewart Kohl</strong>, Co-CEO, Riverside Company</span>
+    </div>
+    <div class="score-badge">
+      <span class="score-num">9</span>
+      <span class="score-label">FIT</span>
+    </div>
+  </div>
+  <div class="context-bar">
+    <div class="seller-info">
+      Prepared for <strong>Springer Floor</strong> &mdash; Floor Care / Carpet Cleaning &mdash; Des Moines, IA &mdash; Est. Revenue: $900,000
+    </div>
+    <div class="date">Generated March 29, 2026</div>
+  </div>
+  <div class="content">
+    <div class="section">
+      <div class="section-title">Buyer Profile</div>
+      <p>The Riverside Company is a global private equity firm founded in 1988 with over $14 billion in assets under management, headquartered in New York with offices in Cleveland, Dallas, San Francisco, and across Europe and Asia-Pacific. Riverside specializes in acquiring and growing companies valued at up to $400 million, with a particular strength in the lower middle market — businesses between $10M and $100M in enterprise value. Their operating philosophy centers on 'buy and build': acquire a strong platform company, then aggressively add bolt-on acquisitions to expand geographic reach, service lines, and customer density. Riverside has completed over 1,000 investments since inception, making them one of the most active PE firms globally by deal count.
+
+milliCare Floor &amp; Textile Care was acquired by Riverside as a strategic add-on to their Clintar Commercial Outdoor Services platform, reflecting Riverside's thesis around building national commercial facility services networks through franchise and branch expansion. milliCare operates 40+ franchise locations across North America providing commercial carpet cleaning, hard floor care, textile restoration, and facility maintenance to corporate offices, healthcare facilities, schools, and government buildings. The company generates approximately $25 million in systemwide revenue and has been actively filling geographic gaps in its franchise map since the Riverside acquisition. Post-acquisition, Riverside typically installs professional management, upgrades technology and CRM systems, standardizes operating procedures across locations, and pursues an aggressive add-on acquisition cadence — often completing 3-5 bolt-ons per platform per year.
+
+Riverside's investment in milliCare signals a clear conviction that commercial floor care is a fragmented, recession-resistant vertical ripe for consolidation. The business model benefits from recurring revenue through maintenance contracts, low capital intensity, and high customer retention. Riverside's playbook here is straightforward: acquire independent operators in underserved territories, convert them to the milliCare brand and operating system, and drive margin improvement through purchasing power, shared back-office, and cross-selling across the Clintar/milliCare portfolio.</p>
+    </div>
+    <div class="two-col">
+      <div class="section">
+        <div class="section-title">Acquisition History</div>
+        <ul><li>Clintar Commercial Outdoor Services — Acquired as the anchor platform for Riverside's commercial facility services thesis, providing landscaping, snow removal, and exterior maintenance across Canada and the U.S.</li><li>milliCare Floor &amp; Textile Care — Added to the Clintar platform to expand into interior commercial facility services, bringing 40+ franchise locations and national brand recognition in commercial carpet and floor care</li><li>Riverside has completed multiple add-on acquisitions for Clintar/milliCare to fill geographic gaps in underserved metro areas across the Midwest and Southeast, targeting independent operators with $500K-$5M in revenue</li><li>ServiceMaster Brands portfolio context — Riverside also acquired the ServiceMaster franchise portfolio (including ServiceMaster Clean, Merry Maids, and related brands), demonstrating repeated conviction in franchise-model facility services consolidation</li><li>Riverside's broader facility services investments include janitorial, restoration, and specialty cleaning platforms, consistently targeting fragmented local operators for roll-up into branded national networks</li></ul>
+      </div>
+      <div class="section">
+        <div class="section-title">Why Springer Floor</div>
+        <p>Springer Floor operates in Des Moines, Iowa — a metropolitan area of over 700,000 people that represents a conspicuous gap in milliCare's franchise coverage map. milliCare has strong coastal and Sun Belt presence but remains underrepresented in the upper Midwest corridor spanning Iowa, Nebraska, and the Dakotas. Acquiring Springer Floor would immediately plant the milliCare flag in central Iowa, creating a beachhead for expansion into adjacent markets like Omaha, Cedar Rapids, and the Quad Cities. Des Moines is also one of the fastest-growing metros in the Midwest, home to major corporate campuses (Principal Financial, EMC Insurance, Meredith Corp) that represent exactly the type of commercial accounts milliCare serves. Springer's established local relationships and reputation give milliCare instant credibility in a market that would take years to build organically.
+
+At approximately $900K in revenue, Springer Floor sits in the sweet spot for milliCare bolt-on acquisitions — large enough to have real commercial accounts, trained crews, and operational infrastructure, but small enough that the acquisition multiple will be modest (likely 3-4x EBITDA) and integration risk is low. Terri Holman has built a business with the kind of owner-operator excellence that translates well into a franchise conversion: local market knowledge, customer loyalty, and a hands-on management style. For Riverside, this is a textbook tuck-in — the revenue contribution is meaningful to the milliCare network, the price point falls well within their bolt-on budget, and the strategic value of filling the Iowa gap far exceeds what the standalone financials would suggest.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Approach Strategy</div>
+      <div class="approach-box">
+        <p>This conversation should be framed as a selective, peer-level introduction — not a sales pitch. We represent a group of former business owners who have pooled their capital to invest in companies they believe in, and they have a particular interest in the commercial floor care space in the Midwest. We are reaching out to Riverside and the milliCare leadership team because we believe there may be a compelling opportunity to discuss a business in their target geography that aligns with their expansion strategy. The framing should emphasize that we are approaching a very short list of potential partners, and that this business is not broadly marketed — the owners are thoughtful people who care deeply about the legacy of what they have built and want to understand their options with the right kind of partner.
+
+The initial outreach to Stewart Kohl or the Riverside deal team should reference our awareness of the milliCare platform and its geographic expansion strategy. We should position ourselves as knowledgeable about their thesis and demonstrate that we have done our homework — mentioning the Clintar platform build, the franchise gap in the upper Midwest, and the Des Moines market opportunity. The tone should be consultative: we are not asking them to buy something, we are inviting them into a conversation about whether a specific market opportunity fits their roadmap. If the first contact is through Riverside's deal sourcing team rather than Kohl directly, we should tailor the message to emphasize deal-level specifics — territory size, revenue range, commercial account mix — that let the deal team quickly assess fit before escalating internally.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Talking Points</div>
+      <ul><li>milliCare's franchise map has a visible gap in the upper Midwest — Des Moines is a top-20 Midwest metro with no milliCare presence, and this business has been serving commercial accounts there for years with strong retention</li><li>The business generates approximately $900K in revenue with an established base of recurring commercial maintenance contracts — the kind of predictable revenue stream that converts cleanly into the milliCare franchise model</li><li>Des Moines is experiencing significant corporate growth with companies like Principal Financial, EMC Insurance, and major healthcare systems expanding their footprints — creating organic growth tailwinds for a milliCare-branded operation</li><li>The owner has built the business with professional operations and trained crews that could transition to milliCare brand standards with minimal disruption — this is a conversion opportunity, not a turnaround</li><li>Acquiring this operator would create a Midwest hub that positions milliCare for natural expansion into Omaha, Cedar Rapids, the Quad Cities, and Kansas City — turning one acquisition into a regional growth platform</li></ul>
+    </div>
+    <div class="two-col">
+      <div class="section">
+        <div class="section-title">Risk Factors</div>
+        <div class="risk-box">
+          <ul><li>Revenue concentration risk — at $900K, the business likely depends on a small number of large commercial accounts, and Riverside will want to see customer diversification and contract terms before proceeding</li><li>Owner dependency — Terri Holman may be deeply embedded in daily operations and customer relationships, raising transition risk if she does not stay through an earnout period or franchise conversion</li><li>Franchise conversion complexity — converting an independent operator to the milliCare brand, systems, and royalty structure requires careful negotiation, and the owner may resist ongoing royalty payments or operational constraints they did not have as an independent</li><li>Scale concerns — Riverside typically targets bolt-ons that move the needle for the platform, and a $900K revenue business may feel too small to warrant the transaction costs and integration effort unless it is packaged as part of a multi-market Midwest expansion strategy</li></ul>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Expected Timeline</div>
+        <div class="timeline-box">
+          <p>Riverside is one of the more efficient PE firms in the lower middle market, and for a bolt-on acquisition of this size, their process moves quickly once internal conviction is established. From first meaningful conversation to a signed letter of intent, expect 4-6 weeks — Riverside's deal team can assess fit rapidly because they have a clear rubric for milliCare add-ons and do not need to build an investment thesis from scratch. Due diligence on a sub-$1M revenue business is relatively light, typically 30-45 days focused on customer contracts, employee retention, equipment condition, and any environmental or liability issues. Total timeline from first call to close is realistically 90-120 days, assuming no unusual complications. Riverside may move even faster if they are actively in acquisition mode for the milliCare platform and have pre-approved capital for geographic expansion — in that scenario, the LOI could come within 3 weeks of the first substantive meeting.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    CONFIDENTIAL &mdash; PREPARED BY GILLASPY HOLDINGS &mdash; 2026
+  </div>
+</div>
+</body>
+</html>
