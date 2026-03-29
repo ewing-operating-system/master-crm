@@ -3,182 +3,167 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Buyer Dossier: Ally Services for Air Control</title>
+<title>Buyer Dossier: Ally Services | Air Control</title>
 <style>
-    @media print {
-        body { margin: 0; }
-        .page-break { page-break-before: always; }
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-        font-family: 'Georgia', 'Times New Roman', serif;
-        color: #2c2c2c;
-        background: #f8f8f8;
-        line-height: 1.6;
-    }
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        background: white;
-        box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-    }
-    .header {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-        color: white;
-        padding: 40px;
-        position: relative;
-    }
-    .header::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, #e94560, #f5a623, #e94560);
-    }
-    .header h1 {
-        font-size: 28px;
-        margin-bottom: 8px;
-        letter-spacing: -0.5px;
-    }
-    .header .subtitle {
-        font-size: 16px;
-        opacity: 0.85;
-        font-style: italic;
-    }
-    .meta-bar {
-        display: flex;
-        gap: 24px;
-        padding: 16px 40px;
-        background: #f0f0f0;
-        border-bottom: 1px solid #ddd;
-        font-size: 14px;
-        flex-wrap: wrap;
-    }
-    .meta-bar .meta-item {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    }
-    .meta-bar .label {
-        font-weight: bold;
-        color: #666;
-        text-transform: uppercase;
-        font-size: 11px;
-        letter-spacing: 0.5px;
-    }
-    .meta-bar .value {
-        color: #1a1a2e;
-        font-weight: 600;
-    }
-    .fit-score {
-        display: inline-block;
-        background: #e74c3c;
-        color: white;
-        padding: 2px 10px;
-        border-radius: 12px;
-        font-weight: bold;
-        font-size: 13px;
-    }
-    .pitch-bar {
-        padding: 20px 40px;
-        background: #fafbfc;
-        border-bottom: 2px solid #e94560;
-        font-size: 18px;
-        font-style: italic;
-        color: #333;
-        text-align: center;
-    }
-    .content {
-        padding: 32px 40px;
-    }
-    .section {
-        margin-bottom: 28px;
-    }
-    .section h2 {
-        font-size: 16px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #0f3460;
-        border-bottom: 2px solid #e8e8e8;
-        padding-bottom: 8px;
-        margin-bottom: 14px;
-    }
-    .section p {
-        margin-bottom: 12px;
-        text-align: justify;
-    }
-    .section ul {
-        padding-left: 20px;
-    }
-    .section ul li {
-        margin-bottom: 8px;
-    }
-    .section ul.risks li {
-        color: #c0392b;
-    }
-    .approach-box {
-        background: #f0f7ff;
-        border-left: 4px solid #0f3460;
-        padding: 16px 20px;
-        border-radius: 0 8px 8px 0;
-        margin-top: 12px;
-    }
-    .footer {
-        padding: 20px 40px;
-        background: #1a1a2e;
-        color: rgba(255,255,255,0.5);
-        font-size: 11px;
-        text-align: center;
-    }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f8f9fa; color: #2c3e50; line-height: 1.6;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .page { max-width: 900px; margin: 0 auto; background: white; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+  @media print { body { background: white; } .page { box-shadow: none; max-width: 100%; } }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 12px; flex-wrap: wrap; }
+  .header-meta span { font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 400; }
+  .header-meta span strong { color: rgba(255,255,255,0.95); font-weight: 600; }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #27ae60;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+  .context-bar {
+    background: #f1f5f9; border-bottom: 1px solid #e2e8f0; padding: 16px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  }
+  .context-bar .seller-info { font-size: 14px; color: #475569; }
+  .context-bar .seller-info strong { color: #1e293b; }
+  .context-bar .date { font-size: 12px; color: #94a3b8; }
+  .content { padding: 36px 48px 48px; }
+  .section { margin-bottom: 32px; }
+  .section-title {
+    font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;
+    color: #0f3460; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0;
+  }
+  .section p { font-size: 14.5px; line-height: 1.75; color: #374151; margin-bottom: 12px; white-space: pre-line; }
+  .section ul { list-style: none; padding: 0; }
+  .section ul li {
+    font-size: 14px; line-height: 1.7; color: #374151;
+    padding: 6px 0 6px 24px; position: relative; border-bottom: 1px solid #f1f5f9;
+  }
+  .section ul li:last-child { border-bottom: none; }
+  .section ul li::before {
+    content: ''; position: absolute; left: 0; top: 14px;
+    width: 8px; height: 8px; border-radius: 50%; background: #0f3460; opacity: 0.4;
+  }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  @media (max-width: 700px) {
+    .two-col { grid-template-columns: 1fr; }
+    .header { padding: 24px; } .content { padding: 24px; }
+    .context-bar { padding: 12px 24px; } .score-badge { top: 24px; right: 24px; }
+  }
+  .approach-box {
+    background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;
+    padding: 20px 24px; margin-top: 8px;
+  }
+  .approach-box p { color: #166534 !important; font-size: 14px !important; }
+  .risk-box {
+    background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px;
+    padding: 20px 24px; margin-top: 8px;
+  }
+  .risk-box li::before { background: #dc2626 !important; }
+  .risk-box li { color: #991b1b !important; border-bottom-color: #fee2e2 !important; font-size: 13.5px; }
+  .timeline-box {
+    background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px;
+    padding: 20px 24px; margin-top: 8px;
+  }
+  .timeline-box p { color: #1e40af !important; font-size: 14px !important; }
+  .footer {
+    background: #1a1a2e; color: rgba(255,255,255,0.4); text-align: center;
+    padding: 16px; font-size: 11px; letter-spacing: 1px;
+  }
 </style>
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        <h1>Ally Services</h1>
-        <div class="subtitle">Buyer Dossier &mdash; Prepared for Air Control</div>
+<div class="page">
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Ally Services</h1>
+    <div class="header-meta">
+      <span><strong>PE Roll-up</strong></span>
+      <span>Rockville, MD</span>
+      <span>Contact: <strong>Rick Schomburger</strong>, CEO</span>
     </div>
-    <div class="meta-bar">
-        <div class='meta-item'><span class='label'>Contact</span><span class='value'>Rick Schomburger</span></div>
-        <div class='meta-item'><span class='label'>Type</span><span class='value'>PE Roll-up</span></div>
-        <div class='meta-item'><span class='label'>Location</span><span class='value'>Rockville, MD</span></div>
-        <div class='meta-item'><span class='label'>Fit Score</span><span class='fit-score'>10</span></div>
+    <div class="score-badge">
+      <span class="score-num">10</span>
+      <span class="score-label">FIT</span>
     </div>
-    <div class='pitch-bar'>&ldquo;Air Control gives Ally Services instant access to the Northern Virginia HVAC market — the wealthiest, most underserved gap left in their Mid-Atlantic platform.&rdquo;</div>
-    <div class="content">
-        <div class="section">
-            <h2>Buyer Narrative</h2>
-            <p>Ally Services is a Mid-Atlantic HVAC platform backed by Watchtower Capital, a private equity firm that partners with experienced operators to build regional home services businesses through acquisition. Rick Schomburger leads Ally's acquisition strategy, which has been aggressive and disciplined — three add-on deals closed in 2025 alone (J Hood in Manassas VA, Tri-County Aire in Maryland, and Above & Beyond in Delaware), more than doubling the platform's revenue in a single year. That pace signals both committed capital and a repeatable integration playbook.</p><p>What makes Ally credible isn't just the deal count — it's the pattern. They're buying established, owner-operated HVAC companies across contiguous Mid-Atlantic markets, preserving local brands and teams while layering in shared back-office, purchasing power, and recruiting infrastructure. This is a buy-and-build thesis executed by people who understand that HVAC businesses are relationship businesses, not commodity plays. The Watchtower Capital backing means Ally has the balance sheet to move quickly and the operational support to integrate without disrupting what already works.</p><p>For a seller evaluating Ally, the key differentiator is proximity and cultural fit. These aren't distant financial engineers — they're regional operators building something in the same geography, hiring from the same labor pool, and serving the same customer base. They've proven three times in the last year that they can close, integrate, and grow without gutting the businesses they acquire.</p>
-        </div>
-        
-        <div class="section">
-            <h2>Acquisition History</h2>
-            <ul><li>J Hood HVAC — Manassas, VA (2025 add-on, expanded Virginia footprint south of DC)</li><li>Tri-County Aire — Maryland (2025 add-on, strengthened Maryland coverage)</li><li>Above & Beyond — Delaware (2025 add-on, extended platform into Delaware market)</li><li>Ally Services platform acquisition by Watchtower Capital (initial platform investment, pre-2025)</li><li>Likely evaluating additional HVAC targets across Pennsylvania, Northern Virginia, and DC metro to fill remaining geographic gaps</li></ul>
-        </div>
-        <div class="section">
-            <h2>Why This Seller</h2>
-            <p>Air Control in McLean, VA fills the most obvious gap in Ally's current footprint. Ally has Manassas to the south, Maryland to the north, and Delaware to the east — but no presence in the Northern Virginia corridor between Manassas and the DC line. McLean sits in the heart of Fairfax County, one of the wealthiest and most densely populated HVAC markets in the entire Mid-Atlantic. A $3M revenue HVAC operation with residential and commercial capabilities, an established local reputation, and experienced technicians gives Ally immediate revenue in a high-value territory without the cost or risk of a greenfield buildout. For Fred Lowry, this means Ally isn't speculating — they need this geography, and Air Control is the cleanest way to get it.</p>
-        </div>
-        <div class="section">
-            <h2>Approach Angle</h2>
-            <div class="approach-box">We represent the owners of an established HVAC company in Northern Virginia who are exploring strategic options. Frame the conversation around Ally's stated growth strategy — their three 2025 acquisitions make the thesis obvious, so lean into geographic fit rather than selling. Position it as a natural next step for a platform that's clearly building toward full Mid-Atlantic coverage. Never indicate the seller initiated the process or that the company is actively for sale.</div>
-        </div>
-        
-        <div class="section">
-            <h2>Talking Points</h2>
-            <ul><li>Ally's three 2025 acquisitions created coverage across Virginia, Maryland, and Delaware — Northern Virginia is the clear remaining gap between the Manassas and DC corridor positions</li><li>Air Control serves Fairfax County and surrounding communities — one of the highest-income, highest-density HVAC markets in the region, with year-round residential and commercial demand</li><li>The business has an experienced team in place and a loyal customer base, meaning minimal integration friction and immediate revenue contribution from day one</li><li>The owners are looking for a long-term partner who will preserve the culture and take care of the employees — not a liquidation play, which aligns with how Ally has handled its other acquisitions</li><li>This is a targeted, non-marketed process — we're having a small number of conversations with groups that fit operationally, and Ally is at the top of that list</li></ul>
-        </div>
-        
-        <div class="section">
-            <h2>Risk Factors</h2>
-            <ul class="risks"><li>Integration pace risk — three acquisitions in one year is aggressive, and adding a fourth could stretch Ally's operational and management bandwidth, especially if prior integrations aren't fully stabilized</li><li>Valuation expectations gap — McLean is a premium market and Fred may anchor on higher multiples given the territory's affluence, while Ally as a serial acquirer will push for platform-standard pricing on add-ons</li><li>Key employee retention — if Air Control's reputation is built around Fred Lowry personally or a small number of senior technicians, Ally needs a transition plan that keeps those relationships intact through the handoff</li></ul>
-        </div>
+  </div>
+  <div class="context-bar">
+    <div class="seller-info">
+      Prepared for <strong>Air Control</strong> &mdash; HVAC &mdash; McLean, VA &mdash; Est. Revenue: $3,000,000
     </div>
-    <div class="footer">
-        Generated March 29, 2026 &bull; Confidential
+    <div class="date">Generated March 29, 2026</div>
+  </div>
+  <div class="content">
+    <div class="section">
+      <div class="section-title">Buyer Profile</div>
+      <p>Ally Services is a PE-backed HVAC platform headquartered in Rockville, Maryland, led by CEO Rick Schomburger. The company operates as a roll-up vehicle backed by Watchtower Capital, a private equity firm pursuing a buy-and-build strategy in the residential and commercial HVAC services sector across the Mid-Atlantic corridor. In 2025 alone, Ally completed three add-on acquisitions — J Hood in Manassas, Virginia; Tri-County Aire in Maryland; and Above &amp; Beyond in Delaware — more than doubling the platform's revenue and dramatically expanding its geographic footprint from its Maryland base into Virginia and Delaware markets.
+
+The investment thesis is classic PE platform consolidation: acquire a fragmented base of owner-operated HVAC businesses across contiguous geographies, centralize back-office functions (accounting, HR, procurement, fleet management, marketing), retain the local brand identity and workforce, and drive margin expansion through purchasing power and operational standardization. Watchtower Capital likely underwrote a 3-5 year hold period with a target of 8-12 acquisitions to build a regional champion that commands a premium multiple on exit. The pace of three acquisitions in a single year signals they are in active deployment mode with committed capital and a streamlined diligence process.
+
+Post-acquisition, Ally appears to follow the proven home services playbook: keep the founder or GM in place for 12-24 months to ensure continuity, layer in shared services gradually, cross-train technicians across locations, and use the combined entity's scale to negotiate better terms with equipment manufacturers like Carrier, Trane, and Lennox. Rick Schomburger's role as CEO suggests he is an operating partner or professional manager brought in specifically to execute the roll-up, which means he speaks the language of EBITDA, technician utilization, and territory density — not just HVAC.</p>
     </div>
+    <div class="two-col">
+      <div class="section">
+        <div class="section-title">Acquisition History</div>
+        <ul><li>J Hood (Manassas, VA, 2025) — HVAC services company in Northern Virginia, gave Ally its first foothold in the Virginia market and Prince William County territory</li><li>Tri-County Aire (Maryland, 2025) — Maryland-based HVAC operation that deepened Ally's density in its home state and likely added commercial or multi-family capabilities</li><li>Above &amp; Beyond (Delaware, 2025) — Delaware HVAC acquisition that extended the platform into a third state, completing a tri-state Mid-Atlantic corridor from Delaware through Maryland into Virginia</li><li>Platform formation (Rockville, MD) — Original Ally Services entity established as the platform company with Watchtower Capital backing, likely acquired as the anchor deal with Schomburger installed as CEO to execute the roll-up strategy</li></ul>
+      </div>
+      <div class="section">
+        <div class="section-title">Why Air Control</div>
+        <p>Air Control, owned by Fred Lowry and based in McLean, Virginia, fills the most critical gap in Ally's current geographic footprint. While the J Hood acquisition gave Ally a presence in the Manassas/Prince William County area of Virginia, Northern Virginia's highest-value market — the Fairfax County, Arlington, and McLean corridor — remains uncovered. This is the wealthiest residential market in the entire D.C. metro area, with median home values exceeding $800,000 and homeowners who prioritize premium HVAC service and maintenance contracts. For a roll-up optimizing route density and average ticket size, McLean is the crown jewel territory. Air Control's estimated $3 million in revenue represents a digestible add-on size that fits squarely in Ally's acquisition sweet spot — large enough to move the needle but small enough to integrate without operational disruption.
+
+From an operational standpoint, Air Control's proximity to the existing Manassas location creates immediate route density benefits — technicians can be cross-deployed, emergency coverage becomes seamless, and the combined Northern Virginia presence gives Ally credible scale to pursue larger commercial contracts in Tysons Corner, Reston, and the Dulles corridor. Fred Lowry as an owner-operator likely has deep customer relationships and a tenured technician workforce — exactly the type of acquisition target PE platforms value because the revenue is sticky and the team stays. At $3M revenue, Air Control is likely running 15-25% EBITDA margins typical of well-run owner-operated HVAC shops, which means Ally would be acquiring at a 4-6x multiple on a business that will immediately benefit from centralized procurement and marketing spend.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Approach Strategy</div>
+      <div class="approach-box">
+        <p>The approach to Rick Schomburger should be framed as a peer-to-peer conversation between professionals who understand the Mid-Atlantic HVAC landscape. We represent a group of former business owners who have built and sold companies themselves and now invest in businesses they believe in — they back owners, not the stock market. We have been quietly working with a select number of HVAC companies in the Northern Virginia market and have identified a situation that aligns precisely with what Ally has been building. This is not a broad auction or a mass mailing — this is a curated, selective conversation with the two or three buyers we believe would be the right long-term home for this business.
+
+The tone should be direct and knowledgeable. Reference Ally's recent acquisition activity specifically — mention the J Hood, Tri-County Aire, and Above &amp; Beyond deals to demonstrate we have done our homework. Position the conversation as time-sensitive but not pressured: the owners are exploring their options thoughtfully and are only interested in speaking with operators who would preserve the legacy and take care of the team. Never indicate the company is for sale. Instead, frame it as owners who are evaluating what the next chapter looks like and want to understand whether a strategic partnership with a platform like Ally could make sense for both sides.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Talking Points</div>
+      <ul><li>Ally's three 2025 acquisitions demonstrate serious momentum in the Mid-Atlantic — we have been tracking your platform's growth and believe we have a situation in Northern Virginia that fits your expansion thesis perfectly</li><li>The NoVA corridor from McLean through Tysons to Arlington represents the highest average revenue per service call in the entire D.C. metro — this would give Ally premium territory it does not currently cover despite the Manassas foothold</li><li>The business has an established reputation, a loyal technician workforce, and a strong residential maintenance agreement base — exactly the profile that integrates cleanly into a platform without customer disruption</li><li>We represent former business owners who invest in companies they believe in — our clients are not financial engineers, they are operators who care about legacy and team continuity, which is why they are having this conversation selectively</li><li>Timing matters here — the owners are early in their exploration process and have not engaged broadly, so there is an opportunity to have a private, first-mover conversation before this reaches the broader market</li></ul>
+    </div>
+    <div class="two-col">
+      <div class="section">
+        <div class="section-title">Risk Factors</div>
+        <div class="risk-box">
+          <ul><li>Integration bandwidth — with three acquisitions already closed in 2025, Ally may be in digestion mode and hesitant to add a fourth platform before fully integrating existing deals, especially if back-office consolidation is still in progress</li><li>Valuation expectations — at $3M revenue, Fred Lowry may have owner-operator valuation expectations (6-8x EBITDA) that exceed what a PE platform typically pays for add-ons (4-5x), creating a bid-ask gap that requires creative structuring like earnouts or seller notes</li><li>Key-man risk — if Fred Lowry IS the business and customer relationships are concentrated in his personal network, Ally may discount the value or require a longer transition period with clawback provisions tied to customer retention</li><li>Capital deployment limits — Watchtower Capital may have allocated a specific acquisition budget for 2025-2026, and after three deals the remaining dry powder may be earmarked for a larger transformative acquisition rather than another $3M tuck-in</li></ul>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">Expected Timeline</div>
+        <div class="timeline-box">
+          <p>PE-backed HVAC platforms with active acquisition mandates and recent deal experience typically move fast. Given that Ally has closed three deals in 2025, their diligence process is already templated and their legal and accounting teams are warmed up. From first substantive conversation to indication of interest is typically 2-3 weeks. If there is mutual interest, a formal LOI would follow within 4-6 weeks of initial contact. Diligence on a $3M revenue HVAC company is straightforward — 45-60 days covering financials, customer concentration, technician employment agreements, fleet condition, and any environmental or licensing issues. Total timeline from first call to close would realistically be 90-120 days, potentially faster if Ally has standardized their purchase agreement and Watchtower's investment committee has pre-approved the acquisition parameters for add-ons below a certain threshold.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    CONFIDENTIAL &mdash; PREPARED BY GILLASPY HOLDINGS &mdash; 2026
+  </div>
 </div>
 </body>
 </html>
