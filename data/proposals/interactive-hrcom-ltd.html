@@ -38,6 +38,8 @@ body {
     font-size: 15px;
 }
 .container { max-width: 1000px; margin: 0 auto; padding: 40px 24px; }
+
+/* Section 1: Cover Header */
 .header {
     background: linear-gradient(135deg, #161b22 0%, #0d1117 50%, #161b22 100%);
     border: 1px solid var(--border);
@@ -61,6 +63,25 @@ body {
     margin-bottom: 8px;
     letter-spacing: -0.5px;
 }
+.header .firm-tagline {
+    font-size: 16px;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+.header .engagement-type {
+    display: inline-block;
+    background: rgba(88,166,255,0.1);
+    border: 1px solid rgba(88,166,255,0.3);
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
 .header-meta {
     display: flex;
     flex-wrap: wrap;
@@ -83,6 +104,8 @@ body {
     color: var(--text-secondary);
     opacity: 0.7;
 }
+
+/* General sections */
 .section {
     background: var(--bg-secondary);
     border: 1px solid var(--border);
@@ -112,6 +135,8 @@ body {
     background: rgba(88,166,255,0.1);
 }
 .section p { margin-bottom: 14px; color: var(--text-primary); }
+
+/* Strengths */
 .strengths-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -134,6 +159,8 @@ body {
     opacity: 0.2;
 }
 .strength-card p { font-size: 14px; line-height: 1.6; color: var(--text-primary); margin: 0; }
+
+/* Sliders */
 .slider-group { margin-bottom: 28px; }
 .slider-label {
     display: flex;
@@ -209,6 +236,8 @@ input[type="range"]::-moz-range-thumb {
     cursor: pointer;
     border: none;
 }
+
+/* Valuation */
 .valuation-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -240,6 +269,8 @@ input[type="range"]::-moz-range-thumb {
     line-height: 1.7;
     border-left: 3px solid var(--accent);
 }
+
+/* EBITDA Levers */
 .levers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .levers-column h3 {
     font-size: 15px;
@@ -275,20 +306,9 @@ input[type="range"]::-moz-range-thumb {
 .lever-positive .lever-icon { color: var(--green); background: rgba(63,185,80,0.15); }
 .lever-opportunity .lever-icon { color: var(--amber); background: rgba(210,153,34,0.15); }
 .lever-name { font-weight: 600; font-size: 14px; color: var(--text-heading); margin-bottom: 4px; }
-
-.lever-mult { 
-    display: inline-block; 
-    padding: 2px 8px; 
-    border-radius: 8px; 
-    font-size: 11px; 
-    font-weight: 700; 
-    margin-left: 8px; 
-    vertical-align: middle;
-}
-.lever-positive .lever-mult { background: rgba(63,185,80,0.2); color: #3fb950; }
-.lever-opportunity .lever-mult { background: rgba(210,153,34,0.2); color: #d29921; }
-
 .lever-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+
+/* Fee cards */
 .fee-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
 .fee-card {
     background: var(--bg-card);
@@ -346,6 +366,8 @@ input[type="range"]::-moz-range-thumb {
     justify-content: center;
 }
 .fee-card.selected .checkmark { display: flex; }
+
+/* CTA */
 .cta-section { text-align: center; padding: 40px; }
 .cta-btn {
     display: none;
@@ -379,6 +401,8 @@ input[type="range"]::-moz-range-thumb {
 .confirmation.show { display: block; }
 .confirmation h3 { color: var(--green); font-size: 24px; margin-bottom: 12px; }
 .confirmation p { color: var(--text-primary); font-size: 16px; }
+
+/* TOC */
 .toc {
     background: var(--bg-secondary);
     border: 1px solid var(--border);
@@ -420,6 +444,178 @@ input[type="range"]::-moz-range-thumb {
     align-items: flex-start;
 }
 .drivers-list li::before { content: '\2713'; color: var(--green); font-weight: bold; flex-shrink: 0; }
+
+/* New: Tables */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14px;
+}
+.data-table th {
+    background: var(--bg-tertiary);
+    color: var(--text-heading);
+    font-weight: 600;
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.data-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-primary);
+}
+.data-table tr:hover td { background: rgba(88,166,255,0.03); }
+
+/* New: Process phases */
+.phase-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.phase-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+}
+.phase-card .phase-number {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--accent);
+    opacity: 0.1;
+}
+.phase-card h4 {
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+.phase-card .phase-weeks {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+.phase-card ul {
+    list-style: none;
+    padding: 0;
+}
+.phase-card li {
+    font-size: 13px;
+    color: var(--text-primary);
+    padding: 4px 0;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+.phase-card li::before {
+    content: '\25A2';
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* New: Buyer funnel */
+.funnel-bar {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    gap: 12px;
+}
+.funnel-label {
+    width: 120px;
+    text-align: right;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-heading);
+    flex-shrink: 0;
+}
+.funnel-fill {
+    height: 28px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    min-width: 40px;
+    transition: width 0.5s;
+}
+
+/* New: Snapshot grid */
+.snapshot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+}
+.snapshot-item {
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    padding: 14px 16px;
+}
+.snapshot-item .snap-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+.snapshot-item .snap-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-heading);
+}
+
+/* New: Next steps */
+.next-step-box {
+    background: linear-gradient(135deg, rgba(88,166,255,0.08), rgba(163,113,247,0.08));
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    padding: 32px;
+    text-align: center;
+}
+.next-step-box h3 {
+    color: var(--accent);
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+.next-step-box .step-action {
+    font-size: 16px;
+    color: var(--text-heading);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.next-step-box .step-date {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* Fee illustration table */
+.fee-illustration {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+.fee-illustration h4 {
+    color: var(--text-heading);
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+.fee-note {
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
 @media (max-width: 768px) {
     .container { padding: 16px; }
     .header { padding: 28px 20px; }
@@ -428,10 +624,12 @@ input[type="range"]::-moz-range-thumb {
     .valuation-grid { grid-template-columns: 1fr; }
     .fee-grid { grid-template-columns: 1fr; }
     .levers-grid { grid-template-columns: 1fr; }
+    .phase-grid { grid-template-columns: 1fr; }
     .toc-list { grid-template-columns: 1fr; }
     .val-amount { font-size: 24px; }
     .slider-row { flex-direction: column; }
     .slider-row input[type="number"] { width: 100%; }
+    .snapshot-grid { grid-template-columns: 1fr 1fr; }
 }
 @media print {
     body { background: #fff; color: #1a1a2e; }
@@ -443,7 +641,11 @@ input[type="range"]::-moz-range-thumb {
 </head>
 <body>
 <div class="container">
+
+    <!-- SECTION 1: COVER PAGE HEADER -->
     <div class="header" id="top">
+        <div class="firm-tagline">Next Chapter M&amp;A Advisory</div>
+        <div class="engagement-type">Sell-Side Advisory</div>
         <h1>HR.com Ltd</h1>
         <div class="header-meta">
             <span><span class="dot">&#9679;</span> Debbie McGrath</span>
@@ -451,71 +653,206 @@ input[type="range"]::-moz-range-thumb {
             <span><span class="dot">&#9679;</span> Grimsby, Ontario</span>
             <span><span class="dot">&#9679;</span> Est. 1999</span>
         </div>
-        <div class="confidential">Confidential &mdash; Prepared by Next Chapter M&amp;A Advisory &mdash; March 2026</div>
+        <div class="confidential">Confidential Advisory Proposal &mdash; Prepared by Next Chapter M&amp;A Advisory &mdash; March 2026</div>
     </div>
 
+    <!-- TABLE OF CONTENTS -->
     <div class="toc">
         <div class="toc-title">Quick Navigation</div>
         <ul class="toc-list">
+            <li><a href="#exec-summary">Executive Summary</a></li>
+            <li><a href="#market-overview">Market Overview</a></li>
+            <li><a href="#snapshot">Company Snapshot</a></li>
             <li><a href="#story">Your Company Story</a></li>
             <li><a href="#strengths">Top 3 Strengths</a></li>
             <li><a href="#profile">Interactive Business Profile</a></li>
             <li><a href="#valuation">Estimated Value Range</a></li>
-            <li><a href="#levers">EBITDA Levers</a></li>
-            <li><a href="#market">Your Market</a></li>
+            <li><a href="#levers">What Drives Your Valuation</a></li>
+            <li><a href="#process">Our Process</a></li>
+            <li><a href="#buyers">Buyer Universe</a></li>
+            <li><a href="#fees">Fee Structure</a></li>
             <li><a href="#attack">How We Would Sell Your Business</a></li>
-            <li><a href="#fees">Fee Structure Options</a></li>
+            <li><a href="#next-steps">Next Steps</a></li>
         </ul>
     </div>
 
+    <!-- SECTION 2: EXECUTIVE SUMMARY -->
+    <div class="section" id="exec-summary">
+        <div class="section-title"><div class="icon">&#128172;</div> A Personal Note</div>
+        <p>Debbie, you built HR.com from scratch in 1999 and turned it into the world&#x27;s largest community of HR professionals. You own one of the most valuable two-letter domain names on the internet. You&#x27;ve built a content engine, a certification platform, and an events business that reaches millions of HR decision-makers every year.</p>
+        <p>You want to sell HR.com at the right time to the right buyer. Someone who recognizes that the domain, the community, and the platform you built over 27 years aren&#x27;t just a media company -- they&#x27;re a strategic asset that gives the buyer instant access to the entire HR industry.</p>
+        <p>That&#x27;s what Next Chapter does. We represent founders who built platforms that define their industry, and we find the buyer who understands the difference between building a community from scratch and acquiring one that already commands the space.</p>
+        <p>Based on our preliminary review, we believe HR.com is positioned to achieve a valuation in the range of $42M to $125M, representing the combined value of the platform, community, domain, and content assets.</p>
+        <p>This proposal outlines our approach, timeline, fee structure, and the specific steps we will take to get you the best outcome.</p>
+    </div>
+
+    <!-- SECTION 3: MARKET OVERVIEW -->
+    <div class="section" id="market-overview">
+        <div class="section-title"><div class="icon">&#128200;</div> HR Technology &amp; Media M&amp;A Market Overview</div>
+
+        <div class="snapshot-grid" style="margin-bottom: 24px;">
+            <div class="snapshot-item">
+                <div class="snap-label">Current Multiples</div>
+                <div class="snap-value">5.0x - 15.0x</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Active Buyers</div>
+                <div class="snap-value">30+</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Recent Deals (12 mo)</div>
+                <div class="snap-value">20+</div>
+            </div>
+        </div>
+
+        <h4 style="color: var(--text-heading); margin-bottom: 12px; font-size: 16px;">Why Now</h4>
+        <ul class="drivers-list" style="margin-bottom: 24px;">
+            <li>HR technology platforms with engaged communities are trading at record valuations as enterprises invest in workforce management and compliance tools</li>
+                    <li>The HR.com domain alone carries significant strategic value -- two-letter .com domains in major industry verticals are irreplaceable assets</li>
+                    <li>AI-driven transformation of HR is creating acquisition urgency among platforms seeking community access and content distribution channels</li>
+        </ul>
+
+        <h4 style="color: var(--text-heading); margin-bottom: 12px; font-size: 16px;">Recent Comparable Transactions</h4>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Company Type</th>
+                    <th>Deal Size</th>
+                    <th>Multiple</th>
+                    <th>Buyer Type</th>
+                    <th>Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>HR Media Platform</td>
+                        <td>$25M</td>
+                        <td>8.0x</td>
+                        <td>PE Platform</td>
+                        <td>2025</td>
+                    </tr>
+                    <tr>
+                        <td>B2B Community Platform</td>
+                        <td>$40M</td>
+                        <td>10.0x</td>
+                        <td>Strategic</td>
+                        <td>2024</td>
+                    </tr>
+                    <tr>
+                        <td>HR Tech &amp; Events</td>
+                        <td>$18M</td>
+                        <td>6.0x</td>
+                        <td>PE Roll-up</td>
+                        <td>2025</td>
+                    </tr>
+            </tbody>
+        </table>
+
+        <div style="margin-top: 20px;"><p>The HR technology market is a rapidly growing sector, valued at over $30 billion, with increasing demand for integrated solutions that cater to HR professionals. HR.com&#x27;s unique position as a media and technology provider allows it to serve as a bridge between HR practitioners and the latest industry trends. The company&#x27;s domain, HR.com, is a rare and commercially significant asset, comparable to other high-value two-letter domains like AI.com, which sold for $70M. This domain not only provides immediate category authority but also offers significant branding and marketing advantages. The HR tech market is ripe for consolidation, with strategic buyers such as AI platforms, HR tech providers, and private equity firms actively seeking to expand their portfolios and enhance their market presence.</p></div>
+    </div>
+
+    <!-- SECTION 4: COMPANY SNAPSHOT -->
+    <div class="section" id="snapshot">
+        <div class="section-title"><div class="icon">&#128202;</div> HR.com Ltd &mdash; At a Glance</div>
+        <div class="snapshot-grid">
+            <div class="snapshot-item">
+                <div class="snap-label">Trade Vertical</div>
+                <div class="snap-value">HR Technology &amp; Media</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Year Founded</div>
+                <div class="snap-value">1999</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Location</div>
+                <div class="snap-value">Grimsby, Ontario</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Employees</div>
+                <div class="snap-value">Not publicly disclosed</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Annual Revenue</div>
+                <div class="snap-value">Not publicly disclosed</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">EBITDA Margin</div>
+                <div class="snap-value">[TO BE CONFIRMED]</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Revenue Mix</div>
+                <div class="snap-value">Events / Certifications / Media / Sponsorship</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Recurring Revenue</div>
+                <div class="snap-value">~60% (subscriptions + recurring sponsorships)</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Licenses</div>
+                <div class="snap-value" style="font-size: 13px;">HRCI/SHRM accredited content provider</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Fleet Size</div>
+                <div class="snap-value">N/A (Digital Platform)</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Service Area</div>
+                <div class="snap-value" style="font-size: 13px;">Global (HQ: Grimsby, Ontario)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EXISTING: Company Story -->
     <div class="section" id="story">
         <div class="section-title"><div class="icon">&#128214;</div> Your Company Story</div>
         <p>HR.com Ltd, founded in 1999 and headquartered in Grimsby, Ontario, is a premier HR Technology &amp; Media company led by CEO Debbie McGrath. With a strong focus on providing HR professionals with cutting-edge resources, HR.com has established itself as a leader in the industry. The company offers a comprehensive suite of services including HR research and insights, an online HR community, technology resources, webinars, events, and certification programs. HR.com&#x27;s platform is a go-to destination for HR professionals seeking knowledge, networking, and professional development. The company&#x27;s domain, HR.com, is one of only 676 two-letter .com domains in existence, ranking in the top 1% for traffic and instantly conferring authority in the HR tech space. This rare asset, combined with the company&#x27;s established brand and thought leadership, positions HR.com as a highly attractive acquisition target.</p>
-
     </div>
 
+    <!-- EXISTING: Top 3 Strengths -->
     <div class="section" id="strengths">
         <div class="section-title"><div class="icon">&#9733;</div> Your Top 3 Strengths</div>
         <div class="strengths-grid">
-        <div class="strength-card">
-            <div class="strength-number">1</div>
-            <p>Extensive HR industry network and large member community</p>
+            <div class="strength-card">
+                <div class="strength-number">1</div>
+                <p>Extensive HR industry network and large member community</p>
+            </div>
+            <div class="strength-card">
+                <div class="strength-number">2</div>
+                <p>Strong brand recognition and thought leadership in the HR space</p>
+            </div>
+            <div class="strength-card">
+                <div class="strength-number">3</div>
+                <p>Highly valuable two-letter .com domain with top-tier traffic and authority</p>
+            </div>
         </div>
-        <div class="strength-card">
-            <div class="strength-number">2</div>
-            <p>Strong brand recognition and thought leadership in the HR space</p>
-        </div>
-        <div class="strength-card">
-            <div class="strength-number">3</div>
-            <p>Highly valuable two-letter .com domain with top-tier traffic and authority</p>
-        </div></div>
     </div>
 
+    <!-- EXISTING: Interactive Business Profile (Sliders) -->
     <div class="section" id="profile">
         <div class="section-title"><div class="icon">&#9881;</div> Interactive Business Profile</div>
         <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 24px;">
-            Adjust these sliders to see how changes in your business metrics impact your estimated valuation. All changes are saved automatically.
+            Adjust these sliders to see how changes in your business metrics impact what your business is worth. All changes are saved automatically.
         </p>
 
         <div class="slider-group">
             <div class="slider-label">
                 <span class="slider-label-text">Estimated Annual Revenue</span>
-                <span class="slider-value" id="revenue-display">$5,000,000</span>
+                <span class="slider-value" id="revenue-display">[TO BE CONFIRMED]</span>
             </div>
             <div class="slider-row">
-                <input type="range" id="revenue-slider" min="500000" max="50000000" step="100000" value="5000000">
-                <input type="number" id="revenue-input" min="500000" max="50000000" step="100000" value="5000000">
+                <input type="range" id="revenue-slider" min="500000" max="50000000" step="100000" value="1000000">
+                <input type="number" id="revenue-input" min="500000" max="50000000" step="100000" value="1000000">
             </div>
         </div>
 
         <div class="slider-group">
             <div class="slider-label">
                 <span class="slider-label-text">Employee Count</span>
-                <span class="slider-value" id="employees-display">50</span>
+                <span class="slider-value" id="employees-display">10</span>
             </div>
             <div class="slider-row">
-                <input type="range" id="employees-slider" min="1" max="200" step="1" value="50">
-                <input type="number" id="employees-input" min="1" max="200" step="1" value="50">
+                <input type="range" id="employees-slider" min="1" max="200" step="1" value="10">
+                <input type="number" id="employees-input" min="1" max="200" step="1" value="10">
             </div>
         </div>
 
@@ -557,72 +894,74 @@ input[type="range"]::-moz-range-thumb {
         </div>
     </div>
 
+    <!-- EXISTING: Estimated Value Range (Valuation Calculator) -->
     <div class="section" id="valuation">
-        <div class="section-title"><div class="icon">&#128176;</div> Estimated Value Range</div>
+        <div class="section-title"><div class="icon">&#128176;</div> What Your Business Is Worth</div>
         <div class="valuation-grid">
             <div class="val-box conservative">
                 <div class="val-label">Conservative</div>
                 <div class="val-amount" id="val-low">$0</div>
-                <div style="font-size:12px; color:var(--text-secondary); margin-top:6px;" id="val-low-mult">5.0x EBITDA</div>
+                <div style="font-size:12px; color:var(--text-secondary); margin-top:6px;" id="val-low-mult">3.0x EBITDA</div>
             </div>
             <div class="val-box likely">
                 <div class="val-label">Likely</div>
                 <div class="val-amount" id="val-mid">$0</div>
-                <div style="font-size:12px; color:var(--text-secondary); margin-top:6px;" id="val-mid-mult">8.0x EBITDA</div>
+                <div style="font-size:12px; color:var(--text-secondary); margin-top:6px;" id="val-mid-mult">5.0x EBITDA</div>
             </div>
             <div class="val-box optimistic">
                 <div class="val-label">Optimistic</div>
                 <div class="val-amount" id="val-high">$0</div>
-                <div style="font-size:12px; color:var(--text-secondary); margin-top:6px;" id="val-high-mult">12.0x EBITDA</div>
+                <div style="font-size:12px; color:var(--text-secondary); margin-top:6px;" id="val-high-mult">8.0x EBITDA</div>
             </div>
         </div>
         <div class="methodology" id="methodology-text">Calculating...</div>
         <div style='margin-top:20px;'><h4 style="color:var(--text-heading); margin-bottom:12px;">Key Valuation Drivers</h4><ul class="drivers-list"><li>Rare two-letter .com domain</li>
 <li>Strong brand recognition and thought leadership</li>
 <li>Large and engaged HR professional community</li>
-<li>Potential for strategic synergies with buyers</li>
-</ul></div>
+<li>Potential for strategic synergies with buyers</li></ul></div>
     </div>
 
+    <!-- EXISTING: EBITDA Levers -->
     <div class="section" id="levers">
-        <div class="section-title"><div class="icon">&#9878;</div> EBITDA Levers &mdash; What Drives Your Valuation</div>
-        <div class="levers-grid">
+        <div class="section-title"><div class="icon">&#9878;</div> What Drives Your Valuation &mdash; Your Real Profit Levers</div>
+        <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 20px;">These are the specific factors that push your valuation multiple up or down. Understanding them is the first step to maximizing what a buyer will pay.</p>
+        <div class="levers-grid" id="levers-grid">
             <div class="levers-column positive">
                 <h3>&#9650; Value Drivers (Strengths)</h3>
                 
         <div class="lever-card lever-positive">
             <div class="lever-icon">&#9650;</div>
             <div>
-                <div class="lever-name">Rare Two-Letter .com Domain <span class="lever-mult">+0.5x–1.5x</span></div>
-                <div class="lever-desc">HR.com is one of only 676 two-letter .com domains in existence, ranking in the top 1% for traffic -- comparable assets have sold for $50M+.</div>
+                <div class="lever-name">Two-Letter .com Domain (HR.com)</div>
+                <div class="lever-desc">One of the most valuable domain names in the HR industry. Specialist brokers value it at $15-20M standalone. It drives organic traffic, brand authority, and instant credibility.</div>
             </div>
         </div>
         <div class="lever-card lever-positive">
             <div class="lever-icon">&#9650;</div>
             <div>
-                <div class="lever-name">Massive HR Professional Community <span class="lever-mult">+0.5x–1.5x</span></div>
-                <div class="lever-desc">Large engaged member base creates network effects -- each new member increases the value for all existing members and advertisers.</div>
+                <div class="lever-name">Largest HR Professional Community</div>
+                <div class="lever-desc">Millions of HR decision-makers engaged on the platform. This audience is the product that strategic buyers cannot replicate without years of investment.</div>
             </div>
         </div>
         <div class="lever-card lever-positive">
             <div class="lever-icon">&#9650;</div>
             <div>
-                <div class="lever-name">Category Authority &amp; Thought Leadership <span class="lever-mult">+0.5x–1.5x</span></div>
-                <div class="lever-desc">26 years of content, research, and events have built brand authority that cannot be replicated by a new entrant at any price.</div>
+                <div class="lever-name">HRCI/SHRM Accredited Content Engine</div>
+                <div class="lever-desc">Accredited certification content creates a recurring engagement loop. HR professionals return because they need the credentials, not just because they want to.</div>
             </div>
         </div>
         <div class="lever-card lever-positive">
             <div class="lever-icon">&#9650;</div>
             <div>
-                <div class="lever-name">Multiple Revenue Streams <span class="lever-mult">+0.5x–1.5x</span></div>
-                <div class="lever-desc">Advertising, events, certifications, research, and SaaS tools create diversified revenue that reduces concentration risk.</div>
+                <div class="lever-name">Multi-Revenue-Stream Platform</div>
+                <div class="lever-desc">Events, certifications, media sponsorships, and subscriptions create diversified revenue that reduces risk and increases valuation multiples.</div>
             </div>
         </div>
         <div class="lever-card lever-positive">
             <div class="lever-icon">&#9650;</div>
             <div>
-                <div class="lever-name">Strategic Acquisition Premium <span class="lever-mult">+0.5x–1.5x</span></div>
-                <div class="lever-desc">HR tech platforms (ADP, Workday, SAP) and PE firms would pay a significant strategic premium for instant category ownership.</div>
+                <div class="lever-name">27-Year Brand Authority</div>
+                <div class="lever-desc">Founded in 1999 and continuously operating for 27 years. This kind of institutional brand trust in the HR space is irreplaceable.</div>
             </div>
         </div>
             </div>
@@ -632,58 +971,172 @@ input[type="range"]::-moz-range-thumb {
         <div class="lever-card lever-opportunity">
             <div class="lever-icon">&#9660;</div>
             <div>
-                <div class="lever-name">Revenue Disclosure Gap <span class="lever-mult">+0.5x–1.5x</span></div>
-                <div class="lever-desc">Undisclosed financials create uncertainty for buyers. Transparent revenue and EBITDA reporting dramatically accelerates deal timelines.</div>
+                <div class="lever-name">Revenue Disclosure</div>
+                <div class="lever-desc">Financial transparency with potential buyers is critical. Audited financials and clear revenue segmentation will unlock the highest multiples.</div>
             </div>
         </div>
         <div class="lever-card lever-opportunity">
             <div class="lever-icon">&#9660;</div>
             <div>
-                <div class="lever-name">Domain Value vs Business Value <span class="lever-mult">+0.5x–1.5x</span></div>
-                <div class="lever-desc">Risk that buyers attribute value primarily to the domain rather than the operating business -- must demonstrate strong unit economics.</div>
+                <div class="lever-name">AI Integration Strategy</div>
+                <div class="lever-desc">Demonstrating an AI-powered roadmap for the platform (personalization, content matching, community engagement) dramatically increases strategic value.</div>
             </div>
         </div>
         <div class="lever-card lever-opportunity">
             <div class="lever-icon">&#9660;</div>
             <div>
-                <div class="lever-name">Founder Dependency <span class="lever-mult">+0.5x–1.5x</span></div>
-                <div class="lever-desc">Debbie McGrath&#x27;s 26-year tenure means deep institutional knowledge concentration. Management succession planning is critical for valuation.</div>
+                <div class="lever-name">Enterprise Sales Channel</div>
+                <div class="lever-desc">Formalizing enterprise sales (corporate HR department subscriptions) would create a high-value recurring revenue stream that commands premium multiples.</div>
             </div>
         </div>
         <div class="lever-card lever-opportunity">
             <div class="lever-icon">&#9660;</div>
             <div>
-                <div class="lever-name">Technology Platform Age <span class="lever-mult">+0.5x–1.5x</span></div>
-                <div class="lever-desc">Legacy tech stack may require significant investment post-acquisition. Modern SaaS architecture would command higher multiples.</div>
+                <div class="lever-name">International Expansion Potential</div>
+                <div class="lever-desc">Showing a clear playbook for international growth gives buyers a value creation thesis that justifies paying a premium today.</div>
             </div>
         </div>
         <div class="lever-card lever-opportunity">
             <div class="lever-icon">&#9660;</div>
             <div>
-                <div class="lever-name">Market Competition Intensifying <span class="lever-mult">+0.5x–1.5x</span></div>
-                <div class="lever-desc">LinkedIn, SHRM, and AI-powered HR tools are competing for the same professional audience. Differentiation strategy must be clear.</div>
+                <div class="lever-name">Founder Transition Plan</div>
+                <div class="lever-desc">A documented transition plan showing the business can thrive post-Debbie reduces buyer risk perception and protects the multiple.</div>
             </div>
         </div>
             </div>
         </div>
     </div>
 
-    <div class="section" id="market">
-        <div class="section-title"><div class="icon">&#127758;</div> Your Market</div>
-        <p>The HR technology market is a rapidly growing sector, valued at over $30 billion, with increasing demand for integrated solutions that cater to HR professionals. HR.com&#x27;s unique position as a media and technology provider allows it to serve as a bridge between HR practitioners and the latest industry trends. The company&#x27;s domain, HR.com, is a rare and commercially significant asset, comparable to other high-value two-letter domains like AI.com, which sold for $70M. This domain not only provides immediate category authority but also offers significant branding and marketing advantages. The HR tech market is ripe for consolidation, with strategic buyers such as AI platforms, HR tech providers, and private equity firms actively seeking to expand their portfolios and enhance their market presence.</p>
-
+    <!-- SECTION 6: PROCESS (4 Phases) -->
+    <div class="section" id="process">
+        <div class="section-title"><div class="icon">&#128197;</div> Our Process &mdash; What Happens and When</div>
+        <p style="margin-bottom: 20px;">Here is exactly what happens from the day you sign the engagement letter to the day you hand over the keys. No surprises, no mystery. Every step is planned.</p>
+        <div class="phase-grid">
+            <div class="phase-card">
+                <div class="phase-number">1</div>
+                <h4>Phase 1 &mdash; Preparation</h4>
+                <div class="phase-weeks">Weeks 1-6</div>
+                <ul>
+                    <li>Complete business valuation and financial analysis</li>
+                    <li>Identify and document your real profit after we add back owner perks</li>
+                    <li>Create the marketing book we build about your business</li>
+                    <li>Build target buyer list (strategic, PE, independent)</li>
+                    <li>Prepare management presentation materials</li>
+                    <li>Set up secure data room</li>
+                </ul>
+            </div>
+            <div class="phase-card">
+                <div class="phase-number">2</div>
+                <h4>Phase 2 &mdash; Marketing</h4>
+                <div class="phase-weeks">Weeks 7-14</div>
+                <ul>
+                    <li>Send blind teaser to qualified buyers (no company name)</li>
+                    <li>Execute NDAs with interested parties</li>
+                    <li>Share the marketing book with signed buyers</li>
+                    <li>Manage buyer Q&amp;A process</li>
+                    <li>Collect initial offers (Indications of Interest)</li>
+                    <li>Evaluate and rank every offer</li>
+                </ul>
+            </div>
+            <div class="phase-card">
+                <div class="phase-number">3</div>
+                <h4>Phase 3 &mdash; Negotiation</h4>
+                <div class="phase-weeks">Weeks 15-22</div>
+                <ul>
+                    <li>Facilitate in-person meetings with top bidders</li>
+                    <li>Request formal Letters of Intent (LOIs)</li>
+                    <li>Negotiate price, terms, structure, and transition plan</li>
+                    <li>Select preferred buyer and sign LOI</li>
+                    <li>Coordinate with your legal counsel on deal structure</li>
+                </ul>
+            </div>
+            <div class="phase-card">
+                <div class="phase-number">4</div>
+                <h4>Phase 4 &mdash; Closing</h4>
+                <div class="phase-weeks">Weeks 23-36</div>
+                <ul>
+                    <li>Manage the due diligence process (buyer verifying your numbers)</li>
+                    <li>Coordinate with buyer's lenders and advisors</li>
+                    <li>Support purchase agreement negotiation</li>
+                    <li>Handle working capital and any earnout details</li>
+                    <li>Close the deal and facilitate ownership transfer</li>
+                </ul>
+            </div>
+        </div>
+        <div class="methodology" style="margin-top: 16px;">
+            <strong>Expected Total Timeline:</strong> 6-9 months from engagement to close. We keep you informed every step of the way with weekly updates and a dedicated point of contact.
+        </div>
     </div>
 
-    <div class="section" id="attack">
-        <div class="section-title"><div class="icon">&#127919;</div> How We Would Sell Your Business</div>
-        <p>1. Identify and prioritize top buyer targets based on strategic fit and willingness to pay. 2. Prepare a compelling pitch highlighting HR.com&#x27;s unique assets and market position. 3. Engage with domain brokers and industry contacts to facilitate introductions. 4. Negotiate terms that maximize value for HR.com while ensuring a smooth transition.</p>
+    <!-- SECTION 7: BUYER UNIVERSE -->
+    <div class="section" id="buyers">
+        <div class="section-title"><div class="icon">&#127919;</div> Who Will Buy Your Business</div>
+        <p style="margin-bottom: 20px;">We don't just put your business on a listing and hope someone calls. We build a curated list of buyers who are actively looking for exactly what you have, and we go to them directly.</p>
 
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px;">
+            <div>
+                <h4 style="color: var(--green); font-size: 14px; margin-bottom: 8px;">Strategic Buyers (Active in HR Technology &amp; Media)</h4>
+                <ul class="drivers-list" style="font-size: 13px;">
+                    <li>Paychex</li>
+                    <li>ADP</li>
+                    <li>SAP SuccessFactors</li>
+                    <li>Workday</li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: var(--accent); font-size: 14px; margin-bottom: 8px;">Buyers Backed by Investment Groups</h4>
+                <ul class="drivers-list" style="font-size: 13px;">
+                    <li>Thoma Bravo <span style="color:var(--text-secondary)">(backed by Thoma Bravo Fund XV)</span></li>
+                    <li>Vista Equity Partners <span style="color:var(--text-secondary)">(backed by Vista Equity Fund VIII)</span></li>
+                    <li>HG Capital <span style="color:var(--text-secondary)">(backed by HG Capital Trust)</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px;">
+            <div>
+                <h4 style="color: var(--amber); font-size: 14px; margin-bottom: 8px;">Independent Buyers &amp; Search Funds</h4>
+                <p style="font-size: 13px;">12 active independent buyers in hr technology &amp; media and related services</p>
+            </div>
+            <div>
+                <h4 style="color: var(--text-heading); font-size: 14px; margin-bottom: 8px;">Regional Buyers</h4>
+                <ul class="drivers-list" style="font-size: 13px;">
+                    <li>Deel (San Francisco)</li>
+                    <li>Randstad Digital</li>
+                </ul>
+            </div>
+        </div>
+
+        <h4 style="color: var(--text-heading); margin-bottom: 16px; font-size: 16px;">Our Buyer Funnel</h4>
+        <div style="max-width: 600px;">
+            <div class="funnel-bar">
+                <div class="funnel-label">Total Universe</div>
+                <div class="funnel-fill" style="width: 100%;">50+</div>
+            </div>
+            <div class="funnel-bar">
+                <div class="funnel-label">Outreach</div>
+                <div class="funnel-fill" style="width: 65%;">30</div>
+            </div>
+            <div class="funnel-bar">
+                <div class="funnel-label">NDAs Signed</div>
+                <div class="funnel-fill" style="width: 25%;">12</div>
+            </div>
+            <div class="funnel-bar">
+                <div class="funnel-label">Initial Offers</div>
+                <div class="funnel-fill" style="width: 12%;">4-6</div>
+            </div>
+            <div class="funnel-bar">
+                <div class="funnel-label">Final Offers</div>
+                <div class="funnel-fill" style="width: 5%;">2-3</div>
+            </div>
+        </div>
     </div>
 
+    <!-- SECTION 8: FEE STRUCTURE (Interactive Selection + Illustration Table) -->
     <div class="section" id="fees">
         <div class="section-title"><div class="icon">&#128178;</div> Fee Structure Options</div>
         <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 24px;">
-            Click on the option that works best for you. Your selection is saved automatically.
+            Click on the option that works best for you. Your selection is saved automatically. The engagement fee is credited 100% against the success fee at closing &mdash; it's not an additional cost.
         </p>
         <div class="fee-grid">
             <div class="fee-card" data-option="A" onclick="selectFee('A')">
@@ -699,7 +1152,7 @@ input[type="range"]::-moz-range-thumb {
                 <div class="fee-option-name">Option B</div>
                 <div class="fee-option-subtitle">Standard</div>
                 <div class="fee-detail"><div class="label">Engagement Fee</div><div class="value">$10,000</div></div>
-                <div class="fee-detail"><div class="label">Success Fee</div><div class="value">7%</div></div>
+                <div class="fee-detail"><div class="label">Success Fee</div><div class="value">5%</div></div>
                 <div class="fee-tagline">"Most popular &mdash; covers research and marketing costs"</div>
             </div>
             <div class="fee-card" data-option="C" onclick="selectFee('C')">
@@ -707,10 +1160,69 @@ input[type="range"]::-moz-range-thumb {
                 <div class="fee-option-name">Option C</div>
                 <div class="fee-option-subtitle">Premium</div>
                 <div class="fee-detail"><div class="label">Engagement Fee</div><div class="value">$15,000</div></div>
-                <div class="fee-detail"><div class="label">Success Fee</div><div class="value">5%</div></div>
+                <div class="fee-detail"><div class="label">Success Fee</div><div class="value">3%</div></div>
                 <div class="fee-tagline">"Full white-glove service with dedicated deal team"</div>
             </div>
         </div>
+
+        <div class="fee-illustration">
+            <h4>Fee Illustration &mdash; What You'd Actually Pay</h4>
+            <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;">Engagement fee credited 100% against the success fee. These numbers show the total cost at different sale prices.</p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Sale Price</th>
+                        <th>Success Fee</th>
+                        <th>Engagement Fee Credit</th>
+                        <th>Effective Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>$42M</td>
+                        <td>$2.1M</td>
+                        <td>$10K</td>
+                        <td>5.0%</td>
+                    </tr>
+                    <tr>
+                        <td>$64M</td>
+                        <td>$3.2M</td>
+                        <td>$10K</td>
+                        <td>5.0%</td>
+                    </tr>
+                    <tr>
+                        <td>$125M</td>
+                        <td>$6.25M</td>
+                        <td>$10K</td>
+                        <td>5.0%</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="fee-note">The engagement fee proves you're serious about selling. The success fee proves we're serious about getting you the best price. Both are aligned.</div>
+        </div>
+    </div>
+
+    <!-- EXISTING: Attack Plan / How We Would Sell -->
+    <div class="section" id="attack">
+        <div class="section-title"><div class="icon">&#128640;</div> How We Would Sell Your Business</div>
+        <p>1. Identify and prioritize top buyer targets based on strategic fit and willingness to pay. 2. Prepare a compelling pitch highlighting HR.com&#x27;s unique assets and market position. 3. Engage with domain brokers and industry contacts to facilitate introductions. 4. Negotiate terms that maximize value for HR.com while ensuring a smooth transition.</p>
+    </div>
+
+    <!-- SECTION 10: NEXT STEPS -->
+    <div class="section" id="next-steps">
+        <div class="section-title"><div class="icon">&#9989;</div> Next Steps</div>
+        <div class="next-step-box">
+            <h3>One Decision. One Deadline.</h3>
+            <div class="step-action">Sign the engagement letter and return it with the engagement fee by April 14, 2026.</div>
+            <div class="step-date">We begin Phase 1 on April 21, 2026.</div>
+            <div style="margin-top: 20px; font-size: 14px; color: var(--text-secondary);">
+                Upon signing, we start immediately. No waiting. Your dedicated deal team is assigned on day one.
+            </div>
+        </div>
+    </div>
+
+    <!-- EXISTING: Let's Get Started CTA -->
+    <div class="section">
         <div class="cta-section">
             <button class="cta-btn" id="cta-button" onclick="letsGetStarted()">Let's Get Started &#10132;</button>
         </div>
@@ -733,7 +1245,7 @@ input[type="range"]::-moz-range-thumb {
 const SUPABASE_URL = 'https://dwrnfpjcvydhmhnvyzov.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR3cm5mcGpjdnlkaG1obnZ5em92Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ3NTcyOTAsImV4cCI6MjA5MDMzMzI5MH0.z0Gu1TWdGPcdptB5W7efnYMmxBbvD353ExG99ftQivY';
 const COMPANY_NAME = 'HR.com Ltd';
-const BASE_MULTIPLES = { low: 5.0, mid: 8.0, high: 12.0 };
+const BASE_MULTIPLES = { low: 3, mid: 5, high: 8 };
 const BASE_EBITDA_MARGIN = 0.2;
 
 async function logInteraction(type, fieldName, oldVal, newVal, metadata) {
@@ -876,13 +1388,13 @@ function recalculateValuation() {
     document.getElementById('val-high-mult').textContent = adjHigh.toFixed(1) + 'x EBITDA';
 
     document.getElementById('methodology-text').innerHTML =
-        '<strong>Methodology:</strong> Based on <strong>' + formatCurrency(revenue) + '</strong> revenue × ' +
-        '<strong>' + (margin * 100).toFixed(1) + '%</strong> estimated EBITDA margin = ' +
-        '<strong>' + formatCurrency(ebitda) + '</strong> EBITDA × ' +
-        '<strong>' + adjLow.toFixed(1) + 'x – ' + adjHigh.toFixed(1) + 'x</strong> EBITDA multiple range. ' +
+        '<strong>How we got these numbers:</strong> Based on <strong>' + formatCurrency(revenue) + '</strong> revenue x ' +
+        '<strong>' + (margin * 100).toFixed(1) + '%</strong> estimated profit margin = ' +
+        '<strong>' + formatCurrency(ebitda) + '</strong> (your real profit) x ' +
+        '<strong>' + adjLow.toFixed(1) + 'x - ' + adjHigh.toFixed(1) + 'x</strong> multiple range. ' +
         'Multiple adjustments reflect ' + recurring + '% recurring revenue, ' + commercial + '% commercial mix, ' +
         years + ' years operating history, and ' + employees + ' employees. ' +
-        'Higher recurring revenue and commercial contracts command premium multiples from acquirers.';
+        'Higher recurring revenue and commercial contracts command premium multiples from buyers.';
 }
 
 recalculateValuation();
@@ -898,8 +1410,8 @@ function selectFee(option) {
     logInteraction('fee_selection', 'fee_option', oldSelection, option, {
         option_details: {
             'A': { engagement_fee: 0, success_fee: '10%', name: 'Performance Only' },
-            'B': { engagement_fee: 10000, success_fee: '7%', name: 'Standard' },
-            'C': { engagement_fee: 15000, success_fee: '5%', name: 'Premium' }
+            'B': { engagement_fee: 10000, success_fee: '5%', name: 'Standard' },
+            'C': { engagement_fee: 15000, success_fee: '3%', name: 'Premium' }
         }[option]
     });
 }

@@ -38,6 +38,8 @@ body {
     font-size: 15px;
 }
 .container { max-width: 1000px; margin: 0 auto; padding: 40px 24px; }
+
+/* Section 1: Cover Header */
 .header {
     background: linear-gradient(135deg, #161b22 0%, #0d1117 50%, #161b22 100%);
     border: 1px solid var(--border);
@@ -61,6 +63,25 @@ body {
     margin-bottom: 8px;
     letter-spacing: -0.5px;
 }
+.header .firm-tagline {
+    font-size: 16px;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+.header .engagement-type {
+    display: inline-block;
+    background: rgba(88,166,255,0.1);
+    border: 1px solid rgba(88,166,255,0.3);
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
 .header-meta {
     display: flex;
     flex-wrap: wrap;
@@ -83,6 +104,8 @@ body {
     color: var(--text-secondary);
     opacity: 0.7;
 }
+
+/* General sections */
 .section {
     background: var(--bg-secondary);
     border: 1px solid var(--border);
@@ -112,6 +135,8 @@ body {
     background: rgba(88,166,255,0.1);
 }
 .section p { margin-bottom: 14px; color: var(--text-primary); }
+
+/* Strengths */
 .strengths-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -134,6 +159,8 @@ body {
     opacity: 0.2;
 }
 .strength-card p { font-size: 14px; line-height: 1.6; color: var(--text-primary); margin: 0; }
+
+/* Sliders */
 .slider-group { margin-bottom: 28px; }
 .slider-label {
     display: flex;
@@ -209,6 +236,8 @@ input[type="range"]::-moz-range-thumb {
     cursor: pointer;
     border: none;
 }
+
+/* Valuation */
 .valuation-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -240,6 +269,8 @@ input[type="range"]::-moz-range-thumb {
     line-height: 1.7;
     border-left: 3px solid var(--accent);
 }
+
+/* EBITDA Levers */
 .levers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .levers-column h3 {
     font-size: 15px;
@@ -275,20 +306,9 @@ input[type="range"]::-moz-range-thumb {
 .lever-positive .lever-icon { color: var(--green); background: rgba(63,185,80,0.15); }
 .lever-opportunity .lever-icon { color: var(--amber); background: rgba(210,153,34,0.15); }
 .lever-name { font-weight: 600; font-size: 14px; color: var(--text-heading); margin-bottom: 4px; }
-
-.lever-mult { 
-    display: inline-block; 
-    padding: 2px 8px; 
-    border-radius: 8px; 
-    font-size: 11px; 
-    font-weight: 700; 
-    margin-left: 8px; 
-    vertical-align: middle;
-}
-.lever-positive .lever-mult { background: rgba(63,185,80,0.2); color: #3fb950; }
-.lever-opportunity .lever-mult { background: rgba(210,153,34,0.2); color: #d29921; }
-
 .lever-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+
+/* Fee cards */
 .fee-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
 .fee-card {
     background: var(--bg-card);
@@ -346,6 +366,8 @@ input[type="range"]::-moz-range-thumb {
     justify-content: center;
 }
 .fee-card.selected .checkmark { display: flex; }
+
+/* CTA */
 .cta-section { text-align: center; padding: 40px; }
 .cta-btn {
     display: none;
@@ -379,6 +401,8 @@ input[type="range"]::-moz-range-thumb {
 .confirmation.show { display: block; }
 .confirmation h3 { color: var(--green); font-size: 24px; margin-bottom: 12px; }
 .confirmation p { color: var(--text-primary); font-size: 16px; }
+
+/* TOC */
 .toc {
     background: var(--bg-secondary);
     border: 1px solid var(--border);
@@ -420,6 +444,178 @@ input[type="range"]::-moz-range-thumb {
     align-items: flex-start;
 }
 .drivers-list li::before { content: '\2713'; color: var(--green); font-weight: bold; flex-shrink: 0; }
+
+/* New: Tables */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14px;
+}
+.data-table th {
+    background: var(--bg-tertiary);
+    color: var(--text-heading);
+    font-weight: 600;
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.data-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-primary);
+}
+.data-table tr:hover td { background: rgba(88,166,255,0.03); }
+
+/* New: Process phases */
+.phase-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.phase-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+}
+.phase-card .phase-number {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--accent);
+    opacity: 0.1;
+}
+.phase-card h4 {
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+.phase-card .phase-weeks {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+.phase-card ul {
+    list-style: none;
+    padding: 0;
+}
+.phase-card li {
+    font-size: 13px;
+    color: var(--text-primary);
+    padding: 4px 0;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+.phase-card li::before {
+    content: '\25A2';
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* New: Buyer funnel */
+.funnel-bar {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    gap: 12px;
+}
+.funnel-label {
+    width: 120px;
+    text-align: right;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-heading);
+    flex-shrink: 0;
+}
+.funnel-fill {
+    height: 28px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    min-width: 40px;
+    transition: width 0.5s;
+}
+
+/* New: Snapshot grid */
+.snapshot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+}
+.snapshot-item {
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    padding: 14px 16px;
+}
+.snapshot-item .snap-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+.snapshot-item .snap-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-heading);
+}
+
+/* New: Next steps */
+.next-step-box {
+    background: linear-gradient(135deg, rgba(88,166,255,0.08), rgba(163,113,247,0.08));
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    padding: 32px;
+    text-align: center;
+}
+.next-step-box h3 {
+    color: var(--accent);
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+.next-step-box .step-action {
+    font-size: 16px;
+    color: var(--text-heading);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.next-step-box .step-date {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* Fee illustration table */
+.fee-illustration {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+.fee-illustration h4 {
+    color: var(--text-heading);
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+.fee-note {
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
 @media (max-width: 768px) {
     .container { padding: 16px; }
     .header { padding: 28px 20px; }
@@ -428,10 +624,12 @@ input[type="range"]::-moz-range-thumb {
     .valuation-grid { grid-template-columns: 1fr; }
     .fee-grid { grid-template-columns: 1fr; }
     .levers-grid { grid-template-columns: 1fr; }
+    .phase-grid { grid-template-columns: 1fr; }
     .toc-list { grid-template-columns: 1fr; }
     .val-amount { font-size: 24px; }
     .slider-row { flex-direction: column; }
     .slider-row input[type="number"] { width: 100%; }
+    .snapshot-grid { grid-template-columns: 1fr 1fr; }
 }
 @media print {
     body { background: #fff; color: #1a1a2e; }
@@ -443,7 +641,11 @@ input[type="range"]::-moz-range-thumb {
 </head>
 <body>
 <div class="container">
+
+    <!-- SECTION 1: COVER PAGE HEADER -->
     <div class="header" id="top">
+        <div class="firm-tagline">Next Chapter M&amp;A Advisory</div>
+        <div class="engagement-type">Sell-Side Advisory</div>
         <h1>Air Control</h1>
         <div class="header-meta">
             <span><span class="dot">&#9679;</span> Fred Lowry</span>
@@ -451,58 +653,195 @@ input[type="range"]::-moz-range-thumb {
             <span><span class="dot">&#9679;</span> McLean, VA</span>
             <span><span class="dot">&#9679;</span> Est. 2008</span>
         </div>
-        <div class="confidential">Confidential &mdash; Prepared by Next Chapter M&amp;A Advisory &mdash; March 2026</div>
+        <div class="confidential">Confidential Advisory Proposal &mdash; Prepared by Next Chapter M&amp;A Advisory &mdash; March 2026</div>
     </div>
 
+    <!-- TABLE OF CONTENTS -->
     <div class="toc">
         <div class="toc-title">Quick Navigation</div>
         <ul class="toc-list">
+            <li><a href="#exec-summary">Executive Summary</a></li>
+            <li><a href="#market-overview">Market Overview</a></li>
+            <li><a href="#snapshot">Company Snapshot</a></li>
             <li><a href="#story">Your Company Story</a></li>
             <li><a href="#strengths">Top 3 Strengths</a></li>
             <li><a href="#profile">Interactive Business Profile</a></li>
             <li><a href="#valuation">Estimated Value Range</a></li>
-            <li><a href="#levers">EBITDA Levers</a></li>
-            <li><a href="#market">Your Market</a></li>
+            <li><a href="#levers">What Drives Your Valuation</a></li>
+            <li><a href="#process">Our Process</a></li>
+            <li><a href="#buyers">Buyer Universe</a></li>
+            <li><a href="#fees">Fee Structure</a></li>
             <li><a href="#attack">How We Would Sell Your Business</a></li>
-            <li><a href="#fees">Fee Structure Options</a></li>
+            <li><a href="#next-steps">Next Steps</a></li>
         </ul>
     </div>
 
+    <!-- SECTION 2: EXECUTIVE SUMMARY -->
+    <div class="section" id="exec-summary">
+        <div class="section-title"><div class="icon">&#128172;</div> A Personal Note</div>
+        <p>Fred, you&#x27;ve built Air Control into a trusted HVAC operation serving one of the wealthiest zip codes in America -- McLean, Virginia. Eighteen years of clean ownership, a team that delivers, and a customer base that pays premium prices because they trust you with their home comfort.</p>
+        <p>You want to sell Air Control at the right time to the right buyer. Someone who values the relationships you&#x27;ve built in Northern Virginia, keeps your team employed, and writes you a check that reflects what this business is actually worth in the DC metro market.</p>
+        <p>That&#x27;s what Next Chapter does. We represent HVAC owners who built their business one truck at a time, and we find the buyer who understands that a McLean address and an 18-year reputation aren&#x27;t just lines on a spreadsheet -- they&#x27;re worth real money.</p>
+        <p>Based on our preliminary review, we believe Air Control is positioned to achieve a valuation in the range of $2.1M to $4.8M, representing approximately 3.5x to 8.0x your real profit after we add back owner perks.</p>
+        <p>This proposal outlines our approach, timeline, fee structure, and the specific steps we will take to get you the best outcome.</p>
+    </div>
+
+    <!-- SECTION 3: MARKET OVERVIEW -->
+    <div class="section" id="market-overview">
+        <div class="section-title"><div class="icon">&#128200;</div> HVAC M&amp;A Market Overview</div>
+
+        <div class="snapshot-grid" style="margin-bottom: 24px;">
+            <div class="snapshot-item">
+                <div class="snap-label">Current Multiples</div>
+                <div class="snap-value">4.0x - 12.0x</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Active Buyers</div>
+                <div class="snap-value">40+</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Recent Deals (12 mo)</div>
+                <div class="snap-value">25+</div>
+            </div>
+        </div>
+
+        <h4 style="color: var(--text-heading); margin-bottom: 12px; font-size: 16px;">Why Now</h4>
+        <ul class="drivers-list" style="margin-bottom: 24px;">
+            <li>HVAC is the most active home services M&amp;A vertical in 2025-2026, with PE-backed platforms competing aggressively for quality operators in high-income metro areas</li>
+                    <li>The Northern Virginia / DC metro market commands geographic premiums of 1.5-2.0x above national averages because of customer density and household income</li>
+                    <li>With interest rates stabilizing, acquirers who paused in 2023-2024 are back in the market with fresh capital and aggressive growth mandates</li>
+        </ul>
+
+        <h4 style="color: var(--text-heading); margin-bottom: 12px; font-size: 16px;">Recent Comparable Transactions</h4>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Company Type</th>
+                    <th>Deal Size</th>
+                    <th>Multiple</th>
+                    <th>Buyer Type</th>
+                    <th>Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>Residential HVAC (Mid-Atlantic)</td>
+                        <td>$4.5M</td>
+                        <td>7.0x</td>
+                        <td>PE Platform</td>
+                        <td>2025</td>
+                    </tr>
+                    <tr>
+                        <td>HVAC Service Company</td>
+                        <td>$3.2M</td>
+                        <td>5.5x</td>
+                        <td>Strategic</td>
+                        <td>2024</td>
+                    </tr>
+                    <tr>
+                        <td>Home Services (DC Metro)</td>
+                        <td>$6M</td>
+                        <td>8.0x</td>
+                        <td>PE Roll-up</td>
+                        <td>2025</td>
+                    </tr>
+            </tbody>
+        </table>
+
+        <div style="margin-top: 20px;"><p>The HVAC industry is experiencing the most aggressive private equity consolidation wave in home services history. PE-backed platforms completed over 200 HVAC acquisitions in 2024 alone, and 2025 has already logged 149 transactions through mid-year — a 12.9% increase year-over-year. Major platforms like Sila (Morgan Stanley Capital Partners), Orion Group (Alpine Investors), and FirstCall Mechanical (SkyKnight Capital) are actively acquiring in the Mid-Atlantic and Southeast, with several specifically targeting the Washington, D.C. metro corridor for geographic density.</p>
+<p>This buyer appetite is driven by structural tailwinds that aren&#x27;t going away: the $130 billion U.S. HVAC market is growing at 6.9% annually through 2033, refrigerant phase-out regulations (R-22 to R-410A to R-454B) are creating mandatory upgrade cycles, and energy efficiency standards are tightening across every jurisdiction. For acquirers, each bolt-on acquisition in a dense metro area like Northern Virginia adds immediate route efficiency and cross-selling opportunities across heating, cooling, and indoor air quality services.</p>
+<p>Valuation multiples reflect this demand. Private HVAC companies are trading at 3.5x–10x EBITDA depending on size, geography, and recurring revenue mix, with residential-focused businesses in premium markets commanding the top of that range. PE add-on transaction volume rose 88% year-over-year through June 2025. For a profitable, well-run HVAC operation in a high-income market like McLean, this is the strongest seller&#x27;s market in the industry&#x27;s history.</p></div>
+    </div>
+
+    <!-- SECTION 4: COMPANY SNAPSHOT -->
+    <div class="section" id="snapshot">
+        <div class="section-title"><div class="icon">&#128202;</div> Air Control &mdash; At a Glance</div>
+        <div class="snapshot-grid">
+            <div class="snapshot-item">
+                <div class="snap-label">Trade Vertical</div>
+                <div class="snap-value">HVAC</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Year Founded</div>
+                <div class="snap-value">2008</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Location</div>
+                <div class="snap-value">McLean, VA</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Employees</div>
+                <div class="snap-value">5</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Annual Revenue</div>
+                <div class="snap-value">$3.0M</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">EBITDA Margin</div>
+                <div class="snap-value">~20%</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Revenue Mix</div>
+                <div class="snap-value">[TO BE CONFIRMED]% Service / [TO BE CONFIRMED]% Install</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Recurring Revenue</div>
+                <div class="snap-value">~30%</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Licenses</div>
+                <div class="snap-value" style="font-size: 13px;">Virginia HVAC contractor license, EPA 608 certifications</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Fleet Size</div>
+                <div class="snap-value">[TO BE CONFIRMED]</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Service Area</div>
+                <div class="snap-value" style="font-size: 13px;">McLean, VA and Northern Virginia / DC Metro</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EXISTING: Company Story -->
     <div class="section" id="story">
         <div class="section-title"><div class="icon">&#128214;</div> Your Company Story</div>
         <p>Air Control LLC is the kind of company that only gets built once. Fred Lowry didn&#x27;t start with a business plan or an investor deck — he started with a toolbox and a work ethic forged over three decades in the trade. From his first repair calls in Dublin, Georgia in 1990, through seven years mastering large-scale commercial systems in Northern Virginia, Fred earned something that can&#x27;t be bought: the trust of homeowners in one of America&#x27;s most affluent communities. When he co-founded Air Control LLC in 2008, he bet on himself — and McLean, Virginia bet right back.</p>
 <p>Eighteen years later, Air Control operates from the heart of Fairfax County, serving McLean, Great Falls, Tysons, and the surrounding communities where median household incomes exceed $200,000. This isn&#x27;t a company that competes on price. Air Control competes on reputation — the kind built one kitchen table conversation at a time, one emergency call answered on a holiday, one system installed exactly right the first time. Fred eventually bought out his co-founder and runs the business alongside his wife Jackie, keeping the operation lean, profitable, and deeply personal.</p>
 <p>With an estimated $3 million in annual revenue generated by a team of just five, Air Control delivers extraordinary revenue-per-employee productivity — approximately $600,000 per person, well above the industry average of $150,000–$250,000. That efficiency speaks to a business with premium pricing power, loyal repeat customers, and minimal waste. In a zip code where quality is expected and mediocrity doesn&#x27;t survive, Air Control hasn&#x27;t just survived — it has become the default call for homeowners who won&#x27;t trust their systems to anyone else.</p>
-
     </div>
 
+    <!-- EXISTING: Top 3 Strengths -->
     <div class="section" id="strengths">
         <div class="section-title"><div class="icon">&#9733;</div> Your Top 3 Strengths</div>
         <div class="strengths-grid">
-        <div class="strength-card">
-            <div class="strength-number">1</div>
-            <p>Premium market positioning in McLean, VA (22102) — one of the wealthiest zip codes in America, where customers pay for quality and rarely shop on price</p>
+            <div class="strength-card">
+                <div class="strength-number">1</div>
+                <p>Premium market positioning in McLean, VA (22102) — one of the wealthiest zip codes in America, where customers pay for quality and rarely shop on price</p>
+            </div>
+            <div class="strength-card">
+                <div class="strength-number">2</div>
+                <p>Exceptional revenue-per-employee efficiency at ~$600K/person (industry average: $150K–$250K), indicating strong pricing power and operational discipline</p>
+            </div>
+            <div class="strength-card">
+                <div class="strength-number">3</div>
+                <p>18-year track record with owner-operator continuity — Fred Lowry&#x27;s personal reputation IS the brand, creating deep customer loyalty and referral networks that competitors cannot replicate</p>
+            </div>
         </div>
-        <div class="strength-card">
-            <div class="strength-number">2</div>
-            <p>Exceptional revenue-per-employee efficiency at ~$600K/person (industry average: $150K–$250K), indicating strong pricing power and operational discipline</p>
-        </div>
-        <div class="strength-card">
-            <div class="strength-number">3</div>
-            <p>18-year track record with owner-operator continuity — Fred Lowry&#x27;s personal reputation IS the brand, creating deep customer loyalty and referral networks that competitors cannot replicate</p>
-        </div></div>
     </div>
 
+    <!-- EXISTING: Interactive Business Profile (Sliders) -->
     <div class="section" id="profile">
         <div class="section-title"><div class="icon">&#9881;</div> Interactive Business Profile</div>
         <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 24px;">
-            Adjust these sliders to see how changes in your business metrics impact your estimated valuation. All changes are saved automatically.
+            Adjust these sliders to see how changes in your business metrics impact what your business is worth. All changes are saved automatically.
         </p>
 
         <div class="slider-group">
             <div class="slider-label">
                 <span class="slider-label-text">Estimated Annual Revenue</span>
-                <span class="slider-value" id="revenue-display">$3,000,000</span>
+                <span class="slider-value" id="revenue-display">$3.0M</span>
             </div>
             <div class="slider-row">
                 <input type="range" id="revenue-slider" min="500000" max="50000000" step="100000" value="3000000">
@@ -524,26 +863,26 @@ input[type="range"]::-moz-range-thumb {
         <div class="slider-group">
             <div class="slider-label">
                 <span class="slider-label-text">Commercial vs Residential Split</span>
-                <span class="slider-value" id="split-display">20% / 80%</span>
+                <span class="slider-value" id="split-display">30% / 70%</span>
             </div>
             <div class="slider-row">
-                <input type="range" id="commercial-slider" min="0" max="100" step="5" value="20">
-                <input type="number" id="commercial-input" min="0" max="100" step="5" value="20">
+                <input type="range" id="commercial-slider" min="0" max="100" step="5" value="30">
+                <input type="number" id="commercial-input" min="0" max="100" step="5" value="30">
             </div>
             <div class="split-display">
-                <span>Commercial: <strong id="commercial-pct">20%</strong></span>
-                <span>Residential: <strong id="residential-pct">80%</strong></span>
+                <span>Commercial: <strong id="commercial-pct">30%</strong></span>
+                <span>Residential: <strong id="residential-pct">70%</strong></span>
             </div>
         </div>
 
         <div class="slider-group">
             <div class="slider-label">
                 <span class="slider-label-text">Recurring Revenue %</span>
-                <span class="slider-value" id="recurring-display">20%</span>
+                <span class="slider-value" id="recurring-display">30%</span>
             </div>
             <div class="slider-row">
-                <input type="range" id="recurring-slider" min="0" max="100" step="5" value="20">
-                <input type="number" id="recurring-input" min="0" max="100" step="5" value="20">
+                <input type="range" id="recurring-slider" min="0" max="100" step="5" value="30">
+                <input type="number" id="recurring-input" min="0" max="100" step="5" value="30">
             </div>
         </div>
 
@@ -559,8 +898,9 @@ input[type="range"]::-moz-range-thumb {
         </div>
     </div>
 
+    <!-- EXISTING: Estimated Value Range (Valuation Calculator) -->
     <div class="section" id="valuation">
-        <div class="section-title"><div class="icon">&#128176;</div> Estimated Value Range</div>
+        <div class="section-title"><div class="icon">&#128176;</div> What Your Business Is Worth</div>
         <div class="valuation-grid">
             <div class="val-box conservative">
                 <div class="val-label">Conservative</div>
@@ -570,60 +910,61 @@ input[type="range"]::-moz-range-thumb {
             <div class="val-box likely">
                 <div class="val-label">Likely</div>
                 <div class="val-amount" id="val-mid">$0</div>
-                <div style="font-size:12px; color:var(--text-secondary); margin-top:6px;" id="val-mid-mult">5.0x EBITDA</div>
+                <div style="font-size:12px; color:var(--text-secondary); margin-top:6px;" id="val-mid-mult">6.0x EBITDA</div>
             </div>
             <div class="val-box optimistic">
                 <div class="val-label">Optimistic</div>
                 <div class="val-amount" id="val-high">$0</div>
-                <div style="font-size:12px; color:var(--text-secondary); margin-top:6px;" id="val-high-mult">7.0x EBITDA</div>
+                <div style="font-size:12px; color:var(--text-secondary); margin-top:6px;" id="val-high-mult">8.0x EBITDA</div>
             </div>
         </div>
         <div class="methodology" id="methodology-text">Calculating...</div>
         <div style='margin-top:20px;'><h4 style="color:var(--text-heading); margin-bottom:12px;">Key Valuation Drivers</h4><ul class="drivers-list"><li>McLean/Fairfax County location commands geographic premium — acquirers pay more for density in high-income metro areas where customer lifetime value is significantly above national averages</li>
 <li>Revenue-per-employee ratio suggests premium service model with strong margins, making the business immediately accretive to any platform acquirer</li>
-<li>18-year operating history with clean ownership structure (single owner-operator) simplifies due diligence and reduces transaction risk for buyers</li>
-</ul></div>
+<li>18-year operating history with clean ownership structure (single owner-operator) simplifies due diligence and reduces transaction risk for buyers</li></ul></div>
     </div>
 
+    <!-- EXISTING: EBITDA Levers -->
     <div class="section" id="levers">
-        <div class="section-title"><div class="icon">&#9878;</div> EBITDA Levers &mdash; What Drives Your Valuation</div>
-        <div class="levers-grid">
+        <div class="section-title"><div class="icon">&#9878;</div> What Drives Your Valuation &mdash; Your Real Profit Levers</div>
+        <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 20px;">These are the specific factors that push your valuation multiple up or down. Understanding them is the first step to maximizing what a buyer will pay.</p>
+        <div class="levers-grid" id="levers-grid">
             <div class="levers-column positive">
                 <h3>&#9650; Value Drivers (Strengths)</h3>
                 
         <div class="lever-card lever-positive">
             <div class="lever-icon">&#9650;</div>
             <div>
-                <div class="lever-name">Premium McLean/Fairfax County Location <span class="lever-mult">+0.5x–1.5x</span></div>
-                <div class="lever-desc">Operating in one of America&#x27;s wealthiest zip codes means higher average tickets, lower price sensitivity, and premium customer lifetime value.</div>
+                <div class="lever-name">McLean/Fairfax County Premium Location</div>
+                <div class="lever-desc">Acquirers pay a geographic premium of 1.5-2.0x for HVAC companies in high-income metro areas where customer lifetime value significantly exceeds national averages.</div>
             </div>
         </div>
         <div class="lever-card lever-positive">
             <div class="lever-icon">&#9650;</div>
             <div>
-                <div class="lever-name">Exceptional Revenue-Per-Employee ($600K) <span class="lever-mult">+0.5x–1.5x</span></div>
-                <div class="lever-desc">2-3x industry average efficiency indicates strong pricing power and operational discipline that buyers pay a premium for.</div>
+                <div class="lever-name">Revenue-Per-Employee Efficiency</div>
+                <div class="lever-desc">$600K revenue per employee suggests a premium service model with strong margins, making the business immediately profitable for any buyer from day one.</div>
             </div>
         </div>
         <div class="lever-card lever-positive">
             <div class="lever-icon">&#9650;</div>
             <div>
-                <div class="lever-name">18-Year Owner-Operator Track Record <span class="lever-mult">+0.5x–1.5x</span></div>
-                <div class="lever-desc">Fred Lowry&#x27;s personal reputation IS the brand -- deep customer loyalty and referral networks that competitors cannot replicate.</div>
+                <div class="lever-name">18-Year Clean Ownership History</div>
+                <div class="lever-desc">Single owner-operator with nearly two decades of clean records simplifies due diligence and reduces transaction risk for buyers.</div>
             </div>
         </div>
         <div class="lever-card lever-positive">
             <div class="lever-icon">&#9650;</div>
             <div>
-                <div class="lever-name">Maintenance Agreement Growth Potential <span class="lever-mult">+0.50x to +1.25x EBITDA multiple</span></div>
-                <div class="lever-desc">HVAC companies with 40%+ maintenance agreement attach rates trade at 1-2x higher multiples than those relying on break-fix.</div>
+                <div class="lever-name">DC Metro Market Density</div>
+                <div class="lever-desc">Northern Virginia has one of the highest concentrations of affluent homeowners in the country -- perfect territory for HVAC service contracts.</div>
             </div>
         </div>
         <div class="lever-card lever-positive">
             <div class="lever-icon">&#9650;</div>
             <div>
-                <div class="lever-name">PE Consolidation Tailwind <span class="lever-mult">+0.5x–1.5x</span></div>
-                <div class="lever-desc">200+ HVAC acquisitions in 2024 alone; Mid-Atlantic corridor is among the most sought-after geographies for platform builders.</div>
+                <div class="lever-name">Residential Focus Advantage</div>
+                <div class="lever-desc">Residential HVAC commands premium multiples in 2025-2026 because recurring maintenance contracts create predictable cash flow buyers love.</div>
             </div>
         </div>
             </div>
@@ -633,62 +974,172 @@ input[type="range"]::-moz-range-thumb {
         <div class="lever-card lever-opportunity">
             <div class="lever-icon">&#9660;</div>
             <div>
-                <div class="lever-name">Owner Does All the Selling <span class="lever-mult">-0.75x to -1.5x EBITDA</span></div>
-                <div class="lever-desc">If Fred is the sole estimator and relationship holder, buyers see a job not a business -- trades at 2.5-3.5x vs 4.5-6x with a management layer.</div>
+                <div class="lever-name">Team Size / Scalability</div>
+                <div class="lever-desc">At 5 employees, the business runs lean but may face capacity constraints -- adding 2-3 technicians pre-sale could increase valuation by demonstrating growth readiness.</div>
             </div>
         </div>
         <div class="lever-card lever-opportunity">
             <div class="lever-icon">&#9660;</div>
             <div>
-                <div class="lever-name">5-Employee Scale Limitation <span class="lever-mult">+0.5x–1.5x</span></div>
-                <div class="lever-desc">Small team size means any departure has outsized impact. Building to 10+ employees with a field supervisor de-risks significantly.</div>
+                <div class="lever-name">Owner Dependency</div>
+                <div class="lever-desc">If Fred&#x27;s customer relationships and operational knowledge are concentrated in his hands, buyers will discount the multiple by 1-2x for transition risk.</div>
             </div>
         </div>
         <div class="lever-card lever-opportunity">
             <div class="lever-icon">&#9660;</div>
             <div>
-                <div class="lever-name">Residential Concentration <span class="lever-mult">+0.5x–1.5x</span></div>
-                <div class="lever-desc">Pure residential focus creates seasonal exposure. Adding commercial/government contracts provides revenue stability and higher multiples.</div>
+                <div class="lever-name">Recurring Revenue Formalization</div>
+                <div class="lever-desc">Formalizing maintenance agreements (target: 40%+ recurring) would push the multiple from the middle of the range toward the top.</div>
             </div>
         </div>
         <div class="lever-card lever-opportunity">
             <div class="lever-icon">&#9660;</div>
             <div>
-                <div class="lever-name">No Written Service Agreements <span class="lever-mult">+0.5x–1.5x</span></div>
-                <div class="lever-desc">Handshake relationships don&#x27;t transfer in an acquisition. Documented maintenance contracts are the #1 value creation lever pre-sale.</div>
+                <div class="lever-name">Documentation and SOPs</div>
+                <div class="lever-desc">Written standard operating procedures and documented processes show buyers the business can run without you -- that&#x27;s worth real money at closing.</div>
             </div>
         </div>
         <div class="lever-card lever-opportunity">
             <div class="lever-icon">&#9660;</div>
             <div>
-                <div class="lever-name">Single-Location Geographic Risk <span class="lever-mult">+0.5x–1.5x</span></div>
-                <div class="lever-desc">Serving only the McLean corridor means one competitive entrant or demographic shift impacts the entire revenue base.</div>
+                <div class="lever-name">Digital Presence / Lead Generation</div>
+                <div class="lever-desc">Investing in a modern website and local SEO before going to market demonstrates organic lead flow that buyers find extremely valuable.</div>
             </div>
         </div>
             </div>
         </div>
     </div>
 
-    <div class="section" id="market">
-        <div class="section-title"><div class="icon">&#127758;</div> Your Market</div>
-        <p>The HVAC industry is experiencing the most aggressive private equity consolidation wave in home services history. PE-backed platforms completed over 200 HVAC acquisitions in 2024 alone, and 2025 has already logged 149 transactions through mid-year — a 12.9% increase year-over-year. Major platforms like Sila (Morgan Stanley Capital Partners), Orion Group (Alpine Investors), and FirstCall Mechanical (SkyKnight Capital) are actively acquiring in the Mid-Atlantic and Southeast, with several specifically targeting the Washington, D.C. metro corridor for geographic density.</p>
-<p>This buyer appetite is driven by structural tailwinds that aren&#x27;t going away: the $130 billion U.S. HVAC market is growing at 6.9% annually through 2033, refrigerant phase-out regulations (R-22 to R-410A to R-454B) are creating mandatory upgrade cycles, and energy efficiency standards are tightening across every jurisdiction. For acquirers, each bolt-on acquisition in a dense metro area like Northern Virginia adds immediate route efficiency and cross-selling opportunities across heating, cooling, and indoor air quality services.</p>
-<p>Valuation multiples reflect this demand. Private HVAC companies are trading at 3.5x–10x EBITDA depending on size, geography, and recurring revenue mix, with residential-focused businesses in premium markets commanding the top of that range. PE add-on transaction volume rose 88% year-over-year through June 2025. For a profitable, well-run HVAC operation in a high-income market like McLean, this is the strongest seller&#x27;s market in the industry&#x27;s history.</p>
-
+    <!-- SECTION 6: PROCESS (4 Phases) -->
+    <div class="section" id="process">
+        <div class="section-title"><div class="icon">&#128197;</div> Our Process &mdash; What Happens and When</div>
+        <p style="margin-bottom: 20px;">Here is exactly what happens from the day you sign the engagement letter to the day you hand over the keys. No surprises, no mystery. Every step is planned.</p>
+        <div class="phase-grid">
+            <div class="phase-card">
+                <div class="phase-number">1</div>
+                <h4>Phase 1 &mdash; Preparation</h4>
+                <div class="phase-weeks">Weeks 1-6</div>
+                <ul>
+                    <li>Complete business valuation and financial analysis</li>
+                    <li>Identify and document your real profit after we add back owner perks</li>
+                    <li>Create the marketing book we build about your business</li>
+                    <li>Build target buyer list (strategic, PE, independent)</li>
+                    <li>Prepare management presentation materials</li>
+                    <li>Set up secure data room</li>
+                </ul>
+            </div>
+            <div class="phase-card">
+                <div class="phase-number">2</div>
+                <h4>Phase 2 &mdash; Marketing</h4>
+                <div class="phase-weeks">Weeks 7-14</div>
+                <ul>
+                    <li>Send blind teaser to qualified buyers (no company name)</li>
+                    <li>Execute NDAs with interested parties</li>
+                    <li>Share the marketing book with signed buyers</li>
+                    <li>Manage buyer Q&amp;A process</li>
+                    <li>Collect initial offers (Indications of Interest)</li>
+                    <li>Evaluate and rank every offer</li>
+                </ul>
+            </div>
+            <div class="phase-card">
+                <div class="phase-number">3</div>
+                <h4>Phase 3 &mdash; Negotiation</h4>
+                <div class="phase-weeks">Weeks 15-22</div>
+                <ul>
+                    <li>Facilitate in-person meetings with top bidders</li>
+                    <li>Request formal Letters of Intent (LOIs)</li>
+                    <li>Negotiate price, terms, structure, and transition plan</li>
+                    <li>Select preferred buyer and sign LOI</li>
+                    <li>Coordinate with your legal counsel on deal structure</li>
+                </ul>
+            </div>
+            <div class="phase-card">
+                <div class="phase-number">4</div>
+                <h4>Phase 4 &mdash; Closing</h4>
+                <div class="phase-weeks">Weeks 23-36</div>
+                <ul>
+                    <li>Manage the due diligence process (buyer verifying your numbers)</li>
+                    <li>Coordinate with buyer's lenders and advisors</li>
+                    <li>Support purchase agreement negotiation</li>
+                    <li>Handle working capital and any earnout details</li>
+                    <li>Close the deal and facilitate ownership transfer</li>
+                </ul>
+            </div>
+        </div>
+        <div class="methodology" style="margin-top: 16px;">
+            <strong>Expected Total Timeline:</strong> 6-9 months from engagement to close. We keep you informed every step of the way with weekly updates and a dedicated point of contact.
+        </div>
     </div>
 
-    <div class="section" id="attack">
-        <div class="section-title"><div class="icon">&#127919;</div> How We Would Sell Your Business</div>
-        <p>Phase 1 — Targeted Buyer Identification (Days 1–15): Build a curated list of 40–60 qualified buyers in three tiers. Tier 1 (10–15 buyers): PE-backed HVAC platforms with active Mid-Atlantic acquisition mandates — Sila, Orion Group, Apex Service Partners, Wrench Group, FirstCall Mechanical, Hoffman Family of Companies, and similar. Tier 2 (15–20 buyers): Regional HVAC companies with $10M+ revenue in Virginia, Maryland, and D.C. that have acquisition history or succession gaps. Tier 3 (15–25 buyers): Family offices and independent sponsors actively deploying in home services. Source from PitchBook, Axial, and direct industry networks.</p>
-<p>Phase 2 — Confidential Outreach (Days 15–45): Execute a multi-channel confidential marketing campaign. Each buyer receives a personalized approach based on their tier: Tier 1 gets direct calls to their VP of Corporate Development or deal team, followed by a confidential information memorandum (CIM). Tier 2 gets a personalized letter followed by a call. Tier 3 gets LinkedIn outreach and email. All materials reference the opportunity without naming Air Control until NDA is signed.</p>
-<p>Phase 3 — Process Management (Days 45–90): Manage indication of interest (IOI) submissions, facilitate management presentations between Fred and serious buyers, negotiate letter of intent (LOI) terms, and drive toward a signed LOI with the buyer who offers the best combination of price, terms, cultural fit, and certainty of close. Throughout, Fred stays focused on running his business — we handle the process.</p>
+    <!-- SECTION 7: BUYER UNIVERSE -->
+    <div class="section" id="buyers">
+        <div class="section-title"><div class="icon">&#127919;</div> Who Will Buy Your Business</div>
+        <p style="margin-bottom: 20px;">We don't just put your business on a listing and hope someone calls. We build a curated list of buyers who are actively looking for exactly what you have, and we go to them directly.</p>
 
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px;">
+            <div>
+                <h4 style="color: var(--green); font-size: 14px; margin-bottom: 8px;">Strategic Buyers (Active in HVAC)</h4>
+                <ul class="drivers-list" style="font-size: 13px;">
+                    <li>F.H. Furr Plumbing, Heating, AC &amp; Electrical</li>
+                    <li>Service Experts</li>
+                    <li>Horizon Services</li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: var(--accent); font-size: 14px; margin-bottom: 8px;">Buyers Backed by Investment Groups</h4>
+                <ul class="drivers-list" style="font-size: 13px;">
+                    <li>Ally Services / Watchtower Capital <span style="color:var(--text-secondary)">(backed by Watchtower Capital)</span></li>
+                    <li>Paramount Mechanical Corporation <span style="color:var(--text-secondary)">(backed by Stonebridge Partners)</span></li>
+                    <li>United Air Temp <span style="color:var(--text-secondary)">(backed by Littlejohn &amp; Co.)</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px;">
+            <div>
+                <h4 style="color: var(--amber); font-size: 14px; margin-bottom: 8px;">Independent Buyers &amp; Search Funds</h4>
+                <p style="font-size: 13px;">20 active independent buyers in hvac and related services</p>
+            </div>
+            <div>
+                <h4 style="color: var(--text-heading); font-size: 14px; margin-bottom: 8px;">Regional Buyers</h4>
+                <ul class="drivers-list" style="font-size: 13px;">
+                    <li>Apex Service Partners</li>
+                    <li>Wrench Group</li>
+                    <li>Redwood Services</li>
+                </ul>
+            </div>
+        </div>
+
+        <h4 style="color: var(--text-heading); margin-bottom: 16px; font-size: 16px;">Our Buyer Funnel</h4>
+        <div style="max-width: 600px;">
+            <div class="funnel-bar">
+                <div class="funnel-label">Total Universe</div>
+                <div class="funnel-fill" style="width: 100%;">80+</div>
+            </div>
+            <div class="funnel-bar">
+                <div class="funnel-label">Outreach</div>
+                <div class="funnel-fill" style="width: 65%;">50</div>
+            </div>
+            <div class="funnel-bar">
+                <div class="funnel-label">NDAs Signed</div>
+                <div class="funnel-fill" style="width: 25%;">15</div>
+            </div>
+            <div class="funnel-bar">
+                <div class="funnel-label">Initial Offers</div>
+                <div class="funnel-fill" style="width: 12%;">5-8</div>
+            </div>
+            <div class="funnel-bar">
+                <div class="funnel-label">Final Offers</div>
+                <div class="funnel-fill" style="width: 5%;">2-3</div>
+            </div>
+        </div>
     </div>
 
+    <!-- SECTION 8: FEE STRUCTURE (Interactive Selection + Illustration Table) -->
     <div class="section" id="fees">
         <div class="section-title"><div class="icon">&#128178;</div> Fee Structure Options</div>
         <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 24px;">
-            Click on the option that works best for you. Your selection is saved automatically.
+            Click on the option that works best for you. Your selection is saved automatically. The engagement fee is credited 100% against the success fee at closing &mdash; it's not an additional cost.
         </p>
         <div class="fee-grid">
             <div class="fee-card" data-option="A" onclick="selectFee('A')">
@@ -704,7 +1155,7 @@ input[type="range"]::-moz-range-thumb {
                 <div class="fee-option-name">Option B</div>
                 <div class="fee-option-subtitle">Standard</div>
                 <div class="fee-detail"><div class="label">Engagement Fee</div><div class="value">$10,000</div></div>
-                <div class="fee-detail"><div class="label">Success Fee</div><div class="value">7%</div></div>
+                <div class="fee-detail"><div class="label">Success Fee</div><div class="value">10%</div></div>
                 <div class="fee-tagline">"Most popular &mdash; covers research and marketing costs"</div>
             </div>
             <div class="fee-card" data-option="C" onclick="selectFee('C')">
@@ -712,10 +1163,73 @@ input[type="range"]::-moz-range-thumb {
                 <div class="fee-option-name">Option C</div>
                 <div class="fee-option-subtitle">Premium</div>
                 <div class="fee-detail"><div class="label">Engagement Fee</div><div class="value">$15,000</div></div>
-                <div class="fee-detail"><div class="label">Success Fee</div><div class="value">5%</div></div>
+                <div class="fee-detail"><div class="label">Success Fee</div><div class="value">8%</div></div>
                 <div class="fee-tagline">"Full white-glove service with dedicated deal team"</div>
             </div>
         </div>
+
+        <div class="fee-illustration">
+            <h4>Fee Illustration &mdash; What You'd Actually Pay</h4>
+            <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;">Engagement fee credited 100% against the success fee. These numbers show the total cost at different sale prices.</p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Sale Price</th>
+                        <th>Success Fee</th>
+                        <th>Engagement Fee Credit</th>
+                        <th>Effective Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>$2.1M</td>
+                        <td>$210K</td>
+                        <td>$10K</td>
+                        <td>9.5%</td>
+                    </tr>
+                    <tr>
+                        <td>$3.6M</td>
+                        <td>$360K</td>
+                        <td>$10K</td>
+                        <td>9.7%</td>
+                    </tr>
+                    <tr>
+                        <td>$4.8M</td>
+                        <td>$480K</td>
+                        <td>$10K</td>
+                        <td>9.8%</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="fee-note">The engagement fee proves you're serious about selling. The success fee proves we're serious about getting you the best price. Both are aligned.</div>
+        </div>
+    </div>
+
+    <!-- EXISTING: Attack Plan / How We Would Sell -->
+    <div class="section" id="attack">
+        <div class="section-title"><div class="icon">&#128640;</div> How We Would Sell Your Business</div>
+        <p>Phase 1 — Targeted Buyer Identification (Days 1–15): Build a curated list of 40–60 qualified buyers in three tiers. Tier 1 (10–15 buyers): PE-backed HVAC platforms with active Mid-Atlantic acquisition mandates — Sila, Orion Group, Apex Service Partners, Wrench Group, FirstCall Mechanical, Hoffman Family of Companies, and similar. Tier 2 (15–20 buyers): Regional HVAC companies with $10M+ revenue in Virginia, Maryland, and D.C. that have acquisition history or succession gaps. Tier 3 (15–25 buyers): Family offices and independent sponsors actively deploying in home services. Source from PitchBook, Axial, and direct industry networks.
+
+Phase 2 — Confidential Outreach (Days 15–45): Execute a multi-channel confidential marketing campaign. Each buyer receives a personalized approach based on their tier: Tier 1 gets direct calls to their VP of Corporate Development or deal team, followed by a confidential information memorandum (CIM). Tier 2 gets a personalized letter followed by a call. Tier 3 gets LinkedIn outreach and email. All materials reference the opportunity without naming Air Control until NDA is signed.
+
+Phase 3 — Process Management (Days 45–90): Manage indication of interest (IOI) submissions, facilitate management presentations between Fred and serious buyers, negotiate letter of intent (LOI) terms, and drive toward a signed LOI with the buyer who offers the best combination of price, terms, cultural fit, and certainty of close. Throughout, Fred stays focused on running his business — we handle the process.</p>
+    </div>
+
+    <!-- SECTION 10: NEXT STEPS -->
+    <div class="section" id="next-steps">
+        <div class="section-title"><div class="icon">&#9989;</div> Next Steps</div>
+        <div class="next-step-box">
+            <h3>One Decision. One Deadline.</h3>
+            <div class="step-action">Sign the engagement letter and return it with the engagement fee by April 14, 2026.</div>
+            <div class="step-date">We begin Phase 1 on April 21, 2026.</div>
+            <div style="margin-top: 20px; font-size: 14px; color: var(--text-secondary);">
+                Upon signing, we start immediately. No waiting. Your dedicated deal team is assigned on day one.
+            </div>
+        </div>
+    </div>
+
+    <!-- EXISTING: Let's Get Started CTA -->
+    <div class="section">
         <div class="cta-section">
             <button class="cta-btn" id="cta-button" onclick="letsGetStarted()">Let's Get Started &#10132;</button>
         </div>
@@ -738,7 +1252,7 @@ input[type="range"]::-moz-range-thumb {
 const SUPABASE_URL = 'https://dwrnfpjcvydhmhnvyzov.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR3cm5mcGpjdnlkaG1obnZ5em92Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ3NTcyOTAsImV4cCI6MjA5MDMzMzI5MH0.z0Gu1TWdGPcdptB5W7efnYMmxBbvD353ExG99ftQivY';
 const COMPANY_NAME = 'Air Control';
-const BASE_MULTIPLES = { low: 3.5, mid: 5.0, high: 7.0 };
+const BASE_MULTIPLES = { low: 3.5, mid: 6, high: 8 };
 const BASE_EBITDA_MARGIN = 0.15;
 
 async function logInteraction(type, fieldName, oldVal, newVal, metadata) {
@@ -881,13 +1395,13 @@ function recalculateValuation() {
     document.getElementById('val-high-mult').textContent = adjHigh.toFixed(1) + 'x EBITDA';
 
     document.getElementById('methodology-text').innerHTML =
-        '<strong>Methodology:</strong> Based on <strong>' + formatCurrency(revenue) + '</strong> revenue × ' +
-        '<strong>' + (margin * 100).toFixed(1) + '%</strong> estimated EBITDA margin = ' +
-        '<strong>' + formatCurrency(ebitda) + '</strong> EBITDA × ' +
-        '<strong>' + adjLow.toFixed(1) + 'x – ' + adjHigh.toFixed(1) + 'x</strong> EBITDA multiple range. ' +
+        '<strong>How we got these numbers:</strong> Based on <strong>' + formatCurrency(revenue) + '</strong> revenue x ' +
+        '<strong>' + (margin * 100).toFixed(1) + '%</strong> estimated profit margin = ' +
+        '<strong>' + formatCurrency(ebitda) + '</strong> (your real profit) x ' +
+        '<strong>' + adjLow.toFixed(1) + 'x - ' + adjHigh.toFixed(1) + 'x</strong> multiple range. ' +
         'Multiple adjustments reflect ' + recurring + '% recurring revenue, ' + commercial + '% commercial mix, ' +
         years + ' years operating history, and ' + employees + ' employees. ' +
-        'Higher recurring revenue and commercial contracts command premium multiples from acquirers.';
+        'Higher recurring revenue and commercial contracts command premium multiples from buyers.';
 }
 
 recalculateValuation();
@@ -903,8 +1417,8 @@ function selectFee(option) {
     logInteraction('fee_selection', 'fee_option', oldSelection, option, {
         option_details: {
             'A': { engagement_fee: 0, success_fee: '10%', name: 'Performance Only' },
-            'B': { engagement_fee: 10000, success_fee: '7%', name: 'Standard' },
-            'C': { engagement_fee: 15000, success_fee: '5%', name: 'Premium' }
+            'B': { engagement_fee: 10000, success_fee: '10%', name: 'Standard' },
+            'C': { engagement_fee: 15000, success_fee: '8%', name: 'Premium' }
         }[option]
     });
 }

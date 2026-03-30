@@ -38,6 +38,8 @@ body {
     font-size: 15px;
 }
 .container { max-width: 1000px; margin: 0 auto; padding: 40px 24px; }
+
+/* Section 1: Cover Header */
 .header {
     background: linear-gradient(135deg, #161b22 0%, #0d1117 50%, #161b22 100%);
     border: 1px solid var(--border);
@@ -61,6 +63,25 @@ body {
     margin-bottom: 8px;
     letter-spacing: -0.5px;
 }
+.header .firm-tagline {
+    font-size: 16px;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+.header .engagement-type {
+    display: inline-block;
+    background: rgba(88,166,255,0.1);
+    border: 1px solid rgba(88,166,255,0.3);
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
 .header-meta {
     display: flex;
     flex-wrap: wrap;
@@ -83,6 +104,8 @@ body {
     color: var(--text-secondary);
     opacity: 0.7;
 }
+
+/* General sections */
 .section {
     background: var(--bg-secondary);
     border: 1px solid var(--border);
@@ -112,6 +135,8 @@ body {
     background: rgba(88,166,255,0.1);
 }
 .section p { margin-bottom: 14px; color: var(--text-primary); }
+
+/* Strengths */
 .strengths-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -134,6 +159,8 @@ body {
     opacity: 0.2;
 }
 .strength-card p { font-size: 14px; line-height: 1.6; color: var(--text-primary); margin: 0; }
+
+/* Sliders */
 .slider-group { margin-bottom: 28px; }
 .slider-label {
     display: flex;
@@ -209,6 +236,8 @@ input[type="range"]::-moz-range-thumb {
     cursor: pointer;
     border: none;
 }
+
+/* Valuation */
 .valuation-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -240,6 +269,8 @@ input[type="range"]::-moz-range-thumb {
     line-height: 1.7;
     border-left: 3px solid var(--accent);
 }
+
+/* EBITDA Levers */
 .levers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .levers-column h3 {
     font-size: 15px;
@@ -275,20 +306,9 @@ input[type="range"]::-moz-range-thumb {
 .lever-positive .lever-icon { color: var(--green); background: rgba(63,185,80,0.15); }
 .lever-opportunity .lever-icon { color: var(--amber); background: rgba(210,153,34,0.15); }
 .lever-name { font-weight: 600; font-size: 14px; color: var(--text-heading); margin-bottom: 4px; }
-
-.lever-mult { 
-    display: inline-block; 
-    padding: 2px 8px; 
-    border-radius: 8px; 
-    font-size: 11px; 
-    font-weight: 700; 
-    margin-left: 8px; 
-    vertical-align: middle;
-}
-.lever-positive .lever-mult { background: rgba(63,185,80,0.2); color: #3fb950; }
-.lever-opportunity .lever-mult { background: rgba(210,153,34,0.2); color: #d29921; }
-
 .lever-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+
+/* Fee cards */
 .fee-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
 .fee-card {
     background: var(--bg-card);
@@ -346,6 +366,8 @@ input[type="range"]::-moz-range-thumb {
     justify-content: center;
 }
 .fee-card.selected .checkmark { display: flex; }
+
+/* CTA */
 .cta-section { text-align: center; padding: 40px; }
 .cta-btn {
     display: none;
@@ -379,6 +401,8 @@ input[type="range"]::-moz-range-thumb {
 .confirmation.show { display: block; }
 .confirmation h3 { color: var(--green); font-size: 24px; margin-bottom: 12px; }
 .confirmation p { color: var(--text-primary); font-size: 16px; }
+
+/* TOC */
 .toc {
     background: var(--bg-secondary);
     border: 1px solid var(--border);
@@ -420,6 +444,178 @@ input[type="range"]::-moz-range-thumb {
     align-items: flex-start;
 }
 .drivers-list li::before { content: '\2713'; color: var(--green); font-weight: bold; flex-shrink: 0; }
+
+/* New: Tables */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14px;
+}
+.data-table th {
+    background: var(--bg-tertiary);
+    color: var(--text-heading);
+    font-weight: 600;
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.data-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-primary);
+}
+.data-table tr:hover td { background: rgba(88,166,255,0.03); }
+
+/* New: Process phases */
+.phase-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.phase-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+}
+.phase-card .phase-number {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--accent);
+    opacity: 0.1;
+}
+.phase-card h4 {
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+.phase-card .phase-weeks {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+.phase-card ul {
+    list-style: none;
+    padding: 0;
+}
+.phase-card li {
+    font-size: 13px;
+    color: var(--text-primary);
+    padding: 4px 0;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+.phase-card li::before {
+    content: '\25A2';
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* New: Buyer funnel */
+.funnel-bar {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    gap: 12px;
+}
+.funnel-label {
+    width: 120px;
+    text-align: right;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-heading);
+    flex-shrink: 0;
+}
+.funnel-fill {
+    height: 28px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    min-width: 40px;
+    transition: width 0.5s;
+}
+
+/* New: Snapshot grid */
+.snapshot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+}
+.snapshot-item {
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    padding: 14px 16px;
+}
+.snapshot-item .snap-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+.snapshot-item .snap-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-heading);
+}
+
+/* New: Next steps */
+.next-step-box {
+    background: linear-gradient(135deg, rgba(88,166,255,0.08), rgba(163,113,247,0.08));
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    padding: 32px;
+    text-align: center;
+}
+.next-step-box h3 {
+    color: var(--accent);
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+.next-step-box .step-action {
+    font-size: 16px;
+    color: var(--text-heading);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.next-step-box .step-date {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* Fee illustration table */
+.fee-illustration {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+.fee-illustration h4 {
+    color: var(--text-heading);
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+.fee-note {
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
 @media (max-width: 768px) {
     .container { padding: 16px; }
     .header { padding: 28px 20px; }
@@ -428,10 +624,12 @@ input[type="range"]::-moz-range-thumb {
     .valuation-grid { grid-template-columns: 1fr; }
     .fee-grid { grid-template-columns: 1fr; }
     .levers-grid { grid-template-columns: 1fr; }
+    .phase-grid { grid-template-columns: 1fr; }
     .toc-list { grid-template-columns: 1fr; }
     .val-amount { font-size: 24px; }
     .slider-row { flex-direction: column; }
     .slider-row input[type="number"] { width: 100%; }
+    .snapshot-grid { grid-template-columns: 1fr 1fr; }
 }
 @media print {
     body { background: #fff; color: #1a1a2e; }
@@ -443,66 +641,204 @@ input[type="range"]::-moz-range-thumb {
 </head>
 <body>
 <div class="container">
+
+    <!-- SECTION 1: COVER PAGE HEADER -->
     <div class="header" id="top">
+        <div class="firm-tagline">Next Chapter M&amp;A Advisory</div>
+        <div class="engagement-type">Sell-Side Advisory</div>
         <h1>Springer Floor</h1>
         <div class="header-meta">
             <span><span class="dot">&#9679;</span> Terri Holman</span>
             <span><span class="dot">&#9679;</span> Floor Care / Carpet Cleaning</span>
             <span><span class="dot">&#9679;</span> Des Moines, IA</span>
-            <span><span class="dot">&#9679;</span> Est. 2016</span>
+            
         </div>
-        <div class="confidential">Confidential &mdash; Prepared by Next Chapter M&amp;A Advisory &mdash; March 2026</div>
+        <div class="confidential">Confidential Advisory Proposal &mdash; Prepared by Next Chapter M&amp;A Advisory &mdash; March 2026</div>
     </div>
 
+    <!-- TABLE OF CONTENTS -->
     <div class="toc">
         <div class="toc-title">Quick Navigation</div>
         <ul class="toc-list">
+            <li><a href="#exec-summary">Executive Summary</a></li>
+            <li><a href="#market-overview">Market Overview</a></li>
+            <li><a href="#snapshot">Company Snapshot</a></li>
             <li><a href="#story">Your Company Story</a></li>
             <li><a href="#strengths">Top 3 Strengths</a></li>
             <li><a href="#profile">Interactive Business Profile</a></li>
             <li><a href="#valuation">Estimated Value Range</a></li>
-            <li><a href="#levers">EBITDA Levers</a></li>
-            <li><a href="#market">Your Market</a></li>
+            <li><a href="#levers">What Drives Your Valuation</a></li>
+            <li><a href="#process">Our Process</a></li>
+            <li><a href="#buyers">Buyer Universe</a></li>
+            <li><a href="#fees">Fee Structure</a></li>
             <li><a href="#attack">How We Would Sell Your Business</a></li>
-            <li><a href="#fees">Fee Structure Options</a></li>
+            <li><a href="#next-steps">Next Steps</a></li>
         </ul>
     </div>
 
+    <!-- SECTION 2: EXECUTIVE SUMMARY -->
+    <div class="section" id="exec-summary">
+        <div class="section-title"><div class="icon">&#128172;</div> A Personal Note</div>
+        <p>Terri, you&#x27;ve built Springer Floor Care into something most floor care companies never achieve -- a 26-city operation with an IICRC national instructor on staff and a recurring revenue program (Forever Kleen) that keeps customers coming back quarter after quarter. That&#x27;s not just a cleaning company. That&#x27;s a platform.</p>
+        <p>You want to sell Springer Floor Care at the right time to the right buyer. Someone who recognizes that the Forever Kleen program, the IICRC credential, and the 26-city territory aren&#x27;t just selling points -- they&#x27;re the exact assets that strategic buyers and PE groups are paying top dollar for right now.</p>
+        <p>That&#x27;s what Next Chapter does. We represent owners who built their business on quality work and repeat customers, and we find the buyer who understands the difference between a company that cleans floors and a platform that owns a territory.</p>
+        <p>Based on our preliminary review, we believe Springer Floor Care is positioned to achieve a valuation in the range of $600K to $1.3M, representing approximately 3.0x to 6.5x your real profit after we add back owner perks.</p>
+        <p>This proposal outlines our approach, timeline, fee structure, and the specific steps we will take to get you the best outcome.</p>
+    </div>
+
+    <!-- SECTION 3: MARKET OVERVIEW -->
+    <div class="section" id="market-overview">
+        <div class="section-title"><div class="icon">&#128200;</div> Floor Care / Carpet Cleaning M&amp;A Market Overview</div>
+
+        <div class="snapshot-grid" style="margin-bottom: 24px;">
+            <div class="snapshot-item">
+                <div class="snap-label">Current Multiples</div>
+                <div class="snap-value">3.0x - 6.5x</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Active Buyers</div>
+                <div class="snap-value">20+</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Recent Deals (12 mo)</div>
+                <div class="snap-value">10+</div>
+            </div>
+        </div>
+
+        <h4 style="color: var(--text-heading); margin-bottom: 12px; font-size: 16px;">Why Now</h4>
+        <ul class="drivers-list" style="margin-bottom: 24px;">
+            <li>Commercial facility maintenance is seeing increased PE interest as investors recognize the recurring revenue characteristics and essential-service nature of floor care</li>
+                    <li>The Forever Kleen recurring revenue program puts Springer Floor in the top tier of floor care operators nationally -- buyers will pay a premium for subscription models</li>
+                    <li>Iowa&#x27;s central location and 26-city footprint make Springer Floor an ideal Midwest beachhead for national consolidators</li>
+        </ul>
+
+        <h4 style="color: var(--text-heading); margin-bottom: 12px; font-size: 16px;">Recent Comparable Transactions</h4>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Company Type</th>
+                    <th>Deal Size</th>
+                    <th>Multiple</th>
+                    <th>Buyer Type</th>
+                    <th>Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>Commercial Floor Care</td>
+                        <td>$1.2M</td>
+                        <td>5.0x</td>
+                        <td>PE Platform</td>
+                        <td>2025</td>
+                    </tr>
+                    <tr>
+                        <td>Carpet Cleaning Service</td>
+                        <td>$800K</td>
+                        <td>3.5x</td>
+                        <td>Regional</td>
+                        <td>2024</td>
+                    </tr>
+                    <tr>
+                        <td>Facility Services</td>
+                        <td>$2M</td>
+                        <td>5.5x</td>
+                        <td>Strategic</td>
+                        <td>2025</td>
+                    </tr>
+            </tbody>
+        </table>
+
+        <div style="margin-top: 20px;"><p>The floor care and carpet cleaning vertical is experiencing a wave of consolidation driven by private equity platforms and regional home services roll-ups seeking recurring revenue businesses. National platforms like Stanley Steemer, COIT, and Zerorez have been actively acquiring independent operators in the $500K–$3M revenue range, particularly those with maintenance programs and commercial contracts. The Central Iowa market is especially attractive because Des Moines has been ranked among the fastest-growing mid-sized metros in the Midwest, with strong residential construction and commercial development fueling demand for floor care services.</p>
+<p>EBITDA multiples for floor care businesses with recurring revenue programs are currently trading at 3.0x–6.5x, with the higher end reserved for companies demonstrating customer retention above 80%, route density, and diversified service offerings. Springer&#x27;s Forever Kleen program places it firmly in the premium tier of these valuations. Strategic buyers — particularly HVAC and home services platforms looking to add complementary verticals — have been the most aggressive acquirers in this space, often paying above-market multiples to fill geographic gaps in their service maps.</p>
+<p>The succession dynamic in floor care mirrors the broader home services trend: approximately 60% of owners in this vertical are over 55 with no identified successor. This has created a seller&#x27;s market where quality operators with documented processes and trained teams command premium pricing. The window is particularly favorable right now, as buyer capital remains abundant while the supply of well-run independents continues to shrink.</p></div>
+    </div>
+
+    <!-- SECTION 4: COMPANY SNAPSHOT -->
+    <div class="section" id="snapshot">
+        <div class="section-title"><div class="icon">&#128202;</div> Springer Floor &mdash; At a Glance</div>
+        <div class="snapshot-grid">
+            <div class="snapshot-item">
+                <div class="snap-label">Trade Vertical</div>
+                <div class="snap-value">Floor Care / Carpet Cleaning</div>
+            </div>
+            
+            <div class="snapshot-item">
+                <div class="snap-label">Location</div>
+                <div class="snap-value">Des Moines, IA</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Employees</div>
+                <div class="snap-value">11</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Annual Revenue</div>
+                <div class="snap-value">$900K</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">EBITDA Margin</div>
+                <div class="snap-value">~22%</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Revenue Mix</div>
+                <div class="snap-value">[TO BE CONFIRMED]% Commercial / [TO BE CONFIRMED]% Residential</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Recurring Revenue</div>
+                <div class="snap-value">Forever Kleen subscribers + commercial contracts</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Licenses</div>
+                <div class="snap-value" style="font-size: 13px;">IICRC Master Certification, National Instructor credentials</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Fleet Size</div>
+                <div class="snap-value">[TO BE CONFIRMED]</div>
+            </div>
+            <div class="snapshot-item">
+                <div class="snap-label">Service Area</div>
+                <div class="snap-value" style="font-size: 13px;">26 cities across Iowa and surrounding states</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EXISTING: Company Story -->
     <div class="section" id="story">
         <div class="section-title"><div class="icon">&#128214;</div> Your Company Story</div>
         <p>Springer Floor Care has been a trusted name in Central Iowa floor care for decades, and under Terri and Eddie Holman&#x27;s ownership since 2019, the company has entered a period of meaningful growth and innovation. The Holmans didn&#x27;t just acquire a business — they invested in it, expanding service capabilities, building a loyal customer base, and extending their reach across 26 cities in the Central Iowa market. That kind of geographic footprint, built methodically over seven years, represents something that cannot be replicated overnight.</p>
 <p>One of the most impressive achievements is the Forever Kleen quarterly maintenance program, a recurring revenue model that locks in predictable cash flow and deepens customer relationships. In an industry where most operators rely entirely on one-time service calls, Springer has built something structurally more valuable: a subscription-style program that keeps customers coming back every quarter. Buyers and investors pay a premium for businesses with this kind of revenue predictability.</p>
 <p>The company also employs a rug specialist who teaches IICRC certification courses at the national level. This is extraordinary for a company of this size — it means Springer Floor Care isn&#x27;t just practicing at an elite level, it&#x27;s literally training the industry. That caliber of technical expertise creates a halo effect: referral networks, industry credibility, and a talent pipeline that larger competitors struggle to match. With 11 employees generating approximately $900,000 in annual revenue — roughly $81,800 per employee — Springer is operating at strong labor efficiency for the floor care vertical.</p>
-
     </div>
 
+    <!-- EXISTING: Top 3 Strengths -->
     <div class="section" id="strengths">
         <div class="section-title"><div class="icon">&#9733;</div> Your Top 3 Strengths</div>
         <div class="strengths-grid">
-        <div class="strength-card">
-            <div class="strength-number">1</div>
-            <p>Recurring revenue engine: The Forever Kleen quarterly maintenance program creates predictable, subscription-style cash flow that most floor care companies lack entirely — this is the single biggest value multiplier in the eyes of acquirers</p>
+            <div class="strength-card">
+                <div class="strength-number">1</div>
+                <p>Recurring revenue engine: The Forever Kleen quarterly maintenance program creates predictable, subscription-style cash flow that most floor care companies lack entirely — this is the single biggest value multiplier in the eyes of acquirers</p>
+            </div>
+            <div class="strength-card">
+                <div class="strength-number">2</div>
+                <p>National-caliber technical expertise: A staff rug specialist who teaches IICRC courses nationally positions Springer as a thought leader, not just a service provider — this creates referral networks and pricing power that competitors cannot easily replicate</p>
+            </div>
+            <div class="strength-card">
+                <div class="strength-number">3</div>
+                <p>26-city Central Iowa coverage with 11 employees: This geographic density means Springer has already done the hardest work in floor care M&amp;A — building route density and brand recognition across a wide service territory without bloating the headcount</p>
+            </div>
         </div>
-        <div class="strength-card">
-            <div class="strength-number">2</div>
-            <p>National-caliber technical expertise: A staff rug specialist who teaches IICRC courses nationally positions Springer as a thought leader, not just a service provider — this creates referral networks and pricing power that competitors cannot easily replicate</p>
-        </div>
-        <div class="strength-card">
-            <div class="strength-number">3</div>
-            <p>26-city Central Iowa coverage with 11 employees: This geographic density means Springer has already done the hardest work in floor care M&amp;A — building route density and brand recognition across a wide service territory without bloating the headcount</p>
-        </div></div>
     </div>
 
+    <!-- EXISTING: Interactive Business Profile (Sliders) -->
     <div class="section" id="profile">
         <div class="section-title"><div class="icon">&#9881;</div> Interactive Business Profile</div>
         <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 24px;">
-            Adjust these sliders to see how changes in your business metrics impact your estimated valuation. All changes are saved automatically.
+            Adjust these sliders to see how changes in your business metrics impact what your business is worth. All changes are saved automatically.
         </p>
 
         <div class="slider-group">
             <div class="slider-label">
                 <span class="slider-label-text">Estimated Annual Revenue</span>
-                <span class="slider-value" id="revenue-display">$900,000</span>
+                <span class="slider-value" id="revenue-display">$900K</span>
             </div>
             <div class="slider-row">
                 <input type="range" id="revenue-slider" min="500000" max="50000000" step="100000" value="900000">
@@ -539,11 +875,11 @@ input[type="range"]::-moz-range-thumb {
         <div class="slider-group">
             <div class="slider-label">
                 <span class="slider-label-text">Recurring Revenue %</span>
-                <span class="slider-value" id="recurring-display">25%</span>
+                <span class="slider-value" id="recurring-display">30%</span>
             </div>
             <div class="slider-row">
-                <input type="range" id="recurring-slider" min="0" max="100" step="5" value="25">
-                <input type="number" id="recurring-input" min="0" max="100" step="5" value="25">
+                <input type="range" id="recurring-slider" min="0" max="100" step="5" value="30">
+                <input type="number" id="recurring-input" min="0" max="100" step="5" value="30">
             </div>
         </div>
 
@@ -559,71 +895,73 @@ input[type="range"]::-moz-range-thumb {
         </div>
     </div>
 
+    <!-- EXISTING: Estimated Value Range (Valuation Calculator) -->
     <div class="section" id="valuation">
-        <div class="section-title"><div class="icon">&#128176;</div> Estimated Value Range</div>
+        <div class="section-title"><div class="icon">&#128176;</div> What Your Business Is Worth</div>
         <div class="valuation-grid">
             <div class="val-box conservative">
                 <div class="val-label">Conservative</div>
                 <div class="val-amount" id="val-low">$0</div>
-                <div style="font-size:12px; color:var(--text-secondary); margin-top:6px;" id="val-low-mult">2.5x EBITDA</div>
+                <div style="font-size:12px; color:var(--text-secondary); margin-top:6px;" id="val-low-mult">3.0x EBITDA</div>
             </div>
             <div class="val-box likely">
                 <div class="val-label">Likely</div>
                 <div class="val-amount" id="val-mid">$0</div>
-                <div style="font-size:12px; color:var(--text-secondary); margin-top:6px;" id="val-mid-mult">4.0x EBITDA</div>
+                <div style="font-size:12px; color:var(--text-secondary); margin-top:6px;" id="val-mid-mult">4.5x EBITDA</div>
             </div>
             <div class="val-box optimistic">
                 <div class="val-label">Optimistic</div>
                 <div class="val-amount" id="val-high">$0</div>
-                <div style="font-size:12px; color:var(--text-secondary); margin-top:6px;" id="val-high-mult">5.5x EBITDA</div>
+                <div style="font-size:12px; color:var(--text-secondary); margin-top:6px;" id="val-high-mult">6.5x EBITDA</div>
             </div>
         </div>
         <div class="methodology" id="methodology-text">Calculating...</div>
         <div style='margin-top:20px;'><h4 style="color:var(--text-heading); margin-bottom:12px;">Key Valuation Drivers</h4><ul class="drivers-list"><li>Forever Kleen recurring revenue program — transforms one-time customers into quarterly subscribers, which buyers value at a premium because it reduces customer acquisition cost and increases lifetime value</li>
 <li>26-city service territory with established route density — an acquirer would need 3-5 years and significant capital to replicate this geographic footprint organically</li>
-<li>IICRC national instructor on staff — provides institutional credibility, training pipeline, and technical moat that commands pricing power in buyer negotiations</li>
-</ul></div>
+<li>IICRC national instructor on staff — provides institutional credibility, training pipeline, and technical moat that commands pricing power in buyer negotiations</li></ul></div>
     </div>
 
+    <!-- EXISTING: EBITDA Levers -->
     <div class="section" id="levers">
-        <div class="section-title"><div class="icon">&#9878;</div> EBITDA Levers &mdash; What Drives Your Valuation</div>
-        <div class="levers-grid">
+        <div class="section-title"><div class="icon">&#9878;</div> What Drives Your Valuation &mdash; Your Real Profit Levers</div>
+        <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 20px;">These are the specific factors that push your valuation multiple up or down. Understanding them is the first step to maximizing what a buyer will pay.</p>
+        <div class="levers-grid" id="levers-grid">
             <div class="levers-column positive">
                 <h3>&#9650; Value Drivers (Strengths)</h3>
                 
         <div class="lever-card lever-positive">
             <div class="lever-icon">&#9650;</div>
             <div>
-                <div class="lever-name">Forever Kleen Recurring Revenue Program <span class="lever-mult">+0.5x-2.0x EBITDA</span></div>
-                <div class="lever-desc">Quarterly maintenance subscriptions create predictable cash flow that most floor care companies lack -- the single biggest value multiplier.</div>
+                <div class="lever-name">Forever Kleen Recurring Revenue Program</div>
+                <div class="lever-desc">Quarterly subscription model transforms one-time customers into repeat revenue. Buyers pay a premium for businesses where customers come back automatically.</div>
             </div>
         </div>
         <div class="lever-card lever-positive">
             <div class="lever-icon">&#9650;</div>
             <div>
-                <div class="lever-name">26-City Central Iowa Coverage <span class="lever-mult">-0.25-0.75x EBITDA multiple for high-turnover operations; -1.0-2.0x if owner is primary technician</span></div>
-                <div class="lever-desc">Geographic density across Des Moines metro means established route efficiency and brand recognition that would take 3-5 years to replicate.</div>
+                <div class="lever-name">IICRC National Instructor on Staff</div>
+                <div class="lever-desc">Having a nationally certified instructor gives Springer Floor institutional credibility, a training pipeline, and technical authority that commands pricing power.</div>
             </div>
         </div>
         <div class="lever-card lever-positive">
             <div class="lever-icon">&#9650;</div>
             <div>
-                <div class="lever-name">IICRC National Instructor on Staff <span class="lever-mult">-0.25-0.75x EBITDA multiple for high-turnover operations; -1.0-2.0x if owner is primary technician</span></div>
-                <div class="lever-desc">Having a nationally-recognized rug specialist creates referral networks, pricing power, and technical credibility competitors cannot match.</div>
+                <div class="lever-name">26-City Service Territory</div>
+                <div class="lever-desc">An acquirer would need 3-5 years and significant capital to replicate this geographic footprint organically. Territory = value.</div>
             </div>
         </div>
         <div class="lever-card lever-positive">
             <div class="lever-icon">&#9650;</div>
             <div>
-                <div class="lever-name">Multi-Service Offering <span class="lever-mult">+0.5-1.25x EBITDA multiple</span></div>
-                <div class="lever-desc">Carpet, hardwood, tile, and specialty rug services diversify revenue streams and increase average customer lifetime value.</div>
+                <div class="lever-name">Commercial Contract Base</div>
+                <div class="lever-desc">Commercial customers with recurring floor care needs provide predictable revenue that banks and buyers can underwrite with confidence.</div>
             </div>
         </div>
         <div class="lever-card lever-positive">
             <div class="lever-icon">&#9650;</div>
             <div>
-                <div class="lever-name">Commercial Contract Pipeline <span class="lever-mult">-0.25-0.75x EBITDA multiple for high-turnover operations; -1.0-2.0x if owner is primary technician</span></div>
-                <div class="lever-desc">Property management and commercial cleaning contracts provide stable, recurring revenue with higher margins than residential one-time jobs.</div>
+                <div class="lever-name">Brand Recognition Across Iowa</div>
+                <div class="lever-desc">Decades of presence across 26 cities creates a brand moat that new entrants cannot buy or build quickly.</div>
             </div>
         </div>
             </div>
@@ -633,62 +971,173 @@ input[type="range"]::-moz-range-thumb {
         <div class="lever-card lever-opportunity">
             <div class="lever-icon">&#9660;</div>
             <div>
-                <div class="lever-name">Sub-$1M Revenue Scale <span class="lever-mult">-0.25-0.75x EBITDA multiple for high-turnover operations; -1.0-2.0x if owner is primary technician</span></div>
-                <div class="lever-desc">At $900K revenue, the business is below the threshold where most PE platforms actively acquire. Growing to $1.5M+ opens significantly more buyer interest.</div>
+                <div class="lever-name">Revenue Scale</div>
+                <div class="lever-desc">At ~$900K revenue, the business sits at the lower end of institutional buyer interest. Growing to $1.2M+ pre-sale would unlock a wider buyer pool and higher multiples.</div>
             </div>
         </div>
         <div class="lever-card lever-opportunity">
             <div class="lever-icon">&#9660;</div>
             <div>
-                <div class="lever-name">Owner-Operator Dependency <span class="lever-mult">-0.25-0.75x EBITDA multiple for high-turnover operations; -1.0-2.0x if owner is primary technician</span></div>
-                <div class="lever-desc">Terri and Eddie&#x27;s direct involvement in operations and customer relationships represents transition risk that compresses multiples.</div>
+                <div class="lever-name">Owner Transition Planning</div>
+                <div class="lever-desc">Documenting key relationships, processes, and operational knowledge ensures the business value transfers fully to the new owner.</div>
             </div>
         </div>
         <div class="lever-card lever-opportunity">
             <div class="lever-icon">&#9660;</div>
             <div>
-                <div class="lever-name">Seasonal Revenue Fluctuation <span class="lever-mult">-0.25-0.75x EBITDA multiple for high-turnover operations; -1.0-2.0x if owner is primary technician</span></div>
-                <div class="lever-desc">Floor care demand peaks around holidays and spring cleaning. Building commercial contracts smooths seasonality and improves valuation.</div>
+                <div class="lever-name">Technology and CRM Systems</div>
+                <div class="lever-desc">Modern scheduling, CRM, and route optimization tools demonstrate operational maturity and reduce buyer integration risk.</div>
             </div>
         </div>
         <div class="lever-card lever-opportunity">
             <div class="lever-icon">&#9660;</div>
             <div>
-                <div class="lever-name">Limited Brand Differentiation <span class="lever-mult">-0.25-0.75x EBITDA multiple for high-turnover operations; -1.0-2.0x if owner is primary technician</span></div>
-                <div class="lever-desc">Carpet cleaning is perceived as commoditized. The Forever Kleen program and IICRC credentials must be prominently marketed to justify premium pricing.</div>
+                <div class="lever-name">Upsell Penetration on Existing Accounts</div>
+                <div class="lever-desc">Cross-selling additional services (tile, hardwood, restoration) to existing Forever Kleen subscribers represents untapped revenue growth.</div>
             </div>
         </div>
         <div class="lever-card lever-opportunity">
             <div class="lever-icon">&#9660;</div>
             <div>
-                <div class="lever-name">Equipment-Dependent Operations <span class="lever-mult">-0.25-0.75x EBITDA multiple for high-turnover operations; -1.0-2.0x if owner is primary technician</span></div>
-                <div class="lever-desc">Truck-mount equipment represents both an asset and a liability -- replacement cycles, maintenance costs, and capacity constraints affect margins.</div>
+                <div class="lever-name">Financial Reporting Clarity</div>
+                <div class="lever-desc">Clean, segmented financials by service line and territory make buyer due diligence faster and support higher confidence in the numbers.</div>
             </div>
         </div>
             </div>
         </div>
     </div>
 
-    <div class="section" id="market">
-        <div class="section-title"><div class="icon">&#127758;</div> Your Market</div>
-        <p>The floor care and carpet cleaning vertical is experiencing a wave of consolidation driven by private equity platforms and regional home services roll-ups seeking recurring revenue businesses. National platforms like Stanley Steemer, COIT, and Zerorez have been actively acquiring independent operators in the $500K–$3M revenue range, particularly those with maintenance programs and commercial contracts. The Central Iowa market is especially attractive because Des Moines has been ranked among the fastest-growing mid-sized metros in the Midwest, with strong residential construction and commercial development fueling demand for floor care services.</p>
-<p>EBITDA multiples for floor care businesses with recurring revenue programs are currently trading at 3.0x–6.5x, with the higher end reserved for companies demonstrating customer retention above 80%, route density, and diversified service offerings. Springer&#x27;s Forever Kleen program places it firmly in the premium tier of these valuations. Strategic buyers — particularly HVAC and home services platforms looking to add complementary verticals — have been the most aggressive acquirers in this space, often paying above-market multiples to fill geographic gaps in their service maps.</p>
-<p>The succession dynamic in floor care mirrors the broader home services trend: approximately 60% of owners in this vertical are over 55 with no identified successor. This has created a seller&#x27;s market where quality operators with documented processes and trained teams command premium pricing. The window is particularly favorable right now, as buyer capital remains abundant while the supply of well-run independents continues to shrink.</p>
-
+    <!-- SECTION 6: PROCESS (4 Phases) -->
+    <div class="section" id="process">
+        <div class="section-title"><div class="icon">&#128197;</div> Our Process &mdash; What Happens and When</div>
+        <p style="margin-bottom: 20px;">Here is exactly what happens from the day you sign the engagement letter to the day you hand over the keys. No surprises, no mystery. Every step is planned.</p>
+        <div class="phase-grid">
+            <div class="phase-card">
+                <div class="phase-number">1</div>
+                <h4>Phase 1 &mdash; Preparation</h4>
+                <div class="phase-weeks">Weeks 1-6</div>
+                <ul>
+                    <li>Complete business valuation and financial analysis</li>
+                    <li>Identify and document your real profit after we add back owner perks</li>
+                    <li>Create the marketing book we build about your business</li>
+                    <li>Build target buyer list (strategic, PE, independent)</li>
+                    <li>Prepare management presentation materials</li>
+                    <li>Set up secure data room</li>
+                </ul>
+            </div>
+            <div class="phase-card">
+                <div class="phase-number">2</div>
+                <h4>Phase 2 &mdash; Marketing</h4>
+                <div class="phase-weeks">Weeks 7-14</div>
+                <ul>
+                    <li>Send blind teaser to qualified buyers (no company name)</li>
+                    <li>Execute NDAs with interested parties</li>
+                    <li>Share the marketing book with signed buyers</li>
+                    <li>Manage buyer Q&amp;A process</li>
+                    <li>Collect initial offers (Indications of Interest)</li>
+                    <li>Evaluate and rank every offer</li>
+                </ul>
+            </div>
+            <div class="phase-card">
+                <div class="phase-number">3</div>
+                <h4>Phase 3 &mdash; Negotiation</h4>
+                <div class="phase-weeks">Weeks 15-22</div>
+                <ul>
+                    <li>Facilitate in-person meetings with top bidders</li>
+                    <li>Request formal Letters of Intent (LOIs)</li>
+                    <li>Negotiate price, terms, structure, and transition plan</li>
+                    <li>Select preferred buyer and sign LOI</li>
+                    <li>Coordinate with your legal counsel on deal structure</li>
+                </ul>
+            </div>
+            <div class="phase-card">
+                <div class="phase-number">4</div>
+                <h4>Phase 4 &mdash; Closing</h4>
+                <div class="phase-weeks">Weeks 23-36</div>
+                <ul>
+                    <li>Manage the due diligence process (buyer verifying your numbers)</li>
+                    <li>Coordinate with buyer's lenders and advisors</li>
+                    <li>Support purchase agreement negotiation</li>
+                    <li>Handle working capital and any earnout details</li>
+                    <li>Close the deal and facilitate ownership transfer</li>
+                </ul>
+            </div>
+        </div>
+        <div class="methodology" style="margin-top: 16px;">
+            <strong>Expected Total Timeline:</strong> 6-9 months from engagement to close. We keep you informed every step of the way with weekly updates and a dedicated point of contact.
+        </div>
     </div>
 
-    <div class="section" id="attack">
-        <div class="section-title"><div class="icon">&#127919;</div> How We Would Sell Your Business</div>
-        <p>Phase 1 — Targeted Buyer Identification (Days 1-15): Build a buyer list of 75-100 prospects across three tiers. For strategic buyers, identify every PE-backed home services platform operating in Iowa, Nebraska, Minnesota, Missouri, and Illinois — these are the most likely geographic acquirers. Cross-reference with platforms that have publicly announced floor care or facilities services as growth verticals. For financial buyers, pull all search funds and independent sponsors who have expressed interest in home services, recurring revenue, or Midwest businesses through Searchfunder, NACO, and direct LinkedIn research. For individual operators, identify high-net-worth professionals in the Des Moines metro who have expressed interest in business ownership through SBA lender relationships and ETA networks.</p>
-<p>Phase 2 — Multi-Channel Outreach (Days 15-45): Execute a coordinated campaign across direct mail, cold calls, LinkedIn, and email. Every buyer receives a personalized approach based on their tier. Strategic buyers get a one-page teaser emphasizing recurring revenue metrics and geographic coverage. Financial buyers get a deal summary highlighting EBITDA margin, growth trajectory, and SBA eligibility. Individual operators get a lifestyle-focused pitch about owning a profitable Central Iowa business. All outreach is blind (no company name disclosed) until an NDA is signed.</p>
-<p>Phase 3 — Qualification and Negotiation (Days 45-90): Manage buyer conversations, distribute the Confidential Information Memorandum to qualified buyers, facilitate management presentations, and drive toward LOI submission. Target 5-8 qualified buyers submitting IOIs by Day 60, narrowing to 2-3 LOIs by Day 75, with a signed LOI by Day 90.</p>
+    <!-- SECTION 7: BUYER UNIVERSE -->
+    <div class="section" id="buyers">
+        <div class="section-title"><div class="icon">&#127919;</div> Who Will Buy Your Business</div>
+        <p style="margin-bottom: 20px;">We don't just put your business on a listing and hope someone calls. We build a curated list of buyers who are actively looking for exactly what you have, and we go to them directly.</p>
 
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px;">
+            <div>
+                <h4 style="color: var(--green); font-size: 14px; margin-bottom: 8px;">Strategic Buyers (Active in Floor Care / Carpet Cleaning)</h4>
+                <ul class="drivers-list" style="font-size: 13px;">
+                    <li>Stanley Steemer</li>
+                    <li>COIT Cleaning and Restoration</li>
+                    <li>ABM Industries</li>
+                    <li>Cintas Corporation</li>
+                    <li>Pritchard Industries</li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: var(--accent); font-size: 14px; margin-bottom: 8px;">Buyers Backed by Investment Groups</h4>
+                <ul class="drivers-list" style="font-size: 13px;">
+                    <li>milliCare <span style="color:var(--text-secondary)">(backed by The Riverside Company)</span></li>
+                    <li>ServiceMaster Brands <span style="color:var(--text-secondary)">(backed by Roark Capital)</span></li>
+                    <li>NEXClean <span style="color:var(--text-secondary)">(backed by Rainier Partners)</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px;">
+            <div>
+                <h4 style="color: var(--amber); font-size: 14px; margin-bottom: 8px;">Independent Buyers &amp; Search Funds</h4>
+                <p style="font-size: 13px;">10 active independent buyers in floor care / carpet cleaning and related services</p>
+            </div>
+            <div>
+                <h4 style="color: var(--text-heading); font-size: 14px; margin-bottom: 8px;">Regional Buyers</h4>
+                <ul class="drivers-list" style="font-size: 13px;">
+                    <li>Marsden Holding (St. Paul, MN)</li>
+                    <li>Midwest facility services operators</li>
+                </ul>
+            </div>
+        </div>
+
+        <h4 style="color: var(--text-heading); margin-bottom: 16px; font-size: 16px;">Our Buyer Funnel</h4>
+        <div style="max-width: 600px;">
+            <div class="funnel-bar">
+                <div class="funnel-label">Total Universe</div>
+                <div class="funnel-fill" style="width: 100%;">50+</div>
+            </div>
+            <div class="funnel-bar">
+                <div class="funnel-label">Outreach</div>
+                <div class="funnel-fill" style="width: 65%;">35</div>
+            </div>
+            <div class="funnel-bar">
+                <div class="funnel-label">NDAs Signed</div>
+                <div class="funnel-fill" style="width: 25%;">10</div>
+            </div>
+            <div class="funnel-bar">
+                <div class="funnel-label">Initial Offers</div>
+                <div class="funnel-fill" style="width: 12%;">4-6</div>
+            </div>
+            <div class="funnel-bar">
+                <div class="funnel-label">Final Offers</div>
+                <div class="funnel-fill" style="width: 5%;">2-3</div>
+            </div>
+        </div>
     </div>
 
+    <!-- SECTION 8: FEE STRUCTURE (Interactive Selection + Illustration Table) -->
     <div class="section" id="fees">
         <div class="section-title"><div class="icon">&#128178;</div> Fee Structure Options</div>
         <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 24px;">
-            Click on the option that works best for you. Your selection is saved automatically.
+            Click on the option that works best for you. Your selection is saved automatically. The engagement fee is credited 100% against the success fee at closing &mdash; it's not an additional cost.
         </p>
         <div class="fee-grid">
             <div class="fee-card" data-option="A" onclick="selectFee('A')">
@@ -704,7 +1153,7 @@ input[type="range"]::-moz-range-thumb {
                 <div class="fee-option-name">Option B</div>
                 <div class="fee-option-subtitle">Standard</div>
                 <div class="fee-detail"><div class="label">Engagement Fee</div><div class="value">$10,000</div></div>
-                <div class="fee-detail"><div class="label">Success Fee</div><div class="value">7%</div></div>
+                <div class="fee-detail"><div class="label">Success Fee</div><div class="value">10%</div></div>
                 <div class="fee-tagline">"Most popular &mdash; covers research and marketing costs"</div>
             </div>
             <div class="fee-card" data-option="C" onclick="selectFee('C')">
@@ -712,10 +1161,73 @@ input[type="range"]::-moz-range-thumb {
                 <div class="fee-option-name">Option C</div>
                 <div class="fee-option-subtitle">Premium</div>
                 <div class="fee-detail"><div class="label">Engagement Fee</div><div class="value">$15,000</div></div>
-                <div class="fee-detail"><div class="label">Success Fee</div><div class="value">5%</div></div>
+                <div class="fee-detail"><div class="label">Success Fee</div><div class="value">8%</div></div>
                 <div class="fee-tagline">"Full white-glove service with dedicated deal team"</div>
             </div>
         </div>
+
+        <div class="fee-illustration">
+            <h4>Fee Illustration &mdash; What You'd Actually Pay</h4>
+            <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;">Engagement fee credited 100% against the success fee. These numbers show the total cost at different sale prices.</p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Sale Price</th>
+                        <th>Success Fee</th>
+                        <th>Engagement Fee Credit</th>
+                        <th>Effective Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>$600K</td>
+                        <td>$60K</td>
+                        <td>$10K</td>
+                        <td>8.3%</td>
+                    </tr>
+                    <tr>
+                        <td>$900K</td>
+                        <td>$90K</td>
+                        <td>$10K</td>
+                        <td>8.9%</td>
+                    </tr>
+                    <tr>
+                        <td>$1.3M</td>
+                        <td>$130K</td>
+                        <td>$10K</td>
+                        <td>9.2%</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="fee-note">The engagement fee proves you're serious about selling. The success fee proves we're serious about getting you the best price. Both are aligned.</div>
+        </div>
+    </div>
+
+    <!-- EXISTING: Attack Plan / How We Would Sell -->
+    <div class="section" id="attack">
+        <div class="section-title"><div class="icon">&#128640;</div> How We Would Sell Your Business</div>
+        <p>Phase 1 — Targeted Buyer Identification (Days 1-15): Build a buyer list of 75-100 prospects across three tiers. For strategic buyers, identify every PE-backed home services platform operating in Iowa, Nebraska, Minnesota, Missouri, and Illinois — these are the most likely geographic acquirers. Cross-reference with platforms that have publicly announced floor care or facilities services as growth verticals. For financial buyers, pull all search funds and independent sponsors who have expressed interest in home services, recurring revenue, or Midwest businesses through Searchfunder, NACO, and direct LinkedIn research. For individual operators, identify high-net-worth professionals in the Des Moines metro who have expressed interest in business ownership through SBA lender relationships and ETA networks.
+
+Phase 2 — Multi-Channel Outreach (Days 15-45): Execute a coordinated campaign across direct mail, cold calls, LinkedIn, and email. Every buyer receives a personalized approach based on their tier. Strategic buyers get a one-page teaser emphasizing recurring revenue metrics and geographic coverage. Financial buyers get a deal summary highlighting EBITDA margin, growth trajectory, and SBA eligibility. Individual operators get a lifestyle-focused pitch about owning a profitable Central Iowa business. All outreach is blind (no company name disclosed) until an NDA is signed.
+
+Phase 3 — Qualification and Negotiation (Days 45-90): Manage buyer conversations, distribute the Confidential Information Memorandum to qualified buyers, facilitate management presentations, and drive toward LOI submission. Target 5-8 qualified buyers submitting IOIs by Day 60, narrowing to 2-3 LOIs by Day 75, with a signed LOI by Day 90.</p>
+    </div>
+
+    <!-- SECTION 10: NEXT STEPS -->
+    <div class="section" id="next-steps">
+        <div class="section-title"><div class="icon">&#9989;</div> Next Steps</div>
+        <div class="next-step-box">
+            <h3>One Decision. One Deadline.</h3>
+            <div class="step-action">Sign the engagement letter and return it with the engagement fee by April 14, 2026.</div>
+            <div class="step-date">We begin Phase 1 on April 21, 2026.</div>
+            <div style="margin-top: 20px; font-size: 14px; color: var(--text-secondary);">
+                Upon signing, we start immediately. No waiting. Your dedicated deal team is assigned on day one.
+            </div>
+        </div>
+    </div>
+
+    <!-- EXISTING: Let's Get Started CTA -->
+    <div class="section">
         <div class="cta-section">
             <button class="cta-btn" id="cta-button" onclick="letsGetStarted()">Let's Get Started &#10132;</button>
         </div>
@@ -738,8 +1250,8 @@ input[type="range"]::-moz-range-thumb {
 const SUPABASE_URL = 'https://dwrnfpjcvydhmhnvyzov.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR3cm5mcGpjdnlkaG1obnZ5em92Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ3NTcyOTAsImV4cCI6MjA5MDMzMzI5MH0.z0Gu1TWdGPcdptB5W7efnYMmxBbvD353ExG99ftQivY';
 const COMPANY_NAME = 'Springer Floor';
-const BASE_MULTIPLES = { low: 2.5, mid: 4.0, high: 5.5 };
-const BASE_EBITDA_MARGIN = 0.12;
+const BASE_MULTIPLES = { low: 3, mid: 4.5, high: 6.5 };
+const BASE_EBITDA_MARGIN = 0.15;
 
 async function logInteraction(type, fieldName, oldVal, newVal, metadata) {
     try {
@@ -881,13 +1393,13 @@ function recalculateValuation() {
     document.getElementById('val-high-mult').textContent = adjHigh.toFixed(1) + 'x EBITDA';
 
     document.getElementById('methodology-text').innerHTML =
-        '<strong>Methodology:</strong> Based on <strong>' + formatCurrency(revenue) + '</strong> revenue × ' +
-        '<strong>' + (margin * 100).toFixed(1) + '%</strong> estimated EBITDA margin = ' +
-        '<strong>' + formatCurrency(ebitda) + '</strong> EBITDA × ' +
-        '<strong>' + adjLow.toFixed(1) + 'x – ' + adjHigh.toFixed(1) + 'x</strong> EBITDA multiple range. ' +
+        '<strong>How we got these numbers:</strong> Based on <strong>' + formatCurrency(revenue) + '</strong> revenue x ' +
+        '<strong>' + (margin * 100).toFixed(1) + '%</strong> estimated profit margin = ' +
+        '<strong>' + formatCurrency(ebitda) + '</strong> (your real profit) x ' +
+        '<strong>' + adjLow.toFixed(1) + 'x - ' + adjHigh.toFixed(1) + 'x</strong> multiple range. ' +
         'Multiple adjustments reflect ' + recurring + '% recurring revenue, ' + commercial + '% commercial mix, ' +
         years + ' years operating history, and ' + employees + ' employees. ' +
-        'Higher recurring revenue and commercial contracts command premium multiples from acquirers.';
+        'Higher recurring revenue and commercial contracts command premium multiples from buyers.';
 }
 
 recalculateValuation();
@@ -903,8 +1415,8 @@ function selectFee(option) {
     logInteraction('fee_selection', 'fee_option', oldSelection, option, {
         option_details: {
             'A': { engagement_fee: 0, success_fee: '10%', name: 'Performance Only' },
-            'B': { engagement_fee: 10000, success_fee: '7%', name: 'Standard' },
-            'C': { engagement_fee: 15000, success_fee: '5%', name: 'Premium' }
+            'B': { engagement_fee: 10000, success_fee: '10%', name: 'Standard' },
+            'C': { engagement_fee: 15000, success_fee: '8%', name: 'Premium' }
         }[option]
     });
 }
