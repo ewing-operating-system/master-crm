@@ -3,182 +3,172 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Buyer Dossier: Grundfos for AquaScience</title>
+<title>Buyer Dossier: Grundfos | AquaScience</title>
 <style>
-    @media print {
-        body { margin: 0; }
-        .page-break { page-break-before: always; }
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-        font-family: 'Georgia', 'Times New Roman', serif;
-        color: #2c2c2c;
-        background: #f8f8f8;
-        line-height: 1.6;
-    }
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        background: white;
-        box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-    }
-    .header {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-        color: white;
-        padding: 40px;
-        position: relative;
-    }
-    .header::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, #e94560, #f5a623, #e94560);
-    }
-    .header h1 {
-        font-size: 28px;
-        margin-bottom: 8px;
-        letter-spacing: -0.5px;
-    }
-    .header .subtitle {
-        font-size: 16px;
-        opacity: 0.85;
-        font-style: italic;
-    }
-    .meta-bar {
-        display: flex;
-        gap: 24px;
-        padding: 16px 40px;
-        background: #f0f0f0;
-        border-bottom: 1px solid #ddd;
-        font-size: 14px;
-        flex-wrap: wrap;
-    }
-    .meta-bar .meta-item {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    }
-    .meta-bar .label {
-        font-weight: bold;
-        color: #666;
-        text-transform: uppercase;
-        font-size: 11px;
-        letter-spacing: 0.5px;
-    }
-    .meta-bar .value {
-        color: #1a1a2e;
-        font-weight: 600;
-    }
-    .fit-score {
-        display: inline-block;
-        background: #e74c3c;
-        color: white;
-        padding: 2px 10px;
-        border-radius: 12px;
-        font-weight: bold;
-        font-size: 13px;
-    }
-    .pitch-bar {
-        padding: 20px 40px;
-        background: #fafbfc;
-        border-bottom: 2px solid #e94560;
-        font-size: 18px;
-        font-style: italic;
-        color: #333;
-        text-align: center;
-    }
-    .content {
-        padding: 32px 40px;
-    }
-    .section {
-        margin-bottom: 28px;
-    }
-    .section h2 {
-        font-size: 16px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #0f3460;
-        border-bottom: 2px solid #e8e8e8;
-        padding-bottom: 8px;
-        margin-bottom: 14px;
-    }
-    .section p {
-        margin-bottom: 12px;
-        text-align: justify;
-    }
-    .section ul {
-        padding-left: 20px;
-    }
-    .section ul li {
-        margin-bottom: 8px;
-    }
-    .section ul.risks li {
-        color: #c0392b;
-    }
-    .approach-box {
-        background: #f0f7ff;
-        border-left: 4px solid #0f3460;
-        padding: 16px 20px;
-        border-radius: 0 8px 8px 0;
-        margin-top: 12px;
-    }
-    .footer {
-        padding: 20px 40px;
-        background: #1a1a2e;
-        color: rgba(255,255,255,0.5);
-        font-size: 11px;
-        text-align: center;
-    }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117; color: #c9d1d9; line-height: 1.6;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative;
+    border-bottom: 4px solid; border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header-label { text-transform: uppercase; font-size: 11px; letter-spacing: 3px; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+  .header h1 { font-size: 28px; font-weight: 700; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #f39c12;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; color: white; }
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+  .content { padding: 24px 48px 48px; }
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; padding: 10px 12px; background: #0d1117; font-weight: 600; color: #8b949e; font-size: 11px; text-transform: uppercase; border-bottom: 1px solid #30363d; }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  .footer { text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px; border-top: 1px solid #21262d; }
 </style>
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        <h1>Grundfos</h1>
-        <div class="subtitle">Buyer Dossier &mdash; Prepared for AquaScience</div>
+<div class="page">
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Grundfos</h1>
+    <div class="subtitle">Prepared for AquaScience</div>
+    <div class='score-badge'><span class='score-num'>7</span><span class='score-label'>Fit</span></div>
+  </div>
+  <div class="context-bar">
+    <strong>AquaScience</strong> &bull; Lawrence &quot;Larry&quot; Casey
+  </div>
+  <div class="content">
+    <div class="card" id="buyer-profile">
+        <h2>Buyer Profile</h2>
+        <p>## Grundfos — Strategic Buyer Profile</p>
+<p>### Company Overview & Strategic Logic
+Grundfos is a potential acquirer for AquaScience (Water Treatment / eCommerce).</p>
+<p>### Earnings & Market Position
+[Grundfos delivers robust 2025 results with US and data centres as ...](https://www.grundfos.com/media/latest-news/grundfos-delivers-robust-2025-results-with-us-and-data-centres-a): Grundfos delivers robust 2025 results with US and data centres as key growth drivers | Grundfos</p>
+<p>toggle</p>
+<p>search</p>
+<p>---</p>
+<p>---</p>
+<p>In a year heavily impacted by geopolitical uncertainty, Grundfos delivered a solid 5.7% sales growth, and profitability also remained strong. Double-digit growth in the US and a surge in demand for data centre solutions are main contributors to the robust results.</p>
+<p>Sales growth (YoY)</p>
+<p>5.7%</p>
+<p>Revenue</p>
+<p>4.7bn EUR</p>
+<p>EBIT before special items</p>
+<p>492m EUR</p>
+<p>EBIT ratio (before special items)</p>
+<p>10.6%</p>
+<p>Grundfos, one of the world’s leading companies in energy-efficient water solutions, has today reported its full year results for 2025.</p>
+<p>Despite geopolitical uncertainty and challenging market conditions, Grundfos managed to achieve robust sales growth in 2025, on par with the company’s own expectations. Profitability also remained strong and in line with strategic ambitions.</p>
+<p>In the US, the world’s largest pump market, Grundfos delivered an impressive 15% sales growth. The company also experie</p>
+<p>### M&A Track Record
+[Grundfos successfully completes acquisition of US water treatment company | Grundfos](https://www.grundfos.com/media/latest-news/grundfos-successfully-completes-acquisition-of-us-water-treatmen): Grundfos successfully completes acquisition of US water treatment company | Grundfos</p>
+<p>toggle</p>
+<p>search</p>
+<p>---</p>
+<p>---</p>
+<p>The acquisition of Newterra enhances Grundfos’ water treatment portfolio and is yet another important step towards Grundfos’ ambition to become a global leader in water treatment. Danish company Grundfos, a global leader in advanced water solutions, has completed the acquisition of the Pittsburgh-based water and wastewater treatment solutions company Newterra.</p>
+<p>The acquisition underlines Grundfos’ commitment in expanding its water treatment and wastewater solutions capabilities as well as Grundfos’ strategic ambition to grow its presence in the US and Canadian markets.</p>
+<p>Newterra vessels</p>
+<p>“The addition of Newterra is another important step to realise Grundfos’ ambition to become a global leader in water treatment,” said Inge Delobelle, EVP & Divisional CEO, Industry division, Grundfos, adding: “It enhances our ability to provide modular, efficient and scalable water and was</p>
+<p>### Financial Profile
+[Annual report 2025 - Grundfos](https://www.grundfos.com/media/reports-and-publications/grundfos-annual-report-2025): Grundfos Annual Report 2025 | Grundfos</p>
+<p>toggle</p>
+<p>search</p>
+<p>---</p>
+<p>---</p>
+<p>### Grundfos delivered robust 2025 results with US and data centres as key growth drivers.</p>
+<p>In 2025, Grundfos’ sales amounted to EUR 4.7bn. In a volatile year, Grundfos delivered a solid 5.7% sales growth, and profitability also remained strong.</p>
+<p>This year’s annual report presents our financial and sustainability performance together for the first time.</p>
+<p>This integrated approach reflects how deeply our sustainability priorities are woven into our strategy, innovation and the long-term value we create for customers and society.</p>
+<p>In 2025, we continued to help customers and end users save water and energy, while bringing water access to millions worldwide and making progress across key impact areas.</p>
+<p>#### 5.7% Sales growth</p>
+<p>#### EUR 492m EBIT before special items</p>
+<p>#### 84 – all-time high customer satis
+Revenue indicator: the most comprehensive water treatment portfolios in the industry.”</p>
+<p>Grundfos’ revenue surpassed USD five billion in 2024, and with the inclusion of Newterra,</p>
+<p>### Strategic Fit with AquaScience
+[Grundfos successfully completes acquisition of US water treatment company | Grundfos](https://www.grundfos.com/media/latest-news/grundfos-successfully-completes-acquisition-of-us-water-treatmen): Grundfos successfully completes acquisition of US water treatment company | Grundfos</p>
+<p>toggle</p>
+<p>search</p>
+<p>---</p>
+<p>---</p>
+<p>The acquisition of Newterra enhances Grundfos’ water treatment portfolio and is yet another important step towards Grundfos’ ambition to become a global leader in water treatment. Danish company Grundfos, a global leader in advanced water solutions, has completed the acquisition of the Pittsburgh-based water and wastewater treatment solutions company Newterra.</p>
+<p>The acquisition underlines Grundfos’ commitment in expanding its water treatment and wastewater solutions capabilities as well as Grundfos’ strategic ambition to grow its presence in the US and Canadian markets.</p>
+<p>Newterra vessels</p>
+<p>“The addition of Newterra is another important step to realise Grundfos’ ambition to become a global leader in water treatment,” said Inge Delobelle, EVP & Divisional CEO, Industry division, Grundfos, adding: “It enhances our ability to provide modular, efficient and scalable water and was</p>
+<p>### Key Contacts & Decision Makers
+[Leadership, structure and ownership | Grundfos](https://www.grundfos.com/us/about-us/who-we-are/leadership-structure-and-ownership): Leadership, structure and ownership | Grundfos</p>
+<p>toggle</p>
+<p>search</p>
+<p>---</p>
+<p>---</p>
+<p>#### Poul Due Jensen CEO since 2020</p>
+<p>#### Organised into four global divisions; 100 companies in 60 countries</p>
+<p>#### The Grundfos Foundation is the primary owner with an 87.9% of share capital</p>
+<p>## Group Management</p>
+<p>Meet our colleagues in Group Management, the team responsible for day-to-day operations at Grundfos.</p>
+<p>### Poul Due Jensen</p>
+<p>Group President, CEO</p>
+<p>Poul was appointed CEO in 2020, having held assorted managerial and executive positions at Grundfos since he joined in 2000.</p>
+<p>LinkedIn</p>
+<p>Meet Poul</p>
+<p>### Anne Grønbjerg</p>
+<p>Group Executive Vice President, Chief Human Resource Officer</p>
+<p>### Golden Nuggets & Call Ammunition
+- e. When completed, it will represent the second such transaction since November 2020, when Grundfos acquired EUROWATER, one of the leading suppliers of decentralized water treatment equipment and solu
+- -with-us-and-data-centres-a): Grundfos delivers robust 2025 results with US and data centres as key growth drivers | Grundfos</p>
+<p>toggle</p>
+<p>search</p>
+<p>---</p>
+<p>---</p>
+<p>In a year heavily impacted by geopolitica
+- n a deeper understanding of Grundfos.</p>
+<p>### Social media</p>
+<p>Media Join us on a variety of social media platforms for all the latest on Grundfos, our people, and the world of wat</p>
+<p>[Grundfos announces stro</p>
+<p>### Research Source
+Exa.ai enrichment — 2026-03-29</p>
     </div>
-    <div class="meta-bar">
-        <div class='meta-item'><span class='label'>Contact</span><span class='value'>Inge Delobelle</span></div>
-        <div class='meta-item'><span class='label'>Type</span><span class='value'>Strategic Acquirer</span></div>
-        <div class='meta-item'><span class='label'>Location</span><span class='value'>Brookshire, TX</span></div>
-        <div class='meta-item'><span class='label'>Fit Score</span><span class='fit-score'>7</span></div>
-    </div>
-    <div class='pitch-bar'>&ldquo;AquaScience gives Grundfos instant density in the one major US water treatment market their $350M Newterra platform doesn't touch — New England — with a proven eCommerce channel they can scale nationally.&rdquo;</div>
-    <div class="content">
-        <div class="section">
-            <h2>Buyer Narrative</h2>
-            <p>Grundfos is a Danish multinational and one of the world's largest pump manufacturers, with annual revenue exceeding €4 billion and operations in over 55 countries. Under CEO Poul Due Jensen's founding philosophy of sustainable water technology, the company has aggressively expanded beyond core pump manufacturing into full-spectrum water treatment solutions — a strategy that accelerated dramatically with the 2025 acquisition of Newterra, which gave Grundfos a $350M+ US water treatment platform virtually overnight. Inge Delobelle, based in Brookshire, TX, leads elements of Grundfos's North American commercial strategy.</p><p>What makes Grundfos a credible acquirer is not just their financial capacity — they are privately held by the Poul Due Jensen Foundation, meaning they can take a long-term view without quarterly earnings pressure — but their demonstrated commitment to building a US water treatment services business through acquisition. The Newterra deal signaled that Grundfos is willing to pay meaningful multiples for established platforms with service revenue, recurring customer relationships, and geographic density. They are not tire-kickers; they are executing a stated strategy with capital already deployed.</p><p>For a seller evaluating Grundfos, the key consideration is continuity. Grundfos has historically preserved the operational identity of acquired businesses while providing access to global R&D, supply chain, and brand credibility. Employees, customers, and vendor relationships tend to be maintained post-close, which matters for owners who care about legacy.</p>
-        </div>
-        
-        <div class="section">
-            <h2>Acquisition History</h2>
-            <ul><li>Newterra (2025) — US/Canadian water and wastewater treatment platform, $350M+ revenue, gave Grundfos a major North American services footprint</li><li>Bjerringbro-Bjerge portfolio expansions — decades of tuck-in acquisitions across European pump and water technology markets</li><li>DAB Pumps (2020) — Italian pump manufacturer acquisition expanding Southern European residential market share</li><li>Watermill Express (reported interest) — US retail water vending, aligned with consumer water treatment thesis</li><li>Multiple OEM and distributor acquisitions across Asia-Pacific and Latin America to build regional service capability</li><li>Strategic partnerships and minority investments in water-tech startups through Grundfos Foundation innovation programs</li></ul>
-        </div>
-        <div class="section">
-            <h2>Why This Seller</h2>
-            <p>AquaScience fills a precise geographic gap in Grundfos's post-Newterra US water treatment map. Newterra's strength is concentrated in the Midwest and Mid-Atlantic; New England remains underserved. AquaScience has built meaningful density across Rhode Island and surrounding states in both residential and commercial water treatment — exactly the local service relationships that a global manufacturer cannot replicate organically. The eCommerce channel is a bonus differentiator: it gives Grundfos a direct-to-consumer distribution model they can study and potentially scale across their broader US platform. At an estimated $8M in revenue, AquaScience is a manageable tuck-in that wouldn't require board-level approval complexity, yet it delivers a new territory and a new channel in a single transaction.</p>
-        </div>
-        <div class="section">
-            <h2>Approach Angle</h2>
-            <div class="approach-box">Frame the outreach around Grundfos's own announced strategy. Reference the Newterra acquisition as proof of their commitment to US water treatment growth, then position AquaScience as a natural geographic extension into New England — a territory they don't currently cover. Emphasize that we represent the owners (never say the company is for sale), and that we're reaching out to a small number of strategic fits, not running a broad process.</div>
-        </div>
-        
-        <div class="section">
-            <h2>Talking Points</h2>
-            <ul><li>Grundfos's Newterra acquisition created a $350M+ US platform, but New England remains a white space — AquaScience covers that territory with established residential and commercial relationships</li><li>The company combines traditional service revenue with a growing eCommerce channel, offering Grundfos a direct-to-consumer model they could pilot and scale nationally</li><li>New England is one of the more fragmented water treatment markets in the US, and AquaScience has already consolidated meaningful local density — organic entry would take years</li><li>This is not a broadly marketed process — we're having targeted conversations with a small number of acquirers whose strategy aligns with the company's profile</li><li>The ownership is exploring options now, and timing aligns well with Grundfos's post-Newterra integration momentum while the acquisition playbook is fresh</li></ul>
-        </div>
-        
-        <div class="section">
-            <h2>Risk Factors</h2>
-            <ul class="risks"><li>Grundfos is a large multinational — decision-making may be slow and involve multiple approval layers across Denmark and US leadership, extending timeline significantly</li><li>At $8M revenue, AquaScience may fall below Grundfos's minimum deal size threshold given the transaction costs and management attention required for cross-border integration</li><li>Post-Newterra integration may be consuming leadership bandwidth, making Grundfos reluctant to add another acquisition to the pipeline in the near term</li></ul>
+    
+    
+    <div class="card" id="approach">
+        <h2>Approach Strategy</h2>
+        <div style="background:#0b2e1a;border:1px solid #27ae60;border-radius:8px;padding:18px 22px;">
+            <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#27ae60;margin-bottom:6px;text-transform:uppercase;">CALL OPENER</div>
+            <p style="color:#a3e4b8;font-size:14px;line-height:1.7;">We noticed Grundfos&#x27;s activity in Water Treatment / eCommerce and your track record of strategic acquisitions in this space. We&#x27;re working with AquaScience, and there&#x27;s a compelling fit we&#x27;d love to walk you through.</p>
         </div>
     </div>
-    <div class="footer">
-        Generated March 29, 2026 &bull; Confidential
-    </div>
+  </div>
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential
+  </div>
 </div>
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
 </body>
 </html>

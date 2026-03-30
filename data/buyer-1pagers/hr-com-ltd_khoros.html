@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: Khoros | HR.com Ltd</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #30363d;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
+  }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
+  }
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
+  }
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
+  }
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Khoros</h1>
+    <div class="subtitle">Prepared for HR.com Ltd</div>
+    <div class="header-meta">
+      <span class='tag'>Type: Platform</span>
+      
+      
+    </div>
+    
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar">
+    <div>
+      <strong>HR.com Ltd</strong> &bull; Debbie McGrath &bull; HR Technology &amp; Media
+      
+    </div>
+    <div>March 29, 2026</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    
+    <div class="card" id="strategic-fit">
+        <h2>Strategic Fit</h2>
+        <div class="narrative-content"><p>Khoros's challenge of 'limited first-party data for ad targeting' is directly addressed by HR.com's behavioral data on 1.92M members, providing deep insights into content consumption and vendor interest signals. Additionally, the hr.com domain offers massive organic SEO authority, enhancing Khoros's visibility in the HR tech space and driving traffic to their platforms. Acquiring HR.com would not only enrich Khoros's existing customer data but also allow for cross-selling opportunities through the MyPeople.ai platform, creating significant value across multiple revenue streams.</p></div>
+    </div>
+    <div class="card" id="golden-nuggets">
+        <h2>Golden Nuggets -- Cold Call Openers</h2>
+        
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 1 - Eric Vaughan</div>
+            <blockquote class="ceo-quote">&ldquo;With the acquisition of Khoros, we&#x27;re not just investing in the product, we&#x27;re rebuilding it. We&#x27;re partnering with customers, bringing in experts, and applying the same operating discipline we&#x27;ve used to successfully transform dozens of enterprise software companies. Our focus is on delivering AI-powered value at scale by leveraging what made the Khoros Community solution a leader in the first place.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Eric, you&#x27;ve said you&#x27;re rebuilding Khoros around AI-powered community at scale — we have 2 million HR practitioners already engaged in exactly that kind of community, and I&#x27;d love to explore whether that&#x27;s an asset worth a conversation.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> The CEO explicitly says they&#x27;re REBUILDING around community and AI-powered value at scale. HR.com already has 2M+ practitioners in an engaged community — this is exactly the asset Khoros needs to prove their rebuilt platform works at scale in a high-value vertical.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 2 - Michael Puhala</div>
+            <blockquote class="ceo-quote">&ldquo;This is a real opportunity to bring community leadership into the AI era, and to make sure customers have a voice in shaping what comes next.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Michael, you&#x27;ve talked about bringing community leadership into the AI era — HR.com has 2 million practitioners generating the exact engagement data that could power that vision, and I think there&#x27;s a strategic conversation worth having.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Khoros&#x27;s own Chief Community Evangelist frames &#x27;community leadership in the AI era&#x27; as the opportunity. HR.com&#x27;s community engagement data across 2M practitioners is a ready-made proving ground for AI-powered community — or a strategic acquisition target that accelerates their roadmap by years.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 3 - Jake McKee</div>
+            <blockquote class="ceo-quote">&ldquo;This is about combining the best of Khoros&#x27; legacy with the clarity, focus, and AI capabilities needed to lead the next era of community.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Jake, you&#x27;ve described Khoros&#x27;s mission as leading the next era of community — HR.com represents one of the largest professional communities in the world, and there may be a way to accelerate that vision together.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> A strategic advisor validating that Khoros&#x27;s future is &#x27;the next era of community&#x27; — acquiring HR.com would give them an instant vertical community leader with content, events, and practitioner data they can&#x27;t build organically.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 4 - Andrea Hey</div>
+            <blockquote class="ceo-quote">&ldquo;At its core, employee advocacy is quite simple: it&#x27;s the promotion of a company by the people who work there.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Your team has identified employee advocacy as a core use case — HR.com has direct relationships with 2 million of the people who actually buy and deploy those programs, which could be a powerful channel for Khoros.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Khoros already thinks about employee advocacy — HR.com&#x27;s 2M HR practitioners are the exact buyers and implementers of employee advocacy programs. Acquiring HR.com gives Khoros direct distribution to the decision-makers who purchase community and advocacy tools.</div>
+        </div>
+    </div>
+    <div class="card" id="ceo-vision">
+        <h2>CEO Vision &amp; Strategy</h2>
+        <div class="narrative-content"><p>Under IgniteTech's ownership, Khoros is executing a full product rebuild centered on AI-powered community at scale. CEO Eric Vaughan is applying IgniteTech's proven playbook of acquiring and transforming enterprise software companies — with community as the strategic differentiator. The leadership team is explicitly framing this as a 'next era of community' play, signaling they need scale, data, and vertical community assets to prove the thesis.</p></div>
+    </div>
+    <div class="card" id="ma-appetite">
+        <h2>M&amp;A Appetite</h2>
+        <div class="narrative-content"><p>M&A appetite is extremely high. IgniteTech (parent company, owned by ESW Capital Group) has completed over 100 acquisitions in the past two decades — this is a serial acquirer by DNA. Khoros itself was born from a Vista Equity Partners merger (Spredfast + Lithium Technologies). The current leadership explicitly frames their strategy in acquisition language ('not just investing, we're rebuilding'). ESW Capital's playbook is: acquire enterprise software, apply operational discipline, extract AI-powered value. A community asset like HR.com fits squarely in their acquisition thesis — especially as a vertical proof point for Khoros's rebuilt community platform.</p></div>
+    </div>
+    <div class="card" id="challenges">
+        <h2>Challenges &amp; Headwinds</h2>
+        <div class="narrative-content"><p>Khoros has gone through significant workforce disruption — 116 layoffs immediately post-acquisition and a prior 10% reduction in 2022. They're simultaneously trying to rebuild the product, integrate under new ownership, and sell into a complex enterprise buying environment. This creates a classic build-vs-buy tension: they need community scale and engagement data to validate their AI-powered vision, but they've cut the teams that could build it organically. HR.com's existing community, content engine, and practitioner data could fill that gap faster than internal rebuilding.</p></div>
+    </div>
+    <div class="card" id="earnings-quotes">
+        <h2>Key Earnings Quotes</h2>
+        <div class="narrative-content"><p>- <strong>Brian Nourani</strong> (): "A strategic sales leader within the Enterprise Technology / subscription-based, recurring revenue SaaS space that knows how to identify and capitalize on core opportunities through strategic/technical"
+- <strong>Sejal Amin</strong> (): "Sejal operates large-scale global technology engineering organizations, she builds high performing teams who are capable of delivering great experiences to customers and growth to the businesses she s"
+- <strong>Eric Vaughan</strong> (): "With the acquisition of Khoros, we're not just investing in the product, we're rebuilding it. We're partnering with customers, bringing in experts, and applying the same operating discipline we've use"
+- <strong>Michael Puhala</strong> (): "Khoros has a strong heritage, and I'm excited to see IgniteTech building on that with urgency and clarity. This is a real opportunity to bring community leadership into the AI era, and to make sure cu"
+- <strong>Jake McKee</strong> (): "IgniteTech's approach to Khoros puts people and customers at the center. This is about combining the best of Khoros' legacy with the clarity, focus, and AI capabilities needed to lead the next era of "
+- <strong>Andrea Hey</strong> (): "At its core, employee advocacy is quite simple: it’s the promotion of a company by the people who work there."</p></div>
+    </div>
+    <div class="card" id="verified-contacts">
+        <h2>Verified Contacts</h2>
+        <table>
+        <thead><tr>
+            <th>Name</th><th>Title</th><th>Company</th><th>Status</th><th>Confidence</th><th>LinkedIn</th>
+        </tr></thead>
+        <tbody><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Suuchi Ramesh</td>
+            <td>Chief Customer Officer</td>
+            <td>Khoros</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/suuchi-ramesh-219480111" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Andrew Harris</td>
+            <td>Chief Of Staff at Intelerad Medical Systems</td>
+            <td>Intelerad Medical Systems</td>
+            <td><span style="color:#8b949e;font-weight:600;">STALE</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/andrew-harris-11091213" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Josh Greenberg</td>
+            <td>VP Global Account Management, Head Of Delivery Services</td>
+            <td>HGS</td>
+            <td><span style="color:#8b949e;font-weight:600;">STALE</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/joshuapaulegreenberg" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr></tbody>
+    </table>
+    </div>
+    <div class="card" id="approach-strategy">
+        <h2>Approach Strategy</h2>
+        
+        <div class="approach-opener">
+            <div class="opener-label">CALL OPENER</div>
+            <p>Eric, you&#x27;ve said you&#x27;re rebuilding Khoros around AI-powered community at scale — we have 2 million HR practitioners already engaged in exactly that kind of community, and I&#x27;d love to explore whether that&#x27;s an asset worth a conversation.</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
+  </div>
+
+</div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
+</body>
+</html>

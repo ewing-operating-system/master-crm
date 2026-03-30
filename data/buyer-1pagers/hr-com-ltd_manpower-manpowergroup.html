@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: Manpower (ManpowerGroup) | HR.com Ltd</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #30363d;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
+  }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
+  }
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
+  }
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
+  }
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Manpower (ManpowerGroup)</h1>
+    <div class="subtitle">Prepared for HR.com Ltd</div>
+    <div class="header-meta">
+      <span class='tag'>Type: Platform</span>
+      
+      
+    </div>
+    
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar">
+    <div>
+      <strong>HR.com Ltd</strong> &bull; Debbie McGrath &bull; HR Technology &amp; Media
+      
+    </div>
+    <div>March 29, 2026</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    
+    <div class="card" id="strategic-fit">
+        <h2>Strategic Fit</h2>
+        <div class="narrative-content"><p>ManpowerGroup's challenge of 'limited first-party data for ad targeting' is directly addressed by HR.com's behavioral data on 1.92M members, enabling precise audience insights. Additionally, the hr.com domain offers unmatched organic SEO authority, enhancing visibility in HR-related searches, which aligns with the need for a stronger market position. Acquiring HR.com would not only enrich ManpowerGroup's data capabilities but also provide a platform for licensing through MyPeople.ai, creating new revenue streams.</p></div>
+    </div>
+    <div class="card" id="golden-nuggets">
+        <h2>Golden Nuggets -- Cold Call Openers</h2>
+        
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 1 - Jonas Prising</div>
+            <blockquote class="ceo-quote">&ldquo;We will continue to invest in technology and advancement of our digital platforms, as this remains core to everything we do today and in the future. Just one example of this is PowerSuite, our integrated tech stack and powerful combination of best-in-breed technologies for every stage of the HR value chain, from connecting with candidates and managing the workforce to coaching and developing people.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Jonas, you&#x27;ve talked about PowerSuite covering every stage of the HR value chain — we have 2 million HR practitioners already engaged across that entire chain, and I&#x27;d love to show you how that community layer could plug directly into what you&#x27;re building.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Prising explicitly names &#x27;every stage of the HR value chain&#x27; as their target — HR.com&#x27;s 2M+ practitioner community IS that value chain. PowerSuite is 87% deployed on front office but has no proprietary community or content layer. HR.com fills that gap instantly.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 2</div>
+            <blockquote class="ceo-quote">&ldquo;the intersection of AI and workforce readiness is an urgent priority&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Both Jonas and Becky have called AI and workforce readiness an &#x27;urgent priority&#x27; — we have behavioral data from 2 million HR practitioners showing exactly how they&#x27;re adopting AI tools right now, which could give ManpowerGroup a massive edge in that race.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Both the CEO and Chief Strategy Officer repeat this phrase verbatim across multiple calls — it&#x27;s clearly a board-level talking point. HR.com sits at exactly this intersection: practitioner engagement data that reveals what 2M+ HR professionals are actually adopting, struggling with, and buying around AI and workforce readiness.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 3 - Jonas Prising</div>
+            <blockquote class="ceo-quote">&ldquo;Integrated AI recruiter toolkit expanded to more than 12 markets, resulting in a 7% increase in placement rates.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Congratulations on the 7% placement lift from your AI recruiter toolkit — we work with the companies your recruiters are placing into, and our engagement data from 2 million HR buyers could help you push that number significantly higher.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> They&#x27;re scaling AI recruiting tools and measuring placement lift — but 7% suggests room to grow. HR.com&#x27;s community data could train and validate those AI tools against real practitioner behavior and preferences, turning a 7% lift into something much larger.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 4 - Jonas Prising</div>
+            <blockquote class="ceo-quote">&ldquo;It is also what allows us to leverage data and analytics that give us the insights that help predict workforce needs and drive business performance.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Jonas, you&#x27;ve emphasized using data to predict workforce needs — imagine layering in real-time behavioral signals from 2 million HR decision-makers showing what they&#x27;re prioritizing, buying, and struggling with right now.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Prising is telling the market that predictive workforce analytics is core to their value proposition. HR.com generates real-time signals from 2M practitioners on hiring priorities, tool adoption, and pain points — exactly the data that makes workforce predictions accurate.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 5 - Jonas Prising</div>
+            <blockquote class="ceo-quote">&ldquo;Workforce needs are evolving, skills demands are changing faster due to the adoption of technology and business model transformation in many organizations.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>You&#x27;ve said skills demands are changing faster than ever — we see that in real time across 2 million HR practitioners telling us exactly which skills and tools they&#x27;re investing in, and that intelligence could be a game-changer for ManpowerGroup&#x27;s clients.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> This is ManpowerGroup&#x27;s core thesis — skills are shifting fast. HR.com&#x27;s content library, certification programs, and community engagement data provide a live map of exactly which skills HR teams are investing in, making this a natural strategic fit.</div>
+        </div>
+    </div>
+    <div class="card" id="ceo-vision">
+        <h2>CEO Vision &amp; Strategy</h2>
+        <div class="narrative-content"><p>Prising is driving a three-pillar transformation: diversify beyond traditional staffing (Experis for IT, Talent Solutions for enterprise RPO/MSP), digitize operations through PowerSuite (now at ~87% front-office deployment with AI tools in 12+ markets), and position ManpowerGroup as the company that sits at the intersection of AI and workforce readiness. The repeated mantra from both Prising and Frankiewicz is that AI + workforce readiness is the urgent strategic priority — this is a board-level conviction, not a talking point.</p></div>
+    </div>
+    <div class="card" id="ma-appetite">
+        <h2>M&amp;A Appetite</h2>
+        <div class="narrative-content"><p>ManpowerGroup has a proven M&A playbook: they acquired ettain group for ~$925-930M in 2021 to bolster Experis IT staffing, IPO'd their China business in Hong Kong, and sold South Korea as a franchise — showing willingness to both buy for capability and divest non-core assets. They refinanced €500M in notes, giving them balance sheet flexibility. Their pattern is acquiring to fill capability gaps in their diversification strategy. HR.com's community asset (2M practitioners, engagement data, content) fills the one gap PowerSuite can't build organically: direct relationships with the HR buyers their clients need to reach.</p></div>
+    </div>
+    <div class="card" id="challenges">
+        <h2>Challenges &amp; Headwinds</h2>
+        <div class="narrative-content"><p>ManpowerGroup faces margin pressure from declining permanent recruitment in Europe (especially Germany at -22% YoY), cautious employers in North America, and a $161M free cash flow outflow in 2025. Their AI and tech investments are showing early results (7% placement lift) but need richer data inputs to scale. They have the platform (PowerSuite) and the distribution (75+ countries) but lack a proprietary community and content layer that connects them directly to the HR practitioners who make buying decisions — exactly what HR.com provides.</p></div>
+    </div>
+    <div class="card" id="earnings-quotes">
+        <h2>Key Earnings Quotes</h2>
+        <div class="narrative-content"><p>- <strong>Jonas Prising</strong> (): "The technology investments we've been making for some years as part of our transformational journey have been critical in allowing us to respond immediately in response to the global pandemic. In a ma"
+- <strong>Jonas Prising</strong> (): "We are very well positioned to help our clients address these challenges with our strong brands, market leading global footprint and extensive portfolio of solutions and services."
+- <strong>Becky Frankiewicz</strong> (): "the intersection of AI and workforce readiness is an urgent priority"
+- <strong>Jonas Prising</strong> (): "Our diversity across geographies, industries and offerings has benefited us as some businesses have not been impacted materially by the crisis at this stage."
+- <strong>Jack McGinnis</strong> (): "Gross profit margin came in just below our guidance range, driven by lower permanent recruitment in Europe"
+- <strong>Jonas Prising</strong> (): "We are confident in our strategy to improve the diversification of our business through the growth of Experis, our professional resourcing and IT expertise. We believe this will serve to provide highe"
+- <strong>Jonas Prising</strong> (): "We are also already seeing evidence that this crisis is accelerating the technical and soft skills transformation that we have been tracking and predicting for some time. Acute skills shortages in tec"
+- <strong>Jonas Prising</strong> (): "We are confident that the investments we have been making in diversification, digitization and innovation in recent years position us very well to weather the pandemic and also help us emerge stronger"</p></div>
+    </div>
+    <div class="card" id="verified-contacts">
+        <h2>Verified Contacts</h2>
+        <table>
+        <thead><tr>
+            <th>Name</th><th>Title</th><th>Company</th><th>Status</th><th>Confidence</th><th>LinkedIn</th>
+        </tr></thead>
+        <tbody><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Salvador Rodriguez Arana</td>
+            <td>Merger &amp; Acquisition Director</td>
+            <td>Manpower (ManpowerGroup)</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/salvarodriguez" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Jonas Prising</td>
+            <td>Chair &amp; CEO</td>
+            <td>Manpower (ManpowerGroup)</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/jonasprising" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Mindy Schestag</td>
+            <td>VP - Growth Markets and Strategic Initiatives</td>
+            <td>Manpower (ManpowerGroup)</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/mindy-schestag-3669aa20" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr></tbody>
+    </table>
+    </div>
+    <div class="card" id="approach-strategy">
+        <h2>Approach Strategy</h2>
+        
+        <div class="approach-opener">
+            <div class="opener-label">CALL OPENER</div>
+            <p>Jonas, you&#x27;ve talked about PowerSuite covering every stage of the HR value chain — we have 2 million HR practitioners already engaged across that entire chain, and I&#x27;d love to show you how that community layer could plug directly into what you&#x27;re building.</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
+  </div>
+
+</div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
+</body>
+</html>

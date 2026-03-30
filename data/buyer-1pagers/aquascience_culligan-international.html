@@ -3,182 +3,233 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Buyer Dossier: Culligan International for AquaScience</title>
+<title>Buyer Dossier: Culligan International | AquaScience</title>
 <style>
-    @media print {
-        body { margin: 0; }
-        .page-break { page-break-before: always; }
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-        font-family: 'Georgia', 'Times New Roman', serif;
-        color: #2c2c2c;
-        background: #f8f8f8;
-        line-height: 1.6;
-    }
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        background: white;
-        box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-    }
-    .header {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-        color: white;
-        padding: 40px;
-        position: relative;
-    }
-    .header::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, #e94560, #f5a623, #e94560);
-    }
-    .header h1 {
-        font-size: 28px;
-        margin-bottom: 8px;
-        letter-spacing: -0.5px;
-    }
-    .header .subtitle {
-        font-size: 16px;
-        opacity: 0.85;
-        font-style: italic;
-    }
-    .meta-bar {
-        display: flex;
-        gap: 24px;
-        padding: 16px 40px;
-        background: #f0f0f0;
-        border-bottom: 1px solid #ddd;
-        font-size: 14px;
-        flex-wrap: wrap;
-    }
-    .meta-bar .meta-item {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    }
-    .meta-bar .label {
-        font-weight: bold;
-        color: #666;
-        text-transform: uppercase;
-        font-size: 11px;
-        letter-spacing: 0.5px;
-    }
-    .meta-bar .value {
-        color: #1a1a2e;
-        font-weight: 600;
-    }
-    .fit-score {
-        display: inline-block;
-        background: #e74c3c;
-        color: white;
-        padding: 2px 10px;
-        border-radius: 12px;
-        font-weight: bold;
-        font-size: 13px;
-    }
-    .pitch-bar {
-        padding: 20px 40px;
-        background: #fafbfc;
-        border-bottom: 2px solid #e94560;
-        font-size: 18px;
-        font-style: italic;
-        color: #333;
-        text-align: center;
-    }
-    .content {
-        padding: 32px 40px;
-    }
-    .section {
-        margin-bottom: 28px;
-    }
-    .section h2 {
-        font-size: 16px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #0f3460;
-        border-bottom: 2px solid #e8e8e8;
-        padding-bottom: 8px;
-        margin-bottom: 14px;
-    }
-    .section p {
-        margin-bottom: 12px;
-        text-align: justify;
-    }
-    .section ul {
-        padding-left: 20px;
-    }
-    .section ul li {
-        margin-bottom: 8px;
-    }
-    .section ul.risks li {
-        color: #c0392b;
-    }
-    .approach-box {
-        background: #f0f7ff;
-        border-left: 4px solid #0f3460;
-        padding: 16px 20px;
-        border-radius: 0 8px 8px 0;
-        margin-top: 12px;
-    }
-    .footer {
-        padding: 20px 40px;
-        background: #1a1a2e;
-        color: rgba(255,255,255,0.5);
-        font-size: 11px;
-        text-align: center;
-    }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #27ae60;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
+  }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
+  }
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
+  }
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
+  }
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
+  }
 </style>
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        <h1>Culligan International</h1>
-        <div class="subtitle">Buyer Dossier &mdash; Prepared for AquaScience</div>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Culligan International</h1>
+    <div class="subtitle">Prepared for AquaScience</div>
+    <div class="header-meta">
+      <span class='tag'>Type: Strategic Acquirer</span>
+      <span class='tag'>Contact: Scott Curl</span>
+      <span class='tag'>Rosemont, IL</span>
     </div>
-    <div class="meta-bar">
-        <div class='meta-item'><span class='label'>Contact</span><span class='value'>Scott Curl</span></div>
-        <div class='meta-item'><span class='label'>Type</span><span class='value'>Strategic Acquirer</span></div>
-        <div class='meta-item'><span class='label'>Location</span><span class='value'>Rosemont, IL</span></div>
-        <div class='meta-item'><span class='label'>Fit Score</span><span class='fit-score'>9</span></div>
+    <div class='score-badge'><span class='score-num'>9</span><span class='score-label'>Fit</span></div>
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar">
+    <div>
+      <strong>AquaScience</strong> &bull; Lawrence &quot;Larry&quot; Casey &bull; Water Treatment / eCommerce
+      &bull; 8000000.0
     </div>
-    <div class='pitch-bar'>&ldquo;A 41-year Rhode Island water treatment company with loyal residential and commercial customers offering Culligan a turnkey Northeast tuck-in with zero greenfield risk.&rdquo;</div>
-    <div class="content">
-        <div class="section">
-            <h2>Buyer Narrative</h2>
-            <p>Culligan International is the world's largest consumer water treatment company, headquartered in Rosemont, Illinois, with operations spanning over 90 countries. Since Advent International and BDT Capital Partners took a controlling stake, Culligan has executed an extraordinary roll-up strategy — completing over 200 acquisitions since 2017 to build a vertically integrated water services empire. Their playbook is proven: acquire established local water treatment operators, retain the teams and customer relationships, then layer in Culligan's national brand, proprietary product lines, supply chain advantages, and operational infrastructure to accelerate growth.</p><p>What makes Culligan a credible acquirer for a family-owned water treatment business is their track record of honoring the legacy of the companies they acquire. They understand that 40+ years of customer trust isn't something you can replicate — it's something you buy and build on. Their tuck-in model is specifically designed for operators like AquaScience: companies with deep local roots, loyal customer bases, and experienced service teams. Culligan doesn't gut these businesses; they fuel them with capital, technology, and brand recognition while keeping the local DNA intact.</p><p>Scott Curl operates within Culligan's corporate development function, and conversations with his team tend to move efficiently. Culligan knows how to value water treatment businesses, they understand the recurring revenue models, and they close deals without the protracted diligence theater that private equity buyers sometimes impose. For a seller who cares about their employees and customers being taken care of post-close, Culligan's integration model is among the most seller-friendly in the industry.</p>
-        </div>
-        
-        <div class="section">
-            <h2>Acquisition History</h2>
-            <ul><li>AO Smith Water Treatment (2021) — expanded residential water purification capabilities</li><li>Zip Water (Australia) — premium filtered water dispensing systems</li><li>Harvey Water Softeners (UK) — dominant UK residential water softener brand</li><li>Waterlogic (2022, ~$1.1B) — commercial water purification and dispensing across 18 countries</li><li>Numerous regional US water treatment dealers and service companies across the Midwest, Southeast, and West Coast as tuck-in acquisitions</li><li>BWT (Best Water Technology) — European water treatment leader, merged to create global platform</li><li>Multiple independent Culligan franchise/dealer operations consolidated under corporate ownership</li></ul>
-        </div>
-        <div class="section">
-            <h2>Why This Seller</h2>
-            <p>AquaScience is a textbook Culligan tuck-in target. Forty-one years in Rhode Island gives the company exactly what Culligan cannot build organically: deep local customer relationships, an established service reputation, and trained technicians who already know the territory. Rhode Island and the broader Southern New England corridor represent a high-density residential market for water treatment services, and AquaScience gives Culligan an immediate, turnkey foothold without the cost and time of a greenfield buildout. The dual residential and commercial capability means Culligan can cross-sell its full product portfolio — softeners, filtration, drinking water systems, and commercial solutions — through an existing customer base and sales team from day one. At an estimated $8M in revenue, AquaScience sits squarely in Culligan's tuck-in sweet spot: large enough to be meaningful, small enough to integrate cleanly.</p>
-        </div>
-        <div class="section">
-            <h2>Approach Angle</h2>
-            <div class="approach-box">Position the outreach as representing a well-established, generational water treatment business whose owners are confidentially exploring whether a strategic partnership with the right national platform makes sense. Emphasize the Rhode Island market density and the 41-year operating history. Never indicate the company is for sale — frame it as owners determining if the right conversation exists. Culligan's team evaluates hundreds of these opportunities, so lead with specifics that signal quality: years in business, dual resi/commercial capability, geographic fit.</div>
-        </div>
-        
-        <div class="section">
-            <h2>Talking Points</h2>
-            <ul><li>AquaScience has operated continuously for 41 years in Rhode Island — the kind of local entrenchment and customer loyalty that takes decades to build and cannot be replicated by a new market entrant</li><li>The business serves both residential and commercial customers, giving Culligan immediate dual-channel revenue and a platform to cross-sell its full product and service lineup across both segments</li><li>Rhode Island and Southern New England represent one of the highest-density markets for water treatment services in the US, and AquaScience provides a turnkey entry point without greenfield buildout costs</li><li>The owners are exploring this confidentially with no formal process — this is an off-market opportunity where Culligan would have first-mover advantage before any competitive auction dynamics</li><li>AquaScience's existing service teams and customer base align directly with Culligan's proven tuck-in integration model, minimizing transition risk and accelerating time-to-value</li></ul>
-        </div>
-        
-        <div class="section">
-            <h2>Risk Factors</h2>
-            <ul class="risks"><li>Culligan's acquisition volume means their corporate development team is highly selective and may deprioritize smaller tuck-ins if larger platform deals are in flight — timing and internal bandwidth could delay engagement</li><li>At $8M revenue, AquaScience may fall below Culligan's minimum threshold for direct corporate acquisitions versus being routed to a regional franchise operator or dealer network partner, which could change deal economics</li><li>Culligan's post-acquisition integration typically involves rebranding to the Culligan name and standardizing operations — if AquaScience's owners have strong legacy preservation requirements, this could create friction during negotiations</li></ul>
-        </div>
-    </div>
-    <div class="footer">
-        Generated March 29, 2026 &bull; Confidential
-    </div>
+    <div>March 29, 2026</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
+  </div>
+
 </div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
 </body>
 </html>

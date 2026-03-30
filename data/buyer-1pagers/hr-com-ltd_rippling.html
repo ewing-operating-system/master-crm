@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: Rippling | HR.com Ltd</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #30363d;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
+  }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
+  }
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
+  }
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
+  }
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Rippling</h1>
+    <div class="subtitle">Prepared for HR.com Ltd</div>
+    <div class="header-meta">
+      <span class='tag'>Type: Platform</span>
+      
+      
+    </div>
+    
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar">
+    <div>
+      <strong>HR.com Ltd</strong> &bull; Debbie McGrath &bull; HR Technology &amp; Media
+      
+    </div>
+    <div>March 29, 2026</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    
+    <div class="card" id="strategic-fit">
+        <h2>Strategic Fit</h2>
+        <div class="narrative-content"><p>HR.com's 1.92M HR Professional Members and behavioral data would provide Rippling with an unparalleled first-party audience and intent signals for targeted product expansion and data enrichment. The hr.com domain and 4,000+ Accredited Webcasts content library would establish immediate category authority and continuous engagement, addressing the need for deeper market penetration. This acquisition would represent a category-defining first move into owning the HR professional relationship at scale.</p></div>
+    </div>
+    <div class="card" id="golden-nuggets">
+        <h2>Golden Nuggets -- Cold Call Openers</h2>
+        
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 1 - Matt MacInnis</div>
+            <blockquote class="ceo-quote">&ldquo;Everyone is constantly asking for more resources. Of course, where we can afford to and where it&#x27;s appropriate, new resources arrive, but it is really important to me that we feel that we&#x27;ve deliberately understaffed every project at the company.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Matt MacInnis has talked publicly about deliberately understaffing every project at Rippling — I&#x27;m calling because HR.com&#x27;s 2 million HR practitioners and turnkey content engine is exactly the kind of force multiplier that lets a lean team cover more ground without adding headcount.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Deliberate understaffing means Rippling needs force multipliers, not more headcount. HR.com&#x27;s 2M+ practitioner community, ready-made content library, and engagement infrastructure let a lean team punch far above its weight — especially in HR product development, go-to-market, and customer education — without adding heads.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 2 - Matt MacInnis</div>
+            <blockquote class="ceo-quote">&ldquo;You got to run the engine at the red line at all times. Because the minute you let your guard down, the minute you slow down, the minute you relax, the minute you leave a crack for your competition, the great teams are going to come in and kick the good team&#x27;s ass.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Your CPO says Rippling has to run at the red line because any crack lets competitors in — acquiring HR.com&#x27;s 2M-practitioner community and engagement data would give you a structural moat that speed alone can&#x27;t build.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Running at redline with a competitive moat narrative is the perfect setup for an acquisition pitch. HR.com&#x27;s community data and practitioner engagement would give Rippling proprietary demand signals and distribution that competitors can&#x27;t replicate — a structural moat, not just a speed advantage.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 3 - Matt MacInnis</div>
+            <blockquote class="ceo-quote">&ldquo;You can&#x27;t grind the individuals down, but the team as a collective group of people has to be sort of on the ball all the time.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Matt MacInnis talks about keeping the team on the ball without grinding individuals down — HR.com&#x27;s practitioner engagement data would let your product and go-to-market teams aim with precision instead of effort, which is exactly how you sustain that intensity.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> This tension between intensity and burnout is a real operational risk. HR.com&#x27;s community intelligence — what HR practitioners actually need, struggle with, and engage with — would let Rippling&#x27;s lean product and GTM teams prioritize with precision instead of brute-force effort, protecting individuals while keeping the collective sharp.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 4 - Rippling Leadership</div>
+            <blockquote class="ceo-quote">&ldquo;We want to operate like the world&#x27;s largest startup. That means having a passion for constantly inventing for customers, strong urgency, high ownership, fast decision-making, scrappiness and frugality, deeply-connected collaboration.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Rippling&#x27;s leadership says you want to constantly invent for customers with scrappiness and frugality — HR.com would hand you a direct line to 2 million HR practitioners telling you exactly what to build next, without spending years and tens of millions standing up that community yourselves.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> &#x27;Constantly inventing for customers&#x27; plus &#x27;scrappiness and frugality&#x27; is the exact profile of a buyer who would acquire community assets rather than build them. HR.com gives Rippling instant customer invention signal — what 2M practitioners want next — at a fraction of the cost of building that listening infrastructure from scratch.</div>
+        </div>
+    </div>
+    <div class="card" id="ceo-vision">
+        <h2>CEO Vision &amp; Strategy</h2>
+        <div class="narrative-content"><p>Rippling's leadership is building a hyper-competitive, deliberately lean organization that prizes speed, frugality, and relentless execution over headcount. They want to operate like 'the world's largest startup' — inventing constantly for customers while doing more with fewer people. This philosophy makes them a natural acquirer of assets that deliver leverage rather than complexity.</p></div>
+    </div>
+    <div class="card" id="ma-appetite">
+        <h2>M&amp;A Appetite</h2>
+        <div class="narrative-content"><p>No explicit M&A signals in the available quotes. However, the strategic profile is strongly suggestive: a well-funded company ($13.5B+ valuation) that values frugality, speed, and competitive moats is the classic 'buy vs. build' acquirer when the right asset appears. The deliberate understaffing philosophy means they're unlikely to build a 2M-person community organically — acquisition is the only path that fits their operating model. Position HR.com as a capability acquisition, not a traditional M&A target.</p></div>
+    </div>
+    <div class="card" id="challenges">
+        <h2>Challenges &amp; Headwinds</h2>
+        <div class="narrative-content"><p>Rippling faces three interconnected challenges: (1) sustaining breakneck pace with intentionally thin teams creates burnout risk and prioritization pressure — they need better signal on where to focus limited resources; (2) the 'doing more with less' ethos means they lack deep community engagement infrastructure to understand practitioner needs at scale; (3) competitors are one slowdown away from closing the gap, so Rippling needs structural moats (proprietary data, captive community) not just execution speed.</p></div>
+    </div>
+    <div class="card" id="earnings-quotes">
+        <h2>Key Earnings Quotes</h2>
+        <div class="narrative-content"><p>- <strong>Matt MacInnis</strong> (): "Everyone is constantly asking for more resources. Of course, where we can afford to and where it's appropriate, new resources arrive, but it is really important to me that we feel that we've deliberat"
+- <strong>Matt MacInnis</strong> (): "You got to run the engine at the red line at all times. Because the minute you let your guard down, the minute you slow down, the minute you relax, the minute you leave a crack for your competition, t"
+- <strong>Matt MacInnis</strong> (): "You can't grind the individuals down, but the team as a collective group of people has to be sort of on the ball all the time."</p></div>
+    </div>
+    <div class="card" id="verified-contacts">
+        <h2>Verified Contacts</h2>
+        <table>
+        <thead><tr>
+            <th>Name</th><th>Title</th><th>Company</th><th>Status</th><th>Confidence</th><th>LinkedIn</th>
+        </tr></thead>
+        <tbody><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Brad Armstrong</td>
+            <td>SVP, Business &amp; Corporate Development</td>
+            <td>Rippling</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/brad-armstrong-62046223" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Joshua Banks</td>
+            <td>Director, Business &amp; Corporate Development</td>
+            <td>Rippling</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/jtbanks" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Jenny Zhang</td>
+            <td>Business &amp; Corporate Development</td>
+            <td>Rippling</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>MEDIUM</td>
+            <td><a href="https://www.linkedin.com/in/jennyzhang262" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Jessica Linneweber</td>
+            <td>Corporate Development &amp; Strategy</td>
+            <td>Bertelsmann / Riverty</td>
+            <td><span style="color:#8b949e;font-weight:600;">STALE</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/jessica-linneweber-0a3454ab" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Casper Resenbro</td>
+            <td>Corporate Development</td>
+            <td>RIB Software</td>
+            <td><span style="color:#8b949e;font-weight:600;">STALE</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/casper-resenbro-42b27590" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr></tbody>
+    </table>
+    </div>
+    <div class="card" id="approach-strategy">
+        <h2>Approach Strategy</h2>
+        
+        <div class="approach-opener">
+            <div class="opener-label">CALL OPENER</div>
+            <p>Matt MacInnis has talked publicly about deliberately understaffing every project at Rippling — I&#x27;m calling because HR.com&#x27;s 2 million HR practitioners and turnkey content engine is exactly the kind of force multiplier that lets a lean team cover more ground without adding headcount.</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
+  </div>
+
+</div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
+</body>
+</html>

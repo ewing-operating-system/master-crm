@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: Deloitte | HR.com Ltd</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #30363d;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
+  }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
+  }
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
+  }
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
+  }
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Deloitte</h1>
+    <div class="subtitle">Prepared for HR.com Ltd</div>
+    <div class="header-meta">
+      <span class='tag'>Type: Platform</span>
+      
+      
+    </div>
+    
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar">
+    <div>
+      <strong>HR.com Ltd</strong> &bull; Debbie McGrath &bull; HR Technology &amp; Media
+      
+    </div>
+    <div>March 29, 2026</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    
+    <div class="card" id="strategic-fit">
+        <h2>Strategic Fit</h2>
+        <div class="narrative-content"><p>Deloitte's challenge of 'limited first-party data for ad targeting' is directly addressed by HR.com's behavioral data on 1.92M members, enabling precise audience segmentation and targeted marketing. Additionally, the MyPeople.ai platform offers a white-label community SaaS solution that can be licensed to enterprises, enhancing Deloitte's service offerings in HR technology. This acquisition would not only enrich Deloitte's data capabilities but also leverage HR.com's SEO authority through its category-defining domain, driving organic traffic and engagement.</p></div>
+    </div>
+    <div class="card" id="golden-nuggets">
+        <h2>Golden Nuggets -- Cold Call Openers</h2>
+        
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 1 - Deloitte Global Human Capital Trends</div>
+            <blockquote class="ceo-quote">&ldquo;Only 50% to 75% of organizations believe they are getting value out of the major tech investments, such as enterprise resource planning, data architecture, and cloud platforms, and traditional and generative AI.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Your own trends report found up to half of organizations aren&#x27;t getting value from their major tech investments — we sit on 2 million HR practitioners telling us exactly why, and I think that data could sharpen the advice Deloitte gives clients.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Deloitte&#x27;s own research says up to half of orgs aren&#x27;t getting value from tech investments. HR.com&#x27;s 2M+ practitioner community is a real-time signal of what HR leaders actually adopt, struggle with, and value — the exact ground-truth Deloitte needs to advise clients better.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 2 - Amy Sanford</div>
+            <blockquote class="ceo-quote">&ldquo;Instead of a few core technologies to choose from, they are faced with hundreds.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Amy Sanford nailed it — HR leaders are drowning in hundreds of technology choices — and we have behavioral data from 2 million practitioners showing exactly which ones they&#x27;re leaning toward, which could be a powerful input for Deloitte&#x27;s advisory work.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> When HR leaders are overwhelmed by choice, they turn to peer communities for signal. HR.com owns that community — engagement data, content consumption, and event attendance that reveals which technologies practitioners actually care about. This is a strategic asset for any firm advising on HR tech selection.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 3 - Marty Marchetti</div>
+            <blockquote class="ceo-quote">&ldquo;The acquisition of SimplrOps&#x27; business is a pivotal moment for Deloitte&#x27;s Human Capital practice, enabling us to offer our clients one of our first standalone SaaS products.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Marty Marchetti called SimplrOps a pivotal moment for Human Capital — if Deloitte is building standalone products in HR tech, we should talk about what 2 million engaged HR practitioners and their behavioral data could do for that strategy.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Deloitte is actively acquiring to build standalone products in Human Capital. HR.com&#x27;s community platform, practitioner data, and content engine are exactly the kind of asset that would accelerate a product-led strategy — not just consulting, but owning the practitioner relationship.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 4 - Deloitte Global Human Capital Trends</div>
+            <blockquote class="ceo-quote">&ldquo;Competitive advantage is now primarily less driven by technology differentiation and more by cultivating the human edge. Technology — especially something as increasingly ubiquitous as AI — is replicable. People aren&#x27;t.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Your trends report argues the human edge is the real competitive advantage, not replicable tech — we own the largest community of HR practitioners in the world, and that&#x27;s exactly the kind of non-replicable asset that fits that thesis.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Deloitte&#x27;s own thesis is that people, not tech, create differentiation. HR.com literally owns the largest community of HR people — their insights, engagement patterns, and professional development data. If the human edge is the thesis, HR.com is the asset that delivers it.</div>
+        </div>
+    </div>
+    <div class="card" id="ceo-vision">
+        <h2>CEO Vision &amp; Strategy</h2>
+        <div class="narrative-content"><p>Deloitte's Human Capital leadership sees the market at a tipping point where technology alone no longer differentiates — the competitive edge comes from human adaptivity, creativity, and judgment. They are positioning to help clients reimagine work by combining the best of humans and AI, and they're actively acquiring SaaS products to move beyond pure consulting into product-led delivery.</p></div>
+    </div>
+    <div class="card" id="ma-appetite">
+        <h2>M&amp;A Appetite</h2>
+        <div class="narrative-content"><p>Deloitte is in active acquisition mode for HR tech assets, as evidenced by the SimplrOps deal. They specifically called it 'one of our first standalone SaaS products,' signaling appetite for more. Their pattern favors assets that can scale globally through Deloitte's reach while adding product capability to their consulting practice. HR.com fits this pattern as a platform asset with 2M+ practitioners, community data, and content — the kind of strategic acquisition that would give Deloitte a proprietary practitioner relationship no competitor can replicate.</p></div>
+    </div>
+    <div class="card" id="challenges">
+        <h2>Challenges &amp; Headwinds</h2>
+        <div class="narrative-content"><p>Deloitte's clients face technology overload (hundreds of HR tech options), poor ROI realization (up to 50% see no value from major investments), and pressure to act on AI without clear goals or strategy. They need ground-truth practitioner data to advise clients on what actually works — exactly what HR.com's community engagement, content consumption, and event data provides at scale.</p></div>
+    </div>
+    <div class="card" id="earnings-quotes">
+        <h2>Key Earnings Quotes</h2>
+        <div class="narrative-content"><p>- <strong>Simona Spelman</strong> (): "As we fully integrate SimplrOps' technology into our offerings, we are poised to deliver improved performance that helps our clients maximize ROI in their technology investments."
+- <strong>Marty Marchetti</strong> (): "The acquisition of SimplrOps' business is a pivotal moment for Deloitte’s Human Capital practice, enabling us to offer our clients one of our first standalone SaaS products."
+- <strong>Pruthav Joshi</strong> (): "The mission for me and my co-founder, Mansi Tuli, was to provide innovative and easy-to-use solutions that help our customers grow their businesses. We are excited to join the Deloitte team, whose dee"
+- <strong>Victor Reyes</strong> (): "Deciding whether to invest in technology and which technologies to choose used to be a relatively straightforward process for organizations. No longer."
+- <strong>David Mallon</strong> (): "This evolution has led to a major shift in organizations’ main value cases for technology investments."
+- <strong>Amy Sanford</strong> (): "Leaders are in a new normal. Instead of a few core technologies to choose from, they are faced with hundreds."</p></div>
+    </div>
+    <div class="card" id="verified-contacts">
+        <h2>Verified Contacts</h2>
+        <table>
+        <thead><tr>
+            <th>Name</th><th>Title</th><th>Company</th><th>Status</th><th>Confidence</th><th>LinkedIn</th>
+        </tr></thead>
+        <tbody><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Elcin Vardar Osorio Escobar</td>
+            <td>Senior Manager, M&amp;A</td>
+            <td>Deloitte</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/elcinvardar" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">John Curtis</td>
+            <td>VP, Business Development - Deloitte Corporate Finance</td>
+            <td>Deloitte</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/john-curtis-648062a" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Mark Taylor</td>
+            <td>Partner - Head of Corporate Development, Deloitte North and South Europe</td>
+            <td>Deloitte</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/mark-taylor-84420b1" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">David N.</td>
+            <td>Global Corporate Development</td>
+            <td>Deloitte Global</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>MEDIUM</td>
+            <td><a href="https://www.linkedin.com/in/david-n-6b359a1b" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Jason Geller</td>
+            <td>Principal</td>
+            <td>Deloitte</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>MEDIUM</td>
+            <td><a href="https://www.linkedin.com/in/jasongeller" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Talia Abramowitz</td>
+            <td>VP, M&amp;A – Integration &amp; Separation Management Office</td>
+            <td>Deloitte</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>LOW</td>
+            <td><a href="https://www.linkedin.com/posts/talia-abramowitz-ab777a73_vp-ma-integration-separation-management-activity-7083118534263803904-KBOJ" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr></tbody>
+    </table>
+    </div>
+    <div class="card" id="approach-strategy">
+        <h2>Approach Strategy</h2>
+        
+        <div class="approach-opener">
+            <div class="opener-label">CALL OPENER</div>
+            <p>Your own trends report found up to half of organizations aren&#x27;t getting value from their major tech investments — we sit on 2 million HR practitioners telling us exactly why, and I think that data could sharpen the advice Deloitte gives clients.</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
+  </div>
+
+</div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
+</body>
+</html>

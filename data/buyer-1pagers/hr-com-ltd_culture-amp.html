@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: Culture Amp | HR.com Ltd</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #30363d;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
+  }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
+  }
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
+  }
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
+  }
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Culture Amp</h1>
+    <div class="subtitle">Prepared for HR.com Ltd</div>
+    <div class="header-meta">
+      <span class='tag'>Type: Platform</span>
+      
+      
+    </div>
+    
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar">
+    <div>
+      <strong>HR.com Ltd</strong> &bull; Debbie McGrath &bull; HR Technology &amp; Media
+      
+    </div>
+    <div>March 29, 2026</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    
+    <div class="card" id="strategic-fit">
+        <h2>Strategic Fit</h2>
+        <div class="narrative-content"><p>With '1.92M HR Professional Members,' HR.com provides Culture Amp with a direct pathway to 'own the audience relationship' crucial for enhancing their community strategy. Additionally, the 'Behavioral Data' on these members addresses the challenge of 'limited first-party data for ad targeting,' enabling targeted marketing and engagement. The 'MyPeople.ai' platform offers a scalable solution for enterprises, aligning with Culture Amp's vision for community-driven HR technology.</p></div>
+    </div>
+    <div class="card" id="golden-nuggets">
+        <h2>Golden Nuggets -- Cold Call Openers</h2>
+        
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 1</div>
+            <blockquote class="ceo-quote">&ldquo;Leaders need to model adaptability. If the C-Suite is clinging to the &#x27;way we&#x27;ve always done things,&#x27; no one else will feel safe leaning into change. It&#x27;s integral that leaders show employees that it&#x27;s okay to try, fail, learn, and grow.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Fresia Jackson published that leaders need to model adaptability or no one feels safe leaning into change — we sit on behavioral data from 2 million HR practitioners that shows exactly which organizations are walking that talk and which are stuck, and I think that data could be transformative for Culture Amp&#x27;s people science engine.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Culture Amp&#x27;s own research leader is calling out the adaptability gap in leadership — HR.com&#x27;s 2M+ practitioner community is the largest real-world dataset on how HR leaders are actually adapting (or not). Culture Amp builds products on people science research; HR.com&#x27;s community engagement data would supercharge that research with practitioner-level behavioral signals at massive scale.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 2 - Culture Amp Research</div>
+            <blockquote class="ceo-quote">&ldquo;only 11% of employees are rated as a high performer once over three years — 83% never see a high performance rating across their three years of tenure&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Your research found that 83% of employees never receive a high performance rating in three years — we have 2 million HR practitioners who can tell you exactly why that&#x27;s happening inside their organizations, and that practitioner intelligence layer is something Culture Amp&#x27;s platform doesn&#x27;t have today.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> This is Culture Amp&#x27;s own data exposing a broken performance management system. HR.com&#x27;s practitioner community can provide the &#x27;why&#x27; behind these numbers — qualitative context from the HR professionals actually running these review cycles. Culture Amp has the employee survey data; HR.com has the practitioner perspective that explains it.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 3 - Culture Amp Research</div>
+            <blockquote class="ceo-quote">&ldquo;since 2020, our data shows a 6% point decrease in employees agreeing that their workplaces prioritize employee wellbeing... the sentiment of employee comments has seen a big shift — since 2023, neutrality has taken a back seat to negativity&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Your data shows employee wellbeing sentiment has dropped 6 points since 2020 and negativity is overtaking neutrality — HR.com is where 2 million practitioners go to find solutions to exactly those problems, and connecting that action layer to your diagnostic platform could be a serious competitive moat.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Culture Amp is watching wellbeing and sentiment deteriorate in their own dataset but can only measure it — HR.com&#x27;s community, content library, and events represent the intervention layer where practitioners actually learn how to fix these problems. Acquiring that ecosystem turns Culture Amp from a diagnostic tool into a diagnostic-plus-action platform.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 4</div>
+            <blockquote class="ceo-quote">&ldquo;even star athletes – undeniable top performers – need rest. They can&#x27;t always lead from the front of the peloton; sometimes they need to ride the smoother air left by their teammates.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Justin Angsuwat is rethinking performance management around team dynamics rather than individual heroics — HR.com has years of practitioner research and community discussions on exactly how organizations are making that shift, which could accelerate Culture Amp&#x27;s product roadmap significantly.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> The CPO is publicly rethinking how performance is measured — shifting from individual metrics to team dynamics. HR.com&#x27;s community content and practitioner research on team-based performance models would give Culture Amp real-world validation data for this new philosophy before they build product around it.</div>
+        </div>
+    </div>
+    <div class="card" id="ceo-vision">
+        <h2>CEO Vision &amp; Strategy</h2>
+        <div class="narrative-content"><p>Culture Amp is doubling down on people science as its competitive differentiator — using research-backed insights to reshape how organizations handle performance, wellbeing, and leadership development. Their leadership is publicly signaling that the old models are broken (performance ratings, wellbeing programs, change management) and positioning Culture Amp as the data-driven answer. The strategic gap is clear: they have employee sentiment data but lack the practitioner community and content ecosystem to close the loop from diagnosis to action.</p></div>
+    </div>
+    <div class="card" id="ma-appetite">
+        <h2>M&amp;A Appetite</h2>
+        <div class="narrative-content"><p>No direct M&A signals detected for Culture Amp in these materials. However, the strategic pressure is building: their people science research keeps identifying problems (broken performance reviews, declining wellbeing, negative sentiment) that their current platform can only measure, not address. Competitors who combine analytics with practitioner communities and content will have a structural advantage. Culture Amp's Series F ($100M+) gives them acquisition capacity, and their research-driven DNA means they'd value HR.com's practitioner data and community engagement signals as a genuine strategic asset rather than just a customer list.</p></div>
+    </div>
+    <div class="card" id="challenges">
+        <h2>Challenges &amp; Headwinds</h2>
+        <div class="narrative-content"><p>Culture Amp's own research reveals a crisis they can measure but not solve: performance systems that fail 83% of employees, wellbeing scores in freefall since 2020, and employee sentiment turning negative. They're a diagnostic platform in a market that increasingly demands solutions. HR.com's 2M+ practitioner community, content library, and events represent the intervention ecosystem Culture Amp needs to evolve from 'here's what's broken' to 'here's how to fix it' — a platform shift that would dramatically increase customer stickiness and expand their addressable market.</p></div>
+    </div>
+    <div class="card" id="earnings-quotes">
+        <h2>Key Earnings Quotes</h2>
+        <div class="narrative-content"><p>- <strong>Fresia Jackson</strong> (): "Leaders need to model adaptability. If the C-Suite is clinging to the ‘way we’ve always done things,’ no one else will feel safe leaning into change. It’s integral that leaders show employees that it’"
+- <strong>Justin Angsuwat</strong> (): "even star athletes – undeniable top performers – need rest. They can’t always lead from the front of the peloton; sometimes they need to ride the smoother air left by their teammates."
+- <strong>Spenser Skates</strong> (): "Analytics will look very different 6 months from now. We have the opportunity to be the AI native company in Analytics and we are going to pull every piece of firepower we have."
+- <strong>Spenser Skates</strong> (): "We actually had a bunch of leaders at Amplitude use Cursor and other tools themselves, and then show the rest of the organization by example. You have to lead from the front!"
+- <strong>Spenser Skates</strong> (): "Sam Altman is the best salesperson of this generation, bar none. I think he has done an exceptional job stating a very ambitious vision, getting a lot of people rallied behind it."
+- <strong>Michael Martin</strong> (): "Our product development is finely focused on two things right now: ‘Building for her,’ which is really just our lens for making sure that we are doing everything to make Strava more inclusive. And the"</p></div>
+    </div>
+    <div class="card" id="verified-contacts">
+        <h2>Verified Contacts</h2>
+        <table>
+        <thead><tr>
+            <th>Name</th><th>Title</th><th>Company</th><th>Status</th><th>Confidence</th><th>LinkedIn</th>
+        </tr></thead>
+        <tbody><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Caroline Rawlinson</td>
+            <td>CEO</td>
+            <td>Culture Amp</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/caroline-rawlinson-b732152" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Didier Elzinga</td>
+            <td>Founder / Executive Chairman</td>
+            <td>Culture Amp</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/didierelzinga" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Zarnaz Arlia</td>
+            <td>VP of Corporate Marketing</td>
+            <td>Culture Amp</td>
+            <td><span style="color:#8b949e;font-weight:600;">STALE</span></td>
+            <td>LOW</td>
+            <td><a href="https://www.linkedin.com/in/zarnazarlia" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Jacqueline Park</td>
+            <td>Board Observer at Australian Youth Orchestra</td>
+            <td>Not at Culture Amp</td>
+            <td><span style="color:#8b949e;font-weight:600;">STALE</span></td>
+            <td>HIGH</td>
+            <td><a href="https://au.linkedin.com/in/jacquelinepark" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Janel Tiffany Jones</td>
+            <td>Employee Experience Specialist</td>
+            <td>Culture Amp</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/janel-tiffany-jones" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Alela Pinto</td>
+            <td>Acting Director Of Account Management</td>
+            <td>Culture Amp</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/alelapinto" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr></tbody>
+    </table>
+    </div>
+    <div class="card" id="approach-strategy">
+        <h2>Approach Strategy</h2>
+        
+        <div class="approach-opener">
+            <div class="opener-label">CALL OPENER</div>
+            <p>Fresia Jackson published that leaders need to model adaptability or no one feels safe leaning into change — we sit on behavioral data from 2 million HR practitioners that shows exactly which organizations are walking that talk and which are stuck, and I think that data could be transformative for Culture Amp&#x27;s people science engine.</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
+  </div>
+
+</div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
+</body>
+</html>

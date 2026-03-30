@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: Spark Capital | HR.com Ltd</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #30363d;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
+  }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
+  }
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
+  }
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
+  }
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Spark Capital</h1>
+    <div class="subtitle">Prepared for HR.com Ltd</div>
+    <div class="header-meta">
+      <span class='tag'>Type: Platform</span>
+      
+      
+    </div>
+    
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar">
+    <div>
+      <strong>HR.com Ltd</strong> &bull; Debbie McGrath &bull; HR Technology &amp; Media
+      
+    </div>
+    <div>March 29, 2026</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    
+    <div class="card" id="strategic-fit">
+        <h2>Strategic Fit</h2>
+        <div class="narrative-content"><p>With no current HR tech presence, acquiring HR.com would enable Spark Capital to 'own the audience relationship' through its 1.92M HR Professional Members, the largest global community of HR practitioners. Furthermore, HR.com's behavioral data on these members directly addresses the challenge of 'limited first-party data for ad targeting,' allowing for enhanced audience monetization and targeted marketing strategies. The MyPeople.ai platform offers a scalable SaaS solution that can be licensed to enterprises, creating additional revenue streams and cross-selling opportunities.</p></div>
+    </div>
+    <div class="card" id="golden-nuggets">
+        <h2>Golden Nuggets -- Cold Call Openers</h2>
+        
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 1</div>
+            <blockquote class="ceo-quote">&ldquo;They&#x27;ve also shown they can attract top talent from gaming, tech, and sports. Their unwavering focus on product and customer experience is why they&#x27;ve emerged as the most innovative player in sports gaming.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Will, your partner Will Reed said Spark backs companies that can &#x27;attract top talent&#x27; — we sit on the largest community of 2 million HR practitioners who decide how that talent gets found, hired, and retained, and I&#x27;d love to explore whether that network is relevant to your portfolio&#x27;s talent edge.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Spark explicitly values talent attraction as a key investment thesis. HR.com&#x27;s 2M+ HR practitioners are the gatekeepers of talent strategy at every company in their portfolio. If Spark backs companies that &#x27;attract top talent,&#x27; the infrastructure enabling that attraction — HR communities, practitioner networks, workforce content — is a strategic asset.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 2</div>
+            <blockquote class="ceo-quote">&ldquo;We are going to continue to invest in people and product – and as fast as we can. There is so much more to build, and we&#x27;re going to keep building.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Your portfolio companies like AnchorZero are saying they&#x27;re investing in people &#x27;as fast as they can&#x27; — we help high-growth companies like that access 2 million HR practitioners for recruiting insights, workforce best practices, and talent benchmarking, and I&#x27;m curious whether that&#x27;s a lever Spark thinks about at the portfolio level.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> This &#x27;invest in people&#x27; language signals that Spark portfolio companies are scaling headcount aggressively. Companies scaling fast need HR infrastructure — recruiting pipelines, workforce best practices, compliance content. HR.com&#x27;s community and content engine serves exactly this growth-stage need across an entire portfolio.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 3</div>
+            <blockquote class="ceo-quote">&ldquo;Custody and trusts companies have always been an important, but sleepy, part of financial services. AnchorZero is shining a bright light on the industry, modernizing its software stack and opening it up to innovation.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Santo, you described Spark&#x27;s thesis as &#x27;shining a bright light on sleepy industries and modernizing their software stack&#x27; — the HR and workforce space is a $30B+ category with that exact profile, and we own the largest practitioner community of 2 million HR professionals sitting at the center of it.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Spark&#x27;s thesis is modernizing &#x27;sleepy&#x27; legacy industries with software. HR technology and workforce management is one of the largest sleepy industries — fragmented, legacy-heavy, and ripe for the same disruption. HR.com&#x27;s practitioner community and engagement data represent the distribution channel any HR tech disruptor needs. This quote lets you position HR.com as the modernization play in the workforce category Spark already believes in.</div>
+        </div>
+    </div>
+    <div class="card" id="ceo-vision">
+        <h2>CEO Vision &amp; Strategy</h2>
+        <div class="narrative-content"><p>Spark Capital's portfolio leadership is focused on democratizing access — making sophisticated tools available to everyone, not just the well-connected — while scaling people and product aggressively. Their strategic direction favors platforms that modernize legacy industries through software innovation and superior customer experience, with a strong belief that product excellence and talent attraction are the primary competitive moats.</p></div>
+    </div>
+    <div class="card" id="ma-appetite">
+        <h2>M&amp;A Appetite</h2>
+        <div class="narrative-content"><p>M&A signals show Spark portfolio companies are acquisitive (Underdog acquiring a CFTC-registered DCM/DCO, ConvertKit acquiring SparkLoop) and building institutional infrastructure (AnchorZero establishing a chartered trust company). This pattern — portfolio companies making strategic acquisitions to expand capabilities and regulatory positioning — suggests Spark is comfortable with buy-to-build strategies. However, none of the M&A activity is in the HR/workforce space, making this a greenfield conversation rather than a follow-on to existing activity.</p></div>
+    </div>
+    <div class="card" id="challenges">
+        <h2>Challenges &amp; Headwinds</h2>
+        <div class="narrative-content"><p>The direct HR.com connection is a stretch with only 2 quotes available, neither in the HR/workforce vertical. However, the transferable challenge is clear: Spark portfolio companies scaling rapidly need workforce infrastructure (recruiting, compliance, talent benchmarking) and Spark's thesis of modernizing 'sleepy' legacy industries maps directly to HR technology. The challenge is that Spark has not yet articulated a workforce or HR thesis — which is itself the opportunity: they're investing in people-intensive companies without a dedicated HR community or data asset in their portfolio.</p></div>
+    </div>
+    <div class="card" id="earnings-quotes">
+        <h2>Key Earnings Quotes</h2>
+        <div class="narrative-content"><p>- <strong>Will Reed</strong> (): "This investment fits Spark’s philosophy of backing products we love from creators we admire. Underdog has proven they can win where it matters most: product. They’ve also shown they can attract top ta"
+- <strong>Santo Politi</strong> (): "Custody and trusts companies have always been an important, but sleepy, part of financial services. AnchorZero is shining a bright light on the industry, modernizing its software stack and opening it "</p></div>
+    </div>
+    <div class="card" id="verified-contacts">
+        <h2>Verified Contacts</h2>
+        <table>
+        <thead><tr>
+            <th>Name</th><th>Title</th><th>Company</th><th>Status</th><th>Confidence</th><th>LinkedIn</th>
+        </tr></thead>
+        <tbody><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Ghoutham Umapathy</td>
+            <td>Managing Director Co-Head - Investment Banking (Technology)</td>
+            <td>Spark Capital</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://in.linkedin.com/in/ghoutham-umapathy-3538a824" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Sarvagya Garg</td>
+            <td>Vice President Investment Banking</td>
+            <td>Spark Capital</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/sarvagyagarg" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Nabeel Hyatt</td>
+            <td>General Partner</td>
+            <td>Spark Capital</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/nabeelhyatt" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Uday Seth</td>
+            <td>SVP, Corporate Development, Analytics, and Strategy / BizOps</td>
+            <td>Flywire</td>
+            <td><span style="color:#8b949e;font-weight:600;">STALE</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/uday-seth-52a46722" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Mikowai Ashwill</td>
+            <td>Investor</td>
+            <td>Spark Capital</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>MEDIUM</td>
+            <td><a href="https://www.linkedin.com/in/mikowaiashwill" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr></tbody>
+    </table>
+    </div>
+    <div class="card" id="approach-strategy">
+        <h2>Approach Strategy</h2>
+        
+        <div class="approach-opener">
+            <div class="opener-label">CALL OPENER</div>
+            <p>Will, your partner Will Reed said Spark backs companies that can &#x27;attract top talent&#x27; — we sit on the largest community of 2 million HR practitioners who decide how that talent gets found, hired, and retained, and I&#x27;d love to explore whether that network is relevant to your portfolio&#x27;s talent edge.</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
+  </div>
+
+</div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
+</body>
+</html>

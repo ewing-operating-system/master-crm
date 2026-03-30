@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: Wolters Kluwer | HR.com Ltd</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #30363d;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
+  }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
+  }
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
+  }
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
+  }
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Wolters Kluwer</h1>
+    <div class="subtitle">Prepared for HR.com Ltd</div>
+    <div class="header-meta">
+      <span class='tag'>Type: Platform</span>
+      
+      
+    </div>
+    
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar">
+    <div>
+      <strong>HR.com Ltd</strong> &bull; Debbie McGrath &bull; HR Technology &amp; Media
+      
+    </div>
+    <div>March 29, 2026</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    
+    <div class="card" id="strategic-fit">
+        <h2>Strategic Fit</h2>
+        <div class="narrative-content"><p>Wolters Kluwer's challenge of 'limited first-party data for ad targeting' is directly addressed by HR.com's behavioral data on 1.92M members, providing rich insights for targeted marketing efforts. Additionally, the hr.com domain's massive organic SEO authority enhances visibility in HR-related searches, aligning with the need to 'own the audience relationship.' Acquiring HR.com not only enables cross-selling opportunities through its $42.6M revenue stream but also allows for leveraging the MyPeople.ai platform for enterprise licensing, creating new revenue channels.</p></div>
+    </div>
+    <div class="card" id="golden-nuggets">
+        <h2>Golden Nuggets -- Cold Call Openers</h2>
+        
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 1 - Wolters Kluwer Leadership</div>
+            <blockquote class="ceo-quote">&ldquo;We will continue pursuing high-growth adjacencies with a build, buy, or partner approach. We will accelerate innovation which advances customer productivity and outcomes while further developing partnerships to extend our market reach.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Your team has talked about pursuing high-growth adjacencies with a build, buy, or partner approach — we represent an asset with 2 million HR practitioners and deep engagement data that could accelerate your reach into the HR professional market overnight.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> They&#x27;re explicitly looking for adjacencies via acquisition or partnership. HR.com&#x27;s 2M+ practitioner community is a high-growth adjacency that extends their market reach into the HR professional segment — a domain where they lack community-level engagement data.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 2</div>
+            <blockquote class="ceo-quote">&ldquo;Expert solutions combine deep domain knowledge with state-of-the-art technology to deliver information and actionable insights as part of automated and integrated workflows.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Your strategy centers on combining deep domain knowledge with technology to deliver expert solutions — we have the deepest HR practitioner dataset in the industry, 2 million professionals generating real-time engagement signals that could power your next workforce compliance product.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> HR.com&#x27;s practitioner content, research, and community data IS deep domain knowledge in HR — the exact raw material Wolters Kluwer needs to build expert solutions for HR/workforce compliance workflows. They have the tech platform; HR.com has the domain content and audience.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 3</div>
+            <blockquote class="ceo-quote">&ldquo;Nearly 70% of our digital revenues are from AI-powered solutions and we are well positioned to drive future growth with advanced AI combined with our deep domain expertise and trusted proprietary content.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>You&#x27;ve shared that 70% of your digital revenue comes from AI-powered solutions built on trusted proprietary content — HR.com sits on the largest proprietary dataset of HR practitioner behavior, research, and content in the market, and we&#x27;re exploring strategic options.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> AI-powered solutions need training data and domain-specific content. HR.com&#x27;s proprietary content library and practitioner engagement data is exactly the kind of trusted, domain-specific fuel that makes AI solutions defensible. This quote signals they&#x27;d pay a premium for proprietary HR content.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 4</div>
+            <blockquote class="ceo-quote">&ldquo;My immediate priority is to accelerate our AI offerings, expand partnerships, and intensify our go-to-market capabilities.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Stacey Caywood has outlined accelerating AI, expanding partnerships, and intensifying go-to-market as her top priorities — we represent an asset that delivers all three: AI-ready HR data, a built-in distribution channel of 2 million practitioners, and instant go-to-market reach in the HR vertical.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> New CEO incoming with a mandate to accelerate AI and expand partnerships — this is the best possible timing. A leadership transition creates urgency to show early wins, and acquiring a community asset like HR.com checks all three of her stated priorities simultaneously.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 5 - Wolters Kluwer Leadership</div>
+            <blockquote class="ceo-quote">&ldquo;Selective acquisitions that enhance our value&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Your M&amp;A strategy focuses on selective acquisitions that enhance value — we&#x27;re advising an asset with 2 million HR professionals, proprietary research, and engagement data that would give Wolters Kluwer a community moat in HR that doesn&#x27;t exist anywhere else on the market.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Confirms active M&amp;A appetite with a &#x27;selective&#x27; filter — meaning they want strategic fit, not volume. HR.com is exactly the kind of selective, high-value-add acquisition that enhances their portfolio with a community moat no competitor can replicate.</div>
+        </div>
+    </div>
+    <div class="card" id="ceo-vision">
+        <h2>CEO Vision &amp; Strategy</h2>
+        <div class="narrative-content"><p>Wolters Kluwer is in a CEO transition — Nancy McKinstry is handing off to Stacey Caywood, who has declared AI acceleration, partnership expansion, and go-to-market intensification as her immediate priorities. The company is driving toward AI-powered expert solutions built on proprietary content and deep domain expertise, with 70% of digital revenue already AI-powered. They want long-term sustainable growth through expert solutions that automate professional workflows.</p></div>
+    </div>
+    <div class="card" id="ma-appetite">
+        <h2>M&amp;A Appetite</h2>
+        <div class="narrative-content"><p>Active but selective acquirer. Recent acquisitions include StandardFusion (GRC/audit) and pending RASi deal, both bolt-on plays that fill capability gaps. They've signaled willingness to accept near-term margin dilution for strategic acquisitions. With €1B in share repurchases planned for 2025, they have significant capital deployment capacity. The 'build, buy, or partner' language combined with a new CEO mandate to expand partnerships creates a clear window for inbound deal conversations.</p></div>
+    </div>
+    <div class="card" id="challenges">
+        <h2>Challenges &amp; Headwinds</h2>
+        <div class="narrative-content"><p>Wolters Kluwer faces declining print revenues (costing 50bps of organic growth), challenging growth comparables in Health and Tax & Accounting through early 2025, and difficulty predicting transactional revenues. Their core challenge relevant to HR.com: they have strong technology platforms but need fresh proprietary content and community engagement data to fuel AI solutions in new verticals. The HR/workforce compliance space is an adjacency where they lack the practitioner community and domain content that HR.com owns.</p></div>
+    </div>
+    <div class="card" id="earnings-quotes">
+        <h2>Key Earnings Quotes</h2>
+        <div class="narrative-content"><p>- <strong>Nancy McKinstry</strong> (): "We maintained product investment at high levels, introducing GenAI-enabled features across many of our platforms and launching several new solutions."
+- <strong>Nancy McKinstry</strong> (): "We are confident in delivering another set of good results in 2025."
+- <strong>Nancy McKinstry</strong> (): "We delivered good organic growth and margin improvement, supported by our expert solutions and other advanced digital platforms. Nearly 70% of our digital revenues are from AI-powered solutions and we"
+- <strong>Stacey Caywood</strong> (): "I am excited to lead Wolters Kluwer at a time when AI technology offers us new growth opportunities. We have a distinct advantage in our combination of trusted content, modular and integrated platform"
+- <strong>Stacey Caywood</strong> (): "We plan to step up product development spend in 2026, while simultaneously delivering a further margin increase."</p></div>
+    </div>
+    <div class="card" id="verified-contacts">
+        <h2>Verified Contacts</h2>
+        <table>
+        <thead><tr>
+            <th>Name</th><th>Title</th><th>Company</th><th>Status</th><th>Confidence</th><th>LinkedIn</th>
+        </tr></thead>
+        <tbody><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Shaun Saldanha</td>
+            <td>Corporate Development Strategy Director (Financial Corporate Compliance)</td>
+            <td>Wolters Kluwer</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>HIGH</td>
+            <td><a href="https://ca.linkedin.com/in/shaunsaldanha" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Ann Riposanu</td>
+            <td>EVP, Strategy, Business Development And Mergers Acquisitions</td>
+            <td>Wolters Kluwer Health</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/ann-riposanu-50322710" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Patty Rojas</td>
+            <td>Director, Mergers and Acquisitions</td>
+            <td>Wolters Kluwer</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/patty-rojas-74163b2" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr></tbody>
+    </table>
+    </div>
+    <div class="card" id="approach-strategy">
+        <h2>Approach Strategy</h2>
+        
+        <div class="approach-opener">
+            <div class="opener-label">CALL OPENER</div>
+            <p>Your team has talked about pursuing high-growth adjacencies with a build, buy, or partner approach — we represent an asset with 2 million HR practitioners and deep engagement data that could accelerate your reach into the HR professional market overnight.</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
+  </div>
+
+</div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
+</body>
+</html>

@@ -3,182 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Buyer Dossier: Brown Precast for Wieser Concrete Products, Inc.</title>
+<title>Buyer Dossier: Brown Precast | Wieser Concrete Products, Inc.</title>
 <style>
-    @media print {
-        body { margin: 0; }
-        .page-break { page-break-before: always; }
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-        font-family: 'Georgia', 'Times New Roman', serif;
-        color: #2c2c2c;
-        background: #f8f8f8;
-        line-height: 1.6;
-    }
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        background: white;
-        box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-    }
-    .header {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-        color: white;
-        padding: 40px;
-        position: relative;
-    }
-    .header::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, #e94560, #f5a623, #e94560);
-    }
-    .header h1 {
-        font-size: 28px;
-        margin-bottom: 8px;
-        letter-spacing: -0.5px;
-    }
-    .header .subtitle {
-        font-size: 16px;
-        opacity: 0.85;
-        font-style: italic;
-    }
-    .meta-bar {
-        display: flex;
-        gap: 24px;
-        padding: 16px 40px;
-        background: #f0f0f0;
-        border-bottom: 1px solid #ddd;
-        font-size: 14px;
-        flex-wrap: wrap;
-    }
-    .meta-bar .meta-item {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    }
-    .meta-bar .label {
-        font-weight: bold;
-        color: #666;
-        text-transform: uppercase;
-        font-size: 11px;
-        letter-spacing: 0.5px;
-    }
-    .meta-bar .value {
-        color: #1a1a2e;
-        font-weight: 600;
-    }
-    .fit-score {
-        display: inline-block;
-        background: #e74c3c;
-        color: white;
-        padding: 2px 10px;
-        border-radius: 12px;
-        font-weight: bold;
-        font-size: 13px;
-    }
-    .pitch-bar {
-        padding: 20px 40px;
-        background: #fafbfc;
-        border-bottom: 2px solid #e94560;
-        font-size: 18px;
-        font-style: italic;
-        color: #333;
-        text-align: center;
-    }
-    .content {
-        padding: 32px 40px;
-    }
-    .section {
-        margin-bottom: 28px;
-    }
-    .section h2 {
-        font-size: 16px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #0f3460;
-        border-bottom: 2px solid #e8e8e8;
-        padding-bottom: 8px;
-        margin-bottom: 14px;
-    }
-    .section p {
-        margin-bottom: 12px;
-        text-align: justify;
-    }
-    .section ul {
-        padding-left: 20px;
-    }
-    .section ul li {
-        margin-bottom: 8px;
-    }
-    .section ul.risks li {
-        color: #c0392b;
-    }
-    .approach-box {
-        background: #f0f7ff;
-        border-left: 4px solid #0f3460;
-        padding: 16px 20px;
-        border-radius: 0 8px 8px 0;
-        margin-top: 12px;
-    }
-    .footer {
-        padding: 20px 40px;
-        background: #1a1a2e;
-        color: rgba(255,255,255,0.5);
-        font-size: 11px;
-        text-align: center;
-    }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117; color: #c9d1d9; line-height: 1.6;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative;
+    border-bottom: 4px solid; border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header-label { text-transform: uppercase; font-size: 11px; letter-spacing: 3px; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+  .header h1 { font-size: 28px; font-weight: 700; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #27ae60;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; color: white; }
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+  .content { padding: 24px 48px 48px; }
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; padding: 10px 12px; background: #0d1117; font-weight: 600; color: #8b949e; font-size: 11px; text-transform: uppercase; border-bottom: 1px solid #30363d; }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  .footer { text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px; border-top: 1px solid #21262d; }
 </style>
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        <h1>Brown Precast</h1>
-        <div class="subtitle">Buyer Dossier &mdash; Prepared for Wieser Concrete Products, Inc.</div>
+<div class="page">
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Brown Precast</h1>
+    <div class="subtitle">Prepared for Wieser Concrete Products, Inc.</div>
+    <div class='score-badge'><span class='score-num'>8.5</span><span class='score-label'>Fit</span></div>
+  </div>
+  <div class="context-bar">
+    <strong>Wieser Concrete Products, Inc.</strong> &bull; Andy Wieser (President/CEO)
+  </div>
+  <div class="content">
+    <div class="card" id="buyer-profile">
+        <h2>Buyer Profile</h2>
+        <p>Fifth-generation family business serving Minnesota, Wisconsin, North Dakota, and South Dakota. At five generations, succession planning is critical. Septic tanks and precast concrete products directly overlap with Wieser's core lines. Central Minnesota location fills a geographic gap in Wieser's coverage.</p>
     </div>
-    <div class="meta-bar">
-        <div class='meta-item'><span class='label'>Contact</span><span class='value'>Fifth-generation family ownership</span></div>
-        <div class='meta-item'><span class='label'>Type</span><span class='value'>acquisition_target</span></div>
-        <div class='meta-item'><span class='label'>Location</span><span class='value'>Sauk Centre, MN</span></div>
-        <div class='meta-item'><span class='label'>Fit Score</span><span class='fit-score'>8.5</span></div>
-    </div>
-    <div class='pitch-bar'>&ldquo;Brown Precast offers Wieser Concrete Products a family-to-family partnership to preserve your legacy while expanding your reach across the Midwest.&rdquo;</div>
-    <div class="content">
-        <div class="section">
-            <h2>Buyer Narrative</h2>
-            <p>Brown Precast is a fifth-generation family-owned business based in Sauk Centre, MN, specializing in septic tanks and precast concrete products. With deep roots in the Midwest, they serve Minnesota, Wisconsin, North Dakota, and South Dakota. Their investment thesis revolves around acquiring like-minded family businesses where culture, quality, and legacy align. As former business owners themselves, they prioritize partnerships over financial engineering, making them a credible acquirer who understands the challenges of succession planning and long-term growth.</p>
-        </div>
-        
-        <div class="section">
-            <h2>Acquisition History</h2>
-            <ul><li>Midwest Precast Solutions (2021)</li><li>Dakota Concrete Products (2019)</li><li>Northern States Precast (2017)</li></ul>
-        </div>
-        <div class="section">
-            <h2>Why This Seller</h2>
-            <p>Wieser Concrete Products is an ideal fit due to its strong overlap in core product lines (septic tanks and precast concrete) and its strategic location in Maiden Rock, WI, which fills a geographic gap in Brown Precast's coverage. The seller's reputation, team, and customer relationships align perfectly with Brown Precast's values, making this a culturally and operationally complementary acquisition.</p>
-        </div>
-        <div class="section">
-            <h2>Approach Angle</h2>
-            <div class="approach-box">Emphasize Brown Precast's family-owned legacy and their desire to partner with Wieser Concrete Products to preserve and grow the business, rather than impose corporate or private equity-driven changes.</div>
-        </div>
-        
-        <div class="section">
-            <h2>Talking Points</h2>
-            <ul><li>Fifth-generation family business with a deep understanding of succession challenges.</li><li>Geographic expansion into Wisconsin complements existing operations.</li><li>Commitment to retaining employees and customer relationships post-acquisition.</li><li>Shared focus on quality and craftsmanship in precast concrete products.</li><li>No private equity or corporate consolidator — a true operator with long-term vision.</li></ul>
-        </div>
-        
-        <div class="section">
-            <h2>Risk Factors</h2>
-            <ul class="risks"><li>Potential resistance due to Wieser's strong family legacy and independence.</li><li>Integration challenges in aligning operations across geographically dispersed facilities.</li><li>Market competition may drive up valuation expectations.</li></ul>
-        </div>
-    </div>
-    <div class="footer">
-        Generated March 29, 2026 &bull; Confidential
-    </div>
+    
+    
+  </div>
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential
+  </div>
 </div>
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
 </body>
 </html>

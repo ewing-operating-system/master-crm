@@ -3,182 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Buyer Dossier: The Shaddix Company for Design Precast & Pipe, Inc.</title>
+<title>Buyer Dossier: The Shaddix Company | Design Precast &amp; Pipe, Inc.</title>
 <style>
-    @media print {
-        body { margin: 0; }
-        .page-break { page-break-before: always; }
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-        font-family: 'Georgia', 'Times New Roman', serif;
-        color: #2c2c2c;
-        background: #f8f8f8;
-        line-height: 1.6;
-    }
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        background: white;
-        box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-    }
-    .header {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-        color: white;
-        padding: 40px;
-        position: relative;
-    }
-    .header::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, #e94560, #f5a623, #e94560);
-    }
-    .header h1 {
-        font-size: 28px;
-        margin-bottom: 8px;
-        letter-spacing: -0.5px;
-    }
-    .header .subtitle {
-        font-size: 16px;
-        opacity: 0.85;
-        font-style: italic;
-    }
-    .meta-bar {
-        display: flex;
-        gap: 24px;
-        padding: 16px 40px;
-        background: #f0f0f0;
-        border-bottom: 1px solid #ddd;
-        font-size: 14px;
-        flex-wrap: wrap;
-    }
-    .meta-bar .meta-item {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    }
-    .meta-bar .label {
-        font-weight: bold;
-        color: #666;
-        text-transform: uppercase;
-        font-size: 11px;
-        letter-spacing: 0.5px;
-    }
-    .meta-bar .value {
-        color: #1a1a2e;
-        font-weight: 600;
-    }
-    .fit-score {
-        display: inline-block;
-        background: #e74c3c;
-        color: white;
-        padding: 2px 10px;
-        border-radius: 12px;
-        font-weight: bold;
-        font-size: 13px;
-    }
-    .pitch-bar {
-        padding: 20px 40px;
-        background: #fafbfc;
-        border-bottom: 2px solid #e94560;
-        font-size: 18px;
-        font-style: italic;
-        color: #333;
-        text-align: center;
-    }
-    .content {
-        padding: 32px 40px;
-    }
-    .section {
-        margin-bottom: 28px;
-    }
-    .section h2 {
-        font-size: 16px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #0f3460;
-        border-bottom: 2px solid #e8e8e8;
-        padding-bottom: 8px;
-        margin-bottom: 14px;
-    }
-    .section p {
-        margin-bottom: 12px;
-        text-align: justify;
-    }
-    .section ul {
-        padding-left: 20px;
-    }
-    .section ul li {
-        margin-bottom: 8px;
-    }
-    .section ul.risks li {
-        color: #c0392b;
-    }
-    .approach-box {
-        background: #f0f7ff;
-        border-left: 4px solid #0f3460;
-        padding: 16px 20px;
-        border-radius: 0 8px 8px 0;
-        margin-top: 12px;
-    }
-    .footer {
-        padding: 20px 40px;
-        background: #1a1a2e;
-        color: rgba(255,255,255,0.5);
-        font-size: 11px;
-        text-align: center;
-    }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117; color: #c9d1d9; line-height: 1.6;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative;
+    border-bottom: 4px solid; border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header-label { text-transform: uppercase; font-size: 11px; letter-spacing: 3px; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+  .header h1 { font-size: 28px; font-weight: 700; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #27ae60;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; color: white; }
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+  .content { padding: 24px 48px 48px; }
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; padding: 10px 12px; background: #0d1117; font-weight: 600; color: #8b949e; font-size: 11px; text-transform: uppercase; border-bottom: 1px solid #30363d; }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  .footer { text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px; border-top: 1px solid #21262d; }
 </style>
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        <h1>The Shaddix Company</h1>
-        <div class="subtitle">Buyer Dossier &mdash; Prepared for Design Precast & Pipe, Inc.</div>
+<div class="page">
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>The Shaddix Company</h1>
+    <div class="subtitle">Prepared for Design Precast &amp; Pipe, Inc.</div>
+    <div class='score-badge'><span class='score-num'>8.8</span><span class='score-label'>Fit</span></div>
+  </div>
+  <div class="context-bar">
+    <strong>Design Precast &amp; Pipe, Inc.</strong> &bull; Pat Fore III (Founder/President/Owner)
+  </div>
+  <div class="content">
+    <div class="card" id="buyer-profile">
+        <h2>Buyer Profile</h2>
+        <p>Family-owned since 1970. Founder Tommy Shaddix passed in 2015 — company now run by his wife and son. Second-generation leadership often considers exit when founder passes. Produces precast concrete, reinforced concrete pipe, prefab products, sanitary manholes, storm drain boxes. Alabama location expands Design Precast's geographic reach east.</p>
     </div>
-    <div class="meta-bar">
-        <div class='meta-item'><span class='label'>Contact</span><span class='value'>Dewayne Shaddix (CEO/COO), Mitchelene Shaddix (President/CFO)</span></div>
-        <div class='meta-item'><span class='label'>Type</span><span class='value'>acquisition_target</span></div>
-        <div class='meta-item'><span class='label'>Location</span><span class='value'>Cullman, AL</span></div>
-        <div class='meta-item'><span class='label'>Fit Score</span><span class='fit-score'>8.8</span></div>
-    </div>
-    <div class='pitch-bar'>&ldquo;We represent a family-owned buyer who wants to honor your father's legacy by investing in—not disrupting—what you've built.&rdquo;</div>
-    <div class="content">
-        <div class="section">
-            <h2>Buyer Narrative</h2>
-            <p>The Shaddix Company is a family-owned business with deep roots in the precast concrete industry, operating since 1970. Founded by Tommy Shaddix, the company is now led by his wife Mitchelene and son Dewayne, who have continued the legacy of producing high-quality precast concrete products. Their investment thesis centers on acquiring businesses that align with their values—family-owned, reputable, and geographically strategic. As former business owners themselves, they prioritize preserving the founder's vision while providing growth capital and operational support.</p>
-        </div>
-        
-        <div class="section">
-            <h2>Acquisition History</h2>
-            <ul><li>North Alabama Precast (2018)</li><li>Southern Concrete Solutions (2020)</li></ul>
-        </div>
-        <div class="section">
-            <h2>Why This Seller</h2>
-            <p>Design Precast & Pipe, Inc. is an ideal fit for The Shaddix Company due to its strong reputation in the Gulfport, MS market and complementary product offerings. The acquisition would expand The Shaddix Company's geographic footprint eastward while adding prefab and sanitary product expertise. With Pat Fore III as the founder, there's a shared understanding of family-owned business dynamics, making cultural alignment smoother.</p>
-        </div>
-        <div class="section">
-            <h2>Approach Angle</h2>
-            <div class="approach-box">Emphasize shared values and legacy preservation while highlighting the buyer's non-financial motivations—honoring Tommy Shaddix's legacy through strategic growth.</div>
-        </div>
-        
-        <div class="section">
-            <h2>Talking Points</h2>
-            <ul><li>Your father built something remarkable—we want to help you honor that legacy.</li><li>No private equity or corporate bureaucracy—just a family operator who understands your business.</li><li>Geographic expansion into Alabama creates cross-selling opportunities.</li><li>Investment in your team and customer relationships—no disruptive changes.</li><li>Proven track record of successful integrations with past acquisitions.</li></ul>
-        </div>
-        
-        <div class="section">
-            <h2>Risk Factors</h2>
-            <ul class="risks"><li>Potential resistance due to emotional ties to the business after Tommy Shaddix's passing.</li><li>Geographic distance between Cullman, AL, and Gulfport, MS, may complicate logistics.</li><li>Second-generation leadership may have differing visions for the company's future.</li></ul>
-        </div>
-    </div>
-    <div class="footer">
-        Generated March 29, 2026 &bull; Confidential
-    </div>
+    
+    
+  </div>
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential
+  </div>
 </div>
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
 </body>
 </html>

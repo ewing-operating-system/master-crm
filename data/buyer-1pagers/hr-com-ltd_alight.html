@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: Alight | HR.com Ltd</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #30363d;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
+  }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
+  }
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
+  }
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
+  }
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Alight</h1>
+    <div class="subtitle">Prepared for HR.com Ltd</div>
+    <div class="header-meta">
+      <span class='tag'>Type: Platform</span>
+      
+      
+    </div>
+    
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar">
+    <div>
+      <strong>HR.com Ltd</strong> &bull; Debbie McGrath &bull; HR Technology &amp; Media
+      
+    </div>
+    <div>March 29, 2026</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    
+    <div class="card" id="strategic-fit">
+        <h2>Strategic Fit</h2>
+        <div class="narrative-content"><p>Alight's challenge of 'limited first-party data for ad targeting' is directly addressed by HR.com's behavioral data on 1.92M members, enabling precise audience segmentation and targeted marketing. Additionally, the hr.com domain's massive organic SEO authority can significantly enhance Alight's online visibility, driving more qualified traffic to their offerings. The acquisition of MyPeople.ai would allow Alight to license a community SaaS platform, expanding their service portfolio and creating new revenue streams.</p></div>
+    </div>
+    <div class="card" id="golden-nuggets">
+        <h2>Golden Nuggets -- Cold Call Openers</h2>
+        
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 1</div>
+            <blockquote class="ceo-quote">&ldquo;Our emphasis includes the diversification of our revenue streams, including through our partner network, while continuing our operational progress.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>David Guilmette said publicly that Alight is diversifying revenue through its partner network — we represent HR.com&#x27;s 2 million HR practitioners, and I think there&#x27;s a conversation about what that distribution channel could mean for your benefits platform.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Alight is explicitly seeking new revenue streams through partnerships. HR.com&#x27;s 2M+ practitioner community is a ready-made distribution channel for Alight&#x27;s benefits solutions — a partnership that diversifies revenue without acquisition cost.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 2</div>
+            <blockquote class="ceo-quote">&ldquo;The next step is improving our commercial effectiveness starting with a new leader with deep industry expertise.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Your CEO flagged improving commercial effectiveness as the next priority — HR.com gives you direct access to 2 million HR decision-makers, which is the kind of pipeline accelerant that complements any new sales leadership.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Alight openly admits commercial effectiveness is a gap. HR.com&#x27;s community data, engagement channels, and practitioner access could dramatically shorten sales cycles and improve pipeline quality — solving the exact problem they&#x27;re hiring to fix.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 3</div>
+            <blockquote class="ceo-quote">&ldquo;Client feedback highlighted a demand for reduced complexity and more &#x27;flawless&#x27; service delivery across health, wealth, and leave administration portfolios.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Rohit Verma mentioned clients are demanding reduced complexity — HR.com sits in daily conversation with 2 million of those practitioners, and that behavioral data could tell you exactly where the friction points are before clients have to flag them.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Clients want simpler, better experiences. HR.com&#x27;s practitioner engagement data reveals what HR buyers actually struggle with day-to-day — intelligence Alight could use to redesign delivery around real pain points rather than guessing.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 4</div>
+            <blockquote class="ceo-quote">&ldquo;Through our AI and automation investments, and rapidly expanding partner collaborations, we are bringing immediate benefit to clients and ensuring our competitive advantages for the long run.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Your team is scaling AI investments and partner collaborations in parallel — HR.com&#x27;s community of 2 million practitioners generates the kind of real-world engagement data that could make your AI tools smarter and give them an instant audience.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Alight is investing heavily in AI and expanding partnerships simultaneously. HR.com&#x27;s content library, community engagement data, and practitioner network would give Alight&#x27;s AI models real-world training data and a built-in distribution channel for AI-powered tools.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 5</div>
+            <blockquote class="ceo-quote">&ldquo;We feel good about the operational levers within our control and are tracking to another strong year of client retention rates, though we refined our top-line forecast due to deals taking longer to close in the current environment which is temporarily delaying planned growth.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Dave Guilmette noted deals are taking longer to close right now — HR.com&#x27;s engaged community of 2 million HR practitioners could shorten that cycle by putting Alight in front of buyers who are already researching benefits solutions.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Retention is strong but new deals are stalling. HR.com&#x27;s community provides warm-market access to HR buyers already engaged in benefits content — a way to unfreeze the top of funnel when cold outreach alone isn&#x27;t converting.</div>
+        </div>
+    </div>
+    <div class="card" id="ceo-vision">
+        <h2>CEO Vision &amp; Strategy</h2>
+        <div class="narrative-content"><p>Alight has undergone a major simplification — divesting payroll and professional services to become a focused, technology-enabled employee benefits company. Under new CEO Rohit Verma, the strategy centers on flawless service delivery, AI-powered automation, and expanding the partner ecosystem to diversify revenue. The company views 2025 as a transitional execution year, with cultural change and commercial effectiveness as the key unlocks.</p></div>
+    </div>
+    <div class="card" id="ma-appetite">
+        <h2>M&amp;A Appetite</h2>
+        <div class="narrative-content"><p>Alight has been an active acquirer (NGA Human Resources in 2019) and active divester (Payroll & Professional Services sold July 2024 for proceeds that funded $740M in debt repayment). Post-divestiture, they're in 'build and partner' mode — launching integrations with Sword Health, MetLife, and Goldman Sachs rather than making large acquisitions. The $200M stock buyback authorization signals capital is being returned to shareholders, but the expanding partner network strategy and revenue diversification mandate create a clear opening for a strategic content/community partnership or tuck-in acquisition like HR.com.</p></div>
+    </div>
+    <div class="card" id="challenges">
+        <h2>Challenges &amp; Headwinds</h2>
+        <div class="narrative-content"><p>Revenue is declining (-1.8% Y/Y, missing estimates by $16M), project revenue hit historic lows, and new deals are taking longer to close. Management attributes underperformance to internal execution failures — not market dynamics — specifically citing missed bookings and renewal targets. Commercial effectiveness is a stated gap, and clients are demanding simpler, less complex service delivery. The company needs better pipeline generation, faster deal velocity, and deeper practitioner intelligence to inform its AI and product investments.</p></div>
+    </div>
+    <div class="card" id="earnings-quotes">
+        <h2>Key Earnings Quotes</h2>
+        <div class="narrative-content"><p>- <strong>Stephan Scholl</strong> (): "Alight is entering its next chapter following the accomplishment of several key strategic milestones including its recent divestiture. As a simplified and focused wellbeing & benefits company, we have"
+- <strong>Stephan Scholl</strong> (): "As I look to what is next for Alight, we are well-positioned to navigate a dynamic environment with tremendous long-standing relationships, world class services & technology, and highly impressive col"
+- <strong>William P. Foley, II</strong> (): "On behalf of the entire Board, I want to thank Stephan for his commitment and vision. He has made a meaningful impact as our CEO, bringing the company public amidst the challenging COVID environment, "
+- <strong>William P. Foley, II</strong> (): "With the divestiture behind us we are well positioned to deliver differentiated benefit services to our clients and profitable growth with significant margin and cash flow expansion for our shareholde"</p></div>
+    </div>
+    <div class="card" id="verified-contacts">
+        <h2>Verified Contacts</h2>
+        <table>
+        <thead><tr>
+            <th>Name</th><th>Title</th><th>Company</th><th>Status</th><th>Confidence</th><th>LinkedIn</th>
+        </tr></thead>
+        <tbody><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Brent Campbell</td>
+            <td>SVP of Corporate Development and Strategy</td>
+            <td>Alight</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/brent-campbell-55204425" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Jake Fuller</td>
+            <td>Vice President Corporate Strategy</td>
+            <td>Alight</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/jake-fuller-b74a2523" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Steve Rush</td>
+            <td>Chief Commercial Officer</td>
+            <td>Alight</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/steve-rush-77401a10" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr></tbody>
+    </table>
+    </div>
+    <div class="card" id="approach-strategy">
+        <h2>Approach Strategy</h2>
+        
+        <div class="approach-opener">
+            <div class="opener-label">CALL OPENER</div>
+            <p>David Guilmette said publicly that Alight is diversifying revenue through its partner network — we represent HR.com&#x27;s 2 million HR practitioners, and I think there&#x27;s a conversation about what that distribution channel could mean for your benefits platform.</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
+  </div>
+
+</div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
+</body>
+</html>

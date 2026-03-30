@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: Deel | HR.com Ltd</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #f39c12;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
+  }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
+  }
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
+  }
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
+  }
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Deel</h1>
+    <div class="subtitle">Prepared for HR.com Ltd</div>
+    <div class="header-meta">
+      <span class='tag'>Type: Platform</span>
+      <span class='tag'>Contact: Alex Bouaziz</span>
+      <span class='tag'>San Francisco, CA</span>
+    </div>
+    <div class='score-badge'><span class='score-num'>6</span><span class='score-label'>Fit</span></div>
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar">
+    <div>
+      <strong>HR.com Ltd</strong> &bull; Debbie McGrath &bull; HR Technology &amp; Media
+      
+    </div>
+    <div>March 29, 2026</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    
+    <div class="card" id="strategic-fit">
+        <h2>Strategic Fit</h2>
+        <div class="narrative-content"><p>Deel's challenge of lacking a strong HR tech presence can be directly addressed by acquiring HR.com, which boasts the largest registered community of HR practitioners globally with 1.92M HR Professional Members. This asset not only provides immediate access to a vast audience but also enriches Deel's data capabilities through behavioral data on content consumption and vendor interest signals. Furthermore, HR.com's proven revenue model, generating $42.6M through subscriptions and lead generation, aligns perfectly with Deel's growth strategy, enabling cross-selling opportunities and audience monetization.</p></div>
+    </div>
+    <div class="card" id="golden-nuggets">
+        <h2>Golden Nuggets -- Cold Call Openers</h2>
+        
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 1 - Alex Bouaziz</div>
+            <blockquote class="ceo-quote">&ldquo;The one thing that, as we build, we sometimes lack is true knowledge in all areas. Bringing their brains and their entrepreneurial spirits and bringing them next to us in terms of building innovation and making it better is something that is super positive for the company.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Alex, you&#x27;ve said publicly that as Deel builds, you sometimes lack true knowledge in all areas — we sit on top of 2 million HR practitioners who could close that gap overnight.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> He&#x27;s explicitly admitting Deel has knowledge gaps as they scale. HR.com&#x27;s 2M+ practitioner community IS that knowledge — real-time insights into what HR leaders actually need, struggle with, and adopt. This is the gap HR.com fills without Deel needing to acquire 50 niche experts.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 2 - Alex Bouaziz</div>
+            <blockquote class="ceo-quote">&ldquo;It&#x27;s super important for our long-term strategy to pick the best companies in their space, bring them into our product suite, rebuild, and innovate together as a team with a lot more resources.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Alex, you&#x27;ve talked about picking the best companies in their space and bringing them into Deel&#x27;s product suite — HR.com is the largest HR practitioner community on the planet, and we&#x27;d love to explore what that looks like inside your ecosystem.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Deel&#x27;s strategy is to acquire best-in-class and integrate. HR.com is the largest HR practitioner community in the world — not a competitor to Deel&#x27;s platform, but a distribution and intelligence layer that would supercharge every product they acquire. This quote frames the conversation around Deel&#x27;s own playbook.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 3 - Alex Bouaziz</div>
+            <blockquote class="ceo-quote">&ldquo;Even if the product is amazing, even if they are the best of the best, if they don&#x27;t align with our internal culture and how we see the world in terms of what we want to build for our customers, it&#x27;s typically not going to work.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Alex, I appreciated your point that cultural alignment matters more than product quality in your acquisitions — HR.com&#x27;s entire mission is empowering the HR professionals that are ultimately Deel&#x27;s end users, and I think that alignment is worth a conversation.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> This shows Deel is disciplined, not just aggressive. It opens the door to a values-based conversation rather than a hard sell. HR.com&#x27;s mission — empowering HR professionals — aligns directly with Deel&#x27;s stated goal of building for customers. Use this to establish cultural fit early.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 4 - Alex Bouaziz</div>
+            <blockquote class="ceo-quote">&ldquo;I think we&#x27;re a good example of a company that&#x27;s leading the way on how you get to bring the best people together in order to build the best product for your customers.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Alex, you&#x27;ve said Deel leads the way in bringing the best people together to build the best product — what if you had a direct line to 2 million of the people actually buying and using that product?</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Deel sees itself as a talent aggregator building a unified platform. HR.com offers something no acquisition can replicate: direct access to 2M+ practitioners who generate engagement data, content consumption patterns, and real-time sentiment on HR tools. This is the &#x27;best people&#x27; quote turned into a distribution moat.</div>
+        </div>
+    </div>
+    <div class="card" id="ceo-vision">
+        <h2>CEO Vision &amp; Strategy</h2>
+        <div class="narrative-content"><p>Bouaziz is building Deel into the all-in-one global HR platform — payroll, compensation, performance, IT, and more — through aggressive but disciplined M&A. The strategy is to acquire best-in-class point solutions, integrate them into a unified suite, and leverage the acquired talent to accelerate innovation. Cultural alignment and founder fit are non-negotiable filters.</p></div>
+    </div>
+    <div class="card" id="ma-appetite">
+        <h2>M&amp;A Appetite</h2>
+        <div class="narrative-content"><p>Deel is one of the most active acquirers in HR tech — 10 acquisitions since 2019, 5 in 2024 alone, including a $100M+ deal for Hofy. They evaluate 1,000 companies for every 1 they acquire, meaning their corp dev team is actively sourcing and screening at scale. Acquisitions target product gaps, talent, and tech. The pace is accelerating, not slowing, and they have the capital to move on strategic assets.</p></div>
+    </div>
+    <div class="card" id="challenges">
+        <h2>Challenges &amp; Headwinds</h2>
+        <div class="narrative-content"><p>Deel's biggest vulnerability is the knowledge gap that comes with hypergrowth — they're scaling into HR domains (performance, compensation, people development) where they lack deep practitioner expertise. They also face skills gaps in accounting/tax for global workforce, and need to stay ahead of AI-driven workforce shifts. HR.com's community data, content library, and practitioner engagement directly address the expertise deficit Deel admits to having.</p></div>
+    </div>
+    <div class="card" id="earnings-quotes">
+        <h2>Key Earnings Quotes</h2>
+        <div class="narrative-content"><p>- <strong>Alex Bouaziz</strong> (): "For every company we acquire, we speak to 1,000. So it's definitely a small ratio of acquisition to targets."
+- <strong>Alex Bouaziz</strong> (): "It's super important for our long-term strategy to pick the best companies in their space, bring them into our product suite, rebuild, and innovate together as a team with a lot more resources."
+- <strong>Alex Bouaziz</strong> (): "The one thing that, as we build, we sometimes lack is true knowledge in all areas. Bringing their brains and their entrepreneurial spirits and bringing them next to us in terms of building innovation "
+- <strong>Alex Bouaziz</strong> (): "Even if the product is amazing, even if they are the best of the best, if they don't align with our internal culture and how we see the world in terms of what we want to build for our customers, it's "
+- <strong>Alex Bouaziz</strong> (): "I think we're a good example of a company that's leading the way on how you get to bring the best people together in order to build the best product for your customers."
+- <strong>Alice Burks</strong> (): "Gen Z brings digital-native skills, a focus on purpose over pay, and a demand for career personalization and development to the workplace. These traits can translate well when it comes to distributed "
+- <strong>Alan Price</strong> (): "Whether or not you're returning to an office, workers within your time zone offer companies more options to work synchronously."
+- <strong>Joel Lalgee</strong> (): "In 2025, the job market is more global than ever, thanks to remote work and AI. To stand out, showcase the impact of your work, highlight the unique value you bring, and stay ahead by continually upsk"</p></div>
+    </div>
+    <div class="card" id="verified-contacts">
+        <h2>Verified Contacts</h2>
+        <table>
+        <thead><tr>
+            <th>Name</th><th>Title</th><th>Company</th><th>Status</th><th>Confidence</th><th>LinkedIn</th>
+        </tr></thead>
+        <tbody><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Franck Néron-Bancel</td>
+            <td>Executive Vice President Corporate Business Development - M&amp;A</td>
+            <td>Deel</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/franck-neron-bancel" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Elie-Nathan Parienti</td>
+            <td>Director - Strategic Corporate Development</td>
+            <td>Deel</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/elie-nathan-parienti-27b23b26" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Béatrice de Hillerin</td>
+            <td>Strategy &amp; Corporate Development</td>
+            <td>Deel</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>MEDIUM</td>
+            <td><a href="https://linkedin.com/in/b%C3%A9atrice-de-hillerin-a08aa611a" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr></tbody>
+    </table>
+    </div>
+    <div class="card" id="approach-strategy">
+        <h2>Approach Strategy</h2>
+        
+        <div class="approach-opener">
+            <div class="opener-label">CALL OPENER</div>
+            <p>Alex, you&#x27;ve said publicly that as Deel builds, you sometimes lack true knowledge in all areas — we sit on top of 2 million HR practitioners who could close that gap overnight.</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
+  </div>
+
+</div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
+</body>
+</html>

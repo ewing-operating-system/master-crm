@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: Benchmark | HR.com Ltd</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #30363d;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
+  }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
+  }
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
+  }
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
+  }
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Benchmark</h1>
+    <div class="subtitle">Prepared for HR.com Ltd</div>
+    <div class="header-meta">
+      <span class='tag'>Type: Platform</span>
+      
+      
+    </div>
+    
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar">
+    <div>
+      <strong>HR.com Ltd</strong> &bull; Debbie McGrath &bull; HR Technology &amp; Media
+      
+    </div>
+    <div>March 29, 2026</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    
+    <div class="card" id="strategic-fit">
+        <h2>Strategic Fit</h2>
+        <div class="narrative-content"><p>Benchmark's challenge of 'limited first-party data for ad targeting' is directly addressed by HR.com's behavioral data on 1.92M members, which provides rich insights into content consumption and vendor interest signals. Additionally, the hr.com domain's massive organic SEO authority will enhance Benchmark's visibility in HR-related searches, driving traffic and engagement. Acquiring HR.com represents a strategic first move into the HR technology space, enabling Benchmark to cross-sell existing solutions to a vast community of HR professionals.</p></div>
+    </div>
+    <div class="card" id="golden-nuggets">
+        <h2>Golden Nuggets -- Cold Call Openers</h2>
+        
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 1</div>
+            <blockquote class="ceo-quote">&ldquo;many organizations continue to rely on inefficient manual workflows, creating operational risk and limiting visibility&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Your team has talked about how organizations still rely on inefficient manual workflows with limited visibility — we sit on behavioral and engagement data from 2M HR practitioners that shows exactly where those gaps are and what best-in-class teams are doing differently.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> This is the exact pain HR.com solves — practitioners sharing real workflows, benchmarking data, and community-driven insights that replace guesswork with visibility into what 2M+ HR professionals are actually doing.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 2</div>
+            <blockquote class="ceo-quote">&ldquo;As organizations scale globally and compensation programs grow increasingly complex, that mission becomes even more critical.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Joe Poxson said scaling globally makes your compensation mission even more critical — HR.com&#x27;s community of 2 million HR practitioners across 190 countries could give your platform the localized workforce intelligence that makes global expansion stickier.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Scaling globally means needing localized practitioner intelligence at scale — exactly what HR.com&#x27;s global community provides. This quote reveals a growth ambition that outpaces their current data assets.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 3</div>
+            <blockquote class="ceo-quote">&ldquo;We see opportunity to build on that foundation through continued innovation, including practical AI-enabled capabilities that improve insight and efficiency without compromising accountability.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Jon Cheek mentioned building practical AI capabilities for better insight — the richest signal for compensation AI isn&#x27;t internal data alone, it&#x27;s what 2 million HR practitioners are searching for, discussing, and benchmarking against on HR.com every day.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> AI capabilities require training data and real-world practitioner signals. HR.com&#x27;s content engagement data, community discussions, and practitioner behavior patterns are exactly the fuel AI-enabled compensation tools need.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 4 - Leadership vision statement</div>
+            <blockquote class="ceo-quote">&ldquo;Building with AI is no longer a differentiator — it&#x27;s the baseline. Every company founded in 2025 reported AI as core to its product, underscoring that intelligence is now infrastructure.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Your leadership has said AI is now infrastructure, not a differentiator — which means the real moat is proprietary data, and HR.com sits on the largest proprietary dataset of HR practitioner behavior, needs, and engagement in the industry.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> If AI is infrastructure, then data is the raw material. HR.com&#x27;s practitioner engagement data, content consumption patterns, and community signals are proprietary data assets that no compensation platform can replicate organically.</div>
+        </div>
+    </div>
+    <div class="card" id="ceo-vision">
+        <h2>CEO Vision &amp; Strategy</h2>
+        <div class="narrative-content"><p>Joe Poxson's vision centers on bringing structure, flexibility, and accountability to enterprise compensation as it scales globally. The strategic direction is clear: expand internationally, handle increasingly complex multi-variable compensation models, and layer in AI-enabled capabilities — all while maintaining the auditability and control that enterprise buyers demand. Gryphon's majority investment signals this is a platform play, not a feature play.</p></div>
+    </div>
+    <div class="card" id="ma-appetite">
+        <h2>M&amp;A Appetite</h2>
+        <div class="narrative-content"><p>M&A appetite is high and accelerating. Gryphon Investors took a majority stake in HRSoft specifically to 'build on the foundation through continued innovation.' Bow River Capital's prior hold scaled HRSoft into a 'dominant global market leader' — Gryphon will want to repeat and exceed that playbook. The Vensure signal (100+ acquisitions, $450M raise for more M&A) shows the broader PE-backed HR tech ecosystem is in aggressive roll-up mode. Gryphon will be looking for assets that accelerate HRSoft's data moat, community reach, and AI capabilities — all of which point directly at HR.com.</p></div>
+    </div>
+    <div class="card" id="challenges">
+        <h2>Challenges &amp; Headwinds</h2>
+        <div class="narrative-content"><p>HRSoft's target customers face manual workflows creating operational risk, limited visibility into compensation effectiveness, growing global regulatory complexity, and pressure to implement AI without sacrificing accountability. HR.com directly addresses the visibility and intelligence gaps — our practitioner community generates real-time signals on what compensation challenges HR leaders are actually facing, what solutions they're evaluating, and what compliance concerns keep them up at night. This is market intelligence HRSoft can't build internally.</p></div>
+    </div>
+    <div class="card" id="earnings-quotes">
+        <h2>Key Earnings Quotes</h2>
+        <div class="narrative-content"><p>- <strong>Joe Poxson</strong> (): "We built HRSoft to bring structure, flexibility, and accountability to enterprise compensation. As organizations scale globally and compensation programs grow increasingly complex, that mission become"
+- <strong>Jon Cheek</strong> (): "Compensation management requires both flexibility and control. HRSoft has built a strong foundation designed around structured workflows and auditability. We see opportunity to build on that foundatio"
+- <strong>Maitlan Cramer</strong> (): "HRSoft has established itself as a trusted partner to enterprises navigating increasingly complex compensation environments. HRSoft's flexible, low-code architecture, deep domain expertise, and strong"
+- <strong>Joe Poxson</strong> (): "HRSoft's market-leading cloud platform underpins an innovative complex compensation system designed to address ever-changing compensation models, legislation, and compliance requirements globally."
+- <strong>John Raeder</strong> (): "We initially discovered HRSoft in 2019, and during our 3+ year hold period, we helped build and scale this cloud-based SaaS firm into the dominant, global compensation management market leader."
+- <strong>Alex Campos</strong> (): "Stone Point Capital Markets continues to deliver outstanding support in raising capital needed for us to execute on our M&A strategy. As we look ahead in 2026, we see immense opportunity in the market"</p></div>
+    </div>
+    <div class="card" id="verified-contacts">
+        <h2>Verified Contacts</h2>
+        <table>
+        <thead><tr>
+            <th>Name</th><th>Title</th><th>Company</th><th>Status</th><th>Confidence</th><th>LinkedIn</th>
+        </tr></thead>
+        <tbody><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Ben Wagner</td>
+            <td>Senior Director</td>
+            <td>Benchmark International</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/ben-wagner-benchmark-international" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Carlos Portillo-Boyer</td>
+            <td>M&amp;A Business Development</td>
+            <td>Benchmark International</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/carlos-portillo-boyer-7345bb165" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Ed Dymott</td>
+            <td>CEO</td>
+            <td>Benchmark Capital</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/eddymott" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr></tbody>
+    </table>
+    </div>
+    <div class="card" id="approach-strategy">
+        <h2>Approach Strategy</h2>
+        
+        <div class="approach-opener">
+            <div class="opener-label">CALL OPENER</div>
+            <p>Your team has talked about how organizations still rely on inefficient manual workflows with limited visibility — we sit on behavioral and engagement data from 2M HR practitioners that shows exactly where those gaps are and what best-in-class teams are doing differently.</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
+  </div>
+
+</div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
+</body>
+</html>

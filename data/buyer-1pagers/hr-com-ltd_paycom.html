@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: Paycom | HR.com Ltd</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #30363d;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
+  }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
+  }
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
+  }
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
+  }
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Paycom</h1>
+    <div class="subtitle">Prepared for HR.com Ltd</div>
+    <div class="header-meta">
+      <span class='tag'>Type: Platform</span>
+      
+      
+    </div>
+    
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar">
+    <div>
+      <strong>HR.com Ltd</strong> &bull; Debbie McGrath &bull; HR Technology &amp; Media
+      
+    </div>
+    <div>March 29, 2026</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    
+    <div class="card" id="strategic-fit">
+        <h2>Strategic Fit</h2>
+        <div class="narrative-content"><p>Paycom's lack of a strong HR tech presence is directly addressed by acquiring HR.com, which boasts the '1.92M HR Professional Members' community, providing immediate access to a vast audience of HR practitioners. Additionally, HR.com's 'behavioral data' on these members will enrich Paycom's first-party data assets, addressing the need for improved ad targeting and audience insights. The 'MyPeople.ai' platform offers a scalable community SaaS solution that Paycom can license to enhance its service offerings, further driving revenue growth.</p></div>
+    </div>
+    <div class="card" id="golden-nuggets">
+        <h2>Golden Nuggets -- Cold Call Openers</h2>
+        
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 1 - Chad Richison</div>
+            <blockquote class="ceo-quote">&ldquo;Through solution automation, we are helping our clients eliminate decision fatigue across the entire organization, from the C-suite to HR and from managers to employees. This in turn creates better employee retention and engagement.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Chad, you&#x27;ve said automation should drive better retention and engagement — HR.com sits on the largest dataset of what 2 million HR practitioners actually do to move those numbers, and I&#x27;d love to show you how that intelligence could amplify Paycom&#x27;s ROI story.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Richison explicitly ties automation to employee retention and engagement — the exact outcomes HR.com&#x27;s 2M-practitioner community measures and influences daily. This opens the door to position HR.com&#x27;s engagement data as the missing feedback loop for Paycom&#x27;s automation ROI story.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 2 - Chad Richison</div>
+            <blockquote class="ceo-quote">&ldquo;We recently commissioned a total economic impact study from Forrester Consulting that quantified the savings from using Paycom and Beti, including a 90% reduction in labor for payroll processing and saving HR and accounting teams more than 2,600 hours per year.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Your Forrester study proved Beti&#x27;s ROI with one snapshot — imagine validating that story continuously through HR.com&#x27;s community of 2 million practitioners who benchmark payroll efficiency every day.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Paycom is already spending money on third-party research (Forrester) to validate ROI. HR.com&#x27;s practitioner community and benchmarking data could provide continuous, real-world validation at scale — not just a one-time study but an ongoing proof engine.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 3 - Chad Richison</div>
+            <blockquote class="ceo-quote">&ldquo;Simply put, our software vision is that people shouldn&#x27;t do tasks that systems can safely automate.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>You&#x27;ve said people shouldn&#x27;t do what systems can automate — HR.com&#x27;s data on how 2 million practitioners actually spend their time could tell Paycom exactly what to automate next.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> This is Paycom&#x27;s north star. The natural follow-up question is: how do you know which tasks HR teams still struggle with? HR.com&#x27;s content consumption and community engagement data reveals exactly where practitioners spend time — a roadmap for what to automate next.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 4 - Chad Richison</div>
+            <blockquote class="ceo-quote">&ldquo;As we continue to expand our geographic reach, I expect our move-up market to continue to accelerate.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>As Paycom moves upmarket and across borders, HR.com&#x27;s global community of 2 million HR leaders is the fastest way to build credibility with the enterprise buyers you&#x27;re targeting.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Paycom is pushing upmarket and international simultaneously — both moves require credibility with larger, more sophisticated HR buyers. HR.com&#x27;s global community, events, and content platform is a ready-made channel to reach and educate those exact buyers.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 5 - Chad Richison</div>
+            <blockquote class="ceo-quote">&ldquo;Internally, we developed and deployed an AI agent for our service team. This technology utilizes our own knowledge-based semantic search model and enables us to provide service to help our clients more quickly and consistently than ever before.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>You built an AI agent on Paycom&#x27;s internal knowledge — imagine training it on HR.com&#x27;s decade of content and community insights from 2 million practitioners so it understands the problems, not just your product.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Paycom is building AI on internal knowledge bases. HR.com&#x27;s massive corpus of HR content, practitioner Q&amp;A, and community discussions could dramatically enrich that knowledge base — making Paycom&#x27;s AI agent smarter about real-world HR challenges, not just product documentation.</div>
+        </div>
+    </div>
+    <div class="card" id="ceo-vision">
+        <h2>CEO Vision &amp; Strategy</h2>
+        <div class="narrative-content"><p>Chad Richison's vision is singular and relentless: full solution automation that eliminates every task a system can safely handle, freeing HR teams to focus on strategic work. Paycom is betting that the winner in HCM won't just process payroll — it will make the entire HR function autonomous. They're expanding this vision internationally (Canada, Mexico, UK, Ireland) and upmarket into larger enterprises.</p></div>
+    </div>
+    <div class="card" id="ma-appetite">
+        <h2>M&amp;A Appetite</h2>
+        <div class="narrative-content"><p>Paycom's M&A history is primarily structural — subsidiary acquisitions (Paycom Payroll LLC, holdings entities, Mexico and Canada subsidiaries) to support geographic expansion rather than capability acquisitions. This suggests they prefer building over buying for technology. However, their aggressive international push and upmarket move create a window where acquiring community reach and practitioner intelligence (something you can't build overnight) becomes strategically compelling. HR.com's 2M-practitioner network is the kind of asset that would accelerate their go-to-market in ways that pure product development cannot.</p></div>
+    </div>
+    <div class="card" id="challenges">
+        <h2>Challenges &amp; Headwinds</h2>
+        <div class="narrative-content"><p>Paycom faces mid-market saturation, margin compression (adjusted gross margin down 220bps, EBITDA margin down 250bps), and slowing U.S. hiring growth (3.7% to 1.9%) that directly impacts payroll demand. The market now prices them as a mature cash-flow business, not a growth disruptor. Their automation success with Beti ironically reduces payroll run frequency, pressuring per-transaction revenue. They need new value drivers — and HR.com's community data, content, and practitioner engagement represent a differentiated asset that competitors can't easily replicate.</p></div>
+    </div>
+    <div class="card" id="earnings-quotes">
+        <h2>Key Earnings Quotes</h2>
+        <div class="narrative-content"><p>- <strong>Chad Richison</strong> (): "Our product vision centers around eliminating redundant HR work, eliminating cost and allowing users to recoup valuable time in their day to add value to their organizations."
+- <strong>Chad Richison</strong> (): "With Paycom, employees do their own payroll, fixing errors before they become problems."
+- <strong>Chad Richison</strong> (): "Led by Beti, our solution automation initiatives continue to generate tremendous opportunities for our clients. We released more product enhancements in the first quarter than in the previous 2 quarte"
+- <strong>Chad Richison</strong> (): "A recent new client told us that prior to implementing Beti, it would take over 2 days to process payroll. With Beti, they complete the process in only 90 minutes."
+- <strong>Chad Richison</strong> (): "We've also automated time-off decisioning, allowing managers across the country to focus on value-added activities. With GONE, our time-off product leverages decisioning logic to automatically approve"
+- <strong>Chad Richison</strong> (): "We are changing the way payroll is done, and our clients are telling us we're right."
+- <strong>Chad Richison</strong> (): "We continue to make meaningful progress on the international front, as we build on the momentum we achieved in 2023 and early 2024, when we released our global HCM product and announced the launch of "
+- <strong>Chad Richison</strong> (): "We are investing in our highly differentiated automation platform that is delivering ROI for our clients. 20 years ago, users and buyers bought the Paycom system because they wanted to do more for the"</p></div>
+    </div>
+    <div class="card" id="verified-contacts">
+        <h2>Verified Contacts</h2>
+        <table>
+        <thead><tr>
+            <th>Name</th><th>Title</th><th>Company</th><th>Status</th><th>Confidence</th><th>LinkedIn</th>
+        </tr></thead>
+        <tbody><tr>
+            <td style="font-weight:600;color:#f0f6fc;">James Samford</td>
+            <td>Head of Investor Relations</td>
+            <td>Paycom</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/james-samford-47828a6" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Shane Hadlock</td>
+            <td>President and Chief Client Officer</td>
+            <td>Paycom</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/posts/the-key-executives_paycom-elevates-shane-hadlock-to-president-activity-7435670541048520704-C1Ff" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Mandy Moore</td>
+            <td>Director of International Strategy</td>
+            <td>Paycom</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/mandy-moore-shrm-cp-b472782b" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr></tbody>
+    </table>
+    </div>
+    <div class="card" id="approach-strategy">
+        <h2>Approach Strategy</h2>
+        
+        <div class="approach-opener">
+            <div class="opener-label">CALL OPENER</div>
+            <p>Chad, you&#x27;ve said automation should drive better retention and engagement — HR.com sits on the largest dataset of what 2 million HR practitioners actually do to move those numbers, and I&#x27;d love to show you how that intelligence could amplify Paycom&#x27;s ROI story.</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
+  </div>
+
+</div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
+</body>
+</html>

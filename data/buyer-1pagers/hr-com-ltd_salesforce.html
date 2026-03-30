@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: Salesforce | HR.com Ltd</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #30363d;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
+  }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
+  }
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
+  }
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
+  }
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Salesforce</h1>
+    <div class="subtitle">Prepared for HR.com Ltd</div>
+    <div class="header-meta">
+      <span class='tag'>Type: Platform</span>
+      
+      
+    </div>
+    
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar">
+    <div>
+      <strong>HR.com Ltd</strong> &bull; Debbie McGrath &bull; HR Technology &amp; Media
+      
+    </div>
+    <div>March 29, 2026</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    
+    <div class="card" id="strategic-fit">
+        <h2>Strategic Fit</h2>
+        <div class="narrative-content"><p>Salesforce's lack of HR tech presence can be directly addressed by acquiring HR.com, which boasts '1.92M HR Professional Members'—the largest community of HR practitioners globally—providing immediate access to a valuable audience. Additionally, the 'hr.com Domain' offers significant organic SEO authority, enhancing Salesforce's visibility in HR-related searches and solving their challenge of limited first-party data for ad targeting through HR.com's behavioral data. This acquisition not only aligns with their strategic vision of enhancing audience relationships but also allows for cross-selling opportunities to existing Salesforce customers.</p></div>
+    </div>
+    <div class="card" id="golden-nuggets">
+        <h2>Golden Nuggets -- Cold Call Openers</h2>
+        
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 1 - Marc Benioff</div>
+            <blockquote class="ceo-quote">&ldquo;The one thing that every enterprise needs to make AI work is their customer data, as well as the metadata that describes the data, which provides the attributes and context the AI models need to generate accurate, relevant output. And customer data and metadata are the new gold for these enterprises.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Marc Benioff said customer data and metadata are &#x27;the new gold&#x27; for enterprise AI — we&#x27;re sitting on 2 million HR practitioner profiles with years of engagement metadata that doesn&#x27;t exist anywhere else, and I wanted to explore whether that&#x27;s the kind of gold Salesforce&#x27;s data strategy needs for the HR vertical.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Benioff explicitly calls customer data and metadata &#x27;the new gold.&#x27; HR.com sits on 2M+ HR practitioner profiles with behavioral engagement data, content consumption patterns, and event attendance — exactly the metadata that makes AI models accurate for the HR vertical. This is his own language validating what we&#x27;d bring to the table.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 2 - Marc Benioff</div>
+            <blockquote class="ceo-quote">&ldquo;Data cloud gives every company a single source of truth, and you can securely power AI insights and actions across the entire Customer 360.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Your Data Cloud vision is about giving enterprises a single source of truth — we have the largest active HR practitioner community in the world at 2 million members, and that engagement data could make Data Cloud the definitive platform for anyone selling into the HR buyer.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Data Cloud is Salesforce&#x27;s fastest-growing product. HR.com&#x27;s practitioner community data — who&#x27;s engaging with what content, attending which events, asking which questions — would be a proprietary data layer that supercharges Data Cloud for every Salesforce customer selling into HR. No one else has this dataset at scale.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 3 - Marc Benioff</div>
+            <blockquote class="ceo-quote">&ldquo;These agents are not tools, they are becoming collaborators. They&#x27;re working 24/7 to analyze data, make decisions, take action, and we can all start to picture this enterprise managing millions of customer interactions daily with Agentforce seamlessly resolving issues, processing transactions, anticipating customer needs.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Benioff&#x27;s vision for Agentforce is agents that anticipate customer needs — in the HR vertical specifically, we have the behavioral data from 2 million practitioners that would tell those agents exactly what HR buyers need before they ask.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Agentforce needs vertical-specific training data to be useful. An AI agent advising on HR topics needs to understand what 2M HR practitioners actually care about, ask about, and engage with. HR.com&#x27;s community data is the training ground that makes Agentforce credible in the massive HCM vertical.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 4 - Marc Benioff</div>
+            <blockquote class="ceo-quote">&ldquo;And with our agreement to acquire Informatica, we will bring together the industry&#x27;s leading AI CRM and AI-powered MDM and ETL platform to create the most complete, intelligent AI and data platform for the enterprise.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>The Informatica deal showed Salesforce is serious about owning the data layer — we own something complementary: the largest HR practitioner community in the world, and the engagement data that comes with 2 million professionals actively consuming content and attending events in your highest-growth vertical.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> The Informatica acquisition proves Salesforce will spend billions to acquire data infrastructure assets. HR.com isn&#x27;t infrastructure — it&#x27;s something harder to replicate: a living community with proprietary engagement data. If they&#x27;ll buy a data plumbing company, a captive audience of 2M decision-influencers in a $400B+ HCM market is strategically compelling.</div>
+        </div>
+    </div>
+    <div class="card" id="ceo-vision">
+        <h2>CEO Vision &amp; Strategy</h2>
+        <div class="narrative-content"><p>Benioff's strategy centers on making Salesforce the indispensable AI platform for enterprises by combining CRM, Data Cloud, and Agentforce into a unified 'digital labor' platform. The thesis is simple: AI models are commodities, but proprietary customer data and metadata are 'the new gold' — whoever controls the data layer wins. Salesforce is acquiring (Informatica), building (Agentforce, Data Cloud), and integrating aggressively to own that layer across every industry vertical.</p></div>
+    </div>
+    <div class="card" id="ma-appetite">
+        <h2>M&amp;A Appetite</h2>
+        <div class="narrative-content"><p>Salesforce's M&A appetite is active and data-focused. The Informatica acquisition (completed) signals willingness to make large acquisitions for data assets that strengthen their AI platform thesis. Their pattern is acquiring companies that add proprietary data layers or integration capabilities to the Salesforce ecosystem. With $56.9B in remaining performance obligation and their first-ever dividend plus $10B buyback, they have the financial capacity for strategic acquisitions. A community-data asset like HR.com fits the pattern: it's not competitive with Salesforce's core CRM, it adds a proprietary data moat in a key vertical, and it would make Data Cloud and Agentforce immediately more valuable for every customer selling into HR.</p></div>
+    </div>
+    <div class="card" id="challenges">
+        <h2>Challenges &amp; Headwinds</h2>
+        <div class="narrative-content"><p>Salesforce is navigating a 'measured buying environment' with pressure on professional services revenue and license volatility. Their massive restructuring cost 1,500 bps in operating cash flow growth and $1.00 in GAAP diluted EPS in FY2024. The strategic challenge: they need vertical-specific data to make Agentforce and Data Cloud valuable enough to justify premium pricing in a cautious market. HR/HCM is one of the largest enterprise software verticals, and Salesforce has no proprietary practitioner community or engagement dataset in that space — HR.com fills that gap.</p></div>
+    </div>
+    <div class="card" id="earnings-quotes">
+        <h2>Key Earnings Quotes</h2>
+        <div class="narrative-content"><p>- <strong>Marc Benioff</strong> (): "With our trusted, unified Einstein 1 Platform, we’re incredibly well positioned to build on our success and capitalize on the massive surge in tech spending expected over the coming years, delivering "
+- <strong>Marc Benioff</strong> (): "Look, it was over a year ago, we said Salesforce had to transform. And you, many of you came to me, came to our whole team, and you said, look, we're going to transform the whole company, we did it to"
+- <strong>Marc Benioff</strong> (): "Not just our next-generation artificial intelligence, not just our prop builder, not just our Copilot, but this data cloud, which I'm going to get to in a second, our fastest, most exciting new produc"
+- <strong>Marc Benioff</strong> (): "And I'm really excited about the opportunity I had for Salesforce, not only with these incredible financial results but in the incredible transformations that we're leading with our customers in artif"
+- <strong>Marc Benioff</strong> (): "Every company in the world across every industry is being transformed by AI in the next few years. And when you look at the power of AI, you realize the models and the UI are not the critical success "
+- <strong>Marc Benioff</strong> (): "Data cloud gives every company a single source of truth, and you can securely power AI insights and actions across the entire Customer 360."
+- <strong>Marc Benioff</strong> (): "Nearly half of our top 50 wins in the quarter included six or more of our clouds. That really speaks to the comprehensive nature of our strategy."
+- <strong>Marc Benioff</strong> (): "And now, also, let's turn to our financial guidance. For fiscal year '25, we're maintaining our revenue guidance at 37.7 billion to 38 billion, growth of 8% to 9% year over year. And we now expect fis"</p></div>
+    </div>
+    <div class="card" id="verified-contacts">
+        <h2>Verified Contacts</h2>
+        <table>
+        <thead><tr>
+            <th>Name</th><th>Title</th><th>Company</th><th>Status</th><th>Confidence</th><th>LinkedIn</th>
+        </tr></thead>
+        <tbody><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Mark G. Munsell</td>
+            <td>Vice President, Corporate Development, M&amp;A Integration</td>
+            <td>Salesforce</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/mmunsell" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Allison Shah</td>
+            <td>Vice President, Corporate Development</td>
+            <td>Salesforce</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/allisonshah" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Andrew Lloyd</td>
+            <td>Senior Director, Corporate Development M&amp;A Integration</td>
+            <td>Salesforce</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/andrewwlloyd" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr></tbody>
+    </table>
+    </div>
+    <div class="card" id="approach-strategy">
+        <h2>Approach Strategy</h2>
+        
+        <div class="approach-opener">
+            <div class="opener-label">CALL OPENER</div>
+            <p>Marc Benioff said customer data and metadata are &#x27;the new gold&#x27; for enterprise AI — we&#x27;re sitting on 2 million HR practitioner profiles with years of engagement metadata that doesn&#x27;t exist anywhere else, and I wanted to explore whether that&#x27;s the kind of gold Salesforce&#x27;s data strategy needs for the HR vertical.</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
+  </div>
+
+</div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
+</body>
+</html>

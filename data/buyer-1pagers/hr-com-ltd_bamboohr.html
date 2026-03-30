@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: BambooHR | HR.com Ltd</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #30363d;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
+  }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
+  }
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
+  }
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
+  }
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>BambooHR</h1>
+    <div class="subtitle">Prepared for HR.com Ltd</div>
+    <div class="header-meta">
+      <span class='tag'>Type: Platform</span>
+      
+      
+    </div>
+    
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar">
+    <div>
+      <strong>HR.com Ltd</strong> &bull; Debbie McGrath &bull; HR Technology &amp; Media
+      
+    </div>
+    <div>March 29, 2026</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    
+    <div class="card" id="strategic-fit">
+        <h2>Strategic Fit</h2>
+        <div class="narrative-content"><p>BambooHR's challenge of 'limited first-party data for ad targeting' is directly addressed by HR.com's behavioral data on 1.92M members, enabling precise audience segmentation and targeted marketing. Additionally, the hr.com domain's massive organic SEO authority will enhance BambooHR's visibility in HR-related searches, driving traffic and potential leads. By leveraging the MyPeople.ai platform, BambooHR can offer a white-label community solution to enterprise clients, further diversifying its product offerings and revenue streams.</p></div>
+    </div>
+    <div class="card" id="golden-nuggets">
+        <h2>Golden Nuggets -- Cold Call Openers</h2>
+        
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 1 - Brad Rencher</div>
+            <blockquote class="ceo-quote">&ldquo;HRVS continues to be the largest virtual HR conference out there to help HR professionals earn SHRM and HRCI credits and is still 100 percent free.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Brad, you&#x27;ve built the largest virtual HR conference to connect HR heroes and offer free SHRM credits — I&#x27;m calling because we have 2 million HR practitioners already earning those credits through our platform year-round, and I think there&#x27;s a conversation about doing that together at scale.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> BambooHR is investing heavily in building an HR practitioner community through free virtual events. HR.com already has 2M+ practitioners, established SHRM/HRCI credit programs, and year-round engagement — exactly the asset BambooHR is trying to build from scratch.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 2 - Brad Rencher</div>
+            <blockquote class="ceo-quote">&ldquo;I am looking forward to BambooHR&#x27;s Virtual Summit and the opportunity to connect with HR heroes across the globe and shape the future of HR for the better.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Brad, you talk about connecting with HR heroes across the globe — we actually have 2 million of them engaging with content and events every day, and I wanted to explore whether owning that community could accelerate BambooHR&#x27;s mission.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> BambooHR&#x27;s CEO personally champions connecting with HR practitioners globally. HR.com&#x27;s community of 2M+ practitioners is the largest existing network of exactly these &#x27;HR heroes&#x27; — an acquisition would instantly multiply BambooHR&#x27;s community reach.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 3 - Wende Smith</div>
+            <blockquote class="ceo-quote">&ldquo;In 2025, I predict we&#x27;ll see a continuation of trying to get the HR tech stack right as products incorporate more AI capabilities. This evolution will not only streamline processes but also enhance the precision and reliability of data-driven decision-making.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Wende, you&#x27;ve said the future of HR tech is data-driven decision-making with AI — we sit on the engagement data of 2 million HR practitioners, and that&#x27;s exactly the kind of signal that could make BambooHR&#x27;s platform smarter than anyone else&#x27;s.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> BambooHR acknowledges that data-driven decision-making is the future of HR tech. HR.com&#x27;s practitioner engagement data — what 2M+ HR professionals read, attend, and care about — is a proprietary data asset that could power BambooHR&#x27;s AI and product roadmap with real practitioner signals.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 4 - Brad Rencher</div>
+            <blockquote class="ceo-quote">&ldquo;Our mission remains the same: to set people free to do great work. What&#x27;s changed is the world we&#x27;re working in.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Brad, you&#x27;ve said the mission hasn&#x27;t changed but the world has — one thing that&#x27;s changed is that the companies winning in HR tech now own their practitioner community, and we have the largest one in the industry.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> This signals BambooHR is evolving its strategy for a changed world. Acquiring HR.com&#x27;s community, content engine, and practitioner relationships would be a strategic leap — moving BambooHR from an SMB HR tool to a platform with a built-in audience and distribution channel.</div>
+        </div>
+    </div>
+    <div class="card" id="ceo-vision">
+        <h2>CEO Vision &amp; Strategy</h2>
+        <div class="narrative-content"><p>Brad Rencher is positioning BambooHR as the platform that gives HR leaders 'speed, insight, and adaptability' in a rapidly changing world. The company is doubling down on community-building through its Virtual Summit franchise and practitioner engagement, while maintaining its core mission of setting people free to do great work. The strategic direction points toward becoming a broader HR platform — not just software — with data, community, and AI at the center.</p></div>
+    </div>
+    <div class="card" id="ma-appetite">
+        <h2>M&amp;A Appetite</h2>
+        <div class="narrative-content"><p>BambooHR has shown M&A appetite through its recent partnership with Remote for global EOR capabilities, signaling willingness to expand beyond core HRIS through strategic deals. The company is private equity-backed (Spectrum Equity), which typically drives a build-or-buy growth strategy. Their heavy investment in community (free virtual summits, practitioner engagement) suggests they recognize that owning the HR practitioner relationship — not just the software — is strategically valuable. Acquiring HR.com's 2M+ practitioner community would be a logical next move.</p></div>
+    </div>
+    <div class="card" id="challenges">
+        <h2>Challenges &amp; Headwinds</h2>
+        <div class="narrative-content"><p>BambooHR's own research surfaces acute workforce pain points: 50% of employees struggle to make ends meet, 40% haven't received raises, remote work is fracturing company culture (59% of employers concerned), and gender pay gaps persist. These are exactly the topics HR.com's content engine, research reports, and practitioner community address daily. BambooHR is trying to be the thought leader on these issues through events and reports — HR.com already is one, with 2M+ practitioners consuming this content year-round.</p></div>
+    </div>
+    <div class="card" id="earnings-quotes">
+        <h2>Key Earnings Quotes</h2>
+        <div class="narrative-content"><p>- <strong>Brad Rencher</strong> (): "I am looking forward to BambooHR's Virtual Summit and the opportunity to connect with HR heroes across the globe and shape the future of HR for the better."
+- <strong>Brad Rencher</strong> (): "HRVS continues to be the largest virtual HR conference out there to help HR professionals earn SHRM and HRCI credits and is still 100 percent free."
+- <strong>Brad Rencher</strong> (): "Our mission remains the same: to set people free to do great work. What's changed is the world we're working in."
+- <strong>Brad Rencher</strong> (): "The BambooHR platform is built to meet this moment, giving HR leaders the speed, insight, and adaptability they need to lead what's next."
+- <strong>Wende Smith</strong> (): "In 2025, I predict we’ll see a continuation of trying to get the HR tech stack right as products incorporate more AI capabilities. This evolution will not only streamline processes but also enhance th"
+- <strong>Wende Smith</strong> (): "Also, the landscape of work modes will continue to evolve, with some employers doubling down on in-office 'make the commute worth it' experiences."
+- <strong>Brad Rencher</strong> (): "After several years of declining trends, we’ll see employee happiness continue to improve."
+- <strong>Brian Crofts</strong> (): "By 2035, the growing influence of Gen Z's emphasis on open dialogue and collaborative relationships will push companies toward flatter organizational structures."</p></div>
+    </div>
+    <div class="card" id="verified-contacts">
+        <h2>Verified Contacts</h2>
+        <table>
+        <thead><tr>
+            <th>Name</th><th>Title</th><th>Company</th><th>Status</th><th>Confidence</th><th>LinkedIn</th>
+        </tr></thead>
+        <tbody><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Ben Peterson</td>
+            <td>Co-founder and Co-chairman</td>
+            <td>BambooHR</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/petersonben" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Shama Miller</td>
+            <td>Chief of Staff</td>
+            <td>BambooHR</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/shamamadhvani" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Todd Grierson</td>
+            <td>Strategic GTM Partnerships</td>
+            <td>BambooHR</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/toddgrierson" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Matthew Boonmee</td>
+            <td>Corporate Development (former)</td>
+            <td>BambooHR</td>
+            <td><span style="color:#8b949e;font-weight:600;">STALE</span></td>
+            <td>LOW</td>
+            <td><a href="https://linkedin.com/in/matthew-boonmee" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Lisa Blair Davis</td>
+            <td>Unknown</td>
+            <td>BambooHR</td>
+            <td><span style="color:#8b949e;font-weight:600;">STALE</span></td>
+            <td>LOW</td>
+            <td><a href="https://www.linkedin.com/posts/lisa-blair-davis-4440695_hr-leaders-role-in-ma-an-interview-with-activity-7238910274970288130-ZOyp" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr></tbody>
+    </table>
+    </div>
+    <div class="card" id="approach-strategy">
+        <h2>Approach Strategy</h2>
+        
+        <div class="approach-opener">
+            <div class="opener-label">CALL OPENER</div>
+            <p>Brad, you&#x27;ve built the largest virtual HR conference to connect HR heroes and offer free SHRM credits — I&#x27;m calling because we have 2 million HR practitioners already earning those credits through our platform year-round, and I think there&#x27;s a conversation about doing that together at scale.</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
+  </div>
+
+</div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
+</body>
+</html>

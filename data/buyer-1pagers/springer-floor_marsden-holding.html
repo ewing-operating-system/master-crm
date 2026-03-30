@@ -3,182 +3,229 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Buyer Dossier: Marsden Holding for Springer Floor</title>
+<title>Buyer Dossier: Marsden Holding | Springer Floor</title>
 <style>
-    @media print {
-        body { margin: 0; }
-        .page-break { page-break-before: always; }
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-        font-family: 'Georgia', 'Times New Roman', serif;
-        color: #2c2c2c;
-        background: #f8f8f8;
-        line-height: 1.6;
-    }
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        background: white;
-        box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-    }
-    .header {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-        color: white;
-        padding: 40px;
-        position: relative;
-    }
-    .header::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, #e94560, #f5a623, #e94560);
-    }
-    .header h1 {
-        font-size: 28px;
-        margin-bottom: 8px;
-        letter-spacing: -0.5px;
-    }
-    .header .subtitle {
-        font-size: 16px;
-        opacity: 0.85;
-        font-style: italic;
-    }
-    .meta-bar {
-        display: flex;
-        gap: 24px;
-        padding: 16px 40px;
-        background: #f0f0f0;
-        border-bottom: 1px solid #ddd;
-        font-size: 14px;
-        flex-wrap: wrap;
-    }
-    .meta-bar .meta-item {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    }
-    .meta-bar .label {
-        font-weight: bold;
-        color: #666;
-        text-transform: uppercase;
-        font-size: 11px;
-        letter-spacing: 0.5px;
-    }
-    .meta-bar .value {
-        color: #1a1a2e;
-        font-weight: 600;
-    }
-    .fit-score {
-        display: inline-block;
-        background: #e74c3c;
-        color: white;
-        padding: 2px 10px;
-        border-radius: 12px;
-        font-weight: bold;
-        font-size: 13px;
-    }
-    .pitch-bar {
-        padding: 20px 40px;
-        background: #fafbfc;
-        border-bottom: 2px solid #e94560;
-        font-size: 18px;
-        font-style: italic;
-        color: #333;
-        text-align: center;
-    }
-    .content {
-        padding: 32px 40px;
-    }
-    .section {
-        margin-bottom: 28px;
-    }
-    .section h2 {
-        font-size: 16px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #0f3460;
-        border-bottom: 2px solid #e8e8e8;
-        padding-bottom: 8px;
-        margin-bottom: 14px;
-    }
-    .section p {
-        margin-bottom: 12px;
-        text-align: justify;
-    }
-    .section ul {
-        padding-left: 20px;
-    }
-    .section ul li {
-        margin-bottom: 8px;
-    }
-    .section ul.risks li {
-        color: #c0392b;
-    }
-    .approach-box {
-        background: #f0f7ff;
-        border-left: 4px solid #0f3460;
-        padding: 16px 20px;
-        border-radius: 0 8px 8px 0;
-        margin-top: 12px;
-    }
-    .footer {
-        padding: 20px 40px;
-        background: #1a1a2e;
-        color: rgba(255,255,255,0.5);
-        font-size: 11px;
-        text-align: center;
-    }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117; color: #c9d1d9; line-height: 1.6;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative;
+    border-bottom: 4px solid; border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header-label { text-transform: uppercase; font-size: 11px; letter-spacing: 3px; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+  .header h1 { font-size: 28px; font-weight: 700; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #f39c12;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; color: white; }
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+  .content { padding: 24px 48px 48px; }
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; padding: 10px 12px; background: #0d1117; font-weight: 600; color: #8b949e; font-size: 11px; text-transform: uppercase; border-bottom: 1px solid #30363d; }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  .footer { text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px; border-top: 1px solid #21262d; }
 </style>
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        <h1>Marsden Holding</h1>
-        <div class="subtitle">Buyer Dossier &mdash; Prepared for Springer Floor</div>
+<div class="page">
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Marsden Holding</h1>
+    <div class="subtitle">Prepared for Springer Floor</div>
+    <div class='score-badge'><span class='score-num'>7</span><span class='score-label'>Fit</span></div>
+  </div>
+  <div class="context-bar">
+    <strong>Springer Floor</strong> &bull; Terri Holman
+  </div>
+  <div class="content">
+    <div class="card" id="buyer-profile">
+        <h2>Buyer Profile</h2>
+        <p>## Marsden Holding — Strategic Buyer Profile</p>
+<p>### Company Overview & Strategic Logic
+Marsden Holding is a potential acquirer for Springer Floor (Floor Care / Carpet Cleaning).</p>
+<p>### Earnings & Market Position
+[](https://www.cleanlink.com/cp/article/Marsden-Holding-Sees-National-Growth--19925): Marsden Holding Sees National Growth</p>
+<p>Featured
+* Industry News
+* CleanLink Minute
+* CleanTips
+* Buyer's Guide
+* Industry Links
+* Find by Key Phrase
+* Branded Features
+* Faces of the Frontline Entry Form
+CleanLink Topics
+* Business &amp; Industry
+* Carpet Care
+* Cleaners &amp; Disinfectants
+* Floor Care
+* Green Cleaning &amp; Sustainability
+* Ice Melt
+* Infection Control
+* Restroom Care
+* Software
+Trending
+* The Down and Dirty on Cleaning in Virus Season
+* Employee burnoutIndustry Report Reveals Burnout Prevalence Among Cleaning Professionals
+* [![Surfactant foam on surface](https://www.cleanlink.com/resources/editorial/2023/30376-soap-shutterstock-1754344973.</p>
+<p>[Annual Report on Marsden Holding's Revenue, Growth, SWOT Analysis & Competitor Intelligence - IncFact](https://incfact.com/company/marsden-saintpaul-mn/): Annual Report on Marsden Holding's Revenue, Growth, SWOT Analysis & Competitor Intelligence - IncFact</p>
+<p>Company Profiles: Revenue, Growth, Competition</p>
+<p>- Log In
+- Subscribe</p>
+<p>-- Log In</p>
+<p># Marsden Holding Revenue, Growth & Competitor Profile</p>
+<p>- Competition
+- Competitive Intelligence
+- VC/Inv</p>
+<p>### M&A Track Record
+[CleanPower Acquires Advance Janitorial - Marsden Services](https://www.marsden.com/cleanpower-acquires-advance-janitorial/): CleanPower Acquires Advance Janitorial | Marsden Services</p>
+<p>[Marsden Acquires 1 Stone Solutions](https://www.marsden.com/marsden-acquires-1-stone-solutions/): Marsden Acquires 1 Stone Solutions | Marsden Services</p>
+<p>[Cleaning Industry Timeline - Knowledgeworx](https://knowledgeworx.com/time/): Cleaning Industry Timeline Timeline
+Knowledgeworx | Hire Better, Coach, Improve Your Sales Team
+Select Page
+# Cleaning Industry Timeline
+We developed the Cleaning Industry Timeline to help industry leaders better understand market dynamics.  The key questions are what comes next and what actions should I take?
+Download your free printable copy of the timeline and sign up for updates
+# All Timeline Updates
+* All Timeline Updates
+* Mergers/Acquisition
+* New Entrant
+* Private Equity
+* Publicly Held
+* Vertical Integration</p>
+<p>2025
+02/06/2025
+## Bissell Acquires Unger
+Bissell has acquired Unger Enterprises. This follows other Bissell acquisitions, including Edmar, Sanitaire, and the Rug Doctor.
+<strong>Read the full story</strong>
+01/15/2025
+## TEC Services Gains Private Investment
+JanSan sup</p>
+<p>### Financial Profile
+[MARSDEN HOLDINGS LTD - 2025 - Tracxn](https://tracxn.com/d/legal-entities/united-kingdom/marsden-holdings-ltd/__epxdZK9gRzKykyQ3ug0IxwoW-hNDtdxDAXEVBO8Km_w): MARSDEN HOLDINGS LTD - 2025 - Tracxn
+Your browser was unable to load all of Tracxn resources. They may have been blocked by your firewall, proxy or browser configuration. Press<strong>Ctrl+F5</strong>or<strong>Ctrl+Shift+R</strong>to have your browser try again and if that doesn&#x27;t work,<strong>click here to retry</strong>or mail us at<strong>hi@tracxn.com</strong>
+Internal Server Error
+**
+Company Documents
+~~£4.99~~
+£0.99(incl. taxes)
+Buy DocumentsDownload sample documents
+Documents include
+* Incorporation Documents
+* Accounts / Financial Statements
+* Officer / Board Member Appointment / Termination
+* Private Placements &amp; Change in Capital
+* Confirmation Statements / Annual Returns
+* Charge Documents (Summary)
+Buy company documents in bulk and get special discounts
+Submit Bulk Request
+Most viewed in 2019
+# MARSDEN HOLDINGS LTD
+Last updated:April 15, 2025
+* Linkedin
+* Twit
+Revenue indicator: is the company's size? (Annual sales and employees)</p>
+<p>- Marsden Holding's annual revenues are $10 - $100 million (see exact revenue data)</p>
+<p>What industry is the c</p>
+<p>### Strategic Fit with Springer Floor
+[Marsden Holding Sees National Growth - CleanLink](https://www.cleanlink.com/cp/article/Marsden-Holding-Sees-National-Growth--19925): Marsden Holding Sees National Growth</p>
+<p>Featured
+* Industry News
+* CleanLink Minute
+* CleanTips
+* Buyer's Guide
+* Industry Links
+* Find by Key Phrase
+* Branded Features
+* Faces of the Frontline Entry Form
+CleanLink Topics
+* Business &amp; Industry
+* Carpet Care
+* Cleaners &amp; Disinfectants
+* Floor Care
+* Green Cleaning &amp; Sustainability
+* Ice Melt
+* Infection Control
+* Restroom Care
+* Software
+Trending
+* The Down and Dirty on Cleaning in Virus Season
+* Employee burnoutIndustry Report Reveals Burnout Prevalence Among Cleaning Professionals
+* [![Surfactant foam on surface](https://www.cleanlink.com/resources/editorial/2023/30376-soap-shutterstock-1754344973.</p>
+<p>[Year in Review – 2021 | Marsden Services](https://www.marsden.com/year-in-review-2021/): Year in Review – 2021 | Marsden Services</p>
+<p>[cleaning | Marsden Services](https://www.marsden.com/tag/cleaning/): cleaning | Marsden Services</p>
+<p>### Key Contacts & Decision Makers
+[Timothy Rupard | Marsden South LLC](https://linkedin.com/in/timothyrupard): # Timothy Rupard</p>
+<p>Marsden South LLC</p>
+<p>President at Marsden South</p>
+<p>Driftwood, Texas, United States (US)</p>
+<p>696 connections • 692 followers</p>
+<p>## About</p>
+<p>Experienced President with a demonstrated history of working in the facilities services industry. Strong business development professional skilled in Negotiation, Budgeting, Operations Management, Customer Service, and Coaching.</p>
+<p>Total Experience: 33 years and 6 months</p>
+<p>## Experience</p>
+<p>### President at Marsden South (Current)</p>
+<p>Jan 2014 - Present • 12 years and 1 month</p>
+<p>Austin, Texas Area</p>
+<p>Company: 5001-10,000 employees • Founded 1952 • Privately Held • Facilities Services</p>
+<p>President of Texas, Florida and the south gulf coast for Marsden Services a full service Janitorial,</p>
+<p>### Golden Nuggets & Call Ammunition
+- quity
+* Publicly Held
+* Vertical Integration</p>
+<p>2025
+02/06/2025
+## Bissell Acquires Unger
+Bissell has acquired Unger Enterprises. This follows other Bissell acquisitions, including Edmar, Sanitaire, and
+- [](https://www.cleanlink.com/cp/article/Marsden-Holding-Sees-National-Growth--19925): Marsden Holding Sees National Growth</p>
+<p>Featured
+* Industry News
+* CleanLink Minute
+* CleanTips
+* Buyer's Guide
+* In</p>
+<p>### Research Source
+Exa.ai enrichment — 2026-03-29</p>
     </div>
-    <div class="meta-bar">
-        <div class='meta-item'><span class='label'>Contact</span><span class='value'>Guy Mingo</span></div>
-        <div class='meta-item'><span class='label'>Type</span><span class='value'>Industry Consolidator</span></div>
-        <div class='meta-item'><span class='label'>Location</span><span class='value'>St. Paul, MN</span></div>
-        <div class='meta-item'><span class='label'>Fit Score</span><span class='fit-score'>7</span></div>
-    </div>
-    <div class='pitch-bar'>&ldquo;A turnkey floor care operation in Des Moines with recurring commercial contracts and trained crews — ready to plug into Marsden's Midwest platform and fill the service gap your clients are already asking about.&rdquo;</div>
-    <div class="content">
-        <div class="section">
-            <h2>Buyer Narrative</h2>
-            <p>Marsden Holding, headquartered in St. Paul, Minnesota, is one of the largest privately held facility services companies in the United States. Founded in 1952, Marsden has grown into a multi-brand platform operating across janitorial, building maintenance, security, and specialty cleaning services. The company operates through several subsidiaries and has built its footprint through a disciplined acquisition strategy — purchasing well-run regional operators, retaining their management teams, and integrating them into Marsden's shared services infrastructure. With estimated revenues north of $500 million and operations spanning dozens of states, Marsden has the back-office depth, insurance capacity, and operational playbook to absorb and grow smaller acquisitions without disruption.</p><p>What makes Marsden a credible acquirer for a business like yours is their track record of buying companies that look exactly like yours — regional specialists with strong reputations, trained crews, and sticky commercial contracts. They don't buy businesses to strip them down. They buy them because they believe the owner built something worth preserving and scaling. Guy Mingo and the Marsden leadership team understand that the value in facility services lives in the people, the relationships, and the recurring revenue. Their model is to keep what works, layer in resources, and help the business reach customers it couldn't reach alone.</p><p>For a seller evaluating who they'd want to hand their life's work to, Marsden represents the kind of buyer who has done this dozens of times, treats employees well through transitions, and has the financial backing to close without financing contingencies or drawn-out due diligence.</p>
-        </div>
-        
-        <div class="section">
-            <h2>Acquisition History</h2>
-            <ul><li>Marsden has acquired and integrated multiple regional janitorial and building maintenance companies across the Midwest and nationally over its 70+ year history</li><li>Operates subsidiary brands including City Wide Maintenance, Marsden Building Maintenance, and other specialty service lines — many of which were acquired as standalone companies</li><li>Known for acquiring companies in the $1M–$20M revenue range that serve commercial accounts with recurring contracts</li><li>Has expanded into adjacent verticals (security services, specialty cleaning) through acquisition rather than organic buildout</li><li>Consistently targets owner-operated businesses with strong local reputations and established customer bases in markets where Marsden wants density</li></ul>
-        </div>
-        <div class="section">
-            <h2>Why This Seller</h2>
-            <p>Springer Floor is a textbook Marsden acquisition target. The business operates in Des Moines — a market geographically adjacent to Marsden's St. Paul headquarters and within their existing Midwest service territory. Floor care and carpet cleaning is a natural complement to Marsden's janitorial and building maintenance brands; it's a service their existing commercial clients are already requesting, and adding it through acquisition gives Marsden trained crews, vendor relationships, and an established reputation on day one rather than the 2–3 year timeline of building from scratch. At roughly $900K in revenue, Springer is the right size for a tuck-in — large enough to have real operations and recurring contracts, small enough to integrate without complexity. For Terri Holman, this means her team gets access to Marsden's resources, benefits, and customer pipeline while keeping the identity and relationships they've built in the Des Moines market.</p>
-        </div>
-        <div class="section">
-            <h2>Approach Angle</h2>
-            <div class="approach-box">We represent owners exploring strategic options. Position the conversation around Marsden's existing facility services footprint and the natural gap that specialized floor care fills. Frame as representing a small number of strategic parties interested in companies like Springer — never indicate the company is for sale. Lead with the geographic and operational fit, and let Guy self-select into the conversation by asking whether floor care expansion is on Marsden's radar.</div>
-        </div>
-        
-        <div class="section">
-            <h2>Talking Points</h2>
-            <ul><li>Marsden's clients are already asking for floor care services — this acquisition lets you say yes with an established team rather than building from zero</li><li>Des Moines is geographically adjacent to your Midwest footprint, adding market density without overextending operations</li><li>The business has recurring commercial contracts and trained crews — this isn't a turnaround, it's a plug-and-play addition to your existing platform</li><li>We're having early, confidential conversations with a small number of strategic parties who would benefit most from this specific type of business</li><li>The owner has built something worth preserving — we're looking for a buyer who keeps teams intact and invests in growth, which is exactly Marsden's playbook</li></ul>
-        </div>
-        
-        <div class="section">
-            <h2>Risk Factors</h2>
-            <ul class="risks"><li>Size mismatch — at $900K revenue, Springer may fall below Marsden's minimum acquisition threshold given their scale and the transaction costs involved in any deal</li><li>Marsden may already have floor care capabilities in-house or through an existing subsidiary, making this redundant rather than complementary</li><li>Integration complexity — if Marsden's operating model is heavily standardized, a small specialized floor care operation may require more customization than expected to fit their systems and processes</li></ul>
+    
+    
+    <div class="card" id="approach">
+        <h2>Approach Strategy</h2>
+        <div style="background:#0b2e1a;border:1px solid #27ae60;border-radius:8px;padding:18px 22px;">
+            <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#27ae60;margin-bottom:6px;text-transform:uppercase;">CALL OPENER</div>
+            <p style="color:#a3e4b8;font-size:14px;line-height:1.7;">We noticed Marsden Holding&#x27;s activity in Floor Care / Carpet Cleaning and your track record of strategic acquisitions in this space. We&#x27;re working with Springer Floor, and there&#x27;s a compelling fit we&#x27;d love to walk you through.</p>
         </div>
     </div>
-    <div class="footer">
-        Generated March 29, 2026 &bull; Confidential
-    </div>
+  </div>
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential
+  </div>
 </div>
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
 </body>
 </html>

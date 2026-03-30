@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: Francisco Partners | HR.com Ltd</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #30363d;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
+  }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
+  }
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
+  }
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
+  }
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Francisco Partners</h1>
+    <div class="subtitle">Prepared for HR.com Ltd</div>
+    <div class="header-meta">
+      <span class='tag'>Type: Platform</span>
+      
+      
+    </div>
+    
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar">
+    <div>
+      <strong>HR.com Ltd</strong> &bull; Debbie McGrath &bull; HR Technology &amp; Media
+      
+    </div>
+    <div>March 29, 2026</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    
+    <div class="card" id="strategic-fit">
+        <h2>Strategic Fit</h2>
+        <div class="narrative-content"><p>Francisco Partners can significantly enhance its HR tech presence by acquiring HR.com, which boasts the 'largest registered community of HR practitioners globally' with 1.92M HR Professional Members. This asset directly addresses the challenge of 'limited first-party data for ad targeting' through its behavioral data on member engagement, enabling targeted marketing strategies. Additionally, the MyPeople.ai platform offers a white-label community SaaS solution that can be licensed to enterprises, creating new revenue streams and cross-selling opportunities. With $42.6M in revenue derived from diverse monetization strategies, HR.com aligns perfectly with Francisco Partners' vision for growth in the HR technology sector.</p></div>
+    </div>
+    <div class="card" id="golden-nuggets">
+        <h2>Golden Nuggets -- Cold Call Openers</h2>
+        
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 1</div>
+            <blockquote class="ceo-quote">&ldquo;As AI reshapes the workplace, organizations need objective data to understand its real impact on productivity, performance and capacity. ActivTrak provides that visibility – helping leaders balance human potential with the power of AI to drive meaningful outcomes.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Your portfolio company ActivTrak is solving how AI impacts workforce productivity — HR.com sits on behavioral and engagement data from 2M+ HR practitioners that could turbocharge that thesis across your entire HR tech portfolio.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Francisco Partners is betting on workforce intelligence and AI&#x27;s impact on productivity. HR.com&#x27;s 2M+ practitioners generate exactly the kind of &#x27;objective data&#x27; on how AI is reshaping HR workflows that their portfolio companies need. This quote proves they&#x27;re actively investing in the intersection of AI + workforce — HR.com is the largest living dataset of HR practitioner behavior and sentiment.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 2</div>
+            <blockquote class="ceo-quote">&ldquo;ActivTrak has built a unique and powerful platform supported by product leadership and an impressive and growing customer base – positioning the company to continue redefining how organizations manage productivity across their workforces.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Peter Gingold highlighted that a growing customer base is what positions ActivTrak to redefine workforce management — HR.com&#x27;s 2M-member HR practitioner community is the single largest channel to accelerate that customer growth across your portfolio.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Peter Gingold explicitly values &#x27;growing customer base&#x27; and &#x27;product leadership&#x27; as investment criteria. HR.com&#x27;s 2M+ member community is the largest captive audience of HR buyers in the world — a distribution channel and data asset that could accelerate customer acquisition for any Francisco Partners HR/workforce portfolio company.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 3</div>
+            <blockquote class="ceo-quote">&ldquo;We believe transitioning to a private company will provide greater financial flexibility and strategic alignment to accelerate growth, expand through innovation and M&amp;A, and strengthen our market leadership.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Your playbook with Jamf is to accelerate growth through innovation and M&amp;A — HR.com&#x27;s community of 2M+ HR practitioners and its content platform could be the strategic bolt-on that gives your workforce portfolio companies an unfair distribution advantage.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Francisco Partners explicitly uses M&amp;A as a growth lever post-acquisition. The $2.2B Jamf deal plus &#x27;expand through M&amp;A&#x27; language signals they are actively looking for bolt-on acquisitions that accelerate portfolio company growth. HR.com — with its community, content engine, and practitioner data — is exactly the type of strategic asset that strengthens market leadership for any HR/workforce platform in their portfolio.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 4</div>
+            <blockquote class="ceo-quote">&ldquo;Francisco Partners&#x27; acquisition of Litmos from SAP to re-launch as an independent company.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>You carved Litmos out of SAP because you saw standalone value in corporate learning — HR.com&#x27;s content engine and 2M practitioners could be the distribution and engagement layer that makes Litmos or your next HR acquisition dramatically more valuable.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Francisco Partners carved Litmos (corporate learning) out of SAP and relaunched it independently — proof they acquire HR-adjacent assets, reposition them, and scale them. HR.com&#x27;s content library, certification programs, and practitioner community are a natural complement to a corporate learning platform. This shows Francisco Partners already operates in the HR tech space and understands the value of learning/development assets.</div>
+        </div>
+    </div>
+    <div class="card" id="ceo-vision">
+        <h2>CEO Vision &amp; Strategy</h2>
+        <div class="narrative-content"><p>Francisco Partners is building a thesis around workforce intelligence and AI's impact on productivity, backing platforms that give organizations data-driven visibility into how work gets done. Their portfolio signals a belief that the future of enterprise software lies in helping leaders balance human potential with AI — and they're willing to deploy billions (ActivTrak investment, $2.2B Jamf, $1.2B Jama, Litmos carve-out) to own key positions in that value chain.</p></div>
+    </div>
+    <div class="card" id="ma-appetite">
+        <h2>M&amp;A Appetite</h2>
+        <div class="narrative-content"><p>Francisco Partners is one of the most active acquirers in enterprise software, with a clear pattern: acquire market-leading platforms ($2.2B Jamf, $1.2B Jama), carve out undervalued assets from larger companies (Litmos from SAP), and make growth investments in emerging categories (ActivTrak). They explicitly name M&A as a growth strategy post-acquisition, meaning they buy platforms and then bolt on additional assets to accelerate them. Their HR/workforce portfolio (ActivTrak, Litmos) creates a natural home for HR.com as either a standalone acquisition or a strategic bolt-on.</p></div>
+    </div>
+    <div class="card" id="challenges">
+        <h2>Challenges &amp; Headwinds</h2>
+        <div class="narrative-content"><p>Francisco Partners' portfolio companies need to rapidly grow their customer bases, generate proprietary workforce data, and prove AI's ROI on productivity. Their core challenge is distribution — getting their platforms in front of HR and workforce decision-makers at scale. HR.com directly addresses this with the largest HR practitioner community (2M+), engagement data that reveals what HR leaders actually care about, and a content/events engine that drives qualified demand.</p></div>
+    </div>
+    <div class="card" id="earnings-quotes">
+        <h2>Key Earnings Quotes</h2>
+        <div class="narrative-content"><p>- <strong>Heidi Farris</strong> (): ""This investment marks a pivotal moment in ActivTrak's journey. As AI reshapes the workplace, organizations need objective data to understand its real impact on productivity, performance and capacity."
+- <strong>Peter Gingold</strong> (): ""ActivTrak has built a unique and powerful platform supported by product leadership and an impressive and growing customer base – positioning the company to continue redefining how organizations manag"
+- <strong>Marc Osofsky</strong> (): ""We are thrilled to work with Francisco Partners and leverage their expertise as we further accelerate our rapid expansion across enterprises, industries and continents.""
+- <strong>Petri Oksanen and Mario Razzini</strong> (): ""The engineering management market is in the early stages of a fundamental transformation which Jama Software is at the forefront of.""
+- <strong>John Strosahl</strong> (): ""Since Jamf’s founding more than 20 years ago, we have made significant strides in advancing our mission to help organizations succeed with Apple.""
+- <strong>Brian Decker and Karl Shum</strong> (): ""We have long admired Jamf and its commitment to providing customers with best-in-class products that are absolutely beloved in the Apple community.""
+- <strong>Mac Fountain and Petri Oksanen</strong> (): ""Quorum plays a critical role in the global energy industry, serving as a trusted strategic partner to over a thousand customers across the world.""</p></div>
+    </div>
+    <div class="card" id="verified-contacts">
+        <h2>Verified Contacts</h2>
+        <table>
+        <thead><tr>
+            <th>Name</th><th>Title</th><th>Company</th><th>Status</th><th>Confidence</th><th>LinkedIn</th>
+        </tr></thead>
+        <tbody><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Jordan Smith</td>
+            <td>Vice President</td>
+            <td>Francisco Partners</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/jordan-smith-654681a1" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Axel Moctezuma</td>
+            <td>Vice President</td>
+            <td>Francisco Partners</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/axel-moctezuma-7b375b97" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Stephen Nied</td>
+            <td>Managing Operating Partner</td>
+            <td>Francisco Partners Operating Executives</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>MEDIUM</td>
+            <td><a href="https://linkedin.com/in/stephennied" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr></tbody>
+    </table>
+    </div>
+    <div class="card" id="approach-strategy">
+        <h2>Approach Strategy</h2>
+        
+        <div class="approach-opener">
+            <div class="opener-label">CALL OPENER</div>
+            <p>Your portfolio company ActivTrak is solving how AI impacts workforce productivity — HR.com sits on behavioral and engagement data from 2M+ HR practitioners that could turbocharge that thesis across your entire HR tech portfolio.</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
+  </div>
+
+</div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
+</body>
+</html>

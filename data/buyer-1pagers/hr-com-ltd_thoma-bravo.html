@@ -3,182 +3,324 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Buyer Dossier: Thoma Bravo for HR.com Ltd</title>
+<title>Buyer Dossier: Thoma Bravo | HR.com Ltd</title>
 <style>
-    @media print {
-        body { margin: 0; }
-        .page-break { page-break-before: always; }
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-        font-family: 'Georgia', 'Times New Roman', serif;
-        color: #2c2c2c;
-        background: #f8f8f8;
-        line-height: 1.6;
-    }
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        background: white;
-        box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-    }
-    .header {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-        color: white;
-        padding: 40px;
-        position: relative;
-    }
-    .header::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, #e94560, #f5a623, #e94560);
-    }
-    .header h1 {
-        font-size: 28px;
-        margin-bottom: 8px;
-        letter-spacing: -0.5px;
-    }
-    .header .subtitle {
-        font-size: 16px;
-        opacity: 0.85;
-        font-style: italic;
-    }
-    .meta-bar {
-        display: flex;
-        gap: 24px;
-        padding: 16px 40px;
-        background: #f0f0f0;
-        border-bottom: 1px solid #ddd;
-        font-size: 14px;
-        flex-wrap: wrap;
-    }
-    .meta-bar .meta-item {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    }
-    .meta-bar .label {
-        font-weight: bold;
-        color: #666;
-        text-transform: uppercase;
-        font-size: 11px;
-        letter-spacing: 0.5px;
-    }
-    .meta-bar .value {
-        color: #1a1a2e;
-        font-weight: 600;
-    }
-    .fit-score {
-        display: inline-block;
-        background: #e74c3c;
-        color: white;
-        padding: 2px 10px;
-        border-radius: 12px;
-        font-weight: bold;
-        font-size: 13px;
-    }
-    .pitch-bar {
-        padding: 20px 40px;
-        background: #fafbfc;
-        border-bottom: 2px solid #e94560;
-        font-size: 18px;
-        font-style: italic;
-        color: #333;
-        text-align: center;
-    }
-    .content {
-        padding: 32px 40px;
-    }
-    .section {
-        margin-bottom: 28px;
-    }
-    .section h2 {
-        font-size: 16px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #0f3460;
-        border-bottom: 2px solid #e8e8e8;
-        padding-bottom: 8px;
-        margin-bottom: 14px;
-    }
-    .section p {
-        margin-bottom: 12px;
-        text-align: justify;
-    }
-    .section ul {
-        padding-left: 20px;
-    }
-    .section ul li {
-        margin-bottom: 8px;
-    }
-    .section ul.risks li {
-        color: #c0392b;
-    }
-    .approach-box {
-        background: #f0f7ff;
-        border-left: 4px solid #0f3460;
-        padding: 16px 20px;
-        border-radius: 0 8px 8px 0;
-        margin-top: 12px;
-    }
-    .footer {
-        padding: 20px 40px;
-        background: #1a1a2e;
-        color: rgba(255,255,255,0.5);
-        font-size: 11px;
-        text-align: center;
-    }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #f39c12;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
+  }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
+  }
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
+  }
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
+  }
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
+  }
 </style>
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        <h1>Thoma Bravo</h1>
-        <div class="subtitle">Buyer Dossier &mdash; Prepared for HR.com Ltd</div>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Thoma Bravo</h1>
+    <div class="subtitle">Prepared for HR.com Ltd</div>
+    <div class="header-meta">
+      <span class='tag'>Type: Platform</span>
+      <span class='tag'>Contact: Orlando Bravo</span>
+      <span class='tag'>San Francisco, CA</span>
     </div>
-    <div class="meta-bar">
-        <div class='meta-item'><span class='label'>Contact</span><span class='value'>Orlando Bravo</span></div>
-        <div class='meta-item'><span class='label'>Type</span><span class='value'>PE Roll-up</span></div>
-        <div class='meta-item'><span class='label'>Location</span><span class='value'>San Francisco, CA</span></div>
-        <div class='meta-item'><span class='label'>Fit Score</span><span class='fit-score'>7</span></div>
+    <div class='score-badge'><span class='score-num'>7</span><span class='score-label'>Fit</span></div>
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar">
+    <div>
+      <strong>HR.com Ltd</strong> &bull; Debbie McGrath &bull; HR Technology &amp; Media
+      
     </div>
-    <div class='pitch-bar'>&ldquo;HR.com is the owned media and community platform that turns Thoma Bravo's $12.3 billion Dayforce bet into an HR tech ecosystem no competitor can replicate.&rdquo;</div>
-    <div class="content">
-        <div class="section">
-            <h2>Buyer Narrative</h2>
-            <p>Thoma Bravo is one of the largest and most prolific software-focused private equity firms in the world, with over $160 billion in assets under management. Founded by Orlando Bravo and Carl Thoma, the firm has built its reputation on acquiring enterprise software companies, driving operational improvements, and consolidating fragmented markets into category leaders. Their 2025 take-private of Dayforce (formerly Ceridian) for $12.3 billion signaled a massive conviction bet on HR technology as a durable, high-margin vertical.</p><p>The firm's playbook is well-established: acquire a platform asset, optimize pricing and go-to-market, then bolt on complementary businesses that deepen the moat and expand the addressable market. Thoma Bravo has executed this strategy across cybersecurity (SailPoint, Proofpoint), fintech (Adenza), and now HR tech. They are not passive holders — they actively build, integrate, and scale.</p><p>For a seller evaluating Thoma Bravo, the key consideration is that this is a firm with virtually unlimited capital, deep operational resources, and a specific thesis around HR technology. They don't acquire companies to strip them — they acquire to build platforms. An owner who cares about their company's legacy and continued growth would find a credible, well-resourced steward in Thoma Bravo, provided they're comfortable with PE-style governance and the pace of integration.</p>
-        </div>
+    <div>March 29, 2026</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    
+    <div class="card" id="strategic-fit">
+        <h2>Strategic Fit</h2>
+        <div class="narrative-content"><p>HR.com presents a strategic opportunity for Thoma Bravo to 'own the audience relationship' with its 1.92M HR Professional Members, the largest global community of HR practitioners. This asset directly addresses the challenge of 'limited first-party data for ad targeting' by providing rich behavioral data on its members, enabling targeted marketing and lead generation. Additionally, the MyPeople.ai platform offers a white-label community SaaS solution that can be cross-sold to Thoma Bravo's existing portfolio companies, enhancing their product offerings. With $42.6M in revenue from diverse monetization streams, HR.com aligns perfectly with Thoma Bravo's growth strategy.</p></div>
+    </div>
+    <div class="card" id="golden-nuggets">
+        <h2>Golden Nuggets -- Cold Call Openers</h2>
         
-        <div class="section">
-            <h2>Acquisition History</h2>
-            <ul><li>Dayforce (formerly Ceridian) — $12.3B take-private (2025), flagship HR tech platform play</li><li>SailPoint Technologies — $6.9B take-private (2022), identity security platform</li><li>Proofpoint — $12.3B take-private (2021), cybersecurity and compliance</li><li>Ellie Mae — $3.7B acquisition (2019), mortgage technology platform</li><li>RealPage — $10.2B take-private (2021), real estate technology</li><li>Stamps.com — $6.6B take-private (2021), shipping and mailing technology</li><li>Instructure (Canvas) — $2B take-private (2020), education technology platform</li><li>Adenza (Calypso + AxiomSL merger) — fintech risk and regulatory platform, sold to Deutsche Börse for $3.9B</li></ul>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 1 - Holden Spaht</div>
+            <blockquote class="ceo-quote">&ldquo;With demand for intelligent, AI-driven HR technologies accelerating, we are excited to welcome Dayforce to Thoma Bravo&#x27;s portfolio and together unlock their next phase of growth and customer impact.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Holden Spaht said demand for AI-driven HR tech is accelerating — we sit on 2 million HR practitioners who are actively evaluating those technologies, and I wanted to talk about how that demand signal could accelerate Dayforce&#x27;s growth under your ownership.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Holden explicitly names &#x27;demand for intelligent, AI-driven HR technologies&#x27; as the macro thesis. HR.com&#x27;s 2M+ practitioners are the demand signal — they&#x27;re the buyers, evaluators, and adopters of whatever Thoma Bravo builds. This quote lets you position HR.com as the demand layer Thoma Bravo is betting on.</div>
         </div>
-        <div class="section">
-            <h2>Why This Seller</h2>
-            <p>HR.com operates the largest global community and content platform dedicated exclusively to HR professionals — a proprietary audience that no amount of ad spend can replicate overnight. For Thoma Bravo, which just made a $12.3 billion bet that HR technology is a generational investment category, HR.com represents something their portfolio currently lacks: an owned media and community distribution channel that sits upstream of every HR software buying decision. Dayforce sells to CHROs; HR.com influences CHROs before they buy. The combination of enterprise HR software with a dedicated content, certification, and community platform creates a flywheel — product education drives adoption, community engagement drives retention, and proprietary audience data drives smarter go-to-market across the entire Thoma Bravo HR tech portfolio. This is not just a bolt-on; it's a strategic multiplier.</p>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 2 - David Ossip</div>
+            <blockquote class="ceo-quote">&ldquo;drive innovation that empowers our community to do the work they are meant to do.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>David Ossip talked about empowering the HR community — HR.com is that community, 2 million practitioners strong, and I&#x27;d like to discuss how we could become the engagement layer for Dayforce&#x27;s post-acquisition growth plan.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Ossip uses the word &#x27;community&#x27; — that&#x27;s HR.com&#x27;s entire asset. Dayforce wants to empower a community but doesn&#x27;t own one at scale. HR.com is the largest HR practitioner community in the world. This is a direct capability gap HR.com fills.</div>
         </div>
-        <div class="section">
-            <h2>Approach Angle</h2>
-            <div class="approach-box">Position the outreach around Thoma Bravo's stated HR tech thesis and the Dayforce acquisition as proof of conviction. Frame HR.com not as a standalone media company but as a missing infrastructure layer — the content and community moat that would make any Thoma Bravo HR tech investment more defensible. Emphasize selectivity: we're approaching a very small number of firms with the portfolio depth and operational sophistication to extract full value from this asset.</div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 3 - Tara Gadgil</div>
+            <blockquote class="ceo-quote">&ldquo;Dayforce has built an exceptional business by pairing relentless innovation with a deep commitment to its customers. This combination has fueled strong growth and established Dayforce as a partner of choice in HCM.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Tara Gadgil pointed to Dayforce&#x27;s deep customer commitment as the growth driver — as Dayforce goes private and loses public-market visibility, HR.com&#x27;s platform reaches the 2 million HR buyers who make the purchasing decisions, and I wanted to explore how we keep that customer connection strong.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Tara highlights customer commitment as the growth engine. But post-take-private, Dayforce loses public visibility and investor-relations marketing. HR.com&#x27;s content, events, and community provide a direct-to-practitioner channel that replaces that visibility and deepens customer relationships at scale.</div>
         </div>
-        
-        <div class="section">
-            <h2>Talking Points</h2>
-            <ul><li>Thoma Bravo's Dayforce acquisition signals a long-term HR tech platform thesis — HR.com is the content and community layer that completes that vision</li><li>HR.com reaches over 2 million HR professionals globally through webinars, research, certifications, and events — this is owned distribution, not rented audience</li><li>Bolt-on economics: media platforms with recurring engaged audiences trade at premium multiples when paired with enterprise software, because they reduce CAC and increase LTV across the portfolio</li><li>Competitive moat argument — Workday, ADP, and UKG don't own their media channel. Pairing Dayforce with HR.com's platform creates a defensibility layer that pure-play competitors cannot easily replicate</li><li>We're having this conversation with fewer than five firms globally — Thoma Bravo is the most natural home given portfolio fit and stated thesis</li></ul>
-        </div>
-        
-        <div class="section">
-            <h2>Risk Factors</h2>
-            <ul class="risks"><li>Thoma Bravo typically targets pure-play software with 70%+ recurring revenue margins — HR.com's media and events revenue mix may not fit their standard underwriting model without reframing the thesis as a strategic portfolio accelerant rather than a standalone investment</li><li>Cross-border complexity: HR.com is headquartered in Ontario, Canada, which introduces FX exposure, Canadian tax and regulatory considerations, and potential CFIUS-equivalent review under the Investment Canada Act</li><li>Orlando Bravo personally may not engage on a deal of this size — likely gets routed to a sector-focused managing director. Outreach should be calibrated to reach the HR tech deal team, with Orlando as the door-opener</li></ul>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 4 - Tara Gadgil</div>
+            <blockquote class="ceo-quote">&ldquo;Dayforce has a clear vision for the AI-powered workforce, driven by its commitment to strong customer relationships and continuous innovation. We see significant opportunity to help Dayforce expand its reach and achieve its full potential in the years ahead.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Tara Gadgil said Thoma Bravo sees significant opportunity to expand Dayforce&#x27;s reach — HR.com already reaches 2 million HR practitioners monthly with content, events, and community, and I wanted to discuss whether that&#x27;s the kind of reach expansion you&#x27;re looking at.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> &#x27;Expand its reach&#x27; is the key phrase. Thoma Bravo&#x27;s playbook is buy-and-build with aggressive cross-sell. HR.com&#x27;s practitioner data, engagement analytics, and content distribution are a ready-made reach expansion engine — not a product to build, but an audience to acquire.</div>
         </div>
     </div>
-    <div class="footer">
-        Generated March 29, 2026 &bull; Confidential
+    <div class="card" id="ceo-vision">
+        <h2>CEO Vision &amp; Strategy</h2>
+        <div class="narrative-content"><p>David Ossip positions Dayforce as 'the AI-powered people platform' with a mission to 'make work life better.' The Thoma Bravo partnership is framed as an accelerant — not a change in direction — to scale the business, deepen customer value, and build community engagement. The repeated emphasis on 'community' and 'empowerment' signals Dayforce wants to be more than software; they want to be a platform ecosystem.</p></div>
     </div>
+    <div class="card" id="ma-appetite">
+        <h2>M&amp;A Appetite</h2>
+        <div class="narrative-content"><p>Thoma Bravo just wrote a $12.3B check for Dayforce — their largest HCM bet ever. The thesis is explicitly AI + HCM at global scale. They're taking the company private, which means they have a 3-5 year value creation window with no quarterly earnings pressure. This is peak M&A appetite: they need bolt-on acquisitions and strategic partnerships that accelerate Dayforce's reach, deepen customer engagement, and feed AI models with practitioner data. HR.com's community, content library, and engagement data are exactly the type of asset PE firms acquire or partner with during the post-close value creation phase.</p></div>
+    </div>
+    <div class="card" id="challenges">
+        <h2>Challenges &amp; Headwinds</h2>
+        <div class="narrative-content"><p>Post-acquisition, Dayforce faces four key risks HR.com directly addresses: (1) retaining customer relationships during ownership transition — HR.com's community keeps practitioners engaged independent of vendor drama; (2) maintaining visibility after delisting — HR.com's content and events replace the public-market marketing machine; (3) retaining key personnel and talent — HR.com's employer brand content and practitioner network support talent retention narratives; (4) management distraction during integration — HR.com's turnkey content and engagement programs run without heavy lift from Dayforce's team.</p></div>
+    </div>
+    <div class="card" id="earnings-quotes">
+        <h2>Key Earnings Quotes</h2>
+        <div class="narrative-content"><p>- <strong>David Ossip</strong> (): "Dayforce has always stood for a bold promise: to make work life better. As one of the world’s leading enterprise software investors, Thoma Bravo’s commitment amplifies this promise as we partner to gr"
+- <strong>Holden Spaht</strong> (): "We are thrilled to be investing in Dayforce, a clear category leader that is poised to define the future of HCM in the age of AI. Dayforce’s differentiated platform, global scale, and world-class team"
+- <strong>Tara Gadgil</strong> (): "Dayforce has built an exceptional business by pairing relentless innovation with a deep commitment to its customers. This combination has fueled strong growth and established Dayforce as a partner of "
+- <strong>David Ossip</strong> (): "Today marks a pivotal moment for Dayforce in advancing our promise to make work life better as the AI-powered people platform. With Thoma Bravo’s support, we are even better positioned to scale our bu"
+- <strong>Holden Spaht</strong> (): "Dayforce is actively creating the future of HCM, backed by a platform and team that deliver real, measurable results for its customers. With demand for intelligent, AI-driven HR technologies accelerat"
+- <strong>Tara Gadgil</strong> (): "Dayforce has a clear vision for the AI-powered workforce, driven by its commitment to strong customer relationships and continuous innovation. We see significant opportunity to help Dayforce expand it"</p></div>
+    </div>
+    <div class="card" id="verified-contacts">
+        <h2>Verified Contacts</h2>
+        <table>
+        <thead><tr>
+            <th>Name</th><th>Title</th><th>Company</th><th>Status</th><th>Confidence</th><th>LinkedIn</th>
+        </tr></thead>
+        <tbody><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Sacha May</td>
+            <td>Principal</td>
+            <td>Thoma Bravo</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/sachamay" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Sandra Popovic</td>
+            <td>Vice President, Credit Operations</td>
+            <td>Thoma Bravo</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/sandra-popovic-cpa-a7304510" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Ross Devor</td>
+            <td>Partner</td>
+            <td>Thoma Bravo</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>MEDIUM</td>
+            <td><a href="https://www.linkedin.com/posts/thoma-bravo_ross-devor-joins-thoma-bravo-as-partner-activity-6966022026759221248-vf7j" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr></tbody>
+    </table>
+    </div>
+    <div class="card" id="approach-strategy">
+        <h2>Approach Strategy</h2>
+        
+        <div class="approach-opener">
+            <div class="opener-label">CALL OPENER</div>
+            <p>Holden Spaht said demand for AI-driven HR tech is accelerating — we sit on 2 million HR practitioners who are actively evaluating those technologies, and I wanted to talk about how that demand signal could accelerate Dayforce&#x27;s growth under your ownership.</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
+  </div>
+
 </div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
 </body>
 </html>

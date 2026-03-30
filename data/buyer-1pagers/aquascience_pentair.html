@@ -5,33 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Buyer Dossier: Pentair | AquaScience</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: #f8f9fa; color: #2c3e50; line-height: 1.6;
-    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
-  .page { max-width: 900px; margin: 0 auto; background: white; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
-  @media print { body { background: white; } .page { box-shadow: none; max-width: 100%; } }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
   .header {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
     color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
   }
   .header::after {
     content: ''; position: absolute; top: -50%; right: -20%;
     width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
     border-radius: 50%;
   }
   .header-label {
     text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
     color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
   }
-  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; }
-  .header-meta { display: flex; gap: 24px; margin-top: 12px; flex-wrap: wrap; }
-  .header-meta span { font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 400; }
-  .header-meta span strong { color: rgba(255,255,255,0.95); font-weight: 600; }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
   .score-badge {
     position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
     border-radius: 50%; background: #f39c12;
@@ -40,122 +49,187 @@
   }
   .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
   .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
   .context-bar {
-    background: #f1f5f9; border-bottom: 1px solid #e2e8f0; padding: 16px 48px;
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
     display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
   }
-  .context-bar .seller-info { font-size: 14px; color: #475569; }
-  .context-bar .seller-info strong { color: #1e293b; }
-  .context-bar .date { font-size: 12px; color: #94a3b8; }
-  .content { padding: 36px 48px 48px; }
-  .section { margin-bottom: 32px; }
-  .section-title {
-    font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;
-    color: #0f3460; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0;
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
   }
-  .section p { font-size: 14.5px; line-height: 1.75; color: #374151; margin-bottom: 12px; white-space: pre-line; }
-  .section ul { list-style: none; padding: 0; }
-  .section ul li {
-    font-size: 14px; line-height: 1.7; color: #374151;
-    padding: 6px 0 6px 24px; position: relative; border-bottom: 1px solid #f1f5f9;
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
   }
-  .section ul li:last-child { border-bottom: none; }
-  .section ul li::before {
-    content: ''; position: absolute; left: 0; top: 14px;
-    width: 8px; height: 8px; border-radius: 50%; background: #0f3460; opacity: 0.4;
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
   }
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-  @media (max-width: 700px) {
-    .two-col { grid-template-columns: 1fr; }
-    .header { padding: 24px; } .content { padding: 24px; }
-    .context-bar { padding: 12px 24px; } .score-badge { top: 24px; right: 24px; }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
   }
-  .approach-box {
-    background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;
-    padding: 20px 24px; margin-top: 8px;
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
   }
-  .approach-box p { color: #166534 !important; font-size: 14px !important; }
-  .risk-box {
-    background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px;
-    padding: 20px 24px; margin-top: 8px;
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
   }
-  .risk-box li::before { background: #dc2626 !important; }
-  .risk-box li { color: #991b1b !important; border-bottom-color: #fee2e2 !important; font-size: 13.5px; }
-  .timeline-box {
-    background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px;
-    padding: 20px 24px; margin-top: 8px;
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
   }
-  .timeline-box p { color: #1e40af !important; font-size: 14px !important; }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
   .footer {
-    background: #1a1a2e; color: rgba(255,255,255,0.4); text-align: center;
-    padding: 16px; font-size: 11px; letter-spacing: 1px;
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
   }
 </style>
 </head>
 <body>
 <div class="page">
+
+  <!-- HEADER -->
   <div class="header">
     <div class="header-label">Buyer Dossier</div>
     <h1>Pentair</h1>
+    <div class="subtitle">Prepared for AquaScience</div>
     <div class="header-meta">
-      <span><strong>Strategic Acquirer</strong></span>
-      <span>Golden Valley, MN</span>
-      <span>Contact: <strong>John Stauch</strong>, President &amp; CEO</span>
+      <span class='tag'>Type: Strategic Acquirer</span>
+      <span class='tag'>Contact: John Stauch</span>
+      <span class='tag'>Golden Valley, MN</span>
     </div>
-    <div class="score-badge">
-      <span class="score-num">7</span>
-      <span class="score-label">FIT</span>
-    </div>
+    <div class='score-badge'><span class='score-num'>7</span><span class='score-label'>Fit</span></div>
   </div>
+
+  <!-- CONTEXT BAR -->
   <div class="context-bar">
-    <div class="seller-info">
-      Prepared for <strong>AquaScience</strong> &mdash; Water Treatment / eCommerce &mdash; Wyoming, RI &mdash; Est. Revenue: $8,000,000
+    <div>
+      <strong>AquaScience</strong> &bull; Lawrence &quot;Larry&quot; Casey &bull; Water Treatment / eCommerce
+      &bull; 8000000.0
     </div>
-    <div class="date">Generated March 29, 2026</div>
+    <div>March 29, 2026</div>
   </div>
+
+  <!-- CONTENT -->
   <div class="content">
-    <div class="section">
-      <div class="section-title">Buyer Profile</div>
-      <p>Pentair is a $4B+ publicly traded water treatment company (NYSE: PNR) headquartered in Golden Valley, MN. Under the leadership of President &amp; CEO John Stauch, Pentair has strategically focused on acquiring residential and commercial water treatment dealers and service companies to expand its market reach and enhance its service capabilities. Their investment thesis revolves around consolidating fragmented markets, leveraging synergies in water treatment technologies, and scaling operations to drive efficiency. Post-acquisition, Pentair typically integrates acquired companies into its existing infrastructure while retaining key personnel and local brand identities to maintain customer trust and operational continuity.</p>
-    </div>
-    <div class="two-col">
-      <div class="section">
-        <div class="section-title">Acquisition History</div>
-        <ul><li>Aquion Water Treatment Products (2019): Acquired to expand its residential water treatment product portfolio.</li><li>Pelican Water Systems (2017): Added advanced water filtration systems to Pentair's commercial offerings.</li><li>Everpure (2014): Enhanced Pentair's commercial water filtration capabilities with a focus on foodservice and hospitality.</li></ul>
-      </div>
-      <div class="section">
-        <div class="section-title">Why AquaScience</div>
-        <p>AquaScience fits Pentair's acquisition strategy perfectly due to its established New England dealer network, which complements Pentair's existing geographic footprint. Operationally, AquaScience's dual-channel model (eCommerce and traditional dealership) aligns with Pentair's focus on diversified distribution. Financially, AquaScience's $8M revenue and specialization in PFAS/radon treatment present a lucrative opportunity for Pentair to expand its high-margin service offerings.</p>
-      </div>
-    </div>
-    <div class="section">
-      <div class="section-title">Approach Strategy</div>
-      <div class="approach-box">
-        <p>Frame the conversation as a selective discussion with owners who are exploring strategic options. Emphasize that we represent former business owners who understand the value of legacy and operational excellence, not just financial metrics. Avoid any indication that the company is for sale; instead, position it as an opportunity for a strategic partnership with a like-minded acquirer.</p>
-      </div>
-    </div>
-    <div class="section">
-      <div class="section-title">Talking Points</div>
-      <ul><li>AquaScience's 41-year legacy and 100K+ customer base in New England.</li><li>Dual-channel distribution model combining eCommerce and traditional dealership.</li><li>Specialization in high-demand areas like PFAS and radon treatment.</li><li>Synergies with Pentair's existing water treatment portfolio.</li><li>Potential for operational efficiencies and revenue growth under Pentair's umbrella.</li></ul>
-    </div>
-    <div class="two-col">
-      <div class="section">
-        <div class="section-title">Risk Factors</div>
-        <div class="risk-box">
-          <ul><li>Integration challenges with AquaScience's dual-channel model.</li><li>Potential customer attrition during the transition phase.</li><li>Regulatory hurdles in the PFAS/radon treatment segment.</li><li>Valuation discrepancies based on revenue vs. EBITDA multiples.</li></ul>
-        </div>
-      </div>
-      <div class="section">
-        <div class="section-title">Expected Timeline</div>
-        <div class="timeline-box">
-          <p>Pentair typically moves quickly in acquisitions, with initial contact to LOI taking 30-45 days and closing within 60-90 days. Their streamlined due diligence process and focus on strategic fits allow for faster deal execution compared to other acquirers.</p>
-        </div>
-      </div>
-    </div>
+    
   </div>
+
+  <!-- FOOTER -->
   <div class="footer">
-    CONFIDENTIAL &mdash; PREPARED BY GILLASPY HOLDINGS &mdash; 2026
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
   </div>
+
 </div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
 </body>
 </html>

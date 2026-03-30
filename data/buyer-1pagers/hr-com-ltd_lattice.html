@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: Lattice | HR.com Ltd</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #30363d;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
+  }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
+  }
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
+  }
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
+  }
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Lattice</h1>
+    <div class="subtitle">Prepared for HR.com Ltd</div>
+    <div class="header-meta">
+      <span class='tag'>Type: Platform</span>
+      
+      
+    </div>
+    
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar">
+    <div>
+      <strong>HR.com Ltd</strong> &bull; Debbie McGrath &bull; HR Technology &amp; Media
+      
+    </div>
+    <div>March 29, 2026</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    
+    <div class="card" id="strategic-fit">
+        <h2>Strategic Fit</h2>
+        <div class="narrative-content"><p>Lattice's challenge of 'limited first-party data for ad targeting' can be effectively addressed by HR.com's behavioral data on 1.92M members, enabling precise audience insights. Additionally, the MyPeople.ai platform offers a white-label community SaaS solution that aligns perfectly with Lattice's potential for cross-selling to existing customers. With HR.com's $42.6M revenue from diverse streams, this acquisition would not only enhance Lattice's market presence but also provide significant opportunities for audience monetization.</p></div>
+    </div>
+    <div class="card" id="golden-nuggets">
+        <h2>Golden Nuggets -- Cold Call Openers</h2>
+        
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 1 - Sarah Franklin</div>
+            <blockquote class="ceo-quote">&ldquo;That&#x27;s what I think is missing today — is a focus on the people success.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Sarah, you&#x27;ve said publicly that what&#x27;s missing today is a focus on people success — we sit on the largest HR practitioner community in the world, 2 million strong, and I think there&#x27;s a way to put that community behind Lattice&#x27;s mission.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Lattice&#x27;s CEO is publicly stating there&#x27;s a gap in people success — HR.com&#x27;s 2M+ practitioner community is literally the infrastructure for people success at scale. This quote is an invitation to fill that gap.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 2 - Sarah Franklin</div>
+            <blockquote class="ceo-quote">&ldquo;People have fear, uncertainty, doubt — this is why the time is now where we must all go through this change management, know how to be proficient, fluent, and elevated with AI so we&#x27;re not replaceable.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Sarah, you&#x27;ve talked about the urgency of change management and AI fluency for HR teams — HR.com reaches 2 million practitioners every day with exactly that kind of enablement, and I&#x27;d love to explore what it looks like if Lattice owned that channel.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Change management at scale requires trusted content, peer community, and continuous learning — exactly what HR.com delivers. Lattice builds the tools, but HR.com owns the practitioner relationships where change management actually happens.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 3 - Sarah Franklin</div>
+            <blockquote class="ceo-quote">&ldquo;We&#x27;re not able to have people focused on the things that are really important because they&#x27;re too busy doing the stuff that is logistical and not strategic.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Sarah, you&#x27;ve been vocal about freeing HR leaders from logistical work so they can be strategic — HR.com has 2 million practitioners generating the engagement data and content that could make Lattice&#x27;s AI dramatically smarter about what &#x27;strategic&#x27; actually looks like for each customer.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> This is the core value prop of Lattice&#x27;s AI play — freeing HR from admin work. HR.com&#x27;s content, certifications, and community data could feed Lattice&#x27;s AI with real practitioner behavior and needs, making their &#x27;strategic focus&#x27; promise actually deliverable.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 4 - Sarah Franklin</div>
+            <blockquote class="ceo-quote">&ldquo;People who say that they&#x27;re super far advanced [with AI] are just not being honest. There&#x27;s nobody that&#x27;s crushing it right now.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Sarah, you&#x27;ve said nobody&#x27;s crushing AI in HR yet — we think the company that pairs the best HR platform with the largest practitioner community wins that race, and HR.com&#x27;s 2 million members could be the moat Lattice is looking for.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> If nobody&#x27;s crushing AI in HR yet, there&#x27;s a land-grab happening. The company that combines best-in-class HR software (Lattice) with the largest practitioner community and content library (HR.com) gets to define the category. This quote opens the door to a &#x27;win the race together&#x27; narrative.</div>
+        </div>
+    </div>
+    <div class="card" id="ceo-vision">
+        <h2>CEO Vision &amp; Strategy</h2>
+        <div class="narrative-content"><p>Sarah Franklin is positioning Lattice as the people-first AI company for HR — the thesis is that AI should serve employee success, not replace it. She's pushing hard on AI agents with real accountability (treating them like employees with security and compliance standards) and believes the companies that proactively upskill their workforce will win. The strategic direction is clear: own the intersection of performance management, AI, and human-centric work.</p></div>
+    </div>
+    <div class="card" id="ma-appetite">
+        <h2>M&amp;A Appetite</h2>
+        <div class="narrative-content"><p>No direct M&A signals detected in available quotes. However, the strategic posture is highly acquisitive in nature: Franklin is making bold category-defining claims about AI + people success, Lattice recently raised significant funding, and the CEO's language about 'getting to the future first' and 'proactive' positioning suggests appetite for accelerating through acquisition rather than building organically. The absence of M&A quotes means the cold call should lead with strategic fit and let the M&A conversation develop naturally.</p></div>
+    </div>
+    <div class="card" id="challenges">
+        <h2>Challenges &amp; Headwinds</h2>
+        <div class="narrative-content"><p>Lattice faces three challenges HR.com directly addresses: (1) Change management at scale — Franklin admits widespread fear and uncertainty about AI, but Lattice has no built-in community or content engine to drive adoption and upskilling across their customer base. (2) AI training data and practitioner insight — Lattice's AI needs to understand what HR practitioners actually care about, and HR.com's 2M+ community generates that signal daily. (3) Category credibility — Franklin herself says nobody's crushing AI in HR yet, meaning Lattice needs differentiation beyond features. A practitioner community and content moat would be that differentiator.</p></div>
+    </div>
+    <div class="card" id="earnings-quotes">
+        <h2>Key Earnings Quotes</h2>
+        <div class="narrative-content"><p>- <strong>Sarah Franklin</strong> (): "People who say that they're super far advanced [with AI] are just not being honest. There's nobody that's crushing it right now."
+- <strong>Sarah Franklin</strong> (): "Do you really want to pick up the phone all day and do this [sales development tasks], or do you want to have some good, qualified prospects to talk to?"
+- <strong>Sarah Franklin</strong> (): "From a leader's perspective, it's more about focusing on the people first, and then how AI is in service of their success, and then people gravitate toward that."
+- <strong>Sarah Franklin</strong> (): "That's what I think is missing today — is a focus on the people success."
+- <strong>Sarah Franklin</strong> (): "People are afraid, and we have to be courageous."
+- <strong>Sarah Franklin</strong> (): "We're not able to have people focused on the things that are really important because they're too busy doing the stuff that is logistical and not strategic."
+- <strong>Sarah Franklin</strong> (): "It's more about focusing on the people first, and then how AI is in service of their success."
+- <strong>Sarah Franklin</strong> (): "We need to treat [AI agents] as employees that aren't ghosts. That means holding AI agents to the same standards as human employees when it comes to security, compliance, and performance."</p></div>
+    </div>
+    <div class="card" id="verified-contacts">
+        <h2>Verified Contacts</h2>
+        <table>
+        <thead><tr>
+            <th>Name</th><th>Title</th><th>Company</th><th>Status</th><th>Confidence</th><th>LinkedIn</th>
+        </tr></thead>
+        <tbody><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Sarah Franklin</td>
+            <td>CEO</td>
+            <td>Lattice</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/sarahfranklin" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Mamta Gupta</td>
+            <td>AVP Strategic Business Development</td>
+            <td>Lattice Semiconductor</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/mamta-gupta-5038123" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Nilesh Narayan</td>
+            <td>Senior Director, Business Development &amp; Strategic Partnerships</td>
+            <td>Lattice</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/nileshn" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr></tbody>
+    </table>
+    </div>
+    <div class="card" id="approach-strategy">
+        <h2>Approach Strategy</h2>
+        
+        <div class="approach-opener">
+            <div class="opener-label">CALL OPENER</div>
+            <p>Sarah, you&#x27;ve said publicly that what&#x27;s missing today is a focus on people success — we sit on the largest HR practitioner community in the world, 2 million strong, and I think there&#x27;s a way to put that community behind Lattice&#x27;s mission.</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
+  </div>
+
+</div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: KKR | HR.com Ltd</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #30363d;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
+  }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
+  }
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
+  }
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
+  }
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>KKR</h1>
+    <div class="subtitle">Prepared for HR.com Ltd</div>
+    <div class="header-meta">
+      <span class='tag'>Type: Platform</span>
+      
+      
+    </div>
+    
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar">
+    <div>
+      <strong>HR.com Ltd</strong> &bull; Debbie McGrath &bull; HR Technology &amp; Media
+      
+    </div>
+    <div>March 29, 2026</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    
+    <div class="card" id="strategic-fit">
+        <h2>Strategic Fit</h2>
+        <div class="narrative-content"><p>Acquiring HR.com would enable KKR to 'own the audience relationship,' leveraging its 1.92M HR professional members to generate valuable first-party data for targeted advertising. The hr.com domain offers unmatched SEO authority, enhancing KKR's visibility in the HR tech landscape, while the MyPeople.ai platform provides a scalable community SaaS solution for enterprise clients. Additionally, the comprehensive 50K vendor directory and lead generation marketplace directly address KKR's need for monetizable assets in the HR technology sector.</p></div>
+    </div>
+    <div class="card" id="golden-nuggets">
+        <h2>Golden Nuggets -- Cold Call Openers</h2>
+        
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 1 - Mukul Chawla</div>
+            <blockquote class="ceo-quote">&ldquo;We look forward to supporting the continued platformisation and international expansion of Employment Hero, which has established itself as a leader in human resources management in multiple markets including Australia, the UK, and Canada with its cloud-native and comprehensive product suite.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Mukul Chawla talked about supporting Employment Hero&#x27;s platformisation and international expansion — we help KKR portfolio companies like that reach 2 million HR decision-makers across 190 countries through HR.com&#x27;s practitioner community.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> KKR is actively investing in HR platforms that need to scale internationally. HR.com&#x27;s 2M+ practitioner community across global markets is exactly the distribution and engagement layer that accelerates &#x27;platformisation&#x27; for KKR&#x27;s HR portfolio companies.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 2 - Mukul Chawla</div>
+            <blockquote class="ceo-quote">&ldquo;SmartHR is playing a critical role in enabling the country&#x27;s drive towards greater workforce productivity, while leaning into accelerating digitalization and cloud penetration.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Your team invested in SmartHR because workforce productivity and digitalization are accelerating — HR.com&#x27;s community of 2 million practitioners is where those buyers go to evaluate exactly those solutions.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> KKR frames HR tech investments around workforce productivity and digital adoption — two areas where HR.com&#x27;s content, certification programs, and community engagement directly accelerate customer acquisition and product stickiness for portfolio companies.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 3</div>
+            <blockquote class="ceo-quote">&ldquo;Over 300,000 businesses globally are using our employment operating system, helping boost job creation for local economies and GDP globally.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Employment Hero is serving 300,000 businesses and growing — HR.com can put their products in front of the 2 million HR practitioners who influence buying decisions at exactly those companies.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> This shows KKR&#x27;s portfolio companies need massive SMB reach. HR.com&#x27;s practitioner network and content engine is a proven channel for HR tech companies to reach hundreds of thousands of SMB buyers — a direct growth lever for KKR&#x27;s existing investments.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 4</div>
+            <blockquote class="ceo-quote">&ldquo;Our recent milestone of A$250 million in annual recurring revenue also signals the growing customer demand for our Jobs, Payroll, HR and Benefits products to drive better business outcomes.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Employment Hero just hit A$250M ARR riding demand for HR products — HR.com sits on the practitioner engagement data that tells you where that demand is heading next across every HR category.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> ARR growth at a KKR portfolio company validates demand for HR products. HR.com&#x27;s community data — what practitioners are researching, buying, and prioritizing — is proprietary market intelligence that helps KKR identify where demand is heading next and which acquisitions to make.</div>
+        </div>
+    </div>
+    <div class="card" id="ceo-vision">
+        <h2>CEO Vision &amp; Strategy</h2>
+        <div class="narrative-content"><p>KKR's HR tech thesis centers on backing platforms that digitize and simplify workforce management at scale — from SMB payroll (Employment Hero) to enterprise talent management (Instructure, SmartHR). Their portfolio CEOs consistently frame the mission around making employment 'easier and more valuable for everyone' and eliminating friction in labor management. The strategic direction is clear: acquire and grow HR platforms that can expand internationally and consolidate fragmented HR workflows into unified cloud-native systems.</p></div>
+    </div>
+    <div class="card" id="ma-appetite">
+        <h2>M&amp;A Appetite</h2>
+        <div class="narrative-content"><p>KKR is an aggressive, thesis-driven HR tech acquirer. Three confirmed deals show a clear pattern: $4.8B for Instructure (learning/talent), $140M Series E co-lead in SmartHR (workforce SaaS), and a direct stake acquisition in Employment Hero (SMB HR platform). They buy across the HR value chain, favor cloud-native platforms with international growth potential, and are willing to do both majority acquisitions and growth equity. HR.com — with its unmatched practitioner community, content library, and engagement data — fits as either a strategic acquisition target or a value-creation partner for KKR's existing HR portfolio.</p></div>
+    </div>
+    <div class="card" id="challenges">
+        <h2>Challenges &amp; Headwinds</h2>
+        <div class="narrative-content"><p>KKR's HR portfolio companies face three challenges HR.com directly addresses: (1) international expansion requires trusted local practitioner networks to build credibility in new markets — HR.com has 2M+ across 190 countries; (2) 'platformisation' demands content and community engagement to drive adoption beyond core features — HR.com produces 5,000+ pieces of HR content annually; (3) scaling from regional players to global platforms requires market intelligence on what HR buyers actually need — HR.com's engagement data across every HR subcategory is that intelligence layer.</p></div>
+    </div>
+    <div class="card" id="earnings-quotes">
+        <h2>Key Earnings Quotes</h2>
+        <div class="narrative-content"><p>- <strong>Mukul Chawla</strong> (): "As one of Japan’s leading human resource Software as a Service (SaaS) platforms, SmartHR is playing a critical role in enabling the country’s drive towards greater workforce productivity, while leanin"
+- <strong>Mukul Chawla</strong> (): "Employment Hero marks our latest technology growth investment in Australia, a key market for our growth equity strategy, and aligns with our thematic focus on SMB (small and medium business) software."
+- <strong>Olivia Steedman</strong> (): "SmartHR has demonstrated innovative ways to help companies of every size improve how they manage and develop their workforces. As Japanese companies increasingly transform their businesses with digita"
+- <strong>Ben Thompson</strong> (): "Employment Hero’s mission is to make employment easier and more valuable for everyone. Over 300,000 businesses globally are using our employment operating system, helping boost job creation for local "
+- <strong>Ben Thompson</strong> (): "Our recent milestone of A$250 million in annual recurring revenue also signals the growing customer demand for our Jobs, Payroll, HR and Benefits products to drive better business outcomes."</p></div>
+    </div>
+    <div class="card" id="verified-contacts">
+        <h2>Verified Contacts</h2>
+        <table>
+        <thead><tr>
+            <th>Name</th><th>Title</th><th>Company</th><th>Status</th><th>Confidence</th><th>LinkedIn</th>
+        </tr></thead>
+        <tbody><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Annie Lizzul</td>
+            <td>Principal, Strategy, Transformation, and Analytics</td>
+            <td>KKR &amp; Co. Inc.</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/annie-weber-lizzul-51b23631" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Eleanor M.</td>
+            <td>Director</td>
+            <td>KKR &amp; Co. Inc.</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>MEDIUM</td>
+            <td><a href="https://www.linkedin.com/in/eleanor-m-5638026a" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Elle O&#x27;Hara</td>
+            <td>Director</td>
+            <td>KKR &amp; Co. Inc.</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>MEDIUM</td>
+            <td><a href="https://linkedin.com/in/elle-o-hara" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Peter Chun</td>
+            <td>Vice President of Corporate Development and Strategy</td>
+            <td>Internet Brands (a KKR company)</td>
+            <td><span style="color:#8b949e;font-weight:600;">STALE</span></td>
+            <td>LOW</td>
+            <td><a href="https://www.linkedin.com/in/peter-chun-23342917" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Eric Dyner</td>
+            <td>Managing Director - Head of Strategy &amp; Transformation</td>
+            <td>Toorak Capital (a KKR company)</td>
+            <td><span style="color:#8b949e;font-weight:600;">STALE</span></td>
+            <td>LOW</td>
+            <td><a href="https://www.linkedin.com/in/eric-dyner-5a5202" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr></tbody>
+    </table>
+    </div>
+    <div class="card" id="approach-strategy">
+        <h2>Approach Strategy</h2>
+        
+        <div class="approach-opener">
+            <div class="opener-label">CALL OPENER</div>
+            <p>Mukul Chawla talked about supporting Employment Hero&#x27;s platformisation and international expansion — we help KKR portfolio companies like that reach 2 million HR decision-makers across 190 countries through HR.com&#x27;s practitioner community.</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
+  </div>
+
+</div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
+</body>
+</html>

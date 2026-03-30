@@ -3,182 +3,150 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Buyer Dossier: Watchtower Capital (via Ally Services) for Air Control</title>
+<title>Buyer Dossier: Watchtower Capital (via Ally Services) | Air Control</title>
 <style>
-    @media print {
-        body { margin: 0; }
-        .page-break { page-break-before: always; }
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-        font-family: 'Georgia', 'Times New Roman', serif;
-        color: #2c2c2c;
-        background: #f8f8f8;
-        line-height: 1.6;
-    }
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        background: white;
-        box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-    }
-    .header {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-        color: white;
-        padding: 40px;
-        position: relative;
-    }
-    .header::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, #e94560, #f5a623, #e94560);
-    }
-    .header h1 {
-        font-size: 28px;
-        margin-bottom: 8px;
-        letter-spacing: -0.5px;
-    }
-    .header .subtitle {
-        font-size: 16px;
-        opacity: 0.85;
-        font-style: italic;
-    }
-    .meta-bar {
-        display: flex;
-        gap: 24px;
-        padding: 16px 40px;
-        background: #f0f0f0;
-        border-bottom: 1px solid #ddd;
-        font-size: 14px;
-        flex-wrap: wrap;
-    }
-    .meta-bar .meta-item {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    }
-    .meta-bar .label {
-        font-weight: bold;
-        color: #666;
-        text-transform: uppercase;
-        font-size: 11px;
-        letter-spacing: 0.5px;
-    }
-    .meta-bar .value {
-        color: #1a1a2e;
-        font-weight: 600;
-    }
-    .fit-score {
-        display: inline-block;
-        background: #e74c3c;
-        color: white;
-        padding: 2px 10px;
-        border-radius: 12px;
-        font-weight: bold;
-        font-size: 13px;
-    }
-    .pitch-bar {
-        padding: 20px 40px;
-        background: #fafbfc;
-        border-bottom: 2px solid #e94560;
-        font-size: 18px;
-        font-style: italic;
-        color: #333;
-        text-align: center;
-    }
-    .content {
-        padding: 32px 40px;
-    }
-    .section {
-        margin-bottom: 28px;
-    }
-    .section h2 {
-        font-size: 16px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #0f3460;
-        border-bottom: 2px solid #e8e8e8;
-        padding-bottom: 8px;
-        margin-bottom: 14px;
-    }
-    .section p {
-        margin-bottom: 12px;
-        text-align: justify;
-    }
-    .section ul {
-        padding-left: 20px;
-    }
-    .section ul li {
-        margin-bottom: 8px;
-    }
-    .section ul.risks li {
-        color: #c0392b;
-    }
-    .approach-box {
-        background: #f0f7ff;
-        border-left: 4px solid #0f3460;
-        padding: 16px 20px;
-        border-radius: 0 8px 8px 0;
-        margin-top: 12px;
-    }
-    .footer {
-        padding: 20px 40px;
-        background: #1a1a2e;
-        color: rgba(255,255,255,0.5);
-        font-size: 11px;
-        text-align: center;
-    }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117; color: #c9d1d9; line-height: 1.6;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative;
+    border-bottom: 4px solid; border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header-label { text-transform: uppercase; font-size: 11px; letter-spacing: 3px; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+  .header h1 { font-size: 28px; font-weight: 700; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #27ae60;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; color: white; }
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+  .content { padding: 24px 48px 48px; }
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; padding: 10px 12px; background: #0d1117; font-weight: 600; color: #8b949e; font-size: 11px; text-transform: uppercase; border-bottom: 1px solid #30363d; }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  .footer { text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px; border-top: 1px solid #21262d; }
 </style>
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        <h1>Watchtower Capital (via Ally Services)</h1>
-        <div class="subtitle">Buyer Dossier &mdash; Prepared for Air Control</div>
+<div class="page">
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Watchtower Capital (via Ally Services)</h1>
+    <div class="subtitle">Prepared for Air Control</div>
+    <div class='score-badge'><span class='score-num'>10</span><span class='score-label'>Fit</span></div>
+  </div>
+  <div class="context-bar">
+    <strong>Air Control</strong> &bull; Fred Lowry
+  </div>
+  <div class="content">
+    <div class="card" id="buyer-profile">
+        <h2>Buyer Profile</h2>
+        <p>## Watchtower Capital (via Ally Services) — Strategic Buyer Profile</p>
+<p>### Company Overview & Strategic Logic
+Watchtower Capital (via Ally Services) is a potential acquirer for Air Control (HVAC).</p>
+<p>### Earnings & Market Position
+[Watchtower Capital Partners Completes First Platform Investment in Ally Services | Watchtower Capital](https://watchtowercp.com/watchtower-capital-partners-completes-first-platform-investment-in-ally-services/): Watchtower Capital Partners Completes First Platform Investment in Ally Services | Watchtower Capital</p>
+<p>Back to All Posts</p>
+<p># Watchtower Capital Partners Completes First Platform Investment in Ally Services</p>
+<p>June 26, 2023</p>
+<p>WASHINGTON, June 26, 2023 /PRNewswire/ — Watchtower Capital Partners has simultaneously closed the acquisitions of SPS Mechanical (SPS) and JF Plumbing & Heating (JF), the two of which comprise a newly formed company, Ally Services (www.allyservicesgroup.com). Ally is a regional provider of essential home and facility services, including repair, maintenance, and replacement of plumbing, water filtration, and HVAC systems. Ally serves over 3,000 residential and light commercial customers annually throughout Virginia, Maryland, Pennsylvania, New Jersey, Delaware, and Washington D.C. After the initial acquisitions of SPS and JF, Ally also closed its first add-on acquisition, CarrFord Heating & Air Conditioning (CarrFord). CarrFord provides maintenance, repair</p>
+<p>### M&A Track Record
+[Ally Services Completes Three Add-on Acquisitions in 2025, Expanding Residential HVAC Platform](https://www.prnewswire.com/news-releases/ally-services-completes-three-add-on-acquisitions-in-2025-expanding-residential-hvac-platform-302685404.html): Ally Services Completes Three Add-on Acquisitions in 2025, Expanding Residential HVAC Platform Accessibility Statement Skip Navigation</p>
+<p>ROCKVILLE, Md., Feb. 12, 2026 /PRNewswire/ -- Ally Services ("Ally" or the "Company"), a regional provider of residential HVAC and plumbing services in the Mid-Atlantic, announced that it completed three add-on acquisitions in 2025. The acquisitions of J Hood Services (Manassas, VA), Tri-County Aire (Charlotte Hall, MD), and Above & Beyond (Laurel, DE) meaningfully expanded Ally's residential HVAC platform, strengthened operating footprint across Virginia and adjacent markets, and contributed to more than doubling the Company's revenue.</p>
+<p>Each of the acquired businesses is a well-established residential HVAC operator with a strong local brand, experienced field leadership, and loyal customer base. The businesses will continue to operate under existing brands with their existing employee base. Collectively</p>
+<p>### Financial Profile
+[WatchTower - 2026 Company Profile, Team, Funding & Competitors](https://tracxn.com/d/companies/watchtower/__lF0qIo-IYdWA8BID0Id1cGZf3Nu07euMGyqg8cs3Gw0): WatchTower - Company Profile - Tracxn
+Your browser was unable to load all of Tracxn resources. They may have been blocked by your firewall, proxy or browser configuration. Press<strong>Ctrl+F5</strong>or<strong>Ctrl+Shift+R</strong>to have your browser try again and if that doesn&#x27;t work,<strong>click here to retry</strong>or mail us at<strong>hi@tracxn.com</strong>
+Internal Server Error
+**
+Most viewed in 2019
+Unlock fulldetails ofthis profilewith our freeLiteplan!
+Signup and get free access
+Logo for WatchTower
+# WatchTower company profile
+minicorn
+Quoting software for insurance industry
+2015•Chicago(United States)•Series A
+* Linkedin
+* Twitter
+* Facebook
+* Email
+* Copy Url
+Last updated:January 8, 2025
+Claim ProfileSuggest Edits
+* Request page removal
+## WatchTower - About the company
+### What doesWatchTowerdo?
+WatchTower provides cloud-based quoting software for the insurance ind
+Revenue indicator: ginia and adjacent markets, and contributed to more than doubling the Company's revenue.</p>
+<p>Ally Services logo</p>
+<p>Each of the acquired businesses is a well-establis</p>
+<p>### Strategic Fit with Air Control
+[Ally Services Completes Three Add-on Acquisitions in 2025 ...](https://finance.yahoo.com/news/ally-services-completes-three-add-140000666.html): Ally Services Completes Three Add-on Acquisitions in 2025, Expanding Residential HVAC Platform</p>
+<p>Oops, something went wrong</p>
+<p>This is a paid press release. Contact the press release distributor directly with any inquiries.</p>
+<p># Ally Services Completes Three Add-on Acquisitions in 2025, Expanding Residential HVAC Platform</p>
+<p>ROCKVILLE, Md., Feb. 12, 2026 /PRNewswire/ -- Ally Services ("Ally" or the "Company"), a regional provider of residential HVAC and plumbing services in the Mid-Atlantic, announced that it completed three add-on acquisitions in 2025. The acquisitions of J Hood Services (Manassas, VA), Tri-County Aire (Charlotte Hall, MD), and Above & Beyond (Laurel, DE) meaningfully expanded Ally's residential HVAC platform, strengthened operating footprint across Virginia and adjacent markets, and contributed to more than doubling the Company's revenue.</p>
+<p>Ally Services logo</p>
+<p>Each of the acquired businesses is a well-established residential HVAC operator with a strong local brand, experienced field leadership, and loyal customer base. The busi</p>
+<p>### Key Contacts & Decision Makers
+[Ally Services Welcomes Rick Schomburger as New Chief Executive Officer | Watchtower Capital](https://watchtowercp.com/ally-services-welcomes-rick-schomburger-as-new-chief-executive-officer/): Ally Services Welcomes Rick Schomburger as New Chief Executive Officer | Watchtower Capital</p>
+<p>Back to All Posts</p>
+<p># Ally Services Welcomes Rick Schomburger as New Chief Executive Officer</p>
+<p>July 15, 2024</p>
+<p>ROCKVILLE, Md., July 15, 2024 /PRNewswire/ — Ally Services, a leading provider of HVAC and plumbing services in the Mid-Atlantic, is pleased to announce the appointment of Rick Schomburger as its new Chief Executive Officer.</p>
+<p>Rick brings 15 years of C-level executive experience in HVAC, plumbing, home and facility services industries. With a deep understanding of both commercial and residential services</p>
+<p>### Golden Nuggets & Call Ammunition
+- nia and adjacent markets, and contributed to more than doubling the Company's revenue.</p>
+<p>Each of the acquired businesses is a well-established residential HVAC operator with a strong local brand, exper
+- l have less than $10 million in EBITDA.</p>
+<p>Our investment philosophy is centered around establishing partnerships with business owners and management teams. We have a long track record of working with 
+- (Manassas, VA), Tri-County Aire (Charlotte Hall, MD), and Above & Beyond (Laurel, DE) meaningfully expanded Ally's residential HVAC platform, strengthened operating footprint across Virginia and adjac
+- es.
+<strong>Financial Highlights</strong>
+Watsco delivered a robust second quarter, with record sales reflecting growth in both residential and commercial markets. Operational efficiency improved significantly, as
+- [Watchtower Capital Partners Completes First Platform Investment in Ally Services | Watchtower Capital](https://watchtowercp.com/watchtower-capital-partners-completes-first-platform-investment-in</p>
+<p>### Research Source
+Exa.ai enrichment — 2026-03-29</p>
     </div>
-    <div class="meta-bar">
-        <div class='meta-item'><span class='label'>Contact</span><span class='value'>Mike Minchella</span></div>
-        <div class='meta-item'><span class='label'>Type</span><span class='value'>PE Roll-up</span></div>
-        <div class='meta-item'><span class='label'>Location</span><span class='value'>New York, NY</span></div>
-        <div class='meta-item'><span class='label'>Fit Score</span><span class='fit-score'>10</span></div>
-    </div>
-    <div class='pitch-bar'>&ldquo;Air Control gives Ally Services a turnkey entrance into Northern Virginia's most affluent HVAC market — established brand, loyal customers, experienced crew, zero buildout cost.&rdquo;</div>
-    <div class="content">
-        <div class="section">
-            <h2>Buyer Narrative</h2>
-            <p>Watchtower Capital is a New York-based private equity firm that has built Ally Services into a growing HVAC platform focused on the Mid-Atlantic region. Their playbook is disciplined and operator-friendly: they acquire established local HVAC companies with strong reputations, retain the existing teams and brand identity, and layer in back-office support, purchasing power, and operational infrastructure that help the business scale without losing what made it successful. Mike Minchella leads acquisition sourcing and understands the difference between a company that looks good on paper and one that actually runs well day-to-day.</p><p>What sets Watchtower apart from larger, more transactional PE buyers is their focus on cultural fit and geographic density. They aren't buying companies coast-to-coast and hoping a spreadsheet holds it together — they're building a regional platform where acquired companies benefit from shared dispatch, consolidated procurement, and cross-referral networks. For a seller who cares about what happens to their employees and customers after the deal closes, this is the kind of buyer who takes that seriously.</p><p>Watchtower's investment thesis centers on the fragmented nature of residential and commercial HVAC services in high-population-density corridors. They believe the best acquisitions are companies with loyal customer bases, experienced technicians, and owners who built something real over decades — not distressed assets or turnaround plays. They pay fair multiples because they're buying quality, and they grow through integration synergies rather than cost-cutting.</p>
-        </div>
-        
-        <div class="section">
-            <h2>Acquisition History</h2>
-            <ul><li>Ally Services platform formation — initial HVAC acquisition in the Mid-Atlantic region</li><li>Multiple tuck-in HVAC acquisitions across Maryland, Virginia, and Pennsylvania to build regional density</li><li>Likely acquisitions of established residential/commercial HVAC companies in the $2M-$10M revenue range</li><li>Pattern of targeting owner-operated businesses with 15+ year operating histories in suburban and affluent markets</li></ul>
-        </div>
-        <div class="section">
-            <h2>Why This Seller</h2>
-            <p>Air Control in McLean, Virginia is precisely the acquisition profile Watchtower Capital targets for the Ally Services platform. At approximately $3M in revenue, it sits in the sweet spot for a tuck-in acquisition — large enough to move the needle but small enough that integration is straightforward. McLean is one of the most affluent ZIP codes in the country, meaning Air Control's customer base has high lifetime value and low price sensitivity. The Northern Virginia market gives Ally Services immediate density in a high-growth corridor that connects naturally to their existing Mid-Atlantic footprint. Fred Lowry has built exactly the kind of business Watchtower values: a strong local brand with deep community roots, experienced technicians who know the customer base, and consistent revenue built on relationships rather than aggressive marketing. This isn't a turnaround — it's a turnkey expansion into a premium market.</p>
-        </div>
-        <div class="section">
-            <h2>Approach Angle</h2>
-            <div class="approach-box">Position as representing buyers actively looking for HVAC companies in the Mid-Atlantic, specifically noting Watchtower's operator-friendly model and commitment to preserving local brand identity. Emphasize selectivity — we're only having this conversation because Air Control fits what Ally Services is building. Never suggest the company is for sale; frame it as exploring whether a strategic conversation makes sense given market timing.</div>
-        </div>
-        
-        <div class="section">
-            <h2>Talking Points</h2>
-            <ul><li>Ally Services is building regional HVAC density in the Mid-Atlantic — McLean fills a premium gap in Northern Virginia that they can't replicate organically</li><li>Watchtower's model preserves the local brand and retains the existing team, so Air Control's reputation and employee relationships stay intact post-acquisition</li><li>Immediate operational synergies through shared dispatch, consolidated vendor purchasing, and cross-selling across Ally's existing service lines in the region</li><li>The Northern Virginia market demographics — high household income, aging housing stock requiring HVAC replacement cycles, and population growth — make this a high-value customer base for decades</li><li>Selective process with a small number of qualified strategic buyers — this isn't a broad auction, it's a curated conversation with groups who would be genuine stewards of the business</li></ul>
-        </div>
-        
-        <div class="section">
-            <h2>Risk Factors</h2>
-            <ul class="risks"><li>Integration timeline and cultural alignment — Air Control's independence as a local brand must be genuinely preserved, not just promised during diligence and eroded post-close</li><li>Valuation expectations — at $3M revenue, the seller may have expectations shaped by headline PE multiples that don't reflect tuck-in pricing for a platform roll-up</li><li>Key technician retention — if Air Control's value is tied to specific senior technicians or the owner's personal customer relationships, Watchtower needs a transition plan that prevents revenue leakage post-acquisition</li></ul>
+    
+    
+    <div class="card" id="approach">
+        <h2>Approach Strategy</h2>
+        <div style="background:#0b2e1a;border:1px solid #27ae60;border-radius:8px;padding:18px 22px;">
+            <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#27ae60;margin-bottom:6px;text-transform:uppercase;">CALL OPENER</div>
+            <p style="color:#a3e4b8;font-size:14px;line-height:1.7;">We noticed Watchtower Capital (via Ally Services)&#x27;s activity in HVAC and your track record of strategic acquisitions in this space. We&#x27;re working with Air Control, and there&#x27;s a compelling fit we&#x27;d love to walk you through.</p>
         </div>
     </div>
-    <div class="footer">
-        Generated March 29, 2026 &bull; Confidential
-    </div>
+  </div>
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential
+  </div>
 </div>
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
 </body>
 </html>

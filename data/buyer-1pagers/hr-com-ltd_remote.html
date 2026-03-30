@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: Remote | HR.com Ltd</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #30363d;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
+  }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
+  }
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
+  }
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
+  }
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Remote</h1>
+    <div class="subtitle">Prepared for HR.com Ltd</div>
+    <div class="header-meta">
+      <span class='tag'>Type: Platform</span>
+      
+      
+    </div>
+    
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar">
+    <div>
+      <strong>HR.com Ltd</strong> &bull; Debbie McGrath &bull; HR Technology &amp; Media
+      
+    </div>
+    <div>March 29, 2026</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    
+    <div class="card" id="strategic-fit">
+        <h2>Strategic Fit</h2>
+        <div class="narrative-content"><p>HR.com's extensive asset portfolio directly addresses Remote's growth constraints, particularly through its '1.92M HR Professional Members,' which provides a ready-made audience that Remote can engage and monetize. Additionally, the 'MyPeople.ai' platform offers a white-label community SaaS solution that aligns with Remote's potential need for community-building tools, enabling them to 'own the audience relationship.' Furthermore, HR.com's 'Behavioral Data' on member interests can significantly enhance Remote's first-party data capabilities, addressing their challenge of limited data for targeted marketing.</p></div>
+    </div>
+    <div class="card" id="golden-nuggets">
+        <h2>Golden Nuggets -- Cold Call Openers</h2>
+        
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 1</div>
+            <blockquote class="ceo-quote">&ldquo;Six years ago when Remote launched, helping companies hire their first remote team member was a breakthrough. Today, those same companies have scaled remote-first teams across dozens of countries — and they&#x27;re running into a new wave of challenges: compliance complexity, fragmented HR tools, and limited visibility across their workforce.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Job, you recently said your customers are hitting a wall with fragmented HR tools and limited workforce visibility — we have 2 million HR practitioners actively engaging with content and community that could give Remote&#x27;s platform the practitioner layer it&#x27;s missing.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> He explicitly names &#x27;fragmented HR tools&#x27; and &#x27;limited visibility&#x27; as customer pain points. HR.com&#x27;s 2M+ practitioner community and engagement data directly solves the visibility gap, and its content/events ecosystem is the antidote to fragmentation — it&#x27;s where HR practitioners already consolidate their learning and tooling decisions.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 2</div>
+            <blockquote class="ceo-quote">&ldquo;This launch is a major milestone, and part of our constant effort to meet the moment. As our customers grow, their challenges grow — and we&#x27;re here to assist them with a platform that&#x27;s built to handle the full scale and complexity of modern work — reliably, securely, and simply.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Job, you&#x27;ve talked about building a platform for the full scale of modern work — there&#x27;s a company with 2 million HR practitioners, thousands of hours of compliance content, and deep engagement data that could plug directly into that vision.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> He&#x27;s signaling platform expansion ambitions — Remote wants to be the full-stack answer to &#x27;modern work.&#x27; Acquiring HR.com&#x27;s community, content library, and practitioner engagement data would accelerate that platform vision faster than building it organically, especially for compliance education and practitioner retention.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 3</div>
+            <blockquote class="ceo-quote">&ldquo;They keep mashing the go back to 2019 button, and they see it&#x27;s not working.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>The whole market knows return-to-office isn&#x27;t working — and the 2 million HR practitioners on HR.com are the exact buyers trying to figure out their next move, which makes them Remote&#x27;s highest-intent audience.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> While this is from a Dropbox leader (not Remote directly), it reflects the broader market thesis Remote serves. The quote frames a massive market shift where HR leaders need guidance on the new playbook — and HR.com&#x27;s community is exactly where those HR leaders go for answers. This sets up the &#x27;demand generation&#x27; angle: Remote&#x27;s customers are the HR leaders in HR.com&#x27;s community.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 4</div>
+            <blockquote class="ceo-quote">&ldquo;I try to create missionaries, not mercenaries.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>You&#x27;ve talked about building missionaries not mercenaries — HR.com has 2 million HR practitioners who show up voluntarily for certifications, content, and community, which is exactly the kind of engaged audience that converts into long-term platform users.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> This is a weaker fit but usable as a cultural bridge — the &#x27;missionary&#x27; mindset maps to community-driven growth. HR.com&#x27;s practitioner community is built on mission-driven engagement (certifications, peer learning, professional development), not transactional relationships. An acquirer who values missionaries over mercenaries would value a community asset over a paid-ads funnel.</div>
+        </div>
+    </div>
+    <div class="card" id="ceo-vision">
+        <h2>CEO Vision &amp; Strategy</h2>
+        <div class="narrative-content"><p>Job van der Voort is positioning Remote as the full-stack global employment platform — moving beyond simple EOR into a comprehensive system that handles compliance, HR tooling, and workforce visibility at scale. The strategic direction is clear: as customers grow internationally, Remote wants to be the single platform that simplifies everything. This platform-expansion ambition creates a natural acquisition thesis for community and content assets that deepen practitioner engagement and reduce churn.</p></div>
+    </div>
+    <div class="card" id="ma-appetite">
+        <h2>M&amp;A Appetite</h2>
+        <div class="narrative-content"><p>No direct M&A signals were found in the available quotes. However, Remote's platform-expansion language ('meet the moment,' 'full scale and complexity of modern work') and their explicit acknowledgment that customers face 'fragmented HR tools' suggests they're thinking about how to become more than an EOR. Companies at this stage of platform maturity — post-product-market-fit, scaling internationally, naming fragmentation as a customer problem — are typically evaluating build-vs-buy for adjacent capabilities like community, content, and practitioner engagement. The pitch should frame HR.com as a buy-side accelerant for Remote's stated platform ambitions.</p></div>
+    </div>
+    <div class="card" id="challenges">
+        <h2>Challenges &amp; Headwinds</h2>
+        <div class="narrative-content"><p>Remote's customers face compliance complexity across jurisdictions, fragmented HR tools that don't talk to each other, and limited visibility into distributed workforces. The broader market is also grappling with failed return-to-office mandates, onboarding challenges for remote hires, and regulatory changes across dozens of countries. HR.com directly addresses the education and community layer — helping HR practitioners navigate compliance, discover integrated tools, and connect with peers solving the same problems.</p></div>
+    </div>
+    <div class="card" id="earnings-quotes">
+        <h2>Key Earnings Quotes</h2>
+        <div class="narrative-content"><p>- <strong>Max Junestrand</strong> (): "I still interview everyone, so I ask quite brutal questions about, 'Why take a hard job? You could go work somewhere else.'"
+- <strong>Max Junestrand</strong> (): "I try to create missionaries, not mercenaries."
+- <strong>Drew Houston</strong> (): "They keep mashing the go back to 2019 button, and they see it's not working."
+- <strong>Drew Houston</strong> (): "We will support however they want to gather. But we're finding that these retreats and off-sites and things like that are often a lot more effective than asking people to commute."
+- <strong>Drew Houston</strong> (): "They voted with their feet that they value flexibility a lot more than snacks in the office."
+- <strong>Mike Landau</strong> (): "I launched Park My Fleet during the coronavirus pandemic and lockdown. That gave me no choice but to start the company remotely and rely on the experience and maturity of the people we were hiring to "
+- <strong>Mike Landau</strong> (): "I have an office in my house, making it a comfortable and enjoyable workplace. We have a work-from-anywhere policy, too; as long as employees comply with local employment laws, then I'm happy for them"
+- <strong>Job van der Voort</strong> (): "Six years ago when Remote launched, helping companies hire their first remote team member was a breakthrough. Today, those same companies have scaled remote-first teams across dozens of countries — an"</p></div>
+    </div>
+    <div class="card" id="verified-contacts">
+        <h2>Verified Contacts</h2>
+        <table>
+        <thead><tr>
+            <th>Name</th><th>Title</th><th>Company</th><th>Status</th><th>Confidence</th><th>LinkedIn</th>
+        </tr></thead>
+        <tbody><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Lakshmi Unnikrishnan</td>
+            <td>Corporate Development Specialist</td>
+            <td>Volaris Group</td>
+            <td><span style="color:#8b949e;font-weight:600;">STALE</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/lakshmiunni" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Not Found</td>
+            <td>VP, Corporate Development</td>
+            <td>Remote</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>LOW</td>
+            <td></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Not Found</td>
+            <td>Director/Vice President of Business Development</td>
+            <td>Remote</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>LOW</td>
+            <td></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Not Found</td>
+            <td>Manager, Corporate Strategy &amp; M&amp;A</td>
+            <td>Remote</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>LOW</td>
+            <td></td>
+        </tr></tbody>
+    </table>
+    </div>
+    <div class="card" id="approach-strategy">
+        <h2>Approach Strategy</h2>
+        
+        <div class="approach-opener">
+            <div class="opener-label">CALL OPENER</div>
+            <p>Job, you recently said your customers are hitting a wall with fragmented HR tools and limited workforce visibility — we have 2 million HR practitioners actively engaging with content and community that could give Remote&#x27;s platform the practitioner layer it&#x27;s missing.</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
+  </div>
+
+</div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
+</body>
+</html>

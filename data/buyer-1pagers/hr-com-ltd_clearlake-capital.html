@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: Clearlake Capital | HR.com Ltd</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #30363d;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
+  }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
+  }
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
+  }
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
+  }
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Clearlake Capital</h1>
+    <div class="subtitle">Prepared for HR.com Ltd</div>
+    <div class="header-meta">
+      <span class='tag'>Type: Platform</span>
+      
+      
+    </div>
+    
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar">
+    <div>
+      <strong>HR.com Ltd</strong> &bull; Debbie McGrath &bull; HR Technology &amp; Media
+      
+    </div>
+    <div>March 29, 2026</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    
+    <div class="card" id="strategic-fit">
+        <h2>Strategic Fit</h2>
+        <div class="narrative-content"><p>Acquiring HR.com would directly address Clearlake Capital's challenge of 'limited first-party data for ad targeting' through its extensive behavioral data on 1.92M HR Professional Members. Additionally, HR.com's category-defining domain and SEO authority would enhance Clearlake's digital media presence, facilitating audience monetization. The MyPeople.ai platform offers a scalable, white-label solution that aligns with the need for community engagement and enterprise licensing opportunities.</p></div>
+    </div>
+    <div class="card" id="golden-nuggets">
+        <h2>Golden Nuggets -- Cold Call Openers</h2>
+        
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 1 - Phil Saunders</div>
+            <blockquote class="ceo-quote">&ldquo;We plan to continue to pursue new software capabilities that advance our customers&#x27; efforts to optimize workforce agility, transform skill development, deliver personalized, engaging growth experiences, and align their organizations around a shared definition of success.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Phil Saunders said Cornerstone needs to deliver personalized, engaging growth experiences — HR.com already has 2 million HR practitioners actively engaging with exactly that kind of content, and I&#x27;d love to show you how that audience could accelerate Cornerstone&#x27;s roadmap.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Every capability listed — workforce agility, skill development, personalized growth experiences — maps directly to what HR.com&#x27;s 2M+ practitioner community already delivers through content, events, and engagement data. This quote is a roadmap of their unmet needs.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 2 - Himanshu Palsule</div>
+            <blockquote class="ceo-quote">&ldquo;We&#x27;re excited to accelerate our shared and complementary vision to create a more open platform for talent leaders, and an AI-powered growth experience for people.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Your CEO at Cornerstone talked about building an open platform for talent leaders — HR.com already has the largest community of those leaders, over 2 million strong, and I think there&#x27;s a conversation worth having about what that audience could mean for Clearlake&#x27;s HR tech thesis.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> An &#x27;open platform for talent leaders&#x27; is exactly what HR.com is — the largest community of talent leaders already assembled. And &#x27;AI-powered growth experience&#x27; requires training data from real practitioners, which HR.com has in volume. This quote reveals both a distribution gap and a data gap.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 3 - Behdad Eghbali</div>
+            <blockquote class="ceo-quote">&ldquo;Cornerstone has done a tremendous job providing best-in-class software solutions to a large base of global customers. We are thrilled to partner with the company&#x27;s talented employees and believe that Cornerstone is well positioned to continue building on its strong leadership position for talent management SaaS solutions, both organically and through accelerated add-on acquisition activity.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Behdad Eghbali mentioned accelerating add-on acquisitions for Cornerstone&#x27;s talent management platform — I represent an asset with 2 million HR practitioners and deep engagement data that could be the kind of bolt-on that moves the needle for your HR tech portfolio.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> The phrase &#x27;accelerated add-on acquisition activity&#x27; is a direct signal that Clearlake is actively looking for bolt-on assets in HR tech. HR.com — with its community, content engine, and practitioner data — is precisely the kind of strategic add-on that would give Cornerstone distribution and engagement they can&#x27;t build organically.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 4 - Phil Saunders</div>
+            <blockquote class="ceo-quote">&ldquo;With their financial sponsorship to invest behind growth, we will have even greater opportunity to accelerate innovation and advance our customers&#x27; efforts to ensure their organizations – and people – are future-ready.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Phil Saunders said Clearlake&#x27;s investment would help make organizations future-ready — we have real-time sentiment and engagement data from 2 million HR practitioners that defines what future-ready actually looks like on the ground, and I&#x27;d love 15 minutes to show you why that matters for your portfolio.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Making organizations &#x27;future-ready&#x27; requires knowing what the workforce actually needs — that&#x27;s practitioner intelligence. HR.com&#x27;s community data, research, and content library is the real-time signal layer that makes &#x27;future-ready&#x27; more than a buzzword.</div>
+        </div>
+    </div>
+    <div class="card" id="ceo-vision">
+        <h2>CEO Vision &amp; Strategy</h2>
+        <div class="narrative-content"><p>Clearlake's leadership is focused on building the dominant AI-powered talent management platform through Cornerstone OnDemand. Their vision centers on workforce agility, personalized skill development, and an open ecosystem for talent leaders. They are explicitly investing behind growth — both organic innovation and acquisitive expansion — to make organizations and their people 'future-ready.'</p></div>
+    </div>
+    <div class="card" id="ma-appetite">
+        <h2>M&amp;A Appetite</h2>
+        <div class="narrative-content"><p>Clearlake has a demonstrated, aggressive M&A appetite in HR tech. They took Cornerstone private for ~$5.2B, immediately pursued the EdCast bolt-on for learning/content capabilities, and Eghbali explicitly referenced 'accelerated add-on acquisition activity' as part of the thesis. Their pattern is clear: acquire the platform, then bolt on capabilities that expand the value proposition. A community/data asset like HR.com fits this playbook precisely as the engagement and distribution layer Cornerstone still lacks.</p></div>
+    </div>
+    <div class="card" id="challenges">
+        <h2>Challenges &amp; Headwinds</h2>
+        <div class="narrative-content"><p>Clearlake/Cornerstone's core challenge is bridging the gap between software capability and practitioner adoption. They have the platform but lack a direct, engaged community of HR decision-makers to drive distribution, inform product development with real-world practitioner data, and deliver the 'personalized, engaging growth experiences' their leadership keeps promising. Their EdCast acquisition signals they know content and learning matter, but they still don't own the community layer — the practitioners themselves.</p></div>
+    </div>
+    <div class="card" id="earnings-quotes">
+        <h2>Key Earnings Quotes</h2>
+        <div class="narrative-content"><p>- <strong>Phil Saunders</strong> (): "Clearlake's investment in Cornerstone is an exciting and important step for our company and our customers. Clearlake has shown immense confidence in our talented team and the direction we are headed. "
+- <strong>Behdad Eghbali</strong> (): "Cornerstone has done a tremendous job providing best-in-class software solutions to a large base of global customers. We are thrilled to partner with the company's talented employees and believe that "
+- <strong>Phil Saunders</strong> (): "With this transaction, we plan to continue to pursue new software capabilities that advance our customers' efforts to optimize workforce agility, transform skill development, deliver personalized, eng"
+- <strong>Himanshu Palsule</strong> (): "Cornerstone's acquisition of EdCast is a significant moment for the industry. While our collective expertise and scale has the potential to transform learning, the value of the combination extends wel"
+- <strong>Prashant Mehrotra</strong> (): "By uniting Cornerstone and EdCast, we are following through on our promise to bring innovative software solutions to customers, which in turn, creates more value for their organizations and their empl"
+- <strong>José E. Feliciano and Behdad Eghbali</strong> (): "We are thrilled to welcome Pathway to the Clearlake family as we further expand our leadership in alternative investments. This partnership is designed to drive performance and deliver enhanced outcom"</p></div>
+    </div>
+    <div class="card" id="verified-contacts">
+        <h2>Verified Contacts</h2>
+        <table>
+        <thead><tr>
+            <th>Name</th><th>Title</th><th>Company</th><th>Status</th><th>Confidence</th><th>LinkedIn</th>
+        </tr></thead>
+        <tbody><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Dan Groen</td>
+            <td>Managing Director, Co-Head of Business Development</td>
+            <td>Clearlake Capital</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/dan-groen-909a6" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Paul Huber</td>
+            <td>Partner and Managing Director</td>
+            <td>Clearlake Capital</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/paulcampbellhuber" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Madison Steinberg</td>
+            <td>VP, M&amp;A Tax</td>
+            <td>Clearlake Capital Group</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/madison-steinberg-15997977" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr></tbody>
+    </table>
+    </div>
+    <div class="card" id="approach-strategy">
+        <h2>Approach Strategy</h2>
+        
+        <div class="approach-opener">
+            <div class="opener-label">CALL OPENER</div>
+            <p>Phil Saunders said Cornerstone needs to deliver personalized, engaging growth experiences — HR.com already has 2 million HR practitioners actively engaging with exactly that kind of content, and I&#x27;d love to show you how that audience could accelerate Cornerstone&#x27;s roadmap.</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
+  </div>
+
+</div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
+</body>
+</html>

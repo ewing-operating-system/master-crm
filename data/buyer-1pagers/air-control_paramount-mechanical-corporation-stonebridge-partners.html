@@ -3,182 +3,211 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Buyer Dossier: Paramount Mechanical Corporation (Stonebridge Partners) for Air Control</title>
+<title>Buyer Dossier: Paramount Mechanical Corporation (Stonebridge Partners) | Air Control</title>
 <style>
-    @media print {
-        body { margin: 0; }
-        .page-break { page-break-before: always; }
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-        font-family: 'Georgia', 'Times New Roman', serif;
-        color: #2c2c2c;
-        background: #f8f8f8;
-        line-height: 1.6;
-    }
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        background: white;
-        box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-    }
-    .header {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-        color: white;
-        padding: 40px;
-        position: relative;
-    }
-    .header::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, #e94560, #f5a623, #e94560);
-    }
-    .header h1 {
-        font-size: 28px;
-        margin-bottom: 8px;
-        letter-spacing: -0.5px;
-    }
-    .header .subtitle {
-        font-size: 16px;
-        opacity: 0.85;
-        font-style: italic;
-    }
-    .meta-bar {
-        display: flex;
-        gap: 24px;
-        padding: 16px 40px;
-        background: #f0f0f0;
-        border-bottom: 1px solid #ddd;
-        font-size: 14px;
-        flex-wrap: wrap;
-    }
-    .meta-bar .meta-item {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    }
-    .meta-bar .label {
-        font-weight: bold;
-        color: #666;
-        text-transform: uppercase;
-        font-size: 11px;
-        letter-spacing: 0.5px;
-    }
-    .meta-bar .value {
-        color: #1a1a2e;
-        font-weight: 600;
-    }
-    .fit-score {
-        display: inline-block;
-        background: #e74c3c;
-        color: white;
-        padding: 2px 10px;
-        border-radius: 12px;
-        font-weight: bold;
-        font-size: 13px;
-    }
-    .pitch-bar {
-        padding: 20px 40px;
-        background: #fafbfc;
-        border-bottom: 2px solid #e94560;
-        font-size: 18px;
-        font-style: italic;
-        color: #333;
-        text-align: center;
-    }
-    .content {
-        padding: 32px 40px;
-    }
-    .section {
-        margin-bottom: 28px;
-    }
-    .section h2 {
-        font-size: 16px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #0f3460;
-        border-bottom: 2px solid #e8e8e8;
-        padding-bottom: 8px;
-        margin-bottom: 14px;
-    }
-    .section p {
-        margin-bottom: 12px;
-        text-align: justify;
-    }
-    .section ul {
-        padding-left: 20px;
-    }
-    .section ul li {
-        margin-bottom: 8px;
-    }
-    .section ul.risks li {
-        color: #c0392b;
-    }
-    .approach-box {
-        background: #f0f7ff;
-        border-left: 4px solid #0f3460;
-        padding: 16px 20px;
-        border-radius: 0 8px 8px 0;
-        margin-top: 12px;
-    }
-    .footer {
-        padding: 20px 40px;
-        background: #1a1a2e;
-        color: rgba(255,255,255,0.5);
-        font-size: 11px;
-        text-align: center;
-    }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117; color: #c9d1d9; line-height: 1.6;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative;
+    border-bottom: 4px solid; border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header-label { text-transform: uppercase; font-size: 11px; letter-spacing: 3px; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+  .header h1 { font-size: 28px; font-weight: 700; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #27ae60;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; color: white; }
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+  .content { padding: 24px 48px 48px; }
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; padding: 10px 12px; background: #0d1117; font-weight: 600; color: #8b949e; font-size: 11px; text-transform: uppercase; border-bottom: 1px solid #30363d; }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  .footer { text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px; border-top: 1px solid #21262d; }
 </style>
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        <h1>Paramount Mechanical Corporation (Stonebridge Partners)</h1>
-        <div class="subtitle">Buyer Dossier &mdash; Prepared for Air Control</div>
+<div class="page">
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Paramount Mechanical Corporation (Stonebridge Partners)</h1>
+    <div class="subtitle">Prepared for Air Control</div>
+    <div class='score-badge'><span class='score-num'>9</span><span class='score-label'>Fit</span></div>
+  </div>
+  <div class="context-bar">
+    <strong>Air Control</strong> &bull; Fred Lowry
+  </div>
+  <div class="content">
+    <div class="card" id="buyer-profile">
+        <h2>Buyer Profile</h2>
+        <p>## Paramount Mechanical Corporation (Stonebridge Partners) — Strategic Buyer Profile</p>
+<p>### Company Overview & Strategic Logic
+Paramount Mechanical Corporation (Stonebridge Partners) is a potential acquirer for Air Control (HVAC).</p>
+<p>### Earnings & Market Position
+[[PDF] FQ3 2025 Earnings Call Transcripts - Paramount investor relations](https://ir.paramount.com/static-files/fccdd3b8-1056-418d-89d3-fe05c7db6807): Paramount Skydance 
+NasdaqGS:PSKY
+FQ3 2025 Earnings Call 
+Monday, November 10, 2025 9:30 PM GMT
+S&P Global Market Intelligence Estimates
+Corporation
+Transcripts
+PARAMOUNT SKYDANCE CORPORATION FQ3 2025 EARNINGS CALL NOV 10, 2025
+Call Participants
+EXECUTIVES
+David Ellison
+Chairman & CEO
+Jeffrey S. Shell
+President
+Andy Gordon
+Chief Strategy Officer & Chief Operating Officer
+Andrew C. Warren
+Executive VP & Interim CFO
+Kevin Creighton,
+EVP of Corporate Finance & Investor Relations
+ANALYSTS
+Benjamin Daniel Swinburne
+Morgan Stanley, Research Division
+David Karnovsky
+JPMorgan Chase & Co, Research
+Division
+Jessica Jean Reif Ehrlich Cohen
+BofA Securities, Research Division
+John Christopher Hodulik
+UBS Investment Bank, Research
+Division
+Kutgun Maral
+Evercore ISI Institutional Equities,
+Research Division
+Richard Scott Greenfield
+LightShed Partners, LLC
+Robert S. Fishman
+MoffettNathanson LLC
+Steven Lee Cahall
+Wells Fargo Securities, LLC, Research
+Division
+Copyright © 2025 S&P Global Market Intelligence, a division of S&P Global Inc. All Rights re</p>
+<p>### M&A Track Record
+[Stonebridge Partners Announces the Acquisition of Comfort ...](https://stonebridgepartners.com/stonebridge-partners-announces-the-acquisition-of-comfort-solutions-by-paramount-mechanical-corporation/): Stonebridge Partners Announces the Acquisition of Comfort Solutions by Paramount Mechanical Corporation - Stonebridge Partners</p>
+<p>914-682-2700 info@stonebridgepartners.com</p>
+<p>Menu</p>
+<p>| No Comments</p>
+<p>Stonebridge Partners (“Stonebridge”) is pleased to announce the successful acquisition of Comfort Solutions of Tidewater, LLC (“Comfort Solutions”) on May 1, 2025 by Paramount Mechanical Corporation, LLC (“Paramount” or “the Company”), a Stonebridge portfolio company since 2021. Comfort Solutions, based in Suffolk, VA, specializes in HVAC installation, maintenance, and repair services for commercial, medical, and industrial facilities throughout the Newport News, Norfolk, and Virginia Beach region. For over 15 years, Comfort Solutions has helped clients reduce costs by preventing breakdowns and extending equipment life through comprehensive service and maintenance.</p>
+<p>Following the acquisition of Math Mechanical in November 2024, the addition of Comfort Solutions furthers Paramount’s strategic gr</p>
+<p>### Financial Profile
+[Paramount Mechanical Corporation Revenue and Competitors](https://growjo.com/company/Paramount_Mechanical_Corporation): Paramount Mechanical Corporation: Revenue, Competitors, Alternatives</p>
+<p># Paramount Mechanical Corporation Revenue and Competitors</p>
+<p>License our Company Data API</p>
+<p>#### Sudley, VA USA</p>
+<p>Location</p>
+<p>#### N/A</p>
+<p>Total Funding</p>
+<p>#### Construction</p>
+<p>Industry</p>
+<p>## Estimated Revenue & Valuation</p>
+<p>- Paramount Mechanical Corporation's estimated annual revenue is currently $26.7M per year. (i)
+- Paramount Mechanical Corporation's estimated revenue per employee is $290,000</p>
+<p>## Employee Data</p>
+<p>- Paramount Mechanical Corporation has 92 Employees. (i)
+- Paramount Mechanical Corporation grew their employee count by 6% last year.</p>
+<p>## Paramount Mechanical Corporation's People</p>
+<p>1</p>
+<p>Andrew Dosik</p>
+<p>2</p>
+<p>John Kraft</p>
+<p>3</p>
+<p>John Williams</p>
+<p>4</p>
+<p>Leonard Falchetta</p>
+<p>5</p>
+<p>Thomas Cabrera</p>
+<p>6</p>
+<p>Thomas Cabrera</p>
+<p>7</p>
+<p>Juan Garcia</p>
+<p>8</p>
+<p>Jennifer Boss</p>
+<p>9</p>
+<p>Jennifer Boss</p>
+<p>10</p>
+<p>Tyler Nealey</p>
+<p>| Name | Title | Email/Phone |
+| --- | --
+Revenue indicator: ary 25, 2026</p>
+<p>Paramount Global misses on earnings expectations. Reported EPS is $-0.12 EPS, expectations were $-0.00508.</p>
+<p>Operator: Good afternoon. My name is N</p>
+<p>### Strategic Fit with Air Control
+[Stonebridge Partners Announces the Acquisition of Math Mechanical by its Portfolio Company Paramount Mechanical Corporation - Stonebridge Partners](https://stonebridgepartners.com/stonebridge-partners-announces-the-acquisition-of-math-mechanical-by-its-portfolio-company-paramount-mechanical-corporation/): Stonebridge Partners Announces the Acquisition of Math Mechanical by its Portfolio Company Paramount Mechanical Corporation - Stonebridge Partners</p>
+<p>914-682-2700 info@stonebridgepartners.com</p>
+<p>Menu</p>
+<p>| No Comments</p>
+<p>Stonebridge Partners is pleased to announce the successful acquisition of Math Mechanical, Inc. (“Math”) on November 21, 2024 by Paramount Mechanical Corporation, LLC (“Paramount” or “the Company”), a Stonebridge portfolio company since 2021. Math, based in Portsmouth, VA, is an independent provider of HVAC, plumbing and pipe services for industrial, commercial and medical facilities across the Newport News/Norfolk/Virginia Beach region. Renowned for its specialized expertise in medical gas systems Math serves a diverse clientele, including medical and commercial institutions. Math’s general manager, Jimmy Matthews, commented, “this merger between Math and Paramount expan</p>
+<p>### Key Contacts & Decision Makers
+[Our Leadership Team - Paramount Mechanical](https://paramount-mech.com/meet-our-team/): Our Leadership Team | Paramount Mechanical</p>
+<p>Meet Our Team</p>
+<p># The People Behind it All</p>
+<p>## Our Leadership Team</p>
+<p>### Leonard Falchetta</p>
+<p>Chief Executive Officer</p>
+<p>### Andrew Dosik</p>
+<p>Chief Financial Officer</p>
+<p>### John Kraft</p>
+<p>Executive Vice President of Installation</p>
+<p>### Jonathan James</p>
+<p>Vice President of Field Operations</p>
+<p>### J.J. Van Daele</p>
+<p>Vice President of Service</p>
+<p>### Brett Peters</p>
+<p>Vice President of Project Management</p>
+<p>## Want to join our team and gain valuable skills?</p>
+<p>Visit our careers page to learn more about how you can join the team.</p>
+<p>We use cookies to improve your browsing experience on our website. By closing this banner or interacting with our site, you acknowledge and agree to our Privacy Policy</p>
+<p>### Golden Nuggets & Call Ammunition
+- h and Paramount expands our capabilities in the region. We are excited about the opportunities this partnership creates for our customers and team going forward.”</p>
+<p>The acquisition of Math fits well wi
+- onal facilities. Over the past four years, Stonebridge and Paramount’s management have successfully expanded the Company’s service and maintenance capabilities, particularly in mission-critical sector
+- Math Mechanical in November 2024, the addition of Comfort Solutions furthers Paramount’s strategic growth toward becoming a leading HVAC services provider along the Eastern U.S. seaboard. Headquartere</p>
+<p>### Research Source
+Exa.ai enrichment — 2026-03-29</p>
     </div>
-    <div class="meta-bar">
-        
-        <div class='meta-item'><span class='label'>Type</span><span class='value'>PE Roll-up</span></div>
-        <div class='meta-item'><span class='label'>Location</span><span class='value'>Suffolk, VA</span></div>
-        <div class='meta-item'><span class='label'>Fit Score</span><span class='fit-score'>9</span></div>
-    </div>
-    <div class='pitch-bar'>&ldquo;Air Control gives Paramount Mechanical instant Northern Virginia HVAC density — the wealthiest uncovered market in your Eastern US platform footprint, with an experienced team and loyal customer base ready to plug into your infrastructure.&rdquo;</div>
-    <div class="content">
-        <div class="section">
-            <h2>Buyer Narrative</h2>
-            <p>Paramount Mechanical Corporation is a portfolio company of Stonebridge Partners, a private equity firm executing a deliberate roll-up strategy in the HVAC services sector across the Eastern United States. Their acquisition pattern is clear and disciplined — they acquired Math Mechanical in November 2024 and followed with Comfort Solutions in Suffolk, Virginia in May 2025, building a regional platform with increasing geographic density. This is not a financial buyer looking to flip — this is a platform builder assembling a best-in-class HVAC operation.</p><p>Stonebridge's thesis centers on consolidating fragmented HVAC service businesses into a single platform that benefits from shared back-office operations, purchasing power, recruiting infrastructure, and cross-selling commercial and residential work. Their focus on the Eastern seaboard — particularly the Mid-Atlantic corridor — suggests they understand the value of geographic clustering, where technician routing efficiency and brand recognition compound with each tuck-in acquisition.</p><p>For a seller evaluating Paramount, the key credibility signal is execution speed. Two acquisitions in under a year means they have capital deployed, due diligence processes refined, and integration playbooks ready. They are not tire-kickers. When Stonebridge says they want to look at a deal, they have the infrastructure and intent to close.</p>
-        </div>
-        
-        <div class="section">
-            <h2>Acquisition History</h2>
-            <ul><li>Math Mechanical — acquired November 2024, added mechanical services capability to the platform</li><li>Comfort Solutions (Suffolk, VA) — acquired May 2025, expanded Virginia footprint and residential HVAC density</li><li>Likely pursuing additional HVAC service companies in Virginia, North Carolina, and Maryland to fill geographic gaps</li><li>Platform strategy suggests prior or concurrent evaluation of commercial HVAC contractors in metro DC and Hampton Roads corridors</li></ul>
-        </div>
-        <div class="section">
-            <h2>Why This Seller</h2>
-            <p>Air Control in McLean, Virginia fills a critical geographic gap in Paramount Mechanical's Eastern US platform. Stonebridge has built southward from their existing footprint with Math Mechanical and Comfort Solutions in the Suffolk/Hampton Roads area, but Northern Virginia — one of the wealthiest and fastest-growing HVAC markets on the East Coast — remains uncovered. Air Control brings established commercial and residential HVAC operations in the heart of the NoVA market, a loyal customer base built over years of service, and experienced technicians who know the territory. At an estimated $3M in revenue, it is the right size for a tuck-in acquisition — large enough to be meaningful to the platform but small enough that integration risk is manageable. For Fred Lowry, this buyer offers something rare: a platform that actually needs what he built, in the exact geography where he built it.</p>
-        </div>
-        <div class="section">
-            <h2>Approach Angle</h2>
-            <div class="approach-box">Lead with the geographic thesis. Frame Air Control not as a company for sale, but as a strategic asset that completes Paramount's Northern Virginia coverage. Emphasize that Next Chapter represents the owners exploring options — positioning this as a selective, confidential process where Paramount has an inside track because of obvious strategic alignment. Reference the Comfort Solutions and Math Mechanical deals by name to signal we've done our homework and see the pattern.</div>
-        </div>
-        
-        <div class="section">
-            <h2>Talking Points</h2>
-            <ul><li>Stonebridge's acquisition cadence — two deals in under a year — signals serious platform-building intent, and Northern Virginia is the logical next market to fill the gap between their existing footprint and the DC metro corridor</li><li>Air Control's mix of commercial and residential HVAC work mirrors the service diversification Paramount has been assembling, reducing revenue concentration risk for the combined platform</li><li>McLean/Northern Virginia is one of the highest household income markets on the East Coast — HVAC service pricing power and customer lifetime value here exceed most comparable markets in their current footprint</li><li>The seller has built a team of experienced technicians with deep local relationships — this is not just a customer list acquisition, it is an operating team that can be retained and scaled under Paramount's platform resources</li><li>Timing matters: the seller is exploring options now but has not gone to broad market. A direct platform-to-owner conversation, facilitated by Next Chapter, gives Paramount first-mover advantage before competitive auction dynamics set in</li></ul>
-        </div>
-        
-        <div class="section">
-            <h2>Risk Factors</h2>
-            <ul class="risks"><li>At $3M estimated revenue, Air Control may be below Stonebridge's minimum acquisition threshold depending on EBITDA margins — need to confirm the platform's size floor for tuck-in deals early in the conversation</li><li>No identified buyer contact at Paramount or Stonebridge means outreach may require multiple attempts through general channels, LinkedIn, or intermediary introductions before reaching the right decision-maker</li><li>Stonebridge's acquisition pace suggests they may already be in diligence on a competing Northern Virginia HVAC target — speed of engagement is critical to avoid being second to the table</li></ul>
+    
+    
+    <div class="card" id="approach">
+        <h2>Approach Strategy</h2>
+        <div style="background:#0b2e1a;border:1px solid #27ae60;border-radius:8px;padding:18px 22px;">
+            <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:#27ae60;margin-bottom:6px;text-transform:uppercase;">CALL OPENER</div>
+            <p style="color:#a3e4b8;font-size:14px;line-height:1.7;">We noticed Paramount Mechanical Corporation (Stonebridge Partners)&#x27;s activity in HVAC and your track record of strategic acquisitions in this space. We&#x27;re working with Air Control, and there&#x27;s a compelling fit we&#x27;d love to walk you through.</p>
         </div>
     </div>
-    <div class="footer">
-        Generated March 29, 2026 &bull; Confidential
-    </div>
+  </div>
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential
+  </div>
 </div>
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
 </body>
 </html>

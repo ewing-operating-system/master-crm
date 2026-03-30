@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: Wiley | HR.com Ltd</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #30363d;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
+  }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
+  }
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
+  }
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
+  }
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Wiley</h1>
+    <div class="subtitle">Prepared for HR.com Ltd</div>
+    <div class="header-meta">
+      <span class='tag'>Type: Platform</span>
+      
+      
+    </div>
+    
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar">
+    <div>
+      <strong>HR.com Ltd</strong> &bull; Debbie McGrath &bull; HR Technology &amp; Media
+      
+    </div>
+    <div>March 29, 2026</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    
+    <div class="card" id="strategic-fit">
+        <h2>Strategic Fit</h2>
+        <div class="narrative-content"><p>Wiley's lack of HR tech presence is directly addressed by acquiring HR.com's 1.92M HR Professional Members, the largest registered community of HR practitioners globally, which would enhance their audience relationship. Additionally, HR.com's behavioral data on these members resolves the challenge of 'limited first-party data for ad targeting,' enabling Wiley to refine its marketing strategies. The proven $42.6M revenue model across subscriptions, advertising, and licensing presents a compelling monetization opportunity for Wiley's growth objectives.</p></div>
+    </div>
+    <div class="card" id="golden-nuggets">
+        <h2>Golden Nuggets -- Cold Call Openers</h2>
+        
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 1</div>
+            <blockquote class="ceo-quote">&ldquo;We delivered another strong year of execution as we met or exceeded our financial commitments, drove profitable growth in our core, expanded margins and free cash flow, and extended further into the corporate market through AI licensing and partnership, science analytics, and knowledge services.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Matt Kissner said Wiley is extending into the corporate market through AI licensing and knowledge services — we have 2 million HR practitioners generating the kind of engagement and content data that would supercharge that play.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Wiley is explicitly expanding into the corporate market via AI, analytics, and knowledge services. HR.com&#x27;s 2M+ practitioner community and engagement data is exactly the kind of corporate-facing knowledge asset that accelerates this push — especially in workforce/HR, where Wiley already made two acquisitions.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 2</div>
+            <blockquote class="ceo-quote">&ldquo;On top of this, we&#x27;re seeing significant interest in leveraging our authoritative content to train AI and machine learning models.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Your CEO said there&#x27;s significant interest in leveraging authoritative content for AI training — HR.com has 2 million practitioners producing workforce content daily that no one else has, and it&#x27;s never been licensed.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> This is the direct money quote. Wiley sees its content as AI training fuel. HR.com sits on a massive trove of HR practitioner-generated content, community interactions, and workforce intelligence — exactly the domain-specific data AI models need and that Wiley is actively monetizing.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 3 - Earnings report</div>
+            <blockquote class="ceo-quote">&ldquo;Learning segment revenue declined 2% in the quarter (down 7% year to date); Professional segment down 5%, offset by 1% growth in Academic.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>I noticed Wiley&#x27;s Professional Learning segment is down 5% — HR.com reaches 2 million HR professionals through exactly the kind of community-driven learning and certification content that could reverse that trend.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> The Learning segment — particularly Professional — is Wiley&#x27;s weak spot. HR.com&#x27;s community, events, webcasts, and certification content serve the exact professional learning audience where Wiley is losing ground. This is a pain point HR.com directly solves.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 4</div>
+            <blockquote class="ceo-quote">&ldquo;Wiley acquired HRForecast (2024-10-24) / peopleForecast GmbH (2024-10-01)&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Wiley just acquired HRForecast and peopleForecast to build out TalentNeuron — HR.com&#x27;s 2 million practitioners and their engagement data would be the demand-side complement to that workforce analytics play.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Wiley already spent real money acquiring HR/workforce analytics companies through TalentNeuron. This proves the thesis — they see HR and workforce intelligence as a growth vector. HR.com&#x27;s practitioner data and community would be a natural bolt-on to the TalentNeuron portfolio they&#x27;re actively building.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 5 - Corporate announcement</div>
+            <blockquote class="ceo-quote">&ldquo;Wiley appointed Armughan Rafat as Chief AI and Data Services Officer in January 2026 to accelerate commercialization of AI-ready content.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>You just created a Chief AI and Data Services Officer role to commercialize AI-ready content — HR.com has the largest HR practitioner community in the world and none of that content or data has been packaged for AI licensing yet.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> A brand-new C-suite role dedicated to AI content commercialization signals this is a board-level priority with budget. HR.com&#x27;s content library and practitioner data is &#x27;AI-ready content&#x27; in the HR vertical — and Rafat&#x27;s mandate is to find and monetize exactly this kind of asset.</div>
+        </div>
+    </div>
+    <div class="card" id="ceo-vision">
+        <h2>CEO Vision &amp; Strategy</h2>
+        <div class="narrative-content"><p>Kissner is positioning Wiley as an AI-era content and data company, not just a publisher. The strategy rests on three pillars: monetizing proprietary content for AI training, expanding into corporate markets through analytics and knowledge services, and driving margin expansion through cost discipline. The appointment of a Chief AI and Data Services Officer in January 2026 signals this is now the company's central growth thesis.</p></div>
+    </div>
+    <div class="card" id="ma-appetite">
+        <h2>M&amp;A Appetite</h2>
+        <div class="narrative-content"><p>Wiley is an active, disciplined acquirer with a clear pattern: divest non-core assets (University Services, Wiley Edge) and redeploy capital into high-margin content and data businesses. The HRForecast and peopleForecast acquisitions prove direct appetite for HR/workforce intelligence. Management has stated they maintain an 'active M&A pipeline targeting high-impact research content,' and the Open Evidence equity stake shows willingness to do creative deal structures beyond full acquisitions. With $126M in free cash flow and a $200M FCF target, they have the firepower.</p></div>
+    </div>
+    <div class="card" id="challenges">
+        <h2>Challenges &amp; Headwinds</h2>
+        <div class="narrative-content"><p>Wiley's Learning segment is in decline (Professional down 5%, Learning EBITDA down 8% YTD), creating urgency to find new content and audience channels. Revenue is declining sequentially while the stock hit a 52-week low of $28.38. The core bet — that AI content monetization can offset traditional publishing declines — is unproven at scale. They need domain-specific, high-engagement content assets (like HR.com's practitioner community) to prove the AI licensing model works beyond academic research.</p></div>
+    </div>
+    <div class="card" id="earnings-quotes">
+        <h2>Key Earnings Quotes</h2>
+        <div class="narrative-content"><p>- <strong>Matthew Kissner</strong> (): "We delivered another strong year of execution as we met or exceeded our financial commitments, drove profitable growth in our core, expanded margins and free cash flow, and extended further into the c"
+- <strong>Matthew Kissner</strong> (): "Our multi-year journey of continuous improvement and innovation is yielding material gains in profitable revenue growth, margin expansion, and cash generation, and we remain steadfast and confident in"
+- <strong>James Flynn</strong> (): "Our submissions were up 19% in FY2025."
+- <strong>Matthew Kissner</strong> (): "We raised our fiscal 2026 adjusted EBITDA margin target range by 150 basis points."
+- <strong>Christopher Caridi</strong> (): "Corporate expenses declined 10% in Q4 FY2025 and 4% in fiscal year 2025; targeted reductions from technology transformation and ongoing efficiency measures."
+- <strong>James Flynn</strong> (): "Our submissions were up 19% in FY2025."
+- <strong>Matt Kissner</strong> (): "We raised our fiscal 2026 adjusted EBITDA margin target range by 150 basis points."
+- <strong>Christopher Caridi</strong> (): "Free cash flow increased 10% to $126 million in fiscal year 2025; reaffirmed $200 million target for the next fiscal year."</p></div>
+    </div>
+    <div class="card" id="verified-contacts">
+        <h2>Verified Contacts</h2>
+        <table>
+        <thead><tr>
+            <th>Name</th><th>Title</th><th>Company</th><th>Status</th><th>Confidence</th><th>LinkedIn</th>
+        </tr></thead>
+        <tbody><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Mahua Guha Thakurta</td>
+            <td>Sr. Director, Corporate Development</td>
+            <td>Wiley</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/mahuathakurta" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Craig Albright</td>
+            <td>EVP &amp; CFO</td>
+            <td>Wiley</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/craig-albright" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Andrew Bilbao</td>
+            <td>Transformational Finance &amp; Corporate Development Lead</td>
+            <td>Wiley</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>MEDIUM</td>
+            <td><a href="https://www.linkedin.com/in/andrewbilbao" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Danish Khan</td>
+            <td>Vice President, Corporate Strategy</td>
+            <td>Wiley</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/khandanish1107" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Rick Tillemans</td>
+            <td>Vice President, Strategic Business Development</td>
+            <td>Wiley</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/rick-tillemans-2923ab2" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Or Skolnik</td>
+            <td>Partner</td>
+            <td>Bain &amp; Company</td>
+            <td><span style="color:#8b949e;font-weight:600;">STALE</span></td>
+            <td>LOW</td>
+            <td><a href="https://linkedin.com/in/orskolnik" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">GPC Maureen Stabile</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td><span style="color:#8b949e;font-weight:600;">STALE</span></td>
+            <td>LOW</td>
+            <td><a href="https://linkedin.com/in/maureenstabile" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr></tbody>
+    </table>
+    </div>
+    <div class="card" id="approach-strategy">
+        <h2>Approach Strategy</h2>
+        
+        <div class="approach-opener">
+            <div class="opener-label">CALL OPENER</div>
+            <p>Matt Kissner said Wiley is extending into the corporate market through AI licensing and knowledge services — we have 2 million HR practitioners generating the kind of engagement and content data that would supercharge that play.</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
+  </div>
+
+</div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
+</body>
+</html>

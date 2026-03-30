@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: Hellman &amp; Friedman | HR.com Ltd</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #30363d;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
+  }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
+  }
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
+  }
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
+  }
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Hellman &amp; Friedman</h1>
+    <div class="subtitle">Prepared for HR.com Ltd</div>
+    <div class="header-meta">
+      <span class='tag'>Type: Platform</span>
+      
+      
+    </div>
+    
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar">
+    <div>
+      <strong>HR.com Ltd</strong> &bull; Debbie McGrath &bull; HR Technology &amp; Media
+      
+    </div>
+    <div>March 29, 2026</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    
+    <div class="card" id="strategic-fit">
+        <h2>Strategic Fit</h2>
+        <div class="narrative-content"><p>HR.com presents a compelling acquisition for Hellman & Friedman, particularly through its 1.92M HR Professional Members, which directly addresses the challenge of 'limited first-party data for ad targeting' by providing rich behavioral data on this vast audience. Additionally, the hr.com Domain offers unparalleled SEO authority, enhancing visibility and organic reach for future HR technology initiatives. With $42.6M in revenue from diverse streams, HR.com aligns perfectly with Hellman & Friedman's strategy to 'own the audience relationship' and capitalize on audience monetization opportunities.</p></div>
+    </div>
+    <div class="card" id="golden-nuggets">
+        <h2>Golden Nuggets -- Cold Call Openers</h2>
+        
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 1 - Jon Cheek</div>
+            <blockquote class="ceo-quote">&ldquo;Compensation management requires both flexibility and control. HRSoft has built a strong foundation designed around structured workflows and auditability. We see opportunity to build on that foundation through continued innovation, including practical AI-enabled capabilities that improve insight and efficiency without compromising accountability.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Jon Cheek mentioned HRSoft needs practical AI capabilities that improve insight — HR.com sits on 2 million HR practitioners&#x27; engagement data that could supercharge that intelligence layer overnight.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Cheek explicitly calls out the need for &#x27;insight and efficiency&#x27; via AI — HR.com&#x27;s 2M+ practitioner community generates exactly the kind of behavioral and sentiment data that makes AI-enabled HR tools smarter. This is a direct bridge to HR.com&#x27;s data and content assets.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 2 - Maitlan Cramer</div>
+            <blockquote class="ceo-quote">&ldquo;HRSoft has established itself as a trusted partner to enterprises navigating increasingly complex compensation environments. HRSoft&#x27;s flexible, low-code architecture, deep domain expertise, and strong customer relationships position the Company exceptionally well to address these evolving demands.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Maitlan Cramer highlighted that deep domain expertise and strong customer relationships are what differentiate HRSoft — HR.com brings both of those at a scale of 2 million practitioners, which could be a strategic accelerant for your HR tech portfolio.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> The phrase &#x27;deep domain expertise and strong customer relationships&#x27; reveals what the investment thesis values — HR.com&#x27;s community of 2M+ practitioners IS domain expertise at scale, and its engagement platform IS customer relationships. This quote frames HR.com as a force multiplier for any HR tech portfolio company.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 3 - Joe Poxson</div>
+            <blockquote class="ceo-quote">&ldquo;We built HRSoft to bring structure, flexibility, and accountability to enterprise compensation. As organizations scale globally and compensation programs grow increasingly complex, that mission becomes even more critical.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Joe Poxson said the mission of bringing structure to enterprise compensation gets more critical as organizations scale globally — HR.com reaches 2 million of those HR leaders and could give your portfolio companies a direct channel to that buyer.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Poxson identifies global scaling complexity as the core problem. HR.com&#x27;s community data provides real-time signal on how enterprises across geographies are actually handling compensation — a distribution and market intelligence channel that&#x27;s expensive to build but available to acquire.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 4 - Hunter Philbrick</div>
+            <blockquote class="ceo-quote">&ldquo;Safe-Guard is a differentiated provider of private label protection products, offering value to dealers, strategic partners and consumers. The business has built an impressive reputation for its high-quality products and service, and we are excited to partner with the talented management team and provide additional firepower to support the company&#x27;s strategic priorities.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Hunter Philbrick talks about providing additional firepower to support portfolio companies&#x27; strategic priorities — HR.com&#x27;s community of 2 million HR practitioners is exactly that kind of firepower for any HR tech investment you&#x27;re building.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> This reveals Hellman &amp; Friedman&#x27;s playbook: they invest behind &#x27;differentiated providers&#x27; and supply &#x27;additional firepower&#x27; for growth. HR.com is exactly that — a differentiated asset (community + data + content) that could provide firepower to any HR tech platform company in their portfolio.</div>
+        </div>
+    </div>
+    <div class="card" id="ceo-vision">
+        <h2>CEO Vision &amp; Strategy</h2>
+        <div class="narrative-content"><p>Hellman & Friedman's HR tech thesis centers on bringing structure, accountability, and AI-enabled intelligence to enterprise HR workflows — particularly compensation. Their portfolio company HRSoft is positioned as an enterprise platform scaling globally, with an explicit roadmap toward AI capabilities that require practitioner data and domain expertise to be effective.</p></div>
+    </div>
+    <div class="card" id="ma-appetite">
+        <h2>M&amp;A Appetite</h2>
+        <div class="narrative-content"><p>Hellman & Friedman is an active, large-scale acquirer comfortable with consortium deals (Zendesk with Permira) and solo plays in specialized verticals (Safe-Guard, HRSoft via Gryphon). They use top-tier advisors (Jefferies, Goldman Sachs, D.A. Davidson) and favor platforms with defensible market positions. The HRSoft acquisition signals explicit appetite for HR technology assets, making this a warm moment to introduce HR.com as either a strategic acquisition target or a partnership accelerant for their existing HR tech holdings.</p></div>
+    </div>
+    <div class="card" id="challenges">
+        <h2>Challenges &amp; Headwinds</h2>
+        <div class="narrative-content"><p>Their portfolio companies face three interlocking challenges: (1) enterprises still rely on manual workflows that create operational risk and limit visibility, (2) compensation environments are growing more complex due to global scale and regulatory pressure, and (3) AI-enabled innovation requires rich practitioner data and domain insight that point solutions don't generate on their own. HR.com's community, content library, and engagement data directly address the data and distribution gaps.</p></div>
+    </div>
+    <div class="card" id="earnings-quotes">
+        <h2>Key Earnings Quotes</h2>
+        <div class="narrative-content"><p>- <strong>Joe Poxson</strong> (): "We built HRSoft to bring structure, flexibility, and accountability to enterprise compensation. As organizations scale globally and compensation programs grow increasingly complex, that mission become"
+- <strong>Jon Cheek</strong> (): "Compensation management requires both flexibility and control. HRSoft has built a strong foundation designed around structured workflows and auditability. We see opportunity to build on that foundatio"
+- <strong>Maitlan Cramer</strong> (): "HRSoft has established itself as a trusted partner to enterprises navigating increasingly complex compensation environments. HRSoft’s flexible, low-code architecture, deep domain expertise, and strong"
+- <strong>Hunter Philbrick</strong> (): "Safe-Guard is a differentiated provider of private label protection products, offering value to dealers, strategic partners and consumers. The business has built an impressive reputation for its high-"</p></div>
+    </div>
+    <div class="card" id="verified-contacts">
+        <h2>Verified Contacts</h2>
+        <table>
+        <thead><tr>
+            <th>Name</th><th>Title</th><th>Company</th><th>Status</th><th>Confidence</th><th>LinkedIn</th>
+        </tr></thead>
+        <tbody><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Guillaume van Moerbeke</td>
+            <td>Director</td>
+            <td>Hellman &amp; Friedman</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/guillaume-van-moerbeke-97757867" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Astor Hermans</td>
+            <td>Principal</td>
+            <td>Hellman &amp; Friedman</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://uk.linkedin.com/in/astor-hermans-89b70767" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Sierra Madden Zhang</td>
+            <td>Operating Associate</td>
+            <td>Hellman &amp; Friedman</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/sierra-madden-zhang-88b863103" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Rachel Stock</td>
+            <td>Former (General Counsel at HGGC)</td>
+            <td>HGGC</td>
+            <td><span style="color:#8b949e;font-weight:600;">STALE</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/posts/richlawson-hggc_thrilled-to-welcome-rachel-stock-from-hellman-activity-7207034872765247488-KwlZ" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Julia Kaufman</td>
+            <td>Chief People Officer</td>
+            <td>Hellman &amp; Friedman</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/julia-kaufman-9015894" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">George Orfanidis</td>
+            <td>Private Equity Associate</td>
+            <td>Hellman &amp; Friedman</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://uk.linkedin.com/in/george-orfanidis" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr></tbody>
+    </table>
+    </div>
+    <div class="card" id="approach-strategy">
+        <h2>Approach Strategy</h2>
+        
+        <div class="approach-opener">
+            <div class="opener-label">CALL OPENER</div>
+            <p>Jon Cheek mentioned HRSoft needs practical AI capabilities that improve insight — HR.com sits on 2 million HR practitioners&#x27; engagement data that could supercharge that intelligence layer overnight.</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
+  </div>
+
+</div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
+</body>
+</html>

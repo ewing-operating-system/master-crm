@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: Greenhouse | HR.com Ltd</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #30363d;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
+  }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
+  }
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
+  }
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
+  }
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>Greenhouse</h1>
+    <div class="subtitle">Prepared for HR.com Ltd</div>
+    <div class="header-meta">
+      <span class='tag'>Type: Platform</span>
+      
+      
+    </div>
+    
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar">
+    <div>
+      <strong>HR.com Ltd</strong> &bull; Debbie McGrath &bull; HR Technology &amp; Media
+      
+    </div>
+    <div>March 29, 2026</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    
+    <div class="card" id="strategic-fit">
+        <h2>Strategic Fit</h2>
+        <div class="narrative-content"><p>Acquiring HR.com would enable Greenhouse to 'own the audience relationship' with access to the largest registered community of HR practitioners globally, comprising 1.92M members. This aligns directly with the challenge of 'limited first-party data for ad targeting,' as HR.com's behavioral data provides rich insights into content consumption and vendor interest signals. Additionally, the MyPeople.ai platform offers a white-label community SaaS solution that can be licensed to enterprises, enhancing Greenhouse's service offerings and revenue streams. With HR.com’s $42.6M revenue model, including lead generation and subscriptions, this acquisition presents a strategic opportunity for immediate monetization and audience engagement.</p></div>
+    </div>
+    <div class="card" id="golden-nuggets">
+        <h2>Golden Nuggets -- Cold Call Openers</h2>
+        
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 1</div>
+            <blockquote class="ceo-quote">&ldquo;We&#x27;re not trying to be the all-singing, all-dancing HR system. I don&#x27;t know how to be kickass at payroll&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Daniel, you&#x27;ve said Greenhouse isn&#x27;t trying to be the all-singing, all-dancing HR system — we represent an asset with 2 million HR practitioners and the community engagement layer you&#x27;d never want to build yourself.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Chait openly admits Greenhouse won&#x27;t build everything in-house. That&#x27;s a direct invitation for partnerships or acquisitions that fill gaps — like community, content, and practitioner engagement, which are exactly what HR.com owns.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 2</div>
+            <blockquote class="ceo-quote">&ldquo;I want to make the case to the customer that you can be 10X better at this stuff by using dedicated software that does a smaller set of things.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>You&#x27;ve talked about being 10X better with dedicated tools — we have an asset with 2M+ practitioners whose engagement data could make Greenhouse&#x27;s talent-matching genuinely 10X smarter.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> The 10X argument depends on depth, not breadth. HR.com&#x27;s deep practitioner data and community engagement is exactly the kind of dedicated, hard-to-replicate asset that makes a &#x27;smaller set of things&#x27; dramatically better — especially for candidate quality and employer brand.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 3 - Greenhouse leadership</div>
+            <blockquote class="ceo-quote">&ldquo;The best antidote to ghost jobs and AI screeners is for job seekers to find quality job referrals&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Your team has said the best antidote to ghost jobs and AI screeners is quality referrals — we represent a 2-million-practitioner HR community that could become exactly that referral layer for Greenhouse customers.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> This is Greenhouse naming the solution to their biggest stated problem — and HR.com&#x27;s 2M-practitioner community IS a quality referral network. It directly connects Greenhouse&#x27;s pain (broken hiring, AI noise) to HR.com&#x27;s asset.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 4</div>
+            <blockquote class="ceo-quote">&ldquo;Our vision is to create a platform that helps companies consistently find the right talent. By using technology to surface the best candidates, reduce risk, and streamline workflows, we&#x27;re helping employers succeed in an environment where every interaction matters.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Daniel, you&#x27;ve said Greenhouse wants to help employers succeed where every interaction matters — we have an asset with behavioral and engagement data on 2M+ HR professionals that could fundamentally change how your platform surfaces the right talent.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Chait says &#x27;every interaction matters&#x27; and wants to &#x27;surface the best candidates.&#x27; HR.com&#x27;s practitioner engagement data and content ecosystem is a signal layer that helps distinguish real candidates from AI-generated noise — the exact problem Greenhouse is trying to solve.</div>
+        </div>
+    </div>
+    <div class="card" id="ceo-vision">
+        <h2>CEO Vision &amp; Strategy</h2>
+        <div class="narrative-content"><p>Chait and Stross are building Greenhouse as a focused, best-of-breed hiring platform — not a monolithic HRIS. Their strategy is to be 10X better at a narrower set of things, which means they need partnerships or acquisitions to fill adjacent capabilities like community, content, and practitioner intelligence. They're explicitly anti-bloat, which makes a bolt-on asset like HR.com architecturally aligned.</p></div>
+    </div>
+    <div class="card" id="ma-appetite">
+        <h2>M&amp;A Appetite</h2>
+        <div class="narrative-content"><p>Greenhouse has demonstrated clear M&A appetite: the Interseller acquisition shows they buy to fill capability gaps (outbound sourcing, CRM). Their $35M Series C was earmarked partly for international expansion and moving upmarket to larger clients — both vectors where HR.com's global practitioner base and enterprise content library add immediate value. With only 10% of business overseas, Greenhouse needs reach they can't build fast enough organically.</p></div>
+    </div>
+    <div class="card" id="challenges">
+        <h2>Challenges &amp; Headwinds</h2>
+        <div class="narrative-content"><p>Greenhouse is fighting a war on multiple fronts: surging application volumes driven by AI resume tools, a white-collar recession flooding pipelines with candidates, rising fraud, and employer fatigue from 'ghost job' backlash. Their own leadership admits AI is making hiring worse, not better. HR.com's practitioner community, engagement data, and content library directly addresses the signal-to-noise problem Greenhouse is trying to solve — quality referrals, verified practitioner identity, and real behavioral data cut through the AI noise.</p></div>
+    </div>
+    <div class="card" id="earnings-quotes">
+        <h2>Key Earnings Quotes</h2>
+        <div class="narrative-content"><p>- <strong>Daniel Chait</strong> (): "We’re not trying to be the all-singing, all-dancing HR system. I don’t know how to be kickass at payroll"
+- <strong>Daniel Chait</strong> (): "I want to make the case to the customer that you can be 10X better at this stuff by using dedicated software that does a smaller set of things."
+- <strong>Daniel Chait</strong> (): "We try to act like real people. There’s a tendency of a lot of people where when you show up at work, you put on your worker personality and leave your real personality at home. I don’t think that doe"
+- <strong>Daniel Chait</strong> (): "Teams face surging applications, AI-driven resumes, rising fraud, and constant budget and operational pressures."
+- <strong>Jon Stross</strong> (): "All the AI stuff isn't actually helping. In some ways, it's exacerbating it."
+- <strong>Jon Stross</strong> (): "Candidates are feeling like they're in an arms race with each other around how many jobs you apply to."
+- <strong>Daniel Chait</strong> (): "Our vision is to create a platform that helps companies consistently find the right talent. By using technology to surface the best candidates, reduce risk, and streamline workflows, we’re helping emp"</p></div>
+    </div>
+    <div class="card" id="verified-contacts">
+        <h2>Verified Contacts</h2>
+        <table>
+        <thead><tr>
+            <th>Name</th><th>Title</th><th>Company</th><th>Status</th><th>Confidence</th><th>LinkedIn</th>
+        </tr></thead>
+        <tbody><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Daniel Chait</td>
+            <td>CEO</td>
+            <td>Greenhouse Software</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/dhchait" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Will Leahy</td>
+            <td>VP, People</td>
+            <td>Greenhouse Software</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/wleahy" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Chris Gannett</td>
+            <td>Head of Strategic &amp; Corporate Development</td>
+            <td>Greenhouse</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>MEDIUM</td>
+            <td><a href="https://www.linkedin.com/in/chrisgannett" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr></tbody>
+    </table>
+    </div>
+    <div class="card" id="approach-strategy">
+        <h2>Approach Strategy</h2>
+        
+        <div class="approach-opener">
+            <div class="opener-label">CALL OPENER</div>
+            <p>Daniel, you&#x27;ve said Greenhouse isn&#x27;t trying to be the all-singing, all-dancing HR system — we represent an asset with 2 million HR practitioners and the community engagement layer you&#x27;d never want to build yourself.</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
+  </div>
+
+</div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
+</body>
+</html>

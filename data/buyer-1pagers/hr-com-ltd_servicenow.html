@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dossier: ServiceNow | HR.com Ltd</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap');
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white; padding: 40px 48px 32px; position: relative; overflow: hidden;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #e94560, #f5a623, #e94560) 1;
+  }
+  .header::after {
+    content: ''; position: absolute; top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-label {
+    text-transform: uppercase; font-size: 11px; letter-spacing: 3px;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px; font-weight: 500;
+  }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; color: #f0f6fc; }
+  .header .subtitle { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .header-meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+  .header-meta .tag {
+    font-size: 12px; padding: 4px 12px; border-radius: 12px;
+    background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+  }
+  .score-badge {
+    position: absolute; top: 40px; right: 48px; width: 72px; height: 72px;
+    border-radius: 50%; background: #30363d;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .score-badge .score-num { font-size: 28px; font-weight: 700; line-height: 1; color: white; }
+  .score-badge .score-label { font-size: 8px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; margin-top: 2px; color: white; }
+
+  /* CONTEXT BAR */
+  .context-bar {
+    background: #161b22; border-bottom: 1px solid #30363d; padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: #8b949e;
+  }
+  .context-bar strong { color: #c9d1d9; }
+
+  /* CONTENT */
+  .content { padding: 24px 48px 48px; }
+
+  /* CARDS */
+  .card {
+    background: #161b22; border: 1px solid #30363d; border-radius: 10px;
+    padding: 24px; margin-bottom: 24px;
+  }
+  .card h2 {
+    font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #58a6ff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .card strong { color: #f0f6fc; }
+
+  /* NARRATIVE CONTENT */
+  .narrative-content p { margin-bottom: 12px; font-size: 14px; line-height: 1.75; color: #c9d1d9; }
+  .narrative-content blockquote {
+    border-left: 3px solid #58a6ff; padding-left: 16px; margin: 12px 0;
+    font-style: italic; color: #8b949e;
+  }
+
+  /* URGENCY CARD (competitive moat) */
+  .urgency-card {
+    border: 2px solid #e74c3c !important;
+    background: linear-gradient(135deg, #161b22, #1a1015) !important;
+  }
+  .urgency-card h2 { color: #e74c3c !important; border-bottom-color: #e74c3c40 !important; }
+  .urgency-card::before {
+    content: 'URGENT'; position: absolute; top: -1px; right: 24px;
+    background: #e74c3c; color: white; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; padding: 4px 12px; border-radius: 0 0 6px 6px;
+  }
+  .urgency-card { position: relative; }
+
+  /* GOLDEN NUGGET CARDS */
+  .nugget-card {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 8px;
+    padding: 20px; margin-bottom: 16px; border-left: 4px solid #f5a623;
+  }
+  .nugget-header {
+    font-size: 13px; font-weight: 700; color: #f5a623; margin-bottom: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .ceo-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic; font-size: 15px; line-height: 1.7;
+    color: #e6e6e6; border-left: 3px solid #58a6ff;
+    padding: 12px 0 12px 20px; margin: 12px 0;
+  }
+  .nugget-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 6px;
+    padding: 14px 18px; margin: 12px 0;
+  }
+  .nugget-opener p { color: #a3e4b8 !important; margin: 0 !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .opener-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    color: #27ae60; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .nugget-why {
+    font-size: 12.5px; color: #8b949e; margin-top: 10px; line-height: 1.6;
+    padding-top: 10px; border-top: 1px solid #21262d;
+  }
+
+  /* EARNINGS QUOTES */
+  .earnings-quote {
+    margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #21262d;
+  }
+  .earnings-quote:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .quote-attribution {
+    font-size: 12px; color: #8b949e; margin-top: 8px; font-weight: 500;
+  }
+
+  /* CONTACTS TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 12px; background: #0d1117;
+    font-weight: 600; color: #8b949e; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d;
+  }
+  td { padding: 10px 12px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+  tr:hover td { background: #1c2128; }
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* APPROACH */
+  .approach-opener {
+    background: #0b2e1a; border: 1px solid #27ae60; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  .approach-opener p { color: #a3e4b8 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .outreach-step {
+    background: #0d1117; border: 1px solid #21262d; border-radius: 6px;
+    padding: 14px 18px; margin-bottom: 10px;
+  }
+  .step-label {
+    font-size: 11px; font-weight: 700; color: #58a6ff; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 24px 48px; color: #484f58; font-size: 12px;
+    border-top: 1px solid #21262d; margin-top: 8px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header { padding: 24px; }
+    .content { padding: 16px; }
+    .context-bar { padding: 12px 24px; }
+    .score-badge { top: 24px; right: 24px; width: 56px; height: 56px; }
+    .score-badge .score-num { font-size: 22px; }
+    .card { padding: 16px; }
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page { max-width: 100%; }
+    .header { background: #1a1a2e !important; }
+    .card { background: white; border: 1px solid #ddd; break-inside: avoid; }
+    .card h2 { color: #0f3460; }
+    .card p { color: #333; }
+    .urgency-card { border-color: #c0392b !important; background: #fff5f5 !important; }
+    .nugget-opener { background: #f0fff4; border-color: #27ae60; }
+    .nugget-opener p { color: #166534 !important; }
+    .ceo-quote { color: #333; }
+    .narrative-content p { color: #333; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Buyer Dossier</div>
+    <h1>ServiceNow</h1>
+    <div class="subtitle">Prepared for HR.com Ltd</div>
+    <div class="header-meta">
+      <span class='tag'>Type: Platform</span>
+      
+      
+    </div>
+    
+  </div>
+
+  <!-- CONTEXT BAR -->
+  <div class="context-bar">
+    <div>
+      <strong>HR.com Ltd</strong> &bull; Debbie McGrath &bull; HR Technology &amp; Media
+      
+    </div>
+    <div>March 29, 2026</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    
+    <div class="card" id="strategic-fit">
+        <h2>Strategic Fit</h2>
+        <div class="narrative-content"><p>ServiceNow's strategic expansion into HR technology requires owning the definitive HR professional audience and data ecosystem, which HR.com delivers with its 1.92M HR Professional Members and Behavioral Data asset. The acquisition would provide immediate category authority through the hr.com domain's SEO power and a monetized platform via the $42.6M Revenue stream from subscriptions, advertising, and the Lead Generation Marketplace. This move establishes ServiceNow as the central hub for HR practitioners, enabling cross-sell opportunities, enriched product intelligence, and a scalable community engine through the licensable MyPeople.ai platform.</p></div>
+    </div>
+    <div class="card" id="golden-nuggets">
+        <h2>Golden Nuggets -- Cold Call Openers</h2>
+        
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 1 - Management</div>
+            <blockquote class="ceo-quote">&ldquo;AI product growth -- ITSM and HR+ net new ACV both doubled quarter over quarter.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Your HR+ net-new ACV doubled last quarter — we represent 2 million HR practitioners who are exactly the buyers you need to keep that trajectory going.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> HR+ ACV doubling QoQ proves ServiceNow is aggressively investing in HR workflows right now. HR.com&#x27;s 2M+ practitioners represent a massive distribution channel and data asset to accelerate that growth vector.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 2</div>
+            <blockquote class="ceo-quote">&ldquo;HR Service Delivery grew 40% YoY.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Your HR Service Delivery business grew 40% last year — HR.com sits at the center of 2 million HR practitioners who make those buying decisions, and we should talk about how to keep that number climbing.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> 40% YoY growth in HR Service Delivery shows this is a breakout category for ServiceNow, but sustaining that growth requires deeper practitioner relationships and community engagement — exactly what HR.com provides at scale.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 3</div>
+            <blockquote class="ceo-quote">&ldquo;Employee workflows were in 13 of the Top 20 with nine deals over $1 million.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>Bill McDermott highlighted employee workflows in 13 of your top 20 deals — HR.com has direct relationships with the 2 million HR leaders who greenlight those purchases.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Employee workflows are already a top-20-deal staple, meaning ServiceNow&#x27;s enterprise sales motion depends on HR buyer conviction. HR.com&#x27;s community data and engagement platform can shorten those sales cycles and deepen practitioner adoption.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 4</div>
+            <blockquote class="ceo-quote">&ldquo;ServiceNow intends to reinvent every workflow, in every company, in every industry with GenAI at the core.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>You&#x27;ve said you want to reinvent every workflow with GenAI — HR.com owns the community where 2 million HR practitioners learn, certify, and choose their workflow platforms.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> Reinventing &#x27;every workflow&#x27; includes HR — but ServiceNow lacks a captive HR practitioner community. HR.com&#x27;s content library, certification programs, and engagement data would give ServiceNow an owned channel into the HR buyer, not just a product sold through IT.</div>
+        </div>
+        <div class="nugget-card">
+            <div class="nugget-header">Nugget 5 - Management</div>
+            <blockquote class="ceo-quote">&ldquo;ServiceNow and SENAI-SP, Latin America&#x27;s largest professional education institution, launched a statewide AI skills program to equip Brazilians with technical skills in AI, workflow automation, and low-code development.&rdquo;</blockquote>
+            <div class="nugget-opener"><div class="opener-label">OPENER</div><p>You partnered with SENAI-SP to build AI-ready workers in Brazil — HR.com already trains and certifies 2 million HR professionals globally, and we could do the same for your HR platform adoption.</p></div>
+            <div class="nugget-why"><strong>Why it works:</strong> ServiceNow is already acquiring education/skills partnerships to build workforce pipelines. HR.com runs the largest HR-specific education and certification platform globally — a natural fit for ServiceNow&#x27;s HR workflow adoption strategy.</div>
+        </div>
+    </div>
+    <div class="card" id="ceo-vision">
+        <h2>CEO Vision &amp; Strategy</h2>
+        <div class="narrative-content"><p>McDermott positions ServiceNow as the 'AI control tower for business reinvention' — a full-stack agentic operating system that reinvents every enterprise workflow with GenAI at the core. The company is targeting $15B+ revenue by 2026 and sees itself as the defining enterprise software company of the 21st century, with 1,000+ customers already on the agentic AI journey.</p></div>
+    </div>
+    <div class="card" id="ma-appetite">
+        <h2>M&amp;A Appetite</h2>
+        <div class="narrative-content"><p>ServiceNow is an active, disciplined acquirer focused on tuck-in acquisitions for tech and talent rather than large transformative deals. Recent moves include Logik.ai (CPQ), Moveworks (AI search/self-service), Raytion (knowledge management), 4Industry (connected workers), and strategic investments in regional partners (AoraNow in Japan, inMorphis in India). Post-Armis, they've said no large security gaps remain. The pattern is clear: they acquire capabilities that accelerate platform adoption in specific workflow categories. HR.com — with its practitioner community, content, and engagement data — fits the tuck-in profile for accelerating their fast-growing HR Service Delivery category.</p></div>
+    </div>
+    <div class="card" id="challenges">
+        <h2>Challenges &amp; Headwinds</h2>
+        <div class="narrative-content"><p>ServiceNow faces macro headwinds including U.S. federal spending uncertainty, geopolitical tensions, and a 200-basis-point renewal cohort headwind. Gross margin pressure from hyperscaler and AI infrastructure investments adds cost concerns. Most critically for HR.com's pitch: ServiceNow's HR workflows are growing fast (40% YoY, ACV doubling) but the company lacks an owned HR practitioner community — they're selling HR tools through IT buyers rather than directly engaging the 2M+ HR professionals who influence adoption and renewal decisions.</p></div>
+    </div>
+    <div class="card" id="earnings-quotes">
+        <h2>Key Earnings Quotes</h2>
+        <div class="narrative-content"><p>- <strong>Bill McDermott</strong> (): "Equinix is deploying Now Assist AI for HR workflows, aiming to increase agent productivity by 30%."
+- <strong>Bill McDermott</strong> (): "Hitachi Energy is using case summarization with Now Assist for ITSM to resolve cases faster, saving millions."
+- <strong>Bill McDermott</strong> (): "ServiceNow at IBM are combining the power of the Now Platform with Watson X to increase productivity for IBM's employees, customers, and partners."
+- <strong>Bill McDermott</strong> (): "BNY Mellon and ServiceNow are exploring the utilization of AI and other leading technologies and IT service management helping to unlock additional value for the bank and its clients."
+- <strong>Bill McDermott</strong> (): "Suzuki, Tokyo Gas i Net, ANA Systems are all top deals signed in Q1."
+- <strong>William R. McDermott</strong> (): "ServiceNow intends to reinvent every workflow, in every company, in every industry with GenAI at the core."
+- <strong>William R. McDermott</strong> (): "Our relevance as the AI platform for business transformation remains stronger than ever as CEOs are looking for new vectors of growth, simplification, and digitization."
+- <strong>Gina Mastantuono</strong> (): "Q2 was another fantastic quarter with NNACV and GenAI contributions exceeding expectations, including 11 deals greater than $1 million in Q2."</p></div>
+    </div>
+    <div class="card" id="verified-contacts">
+        <h2>Verified Contacts</h2>
+        <table>
+        <thead><tr>
+            <th>Name</th><th>Title</th><th>Company</th><th>Status</th><th>Confidence</th><th>LinkedIn</th>
+        </tr></thead>
+        <tbody><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Philip Kirk</td>
+            <td>SVP Corporate &amp; Business Development</td>
+            <td>ServiceNow</td>
+            <td><span style="color:#27ae60;font-weight:600;">VERIFIED</span></td>
+            <td>HIGH</td>
+            <td><a href="https://www.linkedin.com/in/philipjkirk" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Huidong Liang</td>
+            <td>Corporate Development Manager</td>
+            <td>ServiceNow</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/huidong-liang-58568236" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr><tr>
+            <td style="font-weight:600;color:#f0f6fc;">Lawrence Rosen</td>
+            <td>Director, Corporate Development, M&amp;A Integration</td>
+            <td>ServiceNow</td>
+            <td><span style="color:#f39c12;font-weight:600;">NEW</span></td>
+            <td>HIGH</td>
+            <td><a href="https://linkedin.com/in/lawrencecrosen" target="_blank" style="color:#58a6ff;">LinkedIn</a></td>
+        </tr></tbody>
+    </table>
+    </div>
+    <div class="card" id="approach-strategy">
+        <h2>Approach Strategy</h2>
+        
+        <div class="approach-opener">
+            <div class="opener-label">CALL OPENER</div>
+            <p>Your HR+ net-new ACV doubled last quarter — we represent 2 million HR practitioners who are exactly the buyers you need to keep that trajectory going.</p>
+        </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Generated March 29, 2026 &bull; Next Chapter M&A Advisory &bull; Confidential &bull; Internal Use Only
+  </div>
+
+</div>
+
+<!-- WIDGETS -->
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
+
+</body>
+</html>
