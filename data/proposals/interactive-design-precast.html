@@ -377,6 +377,19 @@ input[type="range"]::-moz-range-thumb {
 .lever-positive .lever-icon { color: var(--green); background: rgba(63,185,80,0.15); }
 .lever-redflag .lever-icon { color: var(--red); background: rgba(248,81,73,0.15); }
 .lever-name { font-weight: 600; font-size: 14px; color: var(--text-heading); margin-bottom: 4px; }
+
+.lever-mult { 
+    display: inline-block; 
+    padding: 2px 8px; 
+    border-radius: 8px; 
+    font-size: 11px; 
+    font-weight: 700; 
+    margin-left: 8px; 
+    vertical-align: middle;
+}
+.lever-positive .lever-mult { background: rgba(63,185,80,0.2); color: #3fb950; }
+.lever-opportunity .lever-mult { background: rgba(210,153,34,0.2); color: #d29921; }
+
 .lever-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
 .fee-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
 .fee-card {
@@ -750,35 +763,35 @@ input[type="range"]::-moz-range-thumb {
                 <div class="lever-card lever-positive">
                     <div class="lever-icon">&#9650;</div>
                     <div>
-                        <div class="lever-name">Gulf Coast / Southeast Footprint</div>
+                        <div class="lever-name">Gulf Coast / Southeast Footprint <span class="lever-mult">+0.5x–1.5x</span></div>
                         <div class="lever-desc">Targets within the Houston-to-Tallahassee corridor align with DPPI's existing logistics network and can be serviced from Gulfport or Arnaudville plants.</div>
                     </div>
                 </div>
                 <div class="lever-card lever-positive">
                     <div class="lever-icon">&#9650;</div>
                     <div>
-                        <div class="lever-name">Pipe &amp; Infrastructure Product Lines</div>
+                        <div class="lever-name">Pipe &amp; Infrastructure Product Lines <span class="lever-mult">+0.5x–1.5x</span></div>
                         <div class="lever-desc">Targets producing RCP, RCB, manholes, or stormwater products create immediate cross-sell opportunities and shared raw material purchasing leverage.</div>
                     </div>
                 </div>
                 <div class="lever-card lever-positive">
                     <div class="lever-icon">&#9650;</div>
                     <div>
-                        <div class="lever-name">Retiring Owner / Succession Gap</div>
+                        <div class="lever-name">Retiring Owner / Succession Gap <span class="lever-mult">+0.5x–1.5x</span></div>
                         <div class="lever-desc">Owners approaching retirement without a succession plan are the most motivated sellers &mdash; and most likely to accept operator-to-operator deal structures.</div>
                     </div>
                 </div>
                 <div class="lever-card lever-positive">
                     <div class="lever-icon">&#9650;</div>
                     <div>
-                        <div class="lever-name">Municipal &amp; DOT Contract Base</div>
+                        <div class="lever-name">Municipal &amp; DOT Contract Base <span class="lever-mult">+0.5x–1.5x</span></div>
                         <div class="lever-desc">Pre-qualified vendor relationships with state DOTs and municipal utilities represent years of qualification effort and provide predictable project pipelines.</div>
                     </div>
                 </div>
                 <div class="lever-card lever-positive">
                     <div class="lever-icon">&#9650;</div>
                     <div>
-                        <div class="lever-name">Custom Design-Build Capability</div>
+                        <div class="lever-name">Custom Design-Build Capability <span class="lever-mult">+0.5x–1.5x</span></div>
                         <div class="lever-desc">Targets with engineering teams that can handle custom precast work complement DPPI's own design-build strengths and expand the combined project scope.</div>
                     </div>
                 </div>
@@ -788,35 +801,35 @@ input[type="range"]::-moz-range-thumb {
                 <div class="lever-card lever-redflag">
                     <div class="lever-icon">&#9660;</div>
                     <div>
-                        <div class="lever-name">Hurricane / Flood Zone Exposure</div>
+                        <div class="lever-name">Hurricane / Flood Zone Exposure <span class="lever-mult">+0.5x–1.5x</span></div>
                         <div class="lever-desc">Gulf Coast plants in unmitigated flood zones carry catastrophic risk &mdash; insurance costs and production downtime from storms can erase years of profit.</div>
                     </div>
                 </div>
                 <div class="lever-card lever-redflag">
                     <div class="lever-icon">&#9660;</div>
                     <div>
-                        <div class="lever-name">Single-Customer Concentration</div>
+                        <div class="lever-name">Single-Customer Concentration <span class="lever-mult">+0.25x-1.0x EBITDA</span></div>
                         <div class="lever-desc">If one contractor or municipality represents &gt;30% of revenue, the business carries significant key-customer risk that could vaporize post-acquisition.</div>
                     </div>
                 </div>
                 <div class="lever-card lever-redflag">
                     <div class="lever-icon">&#9660;</div>
                     <div>
-                        <div class="lever-name">Owner-Dependent Operations</div>
+                        <div class="lever-name">Owner-Dependent Operations <span class="lever-mult">+0.5x–1.5x</span></div>
                         <div class="lever-desc">If the owner handles estimating, sales, and production management personally, the business cannot function without them during the transition period.</div>
                     </div>
                 </div>
                 <div class="lever-card lever-redflag">
                     <div class="lever-icon">&#9660;</div>
                     <div>
-                        <div class="lever-name">Aging Forms &amp; Batch Equipment</div>
+                        <div class="lever-name">Aging Forms &amp; Batch Equipment <span class="lever-mult">+0.5x–1.5x</span></div>
                         <div class="lever-desc">Deteriorating forms and outdated batch plants require immediate capital injection post-close &mdash; $500K-$2M in hidden capex that compresses deal value.</div>
                     </div>
                 </div>
                 <div class="lever-card lever-redflag">
                     <div class="lever-icon">&#9660;</div>
                     <div>
-                        <div class="lever-name">Environmental Compliance Issues</div>
+                        <div class="lever-name">Environmental Compliance Issues <span class="lever-mult">+0.5x–1.5x</span></div>
                         <div class="lever-desc">Unresolved EPA or state environmental violations at production sites create hidden liabilities that can exceed the purchase price in remediation costs.</div>
                     </div>
                 </div>

@@ -382,6 +382,19 @@ input[type="range"]::-moz-range-thumb {
 .lever-positive .lever-icon { color: var(--green); background: rgba(63,185,80,0.15); }
 .lever-redflag .lever-icon { color: var(--red); background: rgba(248,81,73,0.15); }
 .lever-name { font-weight: 600; font-size: 14px; color: var(--text-heading); margin-bottom: 4px; }
+
+.lever-mult { 
+    display: inline-block; 
+    padding: 2px 8px; 
+    border-radius: 8px; 
+    font-size: 11px; 
+    font-weight: 700; 
+    margin-left: 8px; 
+    vertical-align: middle;
+}
+.lever-positive .lever-mult { background: rgba(63,185,80,0.2); color: #3fb950; }
+.lever-opportunity .lever-mult { background: rgba(210,153,34,0.2); color: #d29921; }
+
 .lever-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
 /* Fee structure */
 .fee-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
@@ -756,35 +769,35 @@ input[type="range"]::-moz-range-thumb {
                 <div class="lever-card lever-positive">
                     <div class="lever-icon">&#9650;</div>
                     <div>
-                        <div class="lever-name">Multi-Generational Family Ownership</div>
+                        <div class="lever-name">Multi-Generational Family Ownership <span class="lever-mult">+0.5x–1.5x</span></div>
                         <div class="lever-desc">2nd or 3rd generation owners often have deep customer relationships, stable workforces, and strong community reputations that transfer with the business.</div>
                     </div>
                 </div>
                 <div class="lever-card lever-positive">
                     <div class="lever-icon">&#9650;</div>
                     <div>
-                        <div class="lever-name">Overlapping Product Lines</div>
+                        <div class="lever-name">Overlapping Product Lines <span class="lever-mult">+0.5x–1.5x</span></div>
                         <div class="lever-desc">Targets producing septic tanks, manholes, retaining walls, or agricultural products can immediately cross-sell through Wieser's existing distribution and customer base.</div>
                     </div>
                 </div>
                 <div class="lever-card lever-positive">
                     <div class="lever-icon">&#9650;</div>
                     <div>
-                        <div class="lever-name">Geographic Gap Fill</div>
+                        <div class="lever-name">Geographic Gap Fill <span class="lever-mult">+0.5x–1.5x</span></div>
                         <div class="lever-desc">Locations that expand Wieser's Upper Midwest footprint into underserved territory reduce freight costs and unlock new municipal/DOT contracts.</div>
                     </div>
                 </div>
                 <div class="lever-card lever-positive">
                     <div class="lever-icon">&#9650;</div>
                     <div>
-                        <div class="lever-name">Established DOT &amp; Municipal Relationships</div>
+                        <div class="lever-name">Established DOT &amp; Municipal Relationships <span class="lever-mult">+0.5x–1.5x</span></div>
                         <div class="lever-desc">Pre-approved vendor status with state DOTs and municipalities represents years of qualification work that would otherwise take 3-5 years to replicate.</div>
                     </div>
                 </div>
                 <div class="lever-card lever-positive">
                     <div class="lever-icon">&#9650;</div>
                     <div>
-                        <div class="lever-name">Modern Production Equipment</div>
+                        <div class="lever-name">Modern Production Equipment <span class="lever-mult">+0.5x–1.5x</span></div>
                         <div class="lever-desc">Targets with recently upgraded batch plants, forms, and delivery fleets reduce post-acquisition capex requirements and accelerate integration timelines.</div>
                     </div>
                 </div>
@@ -794,35 +807,35 @@ input[type="range"]::-moz-range-thumb {
                 <div class="lever-card lever-redflag">
                     <div class="lever-icon">&#9660;</div>
                     <div>
-                        <div class="lever-name">Single-Customer Concentration</div>
+                        <div class="lever-name">Single-Customer Concentration <span class="lever-mult">+0.25x-1.0x EBITDA</span></div>
                         <div class="lever-desc">If one contractor or municipality represents &gt;30% of revenue, the business carries significant key-customer risk that could vaporize post-acquisition.</div>
                     </div>
                 </div>
                 <div class="lever-card lever-redflag">
                     <div class="lever-icon">&#9660;</div>
                     <div>
-                        <div class="lever-name">Environmental Compliance Issues</div>
+                        <div class="lever-name">Environmental Compliance Issues <span class="lever-mult">+0.5x–1.5x</span></div>
                         <div class="lever-desc">Unresolved EPA or state environmental violations at production sites create hidden liabilities that can exceed the purchase price in remediation costs.</div>
                     </div>
                 </div>
                 <div class="lever-card lever-redflag">
                     <div class="lever-icon">&#9660;</div>
                     <div>
-                        <div class="lever-name">Owner-Dependent Operations</div>
+                        <div class="lever-name">Owner-Dependent Operations <span class="lever-mult">+0.5x–1.5x</span></div>
                         <div class="lever-desc">If the owner is the primary estimator, salesperson, and production manager, the business cannot operate without them &mdash; creating massive transition risk.</div>
                     </div>
                 </div>
                 <div class="lever-card lever-redflag">
                     <div class="lever-icon">&#9660;</div>
                     <div>
-                        <div class="lever-name">Deferred Equipment Maintenance</div>
+                        <div class="lever-name">Deferred Equipment Maintenance <span class="lever-mult">+0.5x–1.5x</span></div>
                         <div class="lever-desc">Aging batch plants, deteriorating forms, and unreliable delivery trucks signal years of underinvestment that will require immediate capital injection post-close.</div>
                     </div>
                 </div>
                 <div class="lever-card lever-redflag">
                     <div class="lever-icon">&#9660;</div>
                     <div>
-                        <div class="lever-name">Workforce Instability</div>
+                        <div class="lever-name">Workforce Instability <span class="lever-mult">+0.5x–1.5x</span></div>
                         <div class="lever-desc">High turnover in skilled positions (form setters, batch operators, CDL drivers) indicates cultural or compensation issues that will persist under new ownership.</div>
                     </div>
                 </div>
