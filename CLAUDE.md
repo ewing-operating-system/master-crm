@@ -71,17 +71,32 @@ This script:
 
 **A buyer scores 8 (HIGH) ONLY if they have a confirmed prior acquisition in the same or adjacent vertical as the seller.**
 
-For a home services / commercial services seller, adjacent verticals = cleaning, restoration, floor care, janitorial, facility services, pest, HVAC, plumbing, or home services roll-ups.
+This rule applies universally to every deal. The top of every buyer list must be bona fide acquirers — companies that have actually written checks in this space.
 
 | Score | Confidence | Meaning |
 |-------|-----------|---------|
-| 8 | HIGH | Bona fide acquirer — confirmed deal in cleaning/restoration/floor/facility vertical |
-| 6 | MEDIUM | Plausible buyer — operates in adjacent space but no confirmed acquisition in this vertical |
-| 4 | LOW | Weak fit — wrong vertical, franchise system that doesn't acquire operators, or too small |
+| 8 | HIGH | Bona fide acquirer — confirmed deal in the seller's vertical or directly adjacent |
+| 6 | MEDIUM | Plausible buyer — operates in adjacent space but no confirmed acquisition on record |
+| 4 | LOW | Weak fit — wrong vertical, pure VC (invests but doesn't acquire), advisory firm, or too small |
 
-**Rationale:** The top of the buyer list must be actionable. Buyers who have already executed deals in the vertical are the ones most likely to understand the asset, move quickly, and close. Scoring 8 for "they could theoretically buy this" inflates the list and wastes outreach capacity.
+**Adjacent vertical definitions by seller type:**
+- **Floor care / cleaning / restoration:** cleaning, restoration, janitorial, facility services, pest, home services roll-ups
+- **HVAC / mechanical:** HVAC, plumbing, electrical, home services, building services, commercial mechanical
+- **Water treatment:** water treatment, purification, softening, water infrastructure, water utilities, water technology
+- **HR tech / B2B media:** HCM, payroll, talent management, recruiting, L&D platforms, B2B HR media/events
+- **Precast concrete / building products:** precast, concrete manufacturing, infrastructure materials, pipe, building products
+- **Any vertical:** PE firms count as HIGH only if they have a confirmed portfolio company OR completed deal in the seller's vertical — generalist PE without vertical evidence = MEDIUM
 
-When in doubt, score 6 and upgrade to 8 only after acquisition evidence is confirmed via Exa or primary source.
+**How to apply:**
+1. For each buyer, ask: "Can I name a specific company they acquired in this vertical?"
+2. YES with a named deal → HIGH/8
+3. YES but vague / unconfirmed → MEDIUM/6
+4. NO → MEDIUM/6 at most; LOW/4 if clearly wrong vertical or no acquisition capacity
+5. Never score above 8. Never use float scores (8.4, 9, 10) — round to 4, 6, or 8.
+
+**Rationale:** The top of every buyer list must be actionable. Buyers who have already closed deals in the vertical understand the asset, move faster, and have internal approval to buy. Scoring 8 for "they could theoretically buy this" inflates the list and wastes outreach capacity.
+
+When in doubt, score 6. Upgrade to 8 only after acquisition evidence is confirmed via Exa or primary source. Use `buyer_acquisition_history` field to store the evidence.
 
 Known proposal IDs:
 - HR.com Ltd: `63642786-ab16-456d-bac3-8f277f36ddc5` → prefix `hr-com-ltd`
