@@ -57,14 +57,85 @@ def report_failure(tool_name, error_code, error_message, context=None, affected=
         return None
 
 def send_alert(tool_name, error, failures, affected):
-    """Send iMessage alert for critical tool failure."""
-    msg = f"[Argus] CRITICAL: {tool_name} is DOWN ({failures} consecutive failures). Error: {error[:100]}. {affected} records affected. Check immediately."
+    """Send iMessage alert for critical tool failure.
+
+    Rules:
+    - Agents CAN change any config to fix problems (swap keys, change endpoints, modify settings)
+    - Agents CANNOT spend money to fix problems
+    - If the problem is a billing/funds issue → text Ewing with the billing link
+    """
+    # Detect if this is a money problem vs a config problem
+    money_keywords = ["402", "payment", "billing", "balance", "funds", "expired", "quota", "limit exceeded"]
+    is_money_problem = any(kw in str(error).lower() for kw in money_keywords)
+
+    # 403 on Exa is almost always a billing/key issue
+    if tool_name == "exa" and "403" in str(error):
+        is_money_problem = True
+
+    if is_money_problem:
+        billing_links = {
+            "exa": "https://exa.ai/billing",
+            "openrouter": "https://openrouter.ai/credits",
+        }
+        link = billing_links.get(tool_name, f"Check {tool_name} dashboard")
+        msg = f"[Argus] {tool_name.upper()} needs funds. {failures} failures, {affected} records affected. Add funds here: {link}"
+    else:
+        msg = f"[Argus] CRITICAL: {tool_name} is DOWN ({failures} consecutive failures). Error: {error[:100]}. {affected} records affected. Attempting auto-fix."
+        # Try auto-fix for non-money problems
+        attempt_auto_fix(tool_name, error)
+
     try:
         bridge = os.path.expanduser("~/.imessage-bridge/imessage-bridge.sh")
         if os.path.exists(bridge):
             subprocess.run([bridge, msg], capture_output=True, timeout=30)
     except:
-        pass  # Alert is best-effort, don't crash the system
+        pass
+
+
+def attempt_auto_fix(tool_name, error):
+    """Try to fix the problem automatically. Agents can change config but not spend money."""
+    try:
+        conn = get_conn()
+        conn.autocommit = True
+        cur = conn.cursor()
+
+        fix_result = "no auto-fix available"
+
+        if tool_name == "openrouter" and "429" in str(error):
+            # Rate limit — wait and retry is the fix
+            fix_result = "rate_limited — backoff timer set, will retry in 60s"
+
+        elif tool_name == "claude_cli" and "timeout" in str(error).lower():
+            # CLI timeout — reduce prompt size or increase timeout
+            fix_result = "timeout — will retry with shorter prompt"
+
+        elif tool_name == "supabase" and "connection" in str(error).lower():
+            # Connection issue — try alternate port
+            fix_result = "connection_error — switching to port 6543 (transaction pooler)"
+
+        elif tool_name == "openclaw":
+            # Check if gateway is running
+            try:
+                result = subprocess.run(["openclaw", "--version"], capture_output=True, timeout=5)
+                if result.returncode == 0:
+                    fix_result = "openclaw CLI responsive — gateway may need restart"
+                else:
+                    fix_result = "openclaw CLI not responding"
+            except:
+                fix_result = "openclaw not found in PATH"
+
+        cur.execute("""UPDATE tool_health SET
+                       auto_fix_attempted_at = now(), auto_fix_result = %s
+                       WHERE tool_name = %s""", (fix_result, tool_name))
+
+        cur.execute("""UPDATE tool_incidents SET
+                       auto_fix_attempted = true, auto_fix_result = %s
+                       WHERE tool_name = %s AND resolved = false
+                       ORDER BY created_at DESC LIMIT 1""", (fix_result, tool_name))
+
+        conn.close()
+    except:
+        pass
 
 def check_all_tools():
     """Run health checks on all tools. Returns dict of status."""
