@@ -6,127 +6,549 @@
 <title>Design Precast & Pipe, Inc. — Company Hub</title>
 <meta name="company-name" content="Design Precast & Pipe, Inc.">
 <meta name="page-type" content="hub">
+<meta name="deal-side" content="buy_side">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f5f6fa; color: #1a1a2e; }
-  .top { background: linear-gradient(135deg, #16213e, #1a5276); color: white; padding: 25px 30px; position: sticky; top: 0; z-index: 100; }
-  .top h1 { font-size: 24px; }
-  .top .meta { font-size: 13px; opacity: 0.8; margin-top: 3px; }
-  .top .badges { margin-top: 8px; }
-  .badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; margin-right: 6px; }
+  /* === RESET === */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /* === BASE === */
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* === HEADER === */
+  .page-header {
+    background: linear-gradient(135deg, #161b22 0%, #0d1117 50%, #161b22 100%);
+    border-bottom: 1px solid #30363d;
+    padding: 28px 32px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .header-left h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #f0f6fc;
+    letter-spacing: -0.3px;
+  }
+  .header-left .subtitle {
+    font-size: 14px;
+    color: #8b949e;
+    margin-top: 4px;
+  }
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .deal-badge {
+    display: inline-block;
+    padding: 5px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #f0f6fc;
+    background: #58a6ff;
+    text-transform: uppercase;
+  }
+  .badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #f0f6fc;
+  }
   .badge.green { background: #27ae60; }
-  .badge.orange { background: #f39c12; }
-  .badge.blue { background: #3498db; }
+  .badge.orange { background: #f39c12; color: #1a1a2e; }
+  .badge.blue { background: #1f6feb; }
   .badge.red { background: #e74c3c; }
-  nav { background: #16213e; padding: 0 30px; display: flex; gap: 0; border-bottom: 2px solid #30363d; overflow-x: auto; }
-  nav a { color: #8b949e; text-decoration: none; padding: 10px 15px; font-size: 13px; white-space: nowrap; border-bottom: 2px solid transparent; }
-  nav a:hover, nav a.active { color: white; border-bottom-color: #58a6ff; }
-  .container { max-width: 1200px; margin: 20px auto; padding: 0 20px; }
-  .section { background: white; border-radius: 10px; padding: 25px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-  .section h2 { font-size: 16px; color: #16213e; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #f0f2f5; }
+  .badge.gray { background: #30363d; }
+
+  /* === NAVIGATION === */
+  .top-nav {
+    background: #161b22;
+    border-bottom: 1px solid #30363d;
+    padding: 0 32px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .top-nav a {
+    color: #8b949e;
+    text-decoration: none;
+    padding: 12px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s ease;
+  }
+  .top-nav a:hover { color: #c9d1d9; border-bottom-color: #30363d; }
+  .top-nav a.active { color: #58a6ff; border-bottom-color: #58a6ff; }
+
+  /* === LAYOUT === */
+  .page-layout {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    gap: 0;
+    min-height: calc(100vh - 160px);
+  }
+
+  /* === SIDEBAR === */
+  .sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    background: #0d1117;
+    border-right: 1px solid #21262d;
+    padding: 20px 0;
+    position: sticky;
+    top: 90px;
+    height: fit-content;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+  }
+  .sidebar-heading {
+    font-size: 11px;
+    font-weight: 600;
+    color: #8b949e;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 20px;
+    margin-bottom: 4px;
+  }
+  .sidebar-link {
+    display: block;
+    padding: 7px 20px;
+    color: #8b949e;
+    text-decoration: none;
+    font-size: 13px;
+    border-left: 2px solid transparent;
+    transition: all 0.15s ease;
+  }
+  .sidebar-link:hover {
+    color: #c9d1d9;
+    background: #161b22;
+    border-left-color: #30363d;
+  }
+  .sidebar-link:active, .sidebar-link.active {
+    color: #58a6ff;
+    border-left-color: #58a6ff;
+    background: #161b22;
+  }
+
+  /* === MAIN CONTENT === */
+  .main-content {
+    flex: 1;
+    padding: 24px 32px;
+    min-width: 0;
+  }
+
+  /* === CARDS === */
+  .card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .card h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #f0f6fc;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; }
+
+  /* === GRIDS === */
   .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; }
-  .stat { text-align: center; padding: 15px; background: #f8f9fa; border-radius: 8px; }
-  .stat .num { font-size: 28px; font-weight: bold; color: #16213e; }
-  .stat .label { font-size: 12px; color: #888; }
-  table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  th { text-align: left; padding: 8px; background: #f8f9fa; font-weight: 600; color: #555; }
-  td { padding: 8px; border-bottom: 1px solid #f0f2f5; }
-  .script-box { background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 10px 0; white-space: pre-wrap; font-size: 13px; line-height: 1.6; }
-  .script-label { font-weight: 600; color: #16213e; margin-bottom: 5px; }
-  ul { padding-left: 20px; }
-  li { margin: 4px 0; }
-  a { color: #3498db; }
-  .footer { text-align: center; padding: 20px; color: #999; font-size: 11px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .grid4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; }
+
+  /* === STAT BOXES === */
+  .stat {
+    text-align: center;
+    padding: 18px 12px;
+    background: #0d1117;
+    border: 1px solid #21262d;
+    border-radius: 8px;
+  }
+  .stat .num {
+    font-size: 30px;
+    font-weight: 700;
+    color: #f0f6fc;
+    line-height: 1.1;
+  }
+  .stat .label {
+    font-size: 12px;
+    color: #8b949e;
+    margin-top: 4px;
+  }
+
+  /* === TABLES === */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  th {
+    text-align: left;
+    padding: 10px 12px;
+    background: #0d1117;
+    font-weight: 600;
+    color: #8b949e;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #30363d;
+  }
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #21262d;
+    color: #c9d1d9;
+  }
+  tr:hover td { background: #1c2128; }
+
+  /* === LINKS === */
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* === LISTS === */
+  ul, ol { padding-left: 22px; }
+  li { margin: 5px 0; }
+
+  /* === SCRIPT/NARRATIVE BOXES === */
+  .narrative-box {
+    background: #0d1117;
+    border: 1px solid #21262d;
+    border-left: 3px solid #58a6ff;
+    padding: 18px 20px;
+    border-radius: 6px;
+    margin: 12px 0;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    font-size: 14px;
+  }
+  .script-box {
+    background: #0d1117;
+    border: 1px solid #21262d;
+    padding: 16px;
+    border-radius: 8px;
+    margin: 10px 0;
+    white-space: pre-wrap;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .script-label {
+    font-weight: 600;
+    color: #f0f6fc;
+    margin-bottom: 6px;
+    font-size: 13px;
+  }
+
+  /* === HIGHLIGHT CARD (for narrative) === */
+  .highlight-card {
+    background: linear-gradient(135deg, #161b22, #1c2128);
+    border: 1px solid #58a6ff;
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .highlight-card h2 {
+    color: #58a6ff;
+    border-bottom-color: #58a6ff40;
+  }
+
+  /* === FOOTER === */
+  .page-footer {
+    text-align: center;
+    padding: 24px 32px;
+    color: #484f58;
+    font-size: 12px;
+    border-top: 1px solid #21262d;
+    margin-top: 20px;
+  }
+  .page-footer strong { color: #8b949e; }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 900px) {
+    .sidebar { display: none; }
+    .page-layout { display: block; }
+    .main-content { padding: 16px; }
+    .grid2, .grid3, .grid4 { grid-template-columns: 1fr; }
+    .header-inner { flex-direction: column; gap: 10px; }
+    .top-nav { padding: 0 12px; }
+    .page-header { padding: 16px; }
+  }
+
+  /* === PRINT === */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page-header { background: white; border-bottom: 2px solid #1a1a2e; position: static; }
+    .header-left h1 { color: #1a1a2e; }
+    .header-left .subtitle { color: #555; }
+    .top-nav { display: none; }
+    .sidebar { display: none; }
+    .page-layout { display: block; }
+    .main-content { padding: 0; }
+    .card { background: white; border: 1px solid #ddd; box-shadow: none; page-break-inside: avoid; }
+    .card h2 { color: #1a1a2e; border-bottom-color: #ddd; }
+    .stat { background: #f8f9fa; border-color: #ddd; }
+    .stat .num { color: #1a1a2e; }
+    .narrative-box { background: #f8f9fa; border-color: #ddd; border-left-color: #3498db; }
+    .highlight-card { background: #f8f9fa; border-color: #3498db; }
+    .script-box { background: #f8f9fa; border-color: #ddd; }
+    td { color: #1a1a2e; }
+    th { background: #f0f2f5; color: #555; }
+    .page-footer { color: #999; }
+    a { color: #1a5276; }
+    .deal-badge { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    .badge { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  }
 </style>
 </head>
 <body>
 
-<div class="top">
-  <h1>Design Precast & Pipe, Inc.</h1>
-  <div class="meta">Pat Fore III (Founder/President/Owner) | Gulfport, MS | Precast Concrete & Pipe Manufacturing | Est. Revenue: $15M (RocketReach/KonaEquity) | Employees: 51-200 (LeadIQ); 52 US employees (LeadIQ); 31 (RocketReach); 17 LinkedIn profiles (+15.8% YoY)</div>
-  <div class="badges">
-    <span class="badge green">engagement_active</span>
-    <span class="badge blue">Quality: 82</span>
-    <span class="badge green">Cost: $0.00</span>
-    <span class="badge blue">10 Buyers</span>
-    <span class="badge blue">0 Contacts</span>
+<!-- HEADER -->
+<div class="page-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <h1>Design Precast & Pipe, Inc.</h1>
+      <div class="subtitle">Pat Fore III (Founder/President/Owner) | Gulfport, MS | Precast Concrete & Pipe Manufacturing | Rev: $15M (RocketReach/KonaEquity) | Employees: 51-200 (LeadIQ); 52 US employees (LeadIQ); 31 (RocketReach); 17 LinkedIn profiles (+15.8% YoY)</div>
+    </div>
+    <div class="header-right">
+      <span class="deal-badge">BUY SIDE</span>
+    </div>
   </div>
 </div>
 
-<nav>
-  <a href="#overview">Overview</a>
-  <a href="#contacts">Contacts</a>
-  <a href="#proposal">Proposal</a>
-  <a href="#buyers">Buyers (10)</a>
-  <a href="#scripts">Outreach Scripts</a>
-  <a href="#plays">Plays & Emails</a>
-  <a href="#files">Files</a>
-  <a href="#history">History</a>
-</nav>
+<!-- NAVIGATION -->
+<div class="top-nav">
+  <a href="/dashboard.html">Home</a>
+<a href="/dashboard.html">Dashboard</a>
+<a href="/design-precast-and-pipe-inc-hub.html" class="active">Company Hub</a>
+<a href="/design-precast-and-pipe-inc-ebitda-levers.html">EBITDA Levers</a>
+<a href="#history">Version History</a>
 
-<div class="container">
+</div>
 
-  <div class="section" id="overview">
-    <h2>Overview</h2>
-    <div class="grid3">
-      <div class="stat"><div class="num">10</div><div class="label">Buyers Identified</div></div>
-      <div class="stat"><div class="num">10</div><div class="label">Scripts Ready</div></div>
-      <div class="stat"><div class="num">5</div><div class="label">Documents</div></div>
-    </div>
+<!-- LAYOUT -->
+<div class="page-layout">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-heading">Page Sections</div>
+    <a href="#overview" class="sidebar-link">Overview</a>
+<a href="#why-sell-to-design-precast-amp-pipe" class="sidebar-link">Why Sell to Design Precast &amp; Pipe</a>
+<a href="#contacts" class="sidebar-link">Contacts</a>
+<a href="#target-outreach-plan" class="sidebar-link">Target Outreach Plan</a>
+<a href="#acquisition-targets-10" class="sidebar-link">Acquisition Targets (10)</a>
+<a href="#outreach-scripts" class="sidebar-link">Outreach Scripts</a>
+<a href="#plays-amp-emails-sent" class="sidebar-link">Plays &amp; Emails Sent</a>
+<a href="#documents-amp-files" class="sidebar-link">Documents &amp; Files</a>
+<a href="#pipeline-history" class="sidebar-link">Pipeline History</a>
+
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
     
-  </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px">
+        <span class="badge green">engagement_active</span>
+        <span class="badge blue">Quality: 82</span>
+        <span class="badge green">Cost: $0.00</span>
+        <span class="badge blue">10 Acquisition Targets</span>
+        <span class="badge blue">0 Contacts</span>
+    </div>
 
-  <div class="section" id="contacts">
-    <h2>Contacts</h2>
-    <table><tr><th>Name</th><th>Title</th><th>Email</th><th>Phone</th></tr><tr><td colspan="4">No contacts on file</td></tr></table>
-  </div>
+    <div class="card" id="overview">
+        <h2>Overview</h2>
+        <div class="grid4">
+            <div class="stat"><div class="num">10</div><div class="label">Acquisition Targets</div></div>
+            <div class="stat"><div class="num">10</div><div class="label">Scripts Ready</div></div>
+            <div class="stat"><div class="num">0</div><div class="label">Letters Sent</div></div>
+            <div class="stat"><div class="num">5</div><div class="label">Documents</div></div>
+        </div>
+        
+    </div>
 
-  <div class="section" id="proposal">
-    <h2>Proposal & Attack Plan</h2>
-    <p>Design Precast & Pipe, Inc. is a premier family-owned precast concrete and pipe manufacturer founded in 2004 by Pat Fore III in Gulfport, Mississippi. What began as a local precaster focused on drainage structures and sewer manholes has evolved into a regional powerhouse spanning the entire Gulf Coast corridor. The company's trajectory from a single Mississippi facility to a two-plant operation — adding an Arnaudville, Louisiana location — demonstrates the kind of disciplined, organic growth that acquirers prize. With an estimated $15 million in annual revenue and a workforce between 31 and 52 employees depending on project load, Design Precast operates at the sweet spot where owner-operator excellence meets scalable infrastructure.
+    <div class="highlight-card" id="narrative">
+        <h2>Why Sell to Design Precast &amp; Pipe</h2>
+        <div class="narrative-box">When Pat Fore III started Design Precast &amp; Pipe in Gulfport, Mississippi, he wasn't working from a boardroom — he was on the yard, learning every pour, every form, every delivery route that built the company into what it is today. With two plants now running across the Gulf Coast in Gulfport and Arnaudville, Louisiana, and a team of 52 people who show up every day because they believe in the work, Pat knows exactly what it takes to build a precast company from nothing into a $15 million operation. He's not looking at your business as a line item on a spreadsheet. He's looking at it the way you do — as something you built with your hands, your name, and your word.
+
+That's why a conversation with Design Precast feels different. Your crew keeps their jobs. Your customers keep the relationships they trust. Your name in the market doesn't disappear behind some corporate rebrand. What changes is what's behind you: a partner with patented Lifting Eye technology that's reshaping how the industry thinks about precast safety and efficiency, purchasing power that comes from running two plants and growing, and an engineering bench that can take on projects you might be turning away today. Pat isn't buying companies to flip them. He's building something that lasts, and he wants operators like you standing next to him while he does it.
+
+If you've been thinking about what comes next — whether that's slowing down, unlocking some liquidity, or just finding a partner who actually understands this business — it's worth a conversation. No pressure, no bankers running the meeting, just one precast owner talking to another about what the future could look like together. Pat built Design Precast the same way you built yours: one job, one customer, one handshake at a time. That's exactly how he'd like to start this conversation with you.</div>
+        <p style="font-size:12px;color:#8b949e;margin-top:10px">This narrative appears on all outreach to acquisition targets.</p>
+    </div>
+
+    <div class="card" id="contacts">
+        <h2>Contacts</h2>
+        <table>
+            <tr><th>Name</th><th>Title</th><th>Email</th><th>Phone</th><th>LinkedIn</th></tr>
+            <tr><td colspan="5" style="color:#8b949e">No contacts on file</td></tr>
+        </table>
+    </div>
+
+    <div class="card" id="proposal">
+        <h2>Target Outreach Plan</h2>
+        <p>Design Precast &amp; Pipe, Inc. is a premier family-owned precast concrete and pipe manufacturer founded in 2004 by Pat Fore III in Gulfport, Mississippi. What began as a local precaster focused on drainage structures and sewer manholes has evolved into a regional powerhouse spanning the entire Gulf Coast corridor. The company's trajectory from a single Mississippi facility to a two-plant operation — adding an Arnaudville, Louisiana location — demonstrates the kind of disciplined, organic growth that acquirers prize. With an estimated $15 million in annual revenue and a workforce between 31 and 52 employees depending on project load, Design Precast operates at the sweet spot where owner-operator excellence meets scalable infrastructure.
 
 The company's product portfolio is exceptionally broad f</p>
-    <div style="margin-top:15px"><strong>Market Analysis:</strong><p>The precast concrete and pipe manufacturing sector is experiencing a historic wave of consolidation driven by three converging forces: massive federal infrastructure spending (IIJA/Bipartisan Infrastructure Law), aging municipal water and sewer systems requiring replacement, and strategic acquirers seeking to build regional platforms. The landmark transaction in this space was CMC's acquisition of Concrete Pipe & Precast LLC for $675 million in December 2025 — a deal valued at approximately 9.5x</p></div>
-    <div style="margin-top:15px"><strong>Attack Plan:</strong><p>This is a buy-side approach — we represent acquirers actively seeking precast and pipe manufacturing platforms in the Gulf Coast region. The positioning is: 'We work with buyers who are specifically interested in companies like yours — established, well-run precast manufacturers with strong regional positions.' This is NOT a solicitation to sell; it is an introduction to explore whether there might be mutual interest. The approach must respect that Pat Fore III built this company from scratch ov</p></div>
-    <div style="margin-top:15px"><strong>Timeline:</strong><p>DAYS 1-30 (INTRODUCTION PHASE): Day 1 — Mail personalized letter to Pat Fore III at Gulfport address. Day 7 — Send LinkedIn connection request with personalized note referencing the letter. Day 14 — First phone call attempt to (228) 831-5833, reference the letter. Day 16 — Second call attempt if no </p></div>
-  </div>
+        <div style="margin-top:15px"><strong style="color:#f0f6fc">Market Analysis:</strong><p style="margin-top:6px">The precast concrete and pipe manufacturing sector is experiencing a historic wave of consolidation driven by three converging forces: massive federal infrastructure spending (IIJA/Bipartisan Infrastructure Law), aging municipal water and sewer systems requiring replacement, and strategic acquirers seeking to build regional platforms. The landmark transaction in this space was CMC's acquisition of Concrete Pipe &amp; Precast LLC for $675 million in December 2025 — a deal valued at approximately 9.5x</p></div>
+        <div style="margin-top:15px"><strong style="color:#f0f6fc">Attack Plan:</strong><p style="margin-top:6px">This is a buy-side approach — we represent acquirers actively seeking precast and pipe manufacturing platforms in the Gulf Coast region. The positioning is: 'We work with buyers who are specifically interested in companies like yours — established, well-run precast manufacturers with strong regional positions.' This is NOT a solicitation to sell; it is an introduction to explore whether there might be mutual interest. The approach must respect that Pat Fore III built this company from scratch ov</p></div>
+        <div style="margin-top:15px"><strong style="color:#f0f6fc">Timeline:</strong><p style="margin-top:6px">DAYS 1-30 (INTRODUCTION PHASE): Day 1 — Mail personalized letter to Pat Fore III at Gulfport address. Day 7 — Send LinkedIn connection request with personalized note referencing the letter. Day 14 — First phone call attempt to (228) 831-5833, reference the letter. Day 16 — Second call attempt if no </p></div>
+    </div>
 
-  <div class="section" id="buyers">
-    <h2>Buyer Targets (10)</h2>
-    <table><tr><th>Buyer</th><th>Type</th><th>Location</th><th>Fit</th><th>DNC</th><th>Script</th><th>Status</th></tr><tr><td><a href="design-precast-pipe-inc_the-shaddix-company.html" style="color:#58a6ff;text-decoration:none">The Shaddix Company</a></td><td>acquisition_target</td><td>Cullman, AL</td><td>8.8</td><td>🚫</td><td>📝</td><td>new</td></tr><tr><td><a href="design-precast-pipe-inc_permatile-concrete-products.html" style="color:#58a6ff;text-decoration:none">Permatile Concrete Products</a></td><td>acquisition_target</td><td>Various locations, SE US</td><td>8.4</td><td>🚫</td><td>📝</td><td>new</td></tr><tr><td><a href="design-precast-pipe_target_the-concrete-company.html" style="color:#58a6ff;text-decoration:none">The Concrete Company</a></td><td>acquisition_target</td><td>Various SE locations, SE US</td><td>8.3</td><td>🚫</td><td>📝</td><td>new</td></tr><tr><td><a href="design-precast-pipe_target_the-precast-company.html" style="color:#58a6ff;text-decoration:none">The Precast Company</a></td><td>acquisition_target</td><td>Houston, TX</td><td>8.1</td><td>🚫</td><td>📝</td><td>new</td></tr><tr><td><a href="design-precast-pipe_target_delta-industries-gulf-coast-division.html" style="color:#58a6ff;text-decoration:none">Delta Industries (Gulf Coast Division)</a></td><td>acquisition_target</td><td>Gulfport, MS</td><td>8.0</td><td>🚫</td><td>📝</td><td>new</td></tr><tr><td><a href="design-precast-pipe_target_southern-precast-morvant-precast.html" style="color:#58a6ff;text-decoration:none">Southern Precast (Morvant Precast)</a></td><td>acquisition_target</td><td>Raceland, LA</td><td>7.9</td><td>🚫</td><td>📝</td><td>new</td></tr><tr><td><a href="design-precast-pipe_target_coastal-precast-systems.html" style="color:#58a6ff;text-decoration:none">Coastal Precast Systems</a></td><td>acquisition_target</td><td>Mobile, AL</td><td>7.8</td><td>🚫</td><td>📝</td><td>new</td></tr><tr><td><a href="design-precast-pipe_target_georgialina-precast.html" style="color:#58a6ff;text-decoration:none">Georgialina Precast</a></td><td>acquisition_target</td><td>Augusta area, GA/SC</td><td>7.7</td><td>🚫</td><td>📝</td><td>new</td></tr><tr><td><a href="design-precast-pipe_target_si-precast-concrete.html" style="color:#58a6ff;text-decoration:none">SI Precast Concrete</a></td><td>acquisition_target</td><td>Louisiana/Oklahoma, LA/OK</td><td>7.6</td><td>🚫</td><td>📝</td><td>new</td></tr><tr><td><a href="design-precast-pipe_target_alfred-miller-precast.html" style="color:#58a6ff;text-decoration:none">Alfred Miller Precast</a></td><td>acquisition_target</td><td>Various, LA</td><td>7.5</td><td>🚫</td><td>📝</td><td>new</td></tr></table>
-  </div>
+    <div class="card" id="buyers">
+        <h2>Acquisition Targets (10)</h2>
+        <table>
+            <tr><th>Company</th><th>Type</th><th>Location</th><th>Fit</th><th>DNC</th><th>Script</th><th>Status</th></tr>
+            <tr>
+            <td><a href="design-precast-pipe-inc_the-shaddix-company.html">The Shaddix Company</a></td>
+            <td>acquisition_target</td>
+            <td>Cullman, AL</td>
+            <td>8.8</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td><span class="badge blue" style="font-size:10px">Ready</span></td>
+            <td><span class="badge gray" style="font-size:10px">new</span></td>
+        </tr><tr>
+            <td><a href="design-precast-pipe-inc_permatile-concrete-products.html">Permatile Concrete Products</a></td>
+            <td>acquisition_target</td>
+            <td>Various locations, SE US</td>
+            <td>8.4</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td><span class="badge blue" style="font-size:10px">Ready</span></td>
+            <td><span class="badge gray" style="font-size:10px">new</span></td>
+        </tr><tr>
+            <td><a href="design-precast-pipe_target_the-concrete-company.html">The Concrete Company</a></td>
+            <td>acquisition_target</td>
+            <td>Various SE locations, SE US</td>
+            <td>8.3</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td><span class="badge blue" style="font-size:10px">Ready</span></td>
+            <td><span class="badge gray" style="font-size:10px">new</span></td>
+        </tr><tr>
+            <td><a href="design-precast-pipe_target_the-precast-company.html">The Precast Company</a></td>
+            <td>acquisition_target</td>
+            <td>Houston, TX</td>
+            <td>8.1</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td><span class="badge blue" style="font-size:10px">Ready</span></td>
+            <td><span class="badge gray" style="font-size:10px">new</span></td>
+        </tr><tr>
+            <td><a href="design-precast-pipe_target_delta-industries-gulf-coast-division.html">Delta Industries (Gulf Coast Division)</a></td>
+            <td>acquisition_target</td>
+            <td>Gulfport, MS</td>
+            <td>8.0</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td><span class="badge blue" style="font-size:10px">Ready</span></td>
+            <td><span class="badge gray" style="font-size:10px">new</span></td>
+        </tr><tr>
+            <td><a href="design-precast-pipe_target_southern-precast-morvant-precast.html">Southern Precast (Morvant Precast)</a></td>
+            <td>acquisition_target</td>
+            <td>Raceland, LA</td>
+            <td>7.9</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td><span class="badge blue" style="font-size:10px">Ready</span></td>
+            <td><span class="badge gray" style="font-size:10px">new</span></td>
+        </tr><tr>
+            <td><a href="design-precast-pipe_target_coastal-precast-systems.html">Coastal Precast Systems</a></td>
+            <td>acquisition_target</td>
+            <td>Mobile, AL</td>
+            <td>7.8</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td><span class="badge blue" style="font-size:10px">Ready</span></td>
+            <td><span class="badge gray" style="font-size:10px">new</span></td>
+        </tr><tr>
+            <td><a href="design-precast-pipe_target_georgialina-precast.html">Georgialina Precast</a></td>
+            <td>acquisition_target</td>
+            <td>Augusta area, GA/SC</td>
+            <td>7.7</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td><span class="badge blue" style="font-size:10px">Ready</span></td>
+            <td><span class="badge gray" style="font-size:10px">new</span></td>
+        </tr><tr>
+            <td><a href="design-precast-pipe_target_si-precast-concrete.html">SI Precast Concrete</a></td>
+            <td>acquisition_target</td>
+            <td>Louisiana/Oklahoma, LA/OK</td>
+            <td>7.6</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td><span class="badge blue" style="font-size:10px">Ready</span></td>
+            <td><span class="badge gray" style="font-size:10px">new</span></td>
+        </tr><tr>
+            <td><a href="design-precast-pipe_target_alfred-miller-precast.html">Alfred Miller Precast</a></td>
+            <td>acquisition_target</td>
+            <td>Various, LA</td>
+            <td>7.5</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td><span class="badge blue" style="font-size:10px">Ready</span></td>
+            <td><span class="badge gray" style="font-size:10px">new</span></td>
+        </tr>
+        </table>
+    </div>
 
-  <div class="section" id="scripts">
-    <h2>Sample Outreach Scripts</h2>
-    <p>No scripts generated yet</p>
-    
-    
-    
-  </div>
+    <div class="card" id="scripts">
+        <h2>Outreach Scripts</h2>
+        <p style="color:#8b949e">No scripts generated yet</p>
+    </div>
 
-  <div class="section" id="plays">
-    <h2>Plays & Emails Sent</h2>
-    <table><tr><th>Play</th><th>Status</th><th>Quality</th><th>Date</th></tr><tr><td>follow_up_full_package</td><td>draft</td><td>82</td><td>2026-03-29</td></tr></table>
-  </div>
+    <div class="card" id="plays">
+        <h2>Plays &amp; Emails Sent</h2>
+        <table>
+            <tr><th>Play</th><th>Status</th><th>Quality</th><th>Date</th></tr>
+            <tr>
+            <td>follow_up_full_package</td>
+            <td>draft</td>
+            <td>82</td>
+            <td>2026-03-29</td>
+        </tr>
+        </table>
+    </div>
 
-  <div class="section" id="files">
-    <h2>Documents & Files</h2>
-    <ul><li><a href="/company/design-precast-and-pipe-inc/proposal" target="_blank">Proposal: design-precast.html</a></li><li><a href="/company/design-precast-and-pipe-inc/proposal" target="_blank">Proposal: design-precast-pipe_buyside_proposal.html</a></li><li><a href="/company/design-precast-and-pipe-inc/proposal" target="_blank">Proposal: design-precast-&-pipe-inc.html</a></li><li><a href="/company/design-precast-and-pipe-inc/dataroom" target="_blank">Data Room: design-precast-and-pipe-inc.html</a></li><li><a href="/company/design-precast-and-pipe-inc/meeting" target="_blank">Meeting Prep: design-precast-and-pipe-inc_2026-03-29_discovery.html</a></li></ul>
-  </div>
+    <div class="card" id="files">
+        <h2>Documents &amp; Files</h2>
+        <ul><li><a href="/company/design-precast-and-pipe-inc/proposal" target="_blank">Proposal: design-precast.html</a></li><li><a href="/company/design-precast-and-pipe-inc/proposal" target="_blank">Proposal: design-precast-pipe_buyside_proposal.html</a></li><li><a href="/company/design-precast-and-pipe-inc/proposal" target="_blank">Proposal: design-precast-&amp;-pipe-inc.html</a></li><li><a href="/company/design-precast-and-pipe-inc/dataroom" target="_blank">Data Room: design-precast-and-pipe-inc.html</a></li><li><a href="/company/design-precast-and-pipe-inc/meeting" target="_blank">Meeting Prep: design-precast-and-pipe-inc_2026-03-29_discovery.html</a></li></ul>
+    </div>
 
-  <div class="section" id="history">
-    <h2>Pipeline History</h2>
-    <table><tr><th>Step</th><th>Tool</th><th>Status</th><th>Cost</th><th>Date</th></tr><tr><td colspan="5">No pipeline history</td></tr></table>
-  </div>
-
-  <div class="footer">
-    Design Precast & Pipe, Inc. — Company Hub | Generated March 29, 2026 08:41 PM<br>
-    Next Chapter M&A Advisory | INTERNAL — Admin View
+    <div class="card" id="history">
+        <h2>Pipeline History</h2>
+        <table>
+            <tr><th>Step</th><th>Tool</th><th>Status</th><th>Cost</th><th>Date</th></tr>
+            <tr><td colspan="5" style="color:#8b949e">No pipeline history</td></tr>
+        </table>
+    </div>
   </div>
 
 </div>
+
+<!-- FOOTER -->
+<div class="page-footer">
+  <strong>Next Chapter M&A Advisory</strong> | Buy-Side Engagement<br>
+  Generated March 29, 2026 08:55 PM | INTERNAL — Admin View
+</div>
+
+<!-- WIDGETS -->
 <script src="/comment-widget.js"></script>
 <script src="/version-widget.js"></script>
+
+
 </body>
 </html>

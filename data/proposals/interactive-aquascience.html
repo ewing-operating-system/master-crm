@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confidential Proposal &mdash; AquaScience | Next Chapter M&amp;A Advisory</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg-primary: #0d1117;
+    --bg-secondary: #161b22;
+    --bg-tertiary: #21262d;
+    --bg-card: #1c2128;
+    --text-primary: #c9d1d9;
+    --text-secondary: #8b949e;
+    --text-heading: #e6edf3;
+    --accent: #58a6ff;
+    --accent-hover: #79b8ff;
+    --green: #3fb950;
+    --green-bg: rgba(63, 185, 80, 0.1);
+    --green-border: rgba(63, 185, 80, 0.3);
+    --amber: #d29922;
+    --amber-bg: rgba(210, 153, 34, 0.1);
+    --amber-border: rgba(210, 153, 34, 0.3);
+    --red: #f85149;
+    --border: #30363d;
+    --border-light: #21262d;
+    --gradient-start: #58a6ff;
+    --gradient-end: #a371f7;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-size: 15px;
+}
+.container { max-width: 1000px; margin: 0 auto; padding: 40px 24px; }
+.header {
+    background: linear-gradient(135deg, #161b22 0%, #0d1117 50%, #161b22 100%);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 48px 40px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+}
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+}
+.header h1 {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--text-heading);
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+.header-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+.header-meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.header-meta .dot { color: var(--accent); }
+.confidential {
+    margin-top: 20px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+.section {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 36px;
+    margin-bottom: 24px;
+}
+.section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.section-title .icon {
+    font-size: 20px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: rgba(88,166,255,0.1);
+}
+.section p { margin-bottom: 14px; color: var(--text-primary); }
+.strengths-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+.strength-card {
+    background: var(--green-bg);
+    border: 1px solid var(--green-border);
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+}
+.strength-card .strength-number {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--green);
+    opacity: 0.2;
+}
+.strength-card p { font-size: 14px; line-height: 1.6; color: var(--text-primary); margin: 0; }
+.slider-group { margin-bottom: 28px; }
+.slider-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.slider-label-text { font-weight: 600; font-size: 14px; color: var(--text-heading); }
+.slider-value {
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--accent);
+    min-width: 120px;
+    text-align: right;
+}
+.slider-row { display: flex; align-items: center; gap: 16px; }
+.slider-row input[type="range"] { flex: 1; }
+.slider-row input[type="number"] {
+    width: 130px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: var(--text-heading);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: right;
+}
+.slider-row input[type="number"]:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(88,166,255,0.15);
+}
+.split-display {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+.split-display span { padding: 4px 12px; border-radius: 6px; background: var(--bg-tertiary); }
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--bg-tertiary);
+    outline: none;
+    cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(88,166,255,0.3);
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+    box-shadow: 0 2px 12px rgba(88,166,255,0.5);
+}
+input[type="range"]::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    border: none;
+}
+.valuation-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.val-box {
+    text-align: center;
+    padding: 28px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.val-box:hover { transform: translateY(-2px); }
+.val-box.conservative { background: rgba(139, 148, 158, 0.08); border-color: rgba(139, 148, 158, 0.3); }
+.val-box.likely { background: rgba(88, 166, 255, 0.08); border-color: rgba(88, 166, 255, 0.3); box-shadow: 0 0 20px rgba(88, 166, 255, 0.05); }
+.val-box.optimistic { background: rgba(63, 185, 80, 0.08); border-color: rgba(63, 185, 80, 0.3); }
+.val-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-secondary); margin-bottom: 8px; }
+.val-amount { font-size: 30px; font-weight: 800; letter-spacing: -0.5px; }
+.val-box.conservative .val-amount { color: var(--text-secondary); }
+.val-box.likely .val-amount { color: var(--accent); }
+.val-box.optimistic .val-amount { color: var(--green); }
+.methodology {
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    border-left: 3px solid var(--accent);
+}
+.levers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.levers-column h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+.levers-column.positive h3 { color: var(--green); }
+.levers-column.opportunity h3 { color: var(--amber); }
+.lever-card {
+    display: flex;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: transform 0.15s;
+}
+.lever-card:hover { transform: translateX(4px); }
+.lever-positive { background: var(--green-bg); border: 1px solid var(--green-border); }
+.lever-opportunity { background: var(--amber-bg); border: 1px solid var(--amber-border); }
+.lever-icon {
+    font-size: 12px;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-top: 2px;
+}
+.lever-positive .lever-icon { color: var(--green); background: rgba(63,185,80,0.15); }
+.lever-opportunity .lever-icon { color: var(--amber); background: rgba(210,153,34,0.15); }
+.lever-name { font-weight: 600; font-size: 14px; color: var(--text-heading); margin-bottom: 4px; }
+.lever-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+.fee-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+.fee-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 24px;
+    cursor: pointer;
+    transition: all 0.25s;
+    position: relative;
+    text-align: center;
+}
+.fee-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+.fee-card.selected {
+    border-color: var(--accent);
+    background: rgba(88,166,255,0.06);
+    box-shadow: 0 0 30px rgba(88,166,255,0.15);
+}
+.fee-card.popular::before {
+    content: 'MOST POPULAR';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 3px 12px;
+    border-radius: 10px;
+}
+.fee-option-name { font-size: 18px; font-weight: 700; color: var(--text-heading); margin-bottom: 4px; }
+.fee-option-subtitle { font-size: 12px; color: var(--text-secondary); margin-bottom: 20px; }
+.fee-detail { padding: 8px 0; border-bottom: 1px solid var(--border-light); font-size: 14px; }
+.fee-detail:last-child { border-bottom: none; }
+.fee-detail .label { color: var(--text-secondary); font-size: 12px; }
+.fee-detail .value { font-weight: 700; color: var(--text-heading); font-size: 20px; }
+.fee-tagline { margin-top: 16px; font-size: 13px; font-style: italic; color: var(--text-secondary); }
+.checkmark {
+    display: none;
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: 16px;
+    align-items: center;
+    justify-content: center;
+}
+.fee-card.selected .checkmark { display: flex; }
+.cta-section { text-align: center; padding: 40px; }
+.cta-btn {
+    display: none;
+    margin: 0 auto;
+    padding: 18px 48px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: inherit;
+    letter-spacing: 0.5px;
+}
+.cta-btn.visible { display: inline-block; }
+.cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(88,166,255,0.3);
+}
+.confirmation {
+    display: none;
+    text-align: center;
+    padding: 40px;
+    background: var(--green-bg);
+    border: 1px solid var(--green-border);
+    border-radius: 12px;
+    margin-top: 20px;
+}
+.confirmation.show { display: block; }
+.confirmation h3 { color: var(--green); font-size: 24px; margin-bottom: 12px; }
+.confirmation p { color: var(--text-primary); font-size: 16px; }
+.toc {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 36px;
+    margin-bottom: 24px;
+}
+.toc-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+.toc-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 24px;
+}
+.toc-list a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+    transition: color 0.15s;
+}
+.toc-list a:hover { color: var(--accent-hover); text-decoration: underline; }
+.drivers-list { list-style: none; padding: 0; }
+.drivers-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 14px;
+    color: var(--text-primary);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+.drivers-list li::before { content: '\2713'; color: var(--green); font-weight: bold; flex-shrink: 0; }
+@media (max-width: 768px) {
+    .container { padding: 16px; }
+    .header { padding: 28px 20px; }
+    .header h1 { font-size: 26px; }
+    .section { padding: 24px 20px; }
+    .valuation-grid { grid-template-columns: 1fr; }
+    .fee-grid { grid-template-columns: 1fr; }
+    .levers-grid { grid-template-columns: 1fr; }
+    .toc-list { grid-template-columns: 1fr; }
+    .val-amount { font-size: 24px; }
+    .slider-row { flex-direction: column; }
+    .slider-row input[type="number"] { width: 100%; }
+}
+@media print {
+    body { background: #fff; color: #1a1a2e; }
+    .section { border: 1px solid #ddd; break-inside: avoid; }
+    .fee-card { break-inside: avoid; }
+    input[type="range"] { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="header" id="top">
+        <h1>AquaScience</h1>
+        <div class="header-meta">
+            <span><span class="dot">&#9679;</span> Lawrence &quot;Larry&quot; Casey</span>
+            <span><span class="dot">&#9679;</span> Water Treatment / eCommerce</span>
+            <span><span class="dot">&#9679;</span> Wyoming, RI</span>
+            <span><span class="dot">&#9679;</span> Est. 1984</span>
+        </div>
+        <div class="confidential">Confidential &mdash; Prepared by Next Chapter M&amp;A Advisory &mdash; March 2026</div>
+    </div>
+
+    <div class="toc">
+        <div class="toc-title">Quick Navigation</div>
+        <ul class="toc-list">
+            <li><a href="#story">Your Company Story</a></li>
+            <li><a href="#strengths">Top 3 Strengths</a></li>
+            <li><a href="#profile">Interactive Business Profile</a></li>
+            <li><a href="#valuation">Estimated Value Range</a></li>
+            <li><a href="#levers">EBITDA Levers</a></li>
+            <li><a href="#market">Your Market</a></li>
+            <li><a href="#attack">How We Would Sell Your Business</a></li>
+            <li><a href="#fees">Fee Structure Options</a></li>
+        </ul>
+    </div>
+
+    <div class="section" id="story">
+        <div class="section-title"><div class="icon">&#128214;</div> Your Company Story</div>
+        <p>AquaScience was founded in 1984 by Lawrence Casey on a promise that still lives on the company&#x27;s website today: to bring the world&#x27;s finest water treatment equipment and well water supplies directly to the public at the lowest prices in the country. That was before the internet existed as a commercial channel — and yet Larry built a direct-to-consumer model that anticipated by decades what the rest of the industry would eventually try to replicate. Forty-one years later, AquaScience has served over 100,000 customers and completed more than 120,000 service calls in a three-year window alone, establishing itself as one of the most trusted water treatment providers in the northeastern United States.</p>
+<p>What makes AquaScience particularly remarkable is the breadth of its competitive moat. The company operates both a physical service business out of Wyoming, Rhode Island, and a national eCommerce platform — a dual-channel model that very few water treatment companies have successfully built. The eCommerce component creates a low customer-acquisition-cost revenue stream that compounds over time through organic search traffic, while the local service operation generates high-margin recurring revenue through maintenance contracts, chemical programs, and water testing services. This hybrid model means AquaScience captures value at every stage of the customer lifecycle.</p>
+<p>The company has also positioned itself at the intersection of several powerful regulatory tailwinds. AquaScience holds specialized capabilities in PFAS remediation, radon treatment, and Legionella control — three areas where federal and state regulations are tightening rapidly, creating mandatory demand. As municipalities and homeowners face increasing scrutiny on water quality, companies with AquaScience&#x27;s depth of expertise and 41-year track record become essential service providers rather than discretionary purchases. The company&#x27;s BBB accreditation and 4.8 Google rating reflect the kind of earned trust that money cannot buy and competitors cannot shortcut.</p>
+<p>Perhaps most telling is the customer impact. One Rhode Island customer&#x27;s review captures it simply: &#x27;They added a filter and now my water tastes great.&#x27; Behind that one sentence is the reality of what AquaScience delivers every day — families trusting their drinking water, homeowners protecting their property investment, and a founder who has spent four decades making that possible.</p>
+
+    </div>
+
+    <div class="section" id="strengths">
+        <div class="section-title"><div class="icon">&#9733;</div> Your Top 3 Strengths</div>
+        <div class="strengths-grid">
+        <div class="strength-card">
+            <div class="strength-number">1</div>
+            <p>41-year operating history with a dual-channel model (local service + national eCommerce) that creates both recurring revenue and a scalable digital acquisition engine — a combination almost no competitor has replicated</p>
+        </div>
+        <div class="strength-card">
+            <div class="strength-number">2</div>
+            <p>Specialized PFAS, radon, and Legionella treatment capabilities positioned directly in the path of accelerating federal and state regulatory mandates, converting what was once discretionary spending into compliance-driven demand</p>
+        </div>
+        <div class="strength-card">
+            <div class="strength-number">3</div>
+            <p>Over 100,000 customers served, 120,000+ service calls in three years, BBB accreditation, and a 4.8 Google rating — an earned reputation that represents decades of compounding trust and is the single hardest asset for any acquirer to build from scratch</p>
+        </div></div>
+    </div>
+
+    <div class="section" id="profile">
+        <div class="section-title"><div class="icon">&#9881;</div> Interactive Business Profile</div>
+        <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 24px;">
+            Adjust these sliders to see how changes in your business metrics impact your estimated valuation. All changes are saved automatically.
+        </p>
+
+        <div class="slider-group">
+            <div class="slider-label">
+                <span class="slider-label-text">Estimated Annual Revenue</span>
+                <span class="slider-value" id="revenue-display">$8,000,000</span>
+            </div>
+            <div class="slider-row">
+                <input type="range" id="revenue-slider" min="500000" max="50000000" step="100000" value="8000000">
+                <input type="number" id="revenue-input" min="500000" max="50000000" step="100000" value="8000000">
+            </div>
+        </div>
+
+        <div class="slider-group">
+            <div class="slider-label">
+                <span class="slider-label-text">Employee Count</span>
+                <span class="slider-value" id="employees-display">11</span>
+            </div>
+            <div class="slider-row">
+                <input type="range" id="employees-slider" min="1" max="200" step="1" value="11">
+                <input type="number" id="employees-input" min="1" max="200" step="1" value="11">
+            </div>
+        </div>
+
+        <div class="slider-group">
+            <div class="slider-label">
+                <span class="slider-label-text">Commercial vs Residential Split</span>
+                <span class="slider-value" id="split-display">30% / 70%</span>
+            </div>
+            <div class="slider-row">
+                <input type="range" id="commercial-slider" min="0" max="100" step="5" value="30">
+                <input type="number" id="commercial-input" min="0" max="100" step="5" value="30">
+            </div>
+            <div class="split-display">
+                <span>Commercial: <strong id="commercial-pct">30%</strong></span>
+                <span>Residential: <strong id="residential-pct">70%</strong></span>
+            </div>
+        </div>
+
+        <div class="slider-group">
+            <div class="slider-label">
+                <span class="slider-label-text">Recurring Revenue %</span>
+                <span class="slider-value" id="recurring-display">35%</span>
+            </div>
+            <div class="slider-row">
+                <input type="range" id="recurring-slider" min="0" max="100" step="5" value="35">
+                <input type="number" id="recurring-input" min="0" max="100" step="5" value="35">
+            </div>
+        </div>
+
+        <div class="slider-group">
+            <div class="slider-label">
+                <span class="slider-label-text">Years in Business</span>
+                <span class="slider-value" id="years-display">42</span>
+            </div>
+            <div class="slider-row">
+                <input type="range" id="years-slider" min="1" max="100" step="1" value="42">
+                <input type="number" id="years-input" min="1" max="100" step="1" value="42">
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="valuation">
+        <div class="section-title"><div class="icon">&#128176;</div> Estimated Value Range</div>
+        <div class="valuation-grid">
+            <div class="val-box conservative">
+                <div class="val-label">Conservative</div>
+                <div class="val-amount" id="val-low">$0</div>
+                <div style="font-size:12px; color:var(--text-secondary); margin-top:6px;" id="val-low-mult">4.0x EBITDA</div>
+            </div>
+            <div class="val-box likely">
+                <div class="val-label">Likely</div>
+                <div class="val-amount" id="val-mid">$0</div>
+                <div style="font-size:12px; color:var(--text-secondary); margin-top:6px;" id="val-mid-mult">5.5x EBITDA</div>
+            </div>
+            <div class="val-box optimistic">
+                <div class="val-label">Optimistic</div>
+                <div class="val-amount" id="val-high">$0</div>
+                <div style="font-size:12px; color:var(--text-secondary); margin-top:6px;" id="val-high-mult">8.0x EBITDA</div>
+            </div>
+        </div>
+        <div class="methodology" id="methodology-text">Calculating...</div>
+        <div style='margin-top:20px;'><h4 style="color:var(--text-heading); margin-bottom:12px;">Key Valuation Drivers</h4><ul class="drivers-list"><li>Recurring revenue from maintenance contracts, chemical programs, and water testing creates predictable cash flow that buyers value at premium multiples</li>
+<li>PFAS, radon, and Legionella specialization aligns with accelerating regulatory mandates — buyers will pay for capabilities they cannot easily build internally</li>
+<li>eCommerce platform with established SEO rankings provides a scalable national revenue channel with low incremental customer acquisition cost</li>
+</ul></div>
+    </div>
+
+    <div class="section" id="levers">
+        <div class="section-title"><div class="icon">&#9878;</div> EBITDA Levers &mdash; What Drives Your Valuation</div>
+        <div class="levers-grid">
+            <div class="levers-column positive">
+                <h3>&#9650; Value Drivers (Strengths)</h3>
+                
+        <div class="lever-card lever-positive">
+            <div class="lever-icon">&#9650;</div>
+            <div>
+                <div class="lever-name">Recurring Filter/Salt Delivery Revenue</div>
+                <div class="lever-desc">Monthly delivery routes create predictable cash flow that acquirers value at 2-3x premium over one-time equipment sales.</div>
+            </div>
+        </div>
+        <div class="lever-card lever-positive">
+            <div class="lever-icon">&#9650;</div>
+            <div>
+                <div class="lever-name">PFAS/Radon Regulatory Specialization</div>
+                <div class="lever-desc">EPA mandates on PFAS (4 ppt MCL) and state radon requirements convert discretionary spending into compliance-driven demand.</div>
+            </div>
+        </div>
+        <div class="lever-card lever-positive">
+            <div class="lever-icon">&#9650;</div>
+            <div>
+                <div class="lever-name">Dual-Channel Model (Service + eCommerce)</div>
+                <div class="lever-desc">National eCommerce platform provides scalable customer acquisition that most local service companies cannot replicate.</div>
+            </div>
+        </div>
+        <div class="lever-card lever-positive">
+            <div class="lever-icon">&#9650;</div>
+            <div>
+                <div class="lever-name">100K+ Customer Installed Base</div>
+                <div class="lever-desc">Massive installed base represents untapped recurring revenue activation -- the highest-ROI post-acquisition value creation play.</div>
+            </div>
+        </div>
+        <div class="lever-card lever-positive">
+            <div class="lever-icon">&#9650;</div>
+            <div>
+                <div class="lever-name">41-Year Operating History</div>
+                <div class="lever-desc">Four decades of brand trust compounds into customer retention, referral networks, and premium pricing power that cannot be bought.</div>
+            </div>
+        </div>
+            </div>
+            <div class="levers-column opportunity">
+                <h3>&#9660; Value Opportunities</h3>
+                
+        <div class="lever-card lever-opportunity">
+            <div class="lever-icon">&#9660;</div>
+            <div>
+                <div class="lever-name">Owner Dependency Risk</div>
+                <div class="lever-desc">If Larry Casey&#x27;s relationships and knowledge walk out the door, the acquisition risk spikes and multiples compress 1-2x.</div>
+            </div>
+        </div>
+        <div class="lever-card lever-opportunity">
+            <div class="lever-icon">&#9660;</div>
+            <div>
+                <div class="lever-name">Recurring Revenue Penetration</div>
+                <div class="lever-desc">Current recurring revenue percentage may underweight the installed base potential -- activating service agreements on existing customers is key.</div>
+            </div>
+        </div>
+        <div class="lever-card lever-opportunity">
+            <div class="lever-icon">&#9660;</div>
+            <div>
+                <div class="lever-name">Single-Location Operations</div>
+                <div class="lever-desc">Geographic concentration in Rhode Island limits addressable market; multi-location expansion would command geographic premium.</div>
+            </div>
+        </div>
+        <div class="lever-card lever-opportunity">
+            <div class="lever-icon">&#9660;</div>
+            <div>
+                <div class="lever-name">Employee Bench Depth</div>
+                <div class="lever-desc">With 11 employees, key-person risk extends beyond the owner -- losing 1-2 senior technicians could impact service capacity materially.</div>
+            </div>
+        </div>
+        <div class="lever-card lever-opportunity">
+            <div class="lever-icon">&#9660;</div>
+            <div>
+                <div class="lever-name">Financial Reporting Sophistication</div>
+                <div class="lever-desc">Accrual-based financials, job costing, and segmented reporting by service line dramatically improve buyer confidence and due diligence speed.</div>
+            </div>
+        </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="market">
+        <div class="section-title"><div class="icon">&#127758;</div> Your Market</div>
+        <p>The water treatment industry is experiencing a generational shift in M&amp;A activity. Private equity firms and strategic consolidators have recognized that water treatment sits at the intersection of three mega-trends: aging infrastructure requiring remediation, tightening EPA and state-level water quality regulations (particularly around PFAS &#x27;forever chemicals&#x27;), and the essential-service nature of clean water that makes these businesses recession-resistant. In 2024-2025, water treatment and environmental services companies traded at EBITDA multiples of 4.0x to 8.0x, with premium valuations going to companies demonstrating recurring revenue, regulatory specialization, and strong customer density.</p>
+<p>The buyer universe for a company like AquaScience is exceptionally deep. Strategic acquirers include national water treatment platforms like Culligan, Pentair, and WaterCare that are actively rolling up regional operators to build density. Private equity groups — particularly those with existing home services or environmental services platforms — view water treatment as an adjacent vertical with superior retention economics. Infrastructure-focused funds have also entered the space, attracted by the essential-service characteristics and regulatory tailwinds that create durable demand regardless of economic cycles.</p>
+<p>What makes this moment particularly favorable is the scarcity premium. There are very few water treatment companies in the northeast with AquaScience&#x27;s combination of four decades of operating history, a functioning eCommerce platform, regulatory specialization in PFAS and radon, and the kind of Google rating and BBB accreditation that signal genuine operational excellence. Buyers are competing for a limited supply of quality targets, and companies with proven recurring revenue models and specialized capabilities command premiums that exceed standard industry multiples.</p>
+
+    </div>
+
+    <div class="section" id="attack">
+        <div class="section-title"><div class="icon">&#127919;</div> How We Would Sell Your Business</div>
+        <p>Phase 1 (Days 1-15): Build a curated buyer list of 40-60 targets across three categories — PE-backed water/environmental platforms (15-20), national strategic acquirers (10-15), and family offices/independent sponsors with essential-services mandates (15-25). Prepare a blind teaser highlighting key metrics (41 years, 100K+ customers, dual-channel model, PFAS/radon specialty) without revealing the company name. Phase 2 (Days 15-30): Execute a controlled outreach campaign — personalized letters to the top 20 targets, followed by direct calls to corporate development and operating partners. Simultaneously, reach acquisition-focused professionals on LinkedIn with a short, curiosity-driven message about a northeast water treatment opportunity. Phase 3 (Days 30-60): Manage inbound interest, conduct preliminary qualification calls, distribute the Confidential Information Memorandum to qualified parties who sign NDAs, and facilitate management presentations. Phase 4 (Days 60-90): Collect and evaluate Letters of Intent, negotiate key terms, select the winning bid, and move into due diligence with the chosen buyer. Throughout: maintain competitive tension by running a structured process — even two interested parties dramatically improves pricing and terms.</p>
+
+    </div>
+
+    <div class="section" id="fees">
+        <div class="section-title"><div class="icon">&#128178;</div> Fee Structure Options</div>
+        <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 24px;">
+            Click on the option that works best for you. Your selection is saved automatically.
+        </p>
+        <div class="fee-grid">
+            <div class="fee-card" data-option="A" onclick="selectFee('A')">
+                <div class="checkmark">&#10003;</div>
+                <div class="fee-option-name">Option A</div>
+                <div class="fee-option-subtitle">Performance Only</div>
+                <div class="fee-detail"><div class="label">Engagement Fee</div><div class="value">$0</div></div>
+                <div class="fee-detail"><div class="label">Success Fee</div><div class="value">10%</div></div>
+                <div class="fee-tagline">"You pay nothing until we deliver"</div>
+            </div>
+            <div class="fee-card popular" data-option="B" onclick="selectFee('B')">
+                <div class="checkmark">&#10003;</div>
+                <div class="fee-option-name">Option B</div>
+                <div class="fee-option-subtitle">Standard</div>
+                <div class="fee-detail"><div class="label">Engagement Fee</div><div class="value">$10,000</div></div>
+                <div class="fee-detail"><div class="label">Success Fee</div><div class="value">7%</div></div>
+                <div class="fee-tagline">"Most popular &mdash; covers research and marketing costs"</div>
+            </div>
+            <div class="fee-card" data-option="C" onclick="selectFee('C')">
+                <div class="checkmark">&#10003;</div>
+                <div class="fee-option-name">Option C</div>
+                <div class="fee-option-subtitle">Premium</div>
+                <div class="fee-detail"><div class="label">Engagement Fee</div><div class="value">$15,000</div></div>
+                <div class="fee-detail"><div class="label">Success Fee</div><div class="value">5%</div></div>
+                <div class="fee-tagline">"Full white-glove service with dedicated deal team"</div>
+            </div>
+        </div>
+        <div class="cta-section">
+            <button class="cta-btn" id="cta-button" onclick="letsGetStarted()">Let's Get Started &#10132;</button>
+        </div>
+        <div class="confirmation" id="confirmation">
+            <h3>&#10003; Thank You!</h3>
+            <p>Look for an email in the next 24 hours with your engagement letter and next steps.</p>
+            <p style="margin-top: 12px; font-size: 14px; color: var(--text-secondary);">
+                Your selected fee structure and business profile have been saved. We'll use these as the starting point for our conversation.
+            </p>
+        </div>
+    </div>
+
+    <div style="text-align:center; padding: 32px 0; color: var(--text-secondary); font-size: 12px;">
+        <p>This proposal is confidential and intended solely for Lawrence &quot;Larry&quot; Casey.</p>
+        <p style="margin-top:4px;">&copy; 2026 Next Chapter M&amp;A Advisory. All rights reserved.</p>
+    </div>
+</div>
+
+<script>
+const SUPABASE_URL = 'https://dwrnfpjcvydhmhnvyzov.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR3cm5mcGpjdnlkaG1obnZ5em92Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ3NTcyOTAsImV4cCI6MjA5MDMzMzI5MH0.z0Gu1TWdGPcdptB5W7efnYMmxBbvD353ExG99ftQivY';
+const COMPANY_NAME = 'AquaScience';
+const BASE_MULTIPLES = { low: 4.0, mid: 5.5, high: 8.0 };
+const BASE_EBITDA_MARGIN = 0.15;
+
+async function logInteraction(type, fieldName, oldVal, newVal, metadata) {
+    try {
+        await fetch(SUPABASE_URL + '/rest/v1/client_interactions', {
+            method: 'POST',
+            headers: {
+                'apikey': SUPABASE_KEY,
+                'Authorization': 'Bearer ' + SUPABASE_KEY,
+                'Content-Type': 'application/json',
+                'Prefer': 'return=minimal'
+            },
+            body: JSON.stringify({
+                company_name: COMPANY_NAME,
+                interaction_type: type,
+                field_name: fieldName,
+                old_value: oldVal != null ? String(oldVal) : null,
+                new_value: newVal != null ? String(newVal) : null,
+                metadata: metadata || null
+            })
+        });
+    } catch (e) { console.warn('Failed to log interaction:', e); }
+}
+
+logInteraction('page_view', null, null, null, {
+    user_agent: navigator.userAgent,
+    referrer: document.referrer,
+    timestamp: new Date().toISOString()
+});
+
+const sliders = {
+    revenue: { slider: 'revenue-slider', input: 'revenue-input', display: 'revenue-display', format: 'currency' },
+    employees: { slider: 'employees-slider', input: 'employees-input', display: 'employees-display', format: 'number' },
+    commercial: { slider: 'commercial-slider', input: 'commercial-input', display: 'split-display', format: 'split' },
+    recurring: { slider: 'recurring-slider', input: 'recurring-input', display: 'recurring-display', format: 'percent' },
+    years: { slider: 'years-slider', input: 'years-input', display: 'years-display', format: 'number' }
+};
+
+let debounceTimers = {};
+
+function formatCurrency(val) {
+    if (val >= 1000000) return '$' + (val / 1000000).toFixed(1) + 'M';
+    if (val >= 1000) return '$' + (val / 1000).toFixed(0) + 'K';
+    return '$' + val.toLocaleString();
+}
+
+function formatVal(val) {
+    if (val >= 1000000) return '$' + (val / 1000000).toFixed(2) + 'M';
+    if (val >= 1000) return '$' + Math.round(val / 1000).toLocaleString() + 'K';
+    return '$' + val.toLocaleString();
+}
+
+function updateDisplay(key) {
+    const cfg = sliders[key];
+    const val = parseInt(document.getElementById(cfg.slider).value);
+    if (cfg.format === 'currency') {
+        document.getElementById(cfg.display).textContent = formatCurrency(val);
+    } else if (cfg.format === 'percent') {
+        document.getElementById(cfg.display).textContent = val + '%';
+    } else if (cfg.format === 'split') {
+        document.getElementById(cfg.display).textContent = val + '% / ' + (100 - val) + '%';
+        document.getElementById('commercial-pct').textContent = val + '%';
+        document.getElementById('residential-pct').textContent = (100 - val) + '%';
+    } else {
+        document.getElementById(cfg.display).textContent = val;
+    }
+}
+
+function syncSliderAndInput(key, source) {
+    const cfg = sliders[key];
+    const sliderEl = document.getElementById(cfg.slider);
+    const inputEl = document.getElementById(cfg.input);
+    if (source === 'slider') { inputEl.value = sliderEl.value; }
+    else { sliderEl.value = inputEl.value; }
+    updateDisplay(key);
+    recalculateValuation();
+}
+
+Object.keys(sliders).forEach(key => {
+    const cfg = sliders[key];
+    const sliderEl = document.getElementById(cfg.slider);
+    const inputEl = document.getElementById(cfg.input);
+    sliderEl.addEventListener('input', () => {
+        const oldVal = inputEl.value;
+        syncSliderAndInput(key, 'slider');
+        clearTimeout(debounceTimers[key]);
+        debounceTimers[key] = setTimeout(() => {
+            logInteraction('slider_change', key, oldVal, sliderEl.value, null);
+        }, 1000);
+    });
+    inputEl.addEventListener('input', () => {
+        const oldVal = sliderEl.value;
+        syncSliderAndInput(key, 'input');
+        clearTimeout(debounceTimers[key]);
+        debounceTimers[key] = setTimeout(() => {
+            logInteraction('slider_change', key, oldVal, inputEl.value, null);
+        }, 1000);
+    });
+});
+
+function recalculateValuation() {
+    const revenue = parseInt(document.getElementById('revenue-slider').value);
+    const recurring = parseInt(document.getElementById('recurring-slider').value);
+    const commercial = parseInt(document.getElementById('commercial-slider').value);
+    const years = parseInt(document.getElementById('years-slider').value);
+    const employees = parseInt(document.getElementById('employees-slider').value);
+
+    let margin = BASE_EBITDA_MARGIN;
+    margin += (commercial - 50) * 0.0005;
+    margin += (recurring - 20) * 0.001;
+    margin = Math.max(0.08, Math.min(0.30, margin));
+
+    const ebitda = revenue * margin;
+
+    let multipleAdj = 0;
+    if (recurring >= 60) multipleAdj += 1.0;
+    else if (recurring >= 40) multipleAdj += 0.5;
+    else if (recurring >= 20) multipleAdj += 0.0;
+    else multipleAdj -= 0.5;
+
+    if (commercial >= 60) multipleAdj += 0.3;
+    if (years >= 30) multipleAdj += 0.3;
+    else if (years >= 15) multipleAdj += 0.15;
+    if (revenue >= 10000000) multipleAdj += 0.5;
+    else if (revenue >= 5000000) multipleAdj += 0.25;
+
+    const adjLow = Math.max(1.5, BASE_MULTIPLES.low + multipleAdj * 0.5);
+    const adjMid = Math.max(2.0, BASE_MULTIPLES.mid + multipleAdj * 0.7);
+    const adjHigh = Math.max(3.0, BASE_MULTIPLES.high + multipleAdj);
+
+    const valLow = ebitda * adjLow;
+    const valMid = ebitda * adjMid;
+    const valHigh = ebitda * adjHigh;
+
+    document.getElementById('val-low').textContent = formatVal(valLow);
+    document.getElementById('val-mid').textContent = formatVal(valMid);
+    document.getElementById('val-high').textContent = formatVal(valHigh);
+    document.getElementById('val-low-mult').textContent = adjLow.toFixed(1) + 'x EBITDA';
+    document.getElementById('val-mid-mult').textContent = adjMid.toFixed(1) + 'x EBITDA';
+    document.getElementById('val-high-mult').textContent = adjHigh.toFixed(1) + 'x EBITDA';
+
+    document.getElementById('methodology-text').innerHTML =
+        '<strong>Methodology:</strong> Based on <strong>' + formatCurrency(revenue) + '</strong> revenue × ' +
+        '<strong>' + (margin * 100).toFixed(1) + '%</strong> estimated EBITDA margin = ' +
+        '<strong>' + formatCurrency(ebitda) + '</strong> EBITDA × ' +
+        '<strong>' + adjLow.toFixed(1) + 'x – ' + adjHigh.toFixed(1) + 'x</strong> EBITDA multiple range. ' +
+        'Multiple adjustments reflect ' + recurring + '% recurring revenue, ' + commercial + '% commercial mix, ' +
+        years + ' years operating history, and ' + employees + ' employees. ' +
+        'Higher recurring revenue and commercial contracts command premium multiples from acquirers.';
+}
+
+recalculateValuation();
+
+let selectedFee = null;
+
+function selectFee(option) {
+    const oldSelection = selectedFee;
+    selectedFee = option;
+    document.querySelectorAll('.fee-card').forEach(card => { card.classList.remove('selected'); });
+    document.querySelector('.fee-card[data-option="' + option + '"]').classList.add('selected');
+    document.getElementById('cta-button').classList.add('visible');
+    logInteraction('fee_selection', 'fee_option', oldSelection, option, {
+        option_details: {
+            'A': { engagement_fee: 0, success_fee: '10%', name: 'Performance Only' },
+            'B': { engagement_fee: 10000, success_fee: '7%', name: 'Standard' },
+            'C': { engagement_fee: 15000, success_fee: '5%', name: 'Premium' }
+        }[option]
+    });
+}
+
+function letsGetStarted() {
+    if (!selectedFee) return;
+    const state = {
+        revenue: document.getElementById('revenue-slider').value,
+        employees: document.getElementById('employees-slider').value,
+        commercial_pct: document.getElementById('commercial-slider').value,
+        recurring_pct: document.getElementById('recurring-slider').value,
+        years: document.getElementById('years-slider').value,
+        fee_option: selectedFee,
+        valuation_low: document.getElementById('val-low').textContent,
+        valuation_mid: document.getElementById('val-mid').textContent,
+        valuation_high: document.getElementById('val-high').textContent
+    };
+    logInteraction('lets_get_started', 'fee_option_chosen', null, selectedFee, state);
+    document.getElementById('cta-button').style.display = 'none';
+    document.getElementById('confirmation').classList.add('show');
+    document.getElementById('confirmation').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+</script>
+</body>
+</html>

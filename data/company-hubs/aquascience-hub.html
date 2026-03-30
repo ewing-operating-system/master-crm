@@ -6,153 +6,616 @@
 <title>AquaScience — Company Hub</title>
 <meta name="company-name" content="AquaScience">
 <meta name="page-type" content="hub">
+<meta name="deal-side" content="sell_side">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f5f6fa; color: #1a1a2e; }
-  .top { background: linear-gradient(135deg, #16213e, #1a5276); color: white; padding: 25px 30px; position: sticky; top: 0; z-index: 100; }
-  .top h1 { font-size: 24px; }
-  .top .meta { font-size: 13px; opacity: 0.8; margin-top: 3px; }
-  .top .badges { margin-top: 8px; }
-  .badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; margin-right: 6px; }
+  /* === RESET === */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /* === BASE === */
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* === HEADER === */
+  .page-header {
+    background: linear-gradient(135deg, #161b22 0%, #0d1117 50%, #161b22 100%);
+    border-bottom: 1px solid #30363d;
+    padding: 28px 32px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .header-left h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #f0f6fc;
+    letter-spacing: -0.3px;
+  }
+  .header-left .subtitle {
+    font-size: 14px;
+    color: #8b949e;
+    margin-top: 4px;
+  }
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .deal-badge {
+    display: inline-block;
+    padding: 5px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #f0f6fc;
+    background: #27ae60;
+    text-transform: uppercase;
+  }
+  .badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #f0f6fc;
+  }
   .badge.green { background: #27ae60; }
-  .badge.orange { background: #f39c12; }
-  .badge.blue { background: #3498db; }
+  .badge.orange { background: #f39c12; color: #1a1a2e; }
+  .badge.blue { background: #1f6feb; }
   .badge.red { background: #e74c3c; }
-  nav { background: #16213e; padding: 0 30px; display: flex; gap: 0; border-bottom: 2px solid #30363d; overflow-x: auto; }
-  nav a { color: #8b949e; text-decoration: none; padding: 10px 15px; font-size: 13px; white-space: nowrap; border-bottom: 2px solid transparent; }
-  nav a:hover, nav a.active { color: white; border-bottom-color: #58a6ff; }
-  .container { max-width: 1200px; margin: 20px auto; padding: 0 20px; }
-  .section { background: white; border-radius: 10px; padding: 25px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-  .section h2 { font-size: 16px; color: #16213e; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #f0f2f5; }
+  .badge.gray { background: #30363d; }
+
+  /* === NAVIGATION === */
+  .top-nav {
+    background: #161b22;
+    border-bottom: 1px solid #30363d;
+    padding: 0 32px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .top-nav a {
+    color: #8b949e;
+    text-decoration: none;
+    padding: 12px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s ease;
+  }
+  .top-nav a:hover { color: #c9d1d9; border-bottom-color: #30363d; }
+  .top-nav a.active { color: #58a6ff; border-bottom-color: #58a6ff; }
+
+  /* === LAYOUT === */
+  .page-layout {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    gap: 0;
+    min-height: calc(100vh - 160px);
+  }
+
+  /* === SIDEBAR === */
+  .sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    background: #0d1117;
+    border-right: 1px solid #21262d;
+    padding: 20px 0;
+    position: sticky;
+    top: 90px;
+    height: fit-content;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+  }
+  .sidebar-heading {
+    font-size: 11px;
+    font-weight: 600;
+    color: #8b949e;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 20px;
+    margin-bottom: 4px;
+  }
+  .sidebar-link {
+    display: block;
+    padding: 7px 20px;
+    color: #8b949e;
+    text-decoration: none;
+    font-size: 13px;
+    border-left: 2px solid transparent;
+    transition: all 0.15s ease;
+  }
+  .sidebar-link:hover {
+    color: #c9d1d9;
+    background: #161b22;
+    border-left-color: #30363d;
+  }
+  .sidebar-link:active, .sidebar-link.active {
+    color: #58a6ff;
+    border-left-color: #58a6ff;
+    background: #161b22;
+  }
+
+  /* === MAIN CONTENT === */
+  .main-content {
+    flex: 1;
+    padding: 24px 32px;
+    min-width: 0;
+  }
+
+  /* === CARDS === */
+  .card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .card h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #f0f6fc;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #21262d;
+  }
+  .card p { margin-bottom: 10px; }
+
+  /* === GRIDS === */
   .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; }
-  .stat { text-align: center; padding: 15px; background: #f8f9fa; border-radius: 8px; }
-  .stat .num { font-size: 28px; font-weight: bold; color: #16213e; }
-  .stat .label { font-size: 12px; color: #888; }
-  table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  th { text-align: left; padding: 8px; background: #f8f9fa; font-weight: 600; color: #555; }
-  td { padding: 8px; border-bottom: 1px solid #f0f2f5; }
-  .script-box { background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 10px 0; white-space: pre-wrap; font-size: 13px; line-height: 1.6; }
-  .script-label { font-weight: 600; color: #16213e; margin-bottom: 5px; }
-  ul { padding-left: 20px; }
-  li { margin: 4px 0; }
-  a { color: #3498db; }
-  .footer { text-align: center; padding: 20px; color: #999; font-size: 11px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .grid4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; }
+
+  /* === STAT BOXES === */
+  .stat {
+    text-align: center;
+    padding: 18px 12px;
+    background: #0d1117;
+    border: 1px solid #21262d;
+    border-radius: 8px;
+  }
+  .stat .num {
+    font-size: 30px;
+    font-weight: 700;
+    color: #f0f6fc;
+    line-height: 1.1;
+  }
+  .stat .label {
+    font-size: 12px;
+    color: #8b949e;
+    margin-top: 4px;
+  }
+
+  /* === TABLES === */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  th {
+    text-align: left;
+    padding: 10px 12px;
+    background: #0d1117;
+    font-weight: 600;
+    color: #8b949e;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #30363d;
+  }
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #21262d;
+    color: #c9d1d9;
+  }
+  tr:hover td { background: #1c2128; }
+
+  /* === LINKS === */
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* === LISTS === */
+  ul, ol { padding-left: 22px; }
+  li { margin: 5px 0; }
+
+  /* === SCRIPT/NARRATIVE BOXES === */
+  .narrative-box {
+    background: #0d1117;
+    border: 1px solid #21262d;
+    border-left: 3px solid #58a6ff;
+    padding: 18px 20px;
+    border-radius: 6px;
+    margin: 12px 0;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    font-size: 14px;
+  }
+  .script-box {
+    background: #0d1117;
+    border: 1px solid #21262d;
+    padding: 16px;
+    border-radius: 8px;
+    margin: 10px 0;
+    white-space: pre-wrap;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .script-label {
+    font-weight: 600;
+    color: #f0f6fc;
+    margin-bottom: 6px;
+    font-size: 13px;
+  }
+
+  /* === HIGHLIGHT CARD (for narrative) === */
+  .highlight-card {
+    background: linear-gradient(135deg, #161b22, #1c2128);
+    border: 1px solid #58a6ff;
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .highlight-card h2 {
+    color: #58a6ff;
+    border-bottom-color: #58a6ff40;
+  }
+
+  /* === FOOTER === */
+  .page-footer {
+    text-align: center;
+    padding: 24px 32px;
+    color: #484f58;
+    font-size: 12px;
+    border-top: 1px solid #21262d;
+    margin-top: 20px;
+  }
+  .page-footer strong { color: #8b949e; }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 900px) {
+    .sidebar { display: none; }
+    .page-layout { display: block; }
+    .main-content { padding: 16px; }
+    .grid2, .grid3, .grid4 { grid-template-columns: 1fr; }
+    .header-inner { flex-direction: column; gap: 10px; }
+    .top-nav { padding: 0 12px; }
+    .page-header { padding: 16px; }
+  }
+
+  /* === PRINT === */
+  @media print {
+    body { background: white; color: #1a1a2e; }
+    .page-header { background: white; border-bottom: 2px solid #1a1a2e; position: static; }
+    .header-left h1 { color: #1a1a2e; }
+    .header-left .subtitle { color: #555; }
+    .top-nav { display: none; }
+    .sidebar { display: none; }
+    .page-layout { display: block; }
+    .main-content { padding: 0; }
+    .card { background: white; border: 1px solid #ddd; box-shadow: none; page-break-inside: avoid; }
+    .card h2 { color: #1a1a2e; border-bottom-color: #ddd; }
+    .stat { background: #f8f9fa; border-color: #ddd; }
+    .stat .num { color: #1a1a2e; }
+    .narrative-box { background: #f8f9fa; border-color: #ddd; border-left-color: #3498db; }
+    .highlight-card { background: #f8f9fa; border-color: #3498db; }
+    .script-box { background: #f8f9fa; border-color: #ddd; }
+    td { color: #1a1a2e; }
+    th { background: #f0f2f5; color: #555; }
+    .page-footer { color: #999; }
+    a { color: #1a5276; }
+    .deal-badge { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    .badge { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  }
 </style>
 </head>
 <body>
 
-<div class="top">
-  <h1>AquaScience</h1>
-  <div class="meta">Lawrence "Larry" Casey | Wyoming, RI | Water Treatment / eCommerce | Est. Revenue: 8000000.0 | Employees: 11</div>
-  <div class="badges">
-    <span class="badge green">engagement_active</span>
-    <span class="badge blue">Quality: 88</span>
-    <span class="badge green">Cost: $0.00</span>
-    <span class="badge blue">35 Buyers</span>
-    <span class="badge blue">2 Contacts</span>
+<!-- HEADER -->
+<div class="page-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <h1>AquaScience</h1>
+      <div class="subtitle">Lawrence "Larry" Casey | Wyoming, RI | Water Treatment / eCommerce | Rev: 8000000.0 | Employees: 11</div>
+    </div>
+    <div class="header-right">
+      <span class="deal-badge">SELL SIDE</span>
+    </div>
   </div>
 </div>
 
-<nav>
-  <a href="#overview">Overview</a>
-  <a href="#contacts">Contacts</a>
-  <a href="#proposal">Proposal</a>
-  <a href="#buyers">Buyers (35)</a>
-  <a href="#scripts">Outreach Scripts</a>
-  <a href="#plays">Plays & Emails</a>
-  <a href="#files">Files</a>
-  <a href="#history">History</a>
-</nav>
+<!-- NAVIGATION -->
+<div class="top-nav">
+  <a href="/dashboard.html">Home</a>
+<a href="/dashboard.html">Dashboard</a>
+<a href="/aquascience-hub.html" class="active">Company Hub</a>
+<a href="/aquascience-ebitda-levers.html">EBITDA Levers</a>
+<a href="#history">Version History</a>
 
-<div class="container">
+</div>
 
-  <div class="section" id="overview">
-    <h2>Overview</h2>
-    <div class="grid3">
-      <div class="stat"><div class="num">35</div><div class="label">Buyers Identified</div></div>
-      <div class="stat"><div class="num">10</div><div class="label">Scripts Ready</div></div>
-      <div class="stat"><div class="num">3</div><div class="label">Documents</div></div>
-    </div>
+<!-- LAYOUT -->
+<div class="page-layout">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-heading">Page Sections</div>
+    <a href="#overview" class="sidebar-link">Overview</a>
+<a href="#your-company-story" class="sidebar-link">Your Company Story</a>
+<a href="#contacts" class="sidebar-link">Contacts</a>
+<a href="#buyer-outreach-strategy" class="sidebar-link">Buyer Outreach Strategy</a>
+<a href="#potential-acquirers-35" class="sidebar-link">Potential Acquirers (35)</a>
+<a href="#outreach-scripts" class="sidebar-link">Outreach Scripts</a>
+<a href="#plays-amp-emails-sent" class="sidebar-link">Plays &amp; Emails Sent</a>
+<a href="#documents-amp-files" class="sidebar-link">Documents &amp; Files</a>
+<a href="#pipeline-history" class="sidebar-link">Pipeline History</a>
+
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
     
-  </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px">
+        <span class="badge green">engagement_active</span>
+        <span class="badge blue">Quality: 88</span>
+        <span class="badge green">Cost: $0.00</span>
+        <span class="badge blue">35 Potential Acquirers</span>
+        <span class="badge blue">2 Contacts</span>
+    </div>
 
-  <div class="section" id="contacts">
-    <h2>Contacts</h2>
-    <table><tr><th>Name</th><th>Title</th><th>Email</th><th>Phone</th></tr><tr><td>Lawrence "Larry" Casey</td><td>None</td><td>larrycasey@aquascience.net</td><td>401-742-8772</td></tr><tr><td>Lawrence "Larry" Casey</td><td>None</td><td>larrycasey@aquascience.net</td><td>401-742-8772</td></tr></table>
-  </div>
+    <div class="card" id="overview">
+        <h2>Overview</h2>
+        <div class="grid4">
+            <div class="stat"><div class="num">35</div><div class="label">Potential Acquirers</div></div>
+            <div class="stat"><div class="num">10</div><div class="label">Scripts Ready</div></div>
+            <div class="stat"><div class="num">0</div><div class="label">Letters Sent</div></div>
+            <div class="stat"><div class="num">3</div><div class="label">Documents</div></div>
+        </div>
+        
+    </div>
 
-  <div class="section" id="proposal">
-    <h2>Proposal & Attack Plan</h2>
-    <p>AquaScience was founded in 1984 by Lawrence Casey on a promise that still lives on the company's website today: to bring the world's finest water treatment equipment and well water supplies directly to the public at the lowest prices in the country. That was before the internet existed as a commercial channel — and yet Larry built a direct-to-consumer model that anticipated by decades what the rest of the industry would eventually try to replicate. Forty-one years later, AquaScience has served over 100,000 customers and completed more than 120,000 service calls in a three-year window alone, establishing itself as one of the most trusted water treatment providers in the northeastern United States.
+    <div class="highlight-card" id="narrative">
+        <h2>Your Company Story</h2>
+        <div class="narrative-box">AquaScience was founded in 1984 by Lawrence Casey on a promise that still lives on the company's website today: to bring the world's finest water treatment equipment and well water supplies directly to the public at the lowest prices in the country. That was before the internet existed as a commercial channel — and yet Larry built a direct-to-consumer model that anticipated by decades what the rest of the industry would eventually try to replicate. Forty-one years later, AquaScience has served over 100,000 customers and completed more than 120,000 service calls in a three-year window alone, establishing itself as one of the most trusted water treatment providers in the northeastern United States.
+
+What makes AquaScience particularly remarkable is the breadth of its competitive moat. The company operates both a physical service business out of Wyoming, Rhode Island, and a national eCommerce platform — a dual-channel model that very few water treatment companies have successfully built. The eCommerce component creates a low customer-acquisition-cost revenue stream that compounds over time through organic search traffic, while the local service operation generates high-margin recurrin</div>
+    </div>
+
+    <div class="card" id="contacts">
+        <h2>Contacts</h2>
+        <table>
+            <tr><th>Name</th><th>Title</th><th>Email</th><th>Phone</th><th>LinkedIn</th></tr>
+            <tr>
+            <td>Lawrence &quot;Larry&quot; Casey</td>
+            <td></td>
+            <td>larrycasey@aquascience.net</td>
+            <td>401-742-8772</td>
+            <td><a href="linkedin.com/in/larry-casey-244090309" target="_blank">Profile</a></td>
+        </tr><tr>
+            <td>Lawrence &quot;Larry&quot; Casey</td>
+            <td></td>
+            <td>larrycasey@aquascience.net</td>
+            <td>401-742-8772</td>
+            <td><a href="linkedin.com/in/larry-casey-244090309" target="_blank">Profile</a></td>
+        </tr>
+        </table>
+    </div>
+
+    <div class="card" id="proposal">
+        <h2>Buyer Outreach Strategy</h2>
+        <p>AquaScience was founded in 1984 by Lawrence Casey on a promise that still lives on the company's website today: to bring the world's finest water treatment equipment and well water supplies directly to the public at the lowest prices in the country. That was before the internet existed as a commercial channel — and yet Larry built a direct-to-consumer model that anticipated by decades what the rest of the industry would eventually try to replicate. Forty-one years later, AquaScience has served over 100,000 customers and completed more than 120,000 service calls in a three-year window alone, establishing itself as one of the most trusted water treatment providers in the northeastern United States.
 
 What makes AquaScience particularly remarkable is the breadth of its competitive moat. The co</p>
-    <div style="margin-top:15px"><strong>Market Analysis:</strong><p>The water treatment industry is experiencing a generational shift in M&A activity. Private equity firms and strategic consolidators have recognized that water treatment sits at the intersection of three mega-trends: aging infrastructure requiring remediation, tightening EPA and state-level water quality regulations (particularly around PFAS 'forever chemicals'), and the essential-service nature of clean water that makes these businesses recession-resistant. In 2024-2025, water treatment and envi</p></div>
-    <div style="margin-top:15px"><strong>Attack Plan:</strong><p>Phase 1 (Days 1-15): Build a curated buyer list of 40-60 targets across three categories — PE-backed water/environmental platforms (15-20), national strategic acquirers (10-15), and family offices/independent sponsors with essential-services mandates (15-25). Prepare a blind teaser highlighting key metrics (41 years, 100K+ customers, dual-channel model, PFAS/radon specialty) without revealing the company name. Phase 2 (Days 15-30): Execute a controlled outreach campaign — personalized letters to</p></div>
-    <div style="margin-top:15px"><strong>Timeline:</strong><p>DAYS 1-15 — PREPARATION: Finalize Confidential Information Memorandum and blind teaser. Build curated buyer list (40-60 targets across PE platforms, strategics, and family offices). Prepare all outreach materials — letters, call scripts, email sequences. Confirm owner's availability for management p</p></div>
-  </div>
+        <div style="margin-top:15px"><strong style="color:#f0f6fc">Market Analysis:</strong><p style="margin-top:6px">The water treatment industry is experiencing a generational shift in M&amp;A activity. Private equity firms and strategic consolidators have recognized that water treatment sits at the intersection of three mega-trends: aging infrastructure requiring remediation, tightening EPA and state-level water quality regulations (particularly around PFAS 'forever chemicals'), and the essential-service nature of clean water that makes these businesses recession-resistant. In 2024-2025, water treatment and envi</p></div>
+        <div style="margin-top:15px"><strong style="color:#f0f6fc">Attack Plan:</strong><p style="margin-top:6px">Phase 1 (Days 1-15): Build a curated buyer list of 40-60 targets across three categories — PE-backed water/environmental platforms (15-20), national strategic acquirers (10-15), and family offices/independent sponsors with essential-services mandates (15-25). Prepare a blind teaser highlighting key metrics (41 years, 100K+ customers, dual-channel model, PFAS/radon specialty) without revealing the company name. Phase 2 (Days 15-30): Execute a controlled outreach campaign — personalized letters to</p></div>
+        <div style="margin-top:15px"><strong style="color:#f0f6fc">Timeline:</strong><p style="margin-top:6px">DAYS 1-15 — PREPARATION: Finalize Confidential Information Memorandum and blind teaser. Build curated buyer list (40-60 targets across PE platforms, strategics, and family offices). Prepare all outreach materials — letters, call scripts, email sequences. Confirm owner's availability for management p</p></div>
+    </div>
 
-  <div class="section" id="buyers">
-    <h2>Buyer Targets (35)</h2>
-    <table><tr><th>Buyer</th><th>Type</th><th>Location</th><th>Fit</th><th>DNC</th><th>Script</th><th>Status</th></tr><tr><td><a href="aquascience_culligan-international.html" style="color:#58a6ff;text-decoration:none">Culligan International</a></td><td>Strategic Acquirer</td><td>Rosemont, IL</td><td>9</td><td>🚫</td><td>📝</td><td>scripted</td></tr><tr><td>BDT & MSD Partners</td><td>PE Roll-up</td><td>Chicago, IL</td><td>8</td><td>🚫</td><td>📝</td><td>scripted</td></tr><tr><td><a href="aquascience_grundfos.html" style="color:#58a6ff;text-decoration:none">Grundfos</a></td><td>Strategic Acquirer</td><td>Brookshire, TX</td><td>7</td><td>🚫</td><td>📝</td><td>scripted</td></tr><tr><td><a href="aquascience_pentair.html" style="color:#58a6ff;text-decoration:none">Pentair</a></td><td>Strategic Acquirer</td><td>Golden Valley, MN</td><td>7</td><td>🚫</td><td>📝</td><td>scripted</td></tr><tr><td>Essential Utilities (Aqua America)</td><td>Strategic Acquirer</td><td>Bryn Mawr, PA</td><td>6</td><td>🚫</td><td>📝</td><td>scripted</td></tr><tr><td>Advent International</td><td>PE Roll-up</td><td>Boston, MA</td><td>6</td><td>🚫</td><td>📝</td><td>scripted</td></tr><tr><td>Evoqua Water Technologies (Xylem)</td><td>Strategic Acquirer</td><td>Pittsburgh, PA</td><td>6</td><td>🚫</td><td>📝</td><td>scripted</td></tr><tr><td>Whitewater Management</td><td>Industry Consolidator</td><td>Calgary, AB (Canada)</td><td>5</td><td>🚫</td><td>📝</td><td>scripted</td></tr><tr><td>Capstone Partners (Advisory Lead)</td><td>Industry Consolidator</td><td>Boston, MA</td><td>5</td><td>🚫</td><td>📝</td><td>scripted</td></tr><tr><td>The McLean Group</td><td>Industry Consolidator</td><td>McLean, VA</td><td>4</td><td>🚫</td><td>📝</td><td>scripted</td></tr><tr><td>Solenis</td><td>strategic</td><td>Wilmington, DE</td><td>—</td><td>🚫</td><td>—</td><td>identified</td></tr><tr><td>Arcadis</td><td>strategic</td><td>Highlands Ranch, CO</td><td>—</td><td>🚫</td><td>—</td><td>identified</td></tr><tr><td>Veolia North America</td><td>strategic</td><td>Boston, MA</td><td>—</td><td>🚫</td><td>—</td><td>identified</td></tr><tr><td>SHV Holdings</td><td>PE/strategic</td><td>The Woodlands, TX</td><td>—</td><td>🚫</td><td>—</td><td>identified</td></tr><tr><td>Bernhard Capital Partners</td><td>PE</td><td>Baton Rouge, LA</td><td>—</td><td>🚫</td><td>—</td><td>identified</td></tr></table>
-  </div>
+    <div class="card" id="buyers">
+        <h2>Potential Acquirers (35)</h2>
+        <table>
+            <tr><th>Company</th><th>Type</th><th>Location</th><th>Fit</th><th>DNC</th><th>Script</th><th>Status</th></tr>
+            <tr>
+            <td><a href="aquascience_culligan-international.html">Culligan International</a></td>
+            <td>Strategic Acquirer</td>
+            <td>Rosemont, IL</td>
+            <td>9</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td><span class="badge blue" style="font-size:10px">Ready</span></td>
+            <td><span class="badge gray" style="font-size:10px">scripted</span></td>
+        </tr><tr>
+            <td>BDT &amp; MSD Partners</td>
+            <td>PE Roll-up</td>
+            <td>Chicago, IL</td>
+            <td>8</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td><span class="badge blue" style="font-size:10px">Ready</span></td>
+            <td><span class="badge gray" style="font-size:10px">scripted</span></td>
+        </tr><tr>
+            <td><a href="aquascience_grundfos.html">Grundfos</a></td>
+            <td>Strategic Acquirer</td>
+            <td>Brookshire, TX</td>
+            <td>7</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td><span class="badge blue" style="font-size:10px">Ready</span></td>
+            <td><span class="badge gray" style="font-size:10px">scripted</span></td>
+        </tr><tr>
+            <td><a href="aquascience_pentair.html">Pentair</a></td>
+            <td>Strategic Acquirer</td>
+            <td>Golden Valley, MN</td>
+            <td>7</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td><span class="badge blue" style="font-size:10px">Ready</span></td>
+            <td><span class="badge gray" style="font-size:10px">scripted</span></td>
+        </tr><tr>
+            <td>Essential Utilities (Aqua America)</td>
+            <td>Strategic Acquirer</td>
+            <td>Bryn Mawr, PA</td>
+            <td>6</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td><span class="badge blue" style="font-size:10px">Ready</span></td>
+            <td><span class="badge gray" style="font-size:10px">scripted</span></td>
+        </tr><tr>
+            <td>Advent International</td>
+            <td>PE Roll-up</td>
+            <td>Boston, MA</td>
+            <td>6</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td><span class="badge blue" style="font-size:10px">Ready</span></td>
+            <td><span class="badge gray" style="font-size:10px">scripted</span></td>
+        </tr><tr>
+            <td>Evoqua Water Technologies (Xylem)</td>
+            <td>Strategic Acquirer</td>
+            <td>Pittsburgh, PA</td>
+            <td>6</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td><span class="badge blue" style="font-size:10px">Ready</span></td>
+            <td><span class="badge gray" style="font-size:10px">scripted</span></td>
+        </tr><tr>
+            <td>Whitewater Management</td>
+            <td>Industry Consolidator</td>
+            <td>Calgary, AB (Canada)</td>
+            <td>5</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td><span class="badge blue" style="font-size:10px">Ready</span></td>
+            <td><span class="badge gray" style="font-size:10px">scripted</span></td>
+        </tr><tr>
+            <td>Capstone Partners (Advisory Lead)</td>
+            <td>Industry Consolidator</td>
+            <td>Boston, MA</td>
+            <td>5</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td><span class="badge blue" style="font-size:10px">Ready</span></td>
+            <td><span class="badge gray" style="font-size:10px">scripted</span></td>
+        </tr><tr>
+            <td>The McLean Group</td>
+            <td>Industry Consolidator</td>
+            <td>McLean, VA</td>
+            <td>4</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td><span class="badge blue" style="font-size:10px">Ready</span></td>
+            <td><span class="badge gray" style="font-size:10px">scripted</span></td>
+        </tr><tr>
+            <td>Solenis</td>
+            <td>strategic</td>
+            <td>Wilmington, DE</td>
+            <td>—</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td>—</td>
+            <td><span class="badge gray" style="font-size:10px">identified</span></td>
+        </tr><tr>
+            <td>Arcadis</td>
+            <td>strategic</td>
+            <td>Highlands Ranch, CO</td>
+            <td>—</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td>—</td>
+            <td><span class="badge gray" style="font-size:10px">identified</span></td>
+        </tr><tr>
+            <td>Veolia North America</td>
+            <td>strategic</td>
+            <td>Boston, MA</td>
+            <td>—</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td>—</td>
+            <td><span class="badge gray" style="font-size:10px">identified</span></td>
+        </tr><tr>
+            <td>SHV Holdings</td>
+            <td>PE/strategic</td>
+            <td>The Woodlands, TX</td>
+            <td>—</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td>—</td>
+            <td><span class="badge gray" style="font-size:10px">identified</span></td>
+        </tr><tr>
+            <td>Bernhard Capital Partners</td>
+            <td>PE</td>
+            <td>Baton Rouge, LA</td>
+            <td>—</td>
+            <td><span class="badge red" style="font-size:10px">DNC</span></td>
+            <td>—</td>
+            <td><span class="badge gray" style="font-size:10px">identified</span></td>
+        </tr>
+        </table>
+    </div>
 
-  <div class="section" id="scripts">
-    <h2>Sample Outreach Scripts</h2>
-    <div class="script-label">📧 Email</div><div class="script-box">Subject: Rhode Island Water Treatment Platform — Potential Fit for Culligan
+    <div class="card" id="scripts">
+        <h2>Outreach Scripts</h2>
+        <div class="script-label">Email</div><div class="script-box">Lawrence, I was researching AquaScience and came across that line from 1984 you've kept on your site about bringing the world's finest water treatment equipment directly to the public. Forty-one years later, with over 100,000 customers served in Phoenix alone and 120,000 service calls in three years, you've clearly delivered on that promise.
 
-Scott,
+I also saw a review from a Rhode Island customer who said, 'They added a filter and now my water tastes great!' That kind of tangible impact, backed by your BBB accreditation and PFAS/radon specialty, shows a business built on trust in an essential industry.
 
-Next Chapter Advisory represents the owners of a 41-year-old water treatment company in Rhode Island serving both residential and commercial customers. Given Culligan's acquisition strategy and Northeast expansion, this felt like a natural conversation.
+I run Next Chapter M&amp;A Advisory, and I work exclusively with founders who've built businesses like AquaScience — ones with real staying power and recurring revenue from maintenance contracts — to ensure their next chapter is on their terms. No sales pitch, just an honest conversation.
 
-The business brings an established local customer base, experienced service teams, and a reputation built over four decades — the kind of foundation Culligan has proven it can scale through its tuck-in model.
+Would you have 20 minutes next week to discuss? I'm at 818-747-9668.
 
-The owners are exploring strategic options confidentially. No formal process — just determining whether a conversation with the right partner makes sense.
+Ewmarcus
+Next Chapter M&amp;A Advisory
+818-747-9668</div><div class="script-label">Call Script</div><div class="script-box">OPENING: Hi Lawrence, this is Ewmarcus from Next Chapter M&amp;A Advisory. I was researching AquaScience and saw that line from 1984 you've kept on your website about bringing the world's finest water treatment equipment directly to the public — 41 years later, with over 100,000 customers served in Phoenix alone, you've clearly lived up to that.
 
-Would you have 15 minutes this week or next to discuss?
+POSITIONING: I run Next Chapter M&amp;A Advisory, and we work exclusively with owners like you who've built businesses with real staying power. We represent sellers, not buyers, to ensure your next chapter happens on your terms.
 
-Best,
-Ewing Gillaspy
-Next Chapter Advisory</div>
-    <div class="script-label">📞 Call Script</div><div class="script-box">Hi Scott, this is Ewing Gillaspy with Next Chapter Advisory. We represent the owners of a 41-year water treatment company in Rhode Island — residential and commercial. Given Culligan's acquisition model, this looked like a strong tuck-in fit for your Northeast footprint.
+ASK: I'm not pitching anything — I'd just like 20 minutes to have an honest conversation about what you've built and what might be next. Are you free for a brief chat next week?
 
-Talking points:
-- Established RI customer base, trained service teams in-market
-- Residential and commercial water treatment — direct Culligan overlap
-- Owners exploring options confidentially, no formal process
-- Northeast density play for Culligan's existing platform
+OBJECTION — Already talking to buyers: That's great to hear you're exploring options. My role is different — I'm an advisor who works solely for owners, not buyers, to help you navigate the process and maximize your outcome. Could we still connect for 20 minutes to compare notes?
 
-Ask: Would a confidential conversation make sense?</div>
-    <div class="script-label">💼 LinkedIn</div><div class="script-box">Scott — Ewing Gillaspy with Next Chapter Advisory. We represent a 41-year Rhode Island water treatment company that looks like a strong tuck-in fit for Culligan's Northeast platform. Worth a brief conversation?</div>
-    <div class="script-label">✉️ Letter</div><div class="script-box">Dear Scott,
+VOICEMAIL: Hi Lawrence, this is Ewmarcus from Next Chapter M&amp;A Advisory at 818-747-9668. I was researching AquaScience and saw that 41-year founding story and the customer review about water tasting great after your service — impressive legacy. I help founders with next-chapter planning. Please call me back at 818-747-9668. Again, Ewmarcus at 818-747-9668.</div><div class="script-label">LinkedIn</div><div class="script-box">Lawrence, I came across AquaScience's 41-year story and that customer quote about water tasting great after your service. Impressive legacy. I help founders with next-chapter planning. Would you be open to connecting?</div>
+    </div>
 
-I'm reaching out on behalf of Next Chapter Advisory. We represent the owners of a 41-year-old residential and commercial water treatment company based in Rhode Island with deep roots in the Northeast market.
+    <div class="card" id="plays">
+        <h2>Plays &amp; Emails Sent</h2>
+        <table>
+            <tr><th>Play</th><th>Status</th><th>Quality</th><th>Date</th></tr>
+            <tr>
+            <td>follow_up_full_package</td>
+            <td>draft</td>
+            <td>88</td>
+            <td>2026-03-29</td>
+        </tr>
+        </table>
+    </div>
 
-Given Culligan's impressive track record of 200+ acquisitions building the world's premier consumer water services platform, this company stood out as a natural fit for your tuck-in strategy. The business offers an established customer base across Rhode Island, trained service </div>
-  </div>
+    <div class="card" id="files">
+        <h2>Documents &amp; Files</h2>
+        <ul><li><a href="/company/aquascience/proposal" target="_blank">Proposal: aquascience.html</a></li><li><a href="/company/aquascience/dataroom" target="_blank">Data Room: aquascience.html</a></li><li><a href="/company/aquascience/meeting" target="_blank">Meeting Prep: aquascience_2026-03-29_discovery.html</a></li></ul>
+    </div>
 
-  <div class="section" id="plays">
-    <h2>Plays & Emails Sent</h2>
-    <table><tr><th>Play</th><th>Status</th><th>Quality</th><th>Date</th></tr><tr><td>follow_up_full_package</td><td>draft</td><td>88</td><td>2026-03-29</td></tr></table>
-  </div>
-
-  <div class="section" id="files">
-    <h2>Documents & Files</h2>
-    <ul><li><a href="/company/aquascience/proposal" target="_blank">Proposal: aquascience.html</a></li><li><a href="/company/aquascience/dataroom" target="_blank">Data Room: aquascience.html</a></li><li><a href="/company/aquascience/meeting" target="_blank">Meeting Prep: aquascience_2026-03-29_discovery.html</a></li></ul>
-  </div>
-
-  <div class="section" id="history">
-    <h2>Pipeline History</h2>
-    <table><tr><th>Step</th><th>Tool</th><th>Status</th><th>Cost</th><th>Date</th></tr><tr><td colspan="5">No pipeline history</td></tr></table>
-  </div>
-
-  <div class="footer">
-    AquaScience — Company Hub | Generated March 29, 2026 08:41 PM<br>
-    Next Chapter M&A Advisory | INTERNAL — Admin View
+    <div class="card" id="history">
+        <h2>Pipeline History</h2>
+        <table>
+            <tr><th>Step</th><th>Tool</th><th>Status</th><th>Cost</th><th>Date</th></tr>
+            <tr><td colspan="5" style="color:#8b949e">No pipeline history</td></tr>
+        </table>
+    </div>
   </div>
 
 </div>
+
+<!-- FOOTER -->
+<div class="page-footer">
+  <strong>Next Chapter M&A Advisory</strong> | Sell-Side Engagement<br>
+  Generated March 29, 2026 08:55 PM | INTERNAL — Admin View
+</div>
+
+<!-- WIDGETS -->
 <script src="/comment-widget.js"></script>
 <script src="/version-widget.js"></script>
+
+
 </body>
 </html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feature Roadmap — Next Chapter Master CRM</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0d1117;color:#c9d1d9}
+.header{background:linear-gradient(135deg,#161b22,#1a5276);padding:30px;text-align:center}
+.header h1{color:#58a6ff;font-size:28px}
+.header .sub{color:#8b949e;margin-top:8px;font-size:14px}
+.stats{display:flex;justify-content:center;gap:30px;margin-top:15px}
+.stat{text-align:center}
+.stat .num{font-size:36px;font-weight:bold;color:#f0f6fc}
+.stat .label{font-size:11px;color:#8b949e;text-transform:uppercase}
+.stat.green .num{color:#27ae60}
+.stat.orange .num{color:#f39c12}
+.nav{text-align:center;padding:10px;background:#161b22;border-bottom:1px solid #30363d}
+.nav a{color:#58a6ff;margin:0 12px;text-decoration:none;font-size:13px}
+.container{max-width:1200px;margin:20px auto;padding:0 20px}
+.card{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:20px;margin-bottom:20px}
+.card h2{font-size:16px;color:#58a6ff;margin-bottom:15px;padding-bottom:8px;border-bottom:1px solid #30363d}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;padding:10px 8px;color:#8b949e;border-bottom:1px solid #30363d}
+td{padding:10px 8px;border-bottom:1px solid #21262d;vertical-align:top}
+tr.done td{color:#8b949e}
+tr.done s{color:#6e7681}
+tr.building{background:#1c2333}
+.building-pulse{color:#f39c12;font-weight:600}
+.badge-sm{font-size:10px;padding:2px 6px;border-radius:8px;background:#30363d;color:#c9d1d9}
+.doc-link{color:#58a6ff;text-decoration:none;font-size:16px}
+.doc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.doc-card{display:block;background:#21262d;border:1px solid #30363d;border-radius:8px;padding:12px;color:#c9d1d9;text-decoration:none;font-size:12px;transition:border-color 0.2s}
+.doc-card:hover{border-color:#58a6ff;color:#58a6ff}
+.progress-bar{background:#21262d;border-radius:10px;height:20px;margin:15px 0;overflow:hidden}
+.progress-fill{background:linear-gradient(90deg,#27ae60,#2ecc71);height:100%;border-radius:10px;transition:width 0.3s}
+.footer{text-align:center;padding:20px;color:#484f58;font-size:11px}
+@media(max-width:800px){.stats{flex-wrap:wrap}.doc-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <a href="index.html" style="color:#58a6ff;text-decoration:none;font-size:13px">← Back to CRM</a>
+    <h1>Feature Roadmap</h1>
+    <div class="sub">Everything we've built and what's next — updated live</div>
+    <div class="stats">
+        <div class="stat green"><div class="num">37</div><div class="label">Built</div></div>
+        <div class="stat orange"><div class="num">3</div><div class="label">Building Now</div></div>
+        <div class="stat"><div class="num">24</div><div class="label">Remaining</div></div>
+        <div class="stat"><div class="num">61</div><div class="label">Total</div></div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:61%"></div></div>
+    <div class="sub" style="margin-top:5px">61% complete</div>
+</div>
+
+<div class="nav">
+    <a href="index.html">🏠 Companies</a>
+    <a href="dashboard.html">📊 Dashboard</a>
+    <a href="ebitda-levers.html">💰 EBITDA Levers</a>
+    <a href="version-history.html">🕐 Versions</a>
+</div>
+
+<div class="container">
+    <div class="card">
+        <h2>📚 Key Documents</h2>
+        <div class="doc-grid"><a href="NORTH-STAR-founder-guardrails.md" class="doc-card">Founder Guardrails</a><a href="NORTH-STAR-entity-classification-guide.md" class="doc-card">Entity Classification Guide</a><a href="NORTH-STAR-infrastructure-map.md" class="doc-card">Infrastructure Map</a><a href="NORTH-STAR-nc-lifecycle-vision.md" class="doc-card">NC Lifecycle Vision</a><a href="NORTH-STAR-operating-philosophy.md" class="doc-card">Operating Philosophy</a><a href="SYSTEM-AUDIT-AND-QUESTIONS.md" class="doc-card">System Audit (100 Questions)</a><a href="COMPLETE-RULES-LIST.md" class="doc-card">Complete Rules List (161 rules)</a><a href="CRM-DECISIONS-RULES.md" class="doc-card">CRM Decisions (97 answers)</a><a href="RESEARCH-PIPELINE-DECISIONS.md" class="doc-card">Research Pipeline Decisions (25)</a><a href="SAP-PIPELINE-AUDIT.md" class="doc-card">SAP Pipeline Audit</a><a href="EXA-USAGE-GUIDE.md" class="doc-card">Exa Usage Guide</a><a href="MASTER-QA-LOG.md" class="doc-card">Master Q&A Log</a><a href="TODO-FROM-DECISIONS.md" class="doc-card">TODO from Decisions</a><a href="ebitda-levers.html" class="doc-card">EBITDA Levers (all verticals)</a></div>
+    </div>
+
+    <div class="card">
+        <h2>✅ Built (37)</h2>
+        <table>
+            <tr><th>#</th><th>System</th><th>Description</th><th>📄</th></tr>
+            <tr class="done"><td>1</td><td><s>Classification Engine</s> ✅</td><td>Deterministic Python entity router, 11/11 tests</td><td><a href="lib/classification.py" class="doc-link">📄</a></td></tr><tr class="done"><td>2</td><td><s>Supabase Schema</s> ✅</td><td>55+ tables, entity-tagged, 900+ columns</td><td><a href="data/10-SCHEMA-DESIGN.sql" class="doc-link">📄</a></td></tr><tr class="done"><td>3</td><td><s>ETL Migration</s> ✅</td><td>31K rows migrated from 9 old instances</td><td><a href="data/exports/etl_rest.py" class="doc-link">📄</a></td></tr><tr class="done"><td>4</td><td><s>Entity Tagging</s> ✅</td><td>25K+ rows classified by entity</td><td><a href="lib/classification.py" class="doc-link">📄</a></td></tr><tr class="done"><td>5</td><td><s>Proposal Engine</s> ✅</td><td>6 polished proposals with attack plans</td><td><a href="lib/proposal_engine.py" class="doc-link">📄</a></td></tr><tr class="done"><td>6</td><td><s>Follow-up Email Engine</s> ✅</td><td>6 personalized emails with data room links</td><td></td></tr><tr class="done"><td>7</td><td><s>Data Room Engine</s> ✅</td><td>6 email-gated client pages with valuations</td><td></td></tr><tr class="done"><td>8</td><td><s>Profile Engine</s> ✅</td><td>6 structured profiles with slider-bar fields</td><td><a href="lib/profile_engine.py" class="doc-link">📄</a></td></tr><tr class="done"><td>9</td><td><s>Engagement Engine</s> ✅</td><td>DNC check, per-buyer scripts, 30/60/90 timelines</td><td><a href="lib/engagement_engine.py" class="doc-link">📄</a></td></tr><tr class="done"><td>10</td><td><s>Meeting Engine</s> ✅</td><td>Per-meeting custom prep pages</td><td><a href="lib/meeting_engine.py" class="doc-link">📄</a></td></tr><tr class="done"><td>11</td><td><s>Company Hub</s> ✅</td><td>Single page per company with everything linked</td><td><a href="lib/company_hub.py" class="doc-link">📄</a></td></tr><tr class="done"><td>12</td><td><s>Dashboard</s> ✅</td><td>Revenue forecast, pipeline, KPIs</td><td><a href="lib/dashboard.py" class="doc-link">📄</a></td></tr><tr class="done"><td>13</td><td><s>Orchestrator</s> ✅</td><td>5-min poll, dispatches work to agent_queue</td><td><a href="orchestrator.py" class="doc-link">📄</a></td></tr><tr class="done"><td>14</td><td><s>Worker</s> ✅</td><td>Processes queue items, routes to agent modules</td><td><a href="worker.py" class="doc-link">📄</a></td></tr><tr class="done"><td>15</td><td><s>Watchdog</s> ✅</td><td>15-min health check, auto-restarts dead processes</td><td><a href="watchdog.py" class="doc-link">📄</a></td></tr><tr class="done"><td>16</td><td><s>Web Server</s> ✅</td><td>localhost:8080 with sidebar nav, 25 endpoints</td><td><a href="server.py" class="doc-link">📄</a></td></tr><tr class="done"><td>17</td><td><s>Auto-Refresh</s> ✅</td><td>Hub + dashboard regenerate after engine runs</td><td><a href="lib/auto_refresh.py" class="doc-link">📄</a></td></tr><tr class="done"><td>18</td><td><s>Slack Messages</s> ✅</td><td>Copy-paste Slack messages for Mark</td><td><a href="lib/slack_messages.py" class="doc-link">📄</a></td></tr><tr class="done"><td>19</td><td><s>Step Tracking</s> ✅</td><td>step_log table — no duplicate API spend</td><td></td></tr><tr class="done"><td>20</td><td><s>Cost Tracking</s> ✅</td><td>Per-record spend on companies + contacts</td><td></td></tr><tr class="done"><td>21</td><td><s>Human Audit System</s> ✅</td><td>verification_pairs + review_queue + sampling</td><td></td></tr><tr class="done"><td>22</td><td><s>Version Engine</s> ✅</td><td>page_versions table, 26 pages versioned</td><td></td></tr><tr class="done"><td>23</td><td><s>Buyer Research</s> ✅</td><td>193 buyers identified, 51 HTML 1-pagers</td><td></td></tr><tr class="done"><td>24</td><td><s>Research Transparency</s> ✅</td><td>Inside-out view per company</td><td><a href="lib/research_transparency.py" class="doc-link">📄</a></td></tr><tr class="done"><td>25</td><td><s>EBITDA Levers</s> ✅</td><td>180 items across 7 verticals</td><td><a href="ebitda-levers.html" class="doc-link">📄</a></td></tr><tr class="done"><td>26</td><td><s>Buyer Expansion</s> ✅</td><td>10→35 buyers per sell-side company</td><td></td></tr><tr class="done"><td>27</td><td><s>Buyer Enrichment</s> ✅</td><td>20 buyers upgraded to SAP-quality with Exa</td><td></td></tr><tr class="done"><td>28</td><td><s>Exa Client</s> ✅</td><td>curl-based, fixed urllib 403</td><td><a href="lib/exa_client.py" class="doc-link">📄</a></td></tr><tr class="done"><td>29</td><td><s>Tool Health Monitor</s> ✅</td><td>7 tools tracked, iMessage alerts</td><td><a href="lib/tool_health.py" class="doc-link">📄</a></td></tr><tr class="done"><td>30</td><td><s>Troubleshooting Playbook</s> ✅</td><td>Exa 403 case documented, standard 403 diagnostic</td><td></td></tr><tr class="done"><td>31</td><td><s>Comment Widget</s> ✅</td><td>💬 on every section, writes to Supabase</td><td><a href="lib/comment-widget.js" class="doc-link">📄</a></td></tr><tr class="done"><td>32</td><td><s>Version Slider Widget</s> ✅</td><td>Prev/next navigation, old version warning</td><td><a href="lib/version-widget.js" class="doc-link">📄</a></td></tr><tr class="done"><td>33</td><td><s>Vercel Deployment</s> ✅</td><td>91+ pages live at master-crm-web-eight.vercel.app</td><td></td></tr><tr class="done"><td>34</td><td><s>Revenue Forecast</s> ✅</td><td>$5.2M pipeline, $914K weighted</td><td><a href="dashboard.html" class="doc-link">📄</a></td></tr><tr class="done"><td>35</td><td><s>LLM Registry</s> ✅</td><td>7 models tracked with performance scoring</td><td></td></tr><tr class="done"><td>36</td><td><s>Deal Goals Tracker</s> ✅</td><td>Weiser: 5 meetings target by 2026-12-31</td><td></td></tr><tr class="done"><td>37</td><td><s>Deal Side Flags</s> ✅</td><td>Propagated to all tables, 118 rows updated</td><td></td></tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>🔨 Not Yet Built (24)</h2>
+        <table>
+            <tr><th>#</th><th>System</th><th>Description</th><th>📄</th></tr>
+            <tr class="building"><td>38</td><td><span class="building-pulse">Interactive Proposal Pages</span> <span class="badge-sm">🔴 BUILDING</span></td><td>Sliders, fee selection, Let's Get Started flow</td><td><a href="interactive-aquascience.html" class="doc-link">📄</a></td></tr><tr class="building"><td>39</td><td><span class="building-pulse">Page Template System</span> <span class="badge-sm">🔴 BUILDING</span></td><td>Master CSS, deal_side framing, professional design</td><td></td></tr><tr class="building"><td>40</td><td><span class="building-pulse">Why Sell to Weiser/Design Precast Narratives</span> <span class="badge-sm">🔴 BUILDING</span></td><td>Buy-side pitch narrative for target outreach</td><td></td></tr><tr class=""><td>41</td><td>Buy-Side Interactive Proposals <span class="badge-sm">🟡 NEXT</span></td><td>Target criteria sliders for Weiser + Design Precast</td><td></td></tr><tr class=""><td>42</td><td>SAP-Quality Research Pipeline <span class="badge-sm">🟡 NEXT</span></td><td>All 7 missing sections across 108 buyers</td><td><a href="SAP-PIPELINE-AUDIT.md" class="doc-link">📄</a></td></tr><tr class=""><td>43</td><td>Source Attribution UI <span class="badge-sm">🟡 NEXT</span></td><td>Footnotes on every fact with source URL</td><td></td></tr><tr class=""><td>44</td><td>Diff View on Regeneration <span class="badge-sm">🟡 NEXT</span></td><td>Show what changed when pages rebuild</td><td></td></tr><tr class=""><td>45</td><td>D→C Feedback Conversation <span class="badge-sm">🟠 THIS WEEK</span></td><td>System asks clarifying questions before revising</td><td></td></tr><tr class=""><td>46</td><td>Research Method Learning <span class="badge-sm">🟠 THIS WEEK</span></td><td>Mark's corrections become new research techniques</td><td></td></tr><tr class=""><td>47</td><td>Conflict Resolution Modal <span class="badge-sm">🟠 THIS WEEK</span></td><td>Red banner + 10-option quiz when Mark/Ewing disagree</td><td></td></tr><tr class=""><td>48</td><td>Google Drive Template Pull <span class="badge-sm">🟠 THIS WEEK</span></td><td>Hourly sync from Mark's Drive templates</td><td></td></tr><tr class=""><td>49</td><td>Guardrail Violation Log <span class="badge-sm">🟠 THIS WEEK</span></td><td>Dashboard feed when system wants to break rules</td><td></td></tr><tr class=""><td>50</td><td>While You Were Away Summary <span class="badge-sm">🟠 THIS WEEK</span></td><td>Changes since last login</td><td></td></tr><tr class=""><td>51</td><td>Listener Agent <span class="badge-sm">🔵 NEXT WEEK</span></td><td>5-channel scanner: Salesfinity, Gmail, Calendar, Fireflies, Slack</td><td><a href="agents/listener.md" class="doc-link">📄</a></td></tr><tr class=""><td>52</td><td>Situation Library + Play Templates <span class="badge-sm">🔵 NEXT WEEK</span></td><td>Auto-detect situations, pick plays, graduated trust</td><td></td></tr><tr class=""><td>53</td><td>Graduated Auto-Trust <span class="badge-sm">🔵 NEXT WEEK</span></td><td>10 approvals → auto-send with inspection</td><td></td></tr><tr class=""><td>54</td><td>Salesfinity Integration <span class="badge-sm">🔵 NEXT WEEK</span></td><td>Dialer loading + call outcome tracking</td><td></td></tr><tr class=""><td>55</td><td>Letter Mailing (Lob/Handwrytten) <span class="badge-sm">🔵 NEXT WEEK</span></td><td>Physical letter sending via API</td><td></td></tr><tr class=""><td>56</td><td>LinkedIn Automation <span class="badge-sm">🔵 NEXT WEEK</span></td><td>Connection requests + message sequences</td><td></td></tr><tr class=""><td>57</td><td>Client Portal <span class="badge-sm">⚪ FUTURE</span></td><td>Client login, edit letters, track progress</td><td></td></tr><tr class=""><td>58</td><td>Meeting Page v2 <span class="badge-sm">⚪ FUTURE</span></td><td>Per-meeting queryable data, checklist, project plan</td><td></td></tr><tr class=""><td>59</td><td>Transcript → Action Items <span class="badge-sm">⚪ FUTURE</span></td><td>Fireflies transcripts auto-produce next steps</td><td></td></tr><tr class=""><td>60</td><td>AND Capital Entity Support <span class="badge-sm">⚪ FUTURE</span></td><td>LP fundraising, fund decks, investor CRM</td><td></td></tr><tr class=""><td>61</td><td>RevsUp Entity Support <span class="badge-sm">⚪ FUTURE</span></td><td>Recruiting client outreach, placement tracking</td><td></td></tr>
+        </table>
+    </div>
+</div>
+
+<div class="footer">
+    Next Chapter Master CRM — Feature Roadmap<br>
+    Generated March 29, 2026 08:54 PM | 169 decisions documented | 61 features tracked
+</div>
+
+</body>
+</html>

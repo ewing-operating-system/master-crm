@@ -6,10 +6,13 @@ One URL, one company, everything: proposal, data room, meeting pages, buyer list
 profile, emails, call scripts, timeline, intelligence, costs.
 
 Admin view shows everything. Client view shows curated subset.
+
+Uses the master page template system (lib/page_template.py) for consistent styling.
 """
 
 import json, os, sys, time, psycopg2
 from datetime import datetime
+from page_template import wrap_page, get_page_framing
 
 DB_CONN = "postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase.co:6543/postgres"
 HUB_DIR = os.path.expanduser("~/Projects/master-crm/data/company-hubs")
@@ -40,11 +43,11 @@ def get_all_company_assets(company_name):
         cur.execute("SELECT full_name, title, email, phone, cell_phone, linkedin_url FROM contacts WHERE company_id = %s", (assets["company_id"],))
         assets["contacts"] = [{"name": r[0], "title": r[1], "email": r[2], "phone": r[3], "cell": r[4], "linkedin": r[5]} for r in cur.fetchall()]
 
-    # Proposal
+    # Proposal (including deal_side and buyer_narrative)
     cur.execute("""SELECT id, company_name, owner_name, vertical, city, state, estimated_revenue, employee_count,
                           top_3_strengths, company_narrative, market_analysis, valuation_range, attack_plan,
                           outreach_strategy, timeline, fee_mode, status, quality_score, certified_by, certified_at,
-                          client_signed_at, contract_option_chosen
+                          client_signed_at, contract_option_chosen, deal_side, buyer_narrative
                    FROM proposals WHERE company_name ILIKE %s ORDER BY quality_score DESC LIMIT 1""", (f"%{company_name}%",))
     cols = [d[0] for d in cur.description]
     row = cur.fetchone()
@@ -140,8 +143,16 @@ def get_all_company_assets(company_name):
     return assets
 
 
+def _esc(val):
+    """Escape HTML entities in a value."""
+    if val is None:
+        return ''
+    s = str(val)
+    return s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;')
+
+
 def generate_hub_html(company_name, assets):
-    """Generate the single-page company hub."""
+    """Generate the single-page company hub using master template."""
     company = assets.get("company", {})
     proposal = assets.get("proposal", {})
     profile = assets.get("profile", {})
@@ -162,27 +173,38 @@ def generate_hub_html(company_name, assets):
     quality = proposal.get("quality_score") or "—"
     status = proposal.get("status") or target.get("pipeline_status") or "—"
     total_cost = assets.get("total_cost", 0)
+    deal_side = proposal.get("deal_side") or "sell_side"
+    buyer_narrative = proposal.get("buyer_narrative") or ""
+
+    framing = get_page_framing(deal_side)
 
     # Strengths
     strengths = proposal.get("top_3_strengths")
     if isinstance(strengths, str):
         try: strengths = json.loads(strengths)
         except: strengths = []
-    strengths_html = "".join(f"<li>{s}</li>" for s in (strengths or []))
+    strengths_html = "".join(f"<li>{_esc(s)}</li>" for s in (strengths or []))
 
     # Contacts table
     contacts_html = ""
     for c in contacts:
-        contacts_html += f"<tr><td>{c.get('name','')}</td><td>{c.get('title','')}</td><td>{c.get('email','')}</td><td>{c.get('phone') or c.get('cell','')}</td></tr>"
+        linkedin = f'<a href="{c.get("linkedin","")}" target="_blank">Profile</a>' if c.get("linkedin") else "—"
+        contacts_html += f"""<tr>
+            <td>{_esc(c.get('name',''))}</td>
+            <td>{_esc(c.get('title',''))}</td>
+            <td>{_esc(c.get('email',''))}</td>
+            <td>{_esc(c.get('phone') or c.get('cell',''))}</td>
+            <td>{linkedin}</td>
+        </tr>"""
 
-    # Buyers table — with links to individual buyer pages
+    # Buyers table
     buyers_html = ""
     company_slug = company_name.lower().replace(" ", "-").replace(".", "").replace(",", "").replace("&", "and")[:30]
     buyer_dir = os.path.expanduser("~/Projects/master-crm/data/buyer-1pagers")
     for b in buyers[:15]:
         fit = str(b.get("fit_score", "")) if b.get("fit_score") else "—"
-        dnc = "✅" if b.get("dnc_clear") else "🚫"
-        has_script = "📝" if b.get("approach_script") else "—"
+        dnc = '<span class="badge green" style="font-size:10px">Clear</span>' if b.get("dnc_clear") else '<span class="badge red" style="font-size:10px">DNC</span>'
+        has_script = '<span class="badge blue" style="font-size:10px">Ready</span>' if b.get("approach_script") else "—"
         bstatus = b.get("status", "identified")
         buyer_name = b.get('buyer_company_name', '')
 
@@ -195,168 +217,211 @@ def generate_hub_html(company_name, assets):
                     buyer_link = f
                     break
 
-        name_cell = f'<a href="{buyer_link}" style="color:#58a6ff;text-decoration:none">{buyer_name}</a>' if buyer_link else buyer_name
-        buyers_html += f"<tr><td>{name_cell}</td><td>{b.get('buyer_type','')}</td><td>{b.get('buyer_city','')}, {b.get('buyer_state','')}</td><td>{fit}</td><td>{dnc}</td><td>{has_script}</td><td>{bstatus}</td></tr>"
+        name_cell = f'<a href="{buyer_link}">{_esc(buyer_name)}</a>' if buyer_link else _esc(buyer_name)
+        status_badge = 'green' if bstatus in ('contacted','meeting_scheduled','closed') else 'orange' if bstatus in ('letter_sent','called') else 'gray'
+        buyers_html += f"""<tr>
+            <td>{name_cell}</td>
+            <td>{_esc(b.get('buyer_type',''))}</td>
+            <td>{_esc(b.get('buyer_city',''))}, {_esc(b.get('buyer_state',''))}</td>
+            <td>{fit}</td>
+            <td>{dnc}</td>
+            <td>{has_script}</td>
+            <td><span class="badge {status_badge}" style="font-size:10px">{_esc(bstatus)}</span></td>
+        </tr>"""
 
     # Files links
     files_html = ""
     for label, path in files.items():
-        files_html += f'<li><a href="{path}" target="_blank">{label}</a></li>'
+        files_html += f'<li><a href="{path}" target="_blank">{_esc(label)}</a></li>'
     if not files_html:
-        files_html = "<li>No files generated yet</li>"
+        files_html = "<li style='color:#8b949e'>No files generated yet</li>"
 
     # Plays
     plays_html = ""
     for p in plays:
-        plays_html += f"<tr><td>{p.get('play','')}</td><td>{p.get('status','')}</td><td>{p.get('quality','')}</td><td>{p.get('date','')[:10]}</td></tr>"
+        plays_html += f"""<tr>
+            <td>{_esc(p.get('play',''))}</td>
+            <td>{_esc(p.get('status',''))}</td>
+            <td>{_esc(p.get('quality',''))}</td>
+            <td>{_esc(p.get('date',''))[:10]}</td>
+        </tr>"""
 
     # Step history
     steps_html = ""
     for s in step_history[:10]:
-        steps_html += f"<tr><td>{s.get('step','')}</td><td>{s.get('tool','')}</td><td>{s.get('status','')}</td><td>${s.get('cost',0):.4f}</td><td>{(s.get('date',''))[:16]}</td></tr>"
+        steps_html += f"""<tr>
+            <td>{_esc(s.get('step',''))}</td>
+            <td>{_esc(s.get('tool',''))}</td>
+            <td>{_esc(s.get('status',''))}</td>
+            <td>${s.get('cost',0):.4f}</td>
+            <td>{(s.get('date',''))[:16]}</td>
+        </tr>"""
 
-    # Outreach scripts (from first buyer with scripts)
+    # Outreach scripts (from dossier or first buyer with scripts)
     scripts = {}
-    for b in buyers:
-        if b.get("approach_script"):
-            try:
-                scripts = json.loads(b["approach_script"]) if isinstance(b["approach_script"], str) else b["approach_script"]
-            except:
-                pass
-            break
+    if dossier.get("cold_call_script") or dossier.get("cold_email_body"):
+        scripts["call_script"] = dossier.get("cold_call_script", "")
+        scripts["email"] = dossier.get("cold_email_body", "")
+        scripts["linkedin"] = dossier.get("linkedin_message", "")
+        scripts["letter"] = dossier.get("letter_html", "")
+    else:
+        for b in buyers:
+            if b.get("approach_script"):
+                try:
+                    scripts = json.loads(b["approach_script"]) if isinstance(b["approach_script"], str) else b["approach_script"]
+                except:
+                    pass
+                break
 
-    html = f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{company_name} — Company Hub</title>
-<meta name="company-name" content="{company_name}">
-<meta name="page-type" content="hub">
-<style>
-  * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-  body {{ font-family: 'Segoe UI', system-ui, sans-serif; background: #f5f6fa; color: #1a1a2e; }}
-  .top {{ background: linear-gradient(135deg, #16213e, #1a5276); color: white; padding: 25px 30px; position: sticky; top: 0; z-index: 100; }}
-  .top h1 {{ font-size: 24px; }}
-  .top .meta {{ font-size: 13px; opacity: 0.8; margin-top: 3px; }}
-  .top .badges {{ margin-top: 8px; }}
-  .badge {{ display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; margin-right: 6px; }}
-  .badge.green {{ background: #27ae60; }}
-  .badge.orange {{ background: #f39c12; }}
-  .badge.blue {{ background: #3498db; }}
-  .badge.red {{ background: #e74c3c; }}
-  nav {{ background: #16213e; padding: 0 30px; display: flex; gap: 0; border-bottom: 2px solid #30363d; overflow-x: auto; }}
-  nav a {{ color: #8b949e; text-decoration: none; padding: 10px 15px; font-size: 13px; white-space: nowrap; border-bottom: 2px solid transparent; }}
-  nav a:hover, nav a.active {{ color: white; border-bottom-color: #58a6ff; }}
-  .container {{ max-width: 1200px; margin: 20px auto; padding: 0 20px; }}
-  .section {{ background: white; border-radius: 10px; padding: 25px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }}
-  .section h2 {{ font-size: 16px; color: #16213e; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #f0f2f5; }}
-  .grid2 {{ display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }}
-  .grid3 {{ display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; }}
-  .stat {{ text-align: center; padding: 15px; background: #f8f9fa; border-radius: 8px; }}
-  .stat .num {{ font-size: 28px; font-weight: bold; color: #16213e; }}
-  .stat .label {{ font-size: 12px; color: #888; }}
-  table {{ width: 100%; border-collapse: collapse; font-size: 13px; }}
-  th {{ text-align: left; padding: 8px; background: #f8f9fa; font-weight: 600; color: #555; }}
-  td {{ padding: 8px; border-bottom: 1px solid #f0f2f5; }}
-  .script-box {{ background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 10px 0; white-space: pre-wrap; font-size: 13px; line-height: 1.6; }}
-  .script-label {{ font-weight: 600; color: #16213e; margin-bottom: 5px; }}
-  ul {{ padding-left: 20px; }}
-  li {{ margin: 4px 0; }}
-  a {{ color: #3498db; }}
-  .footer {{ text-align: center; padding: 20px; color: #999; font-size: 11px; }}
-</style>
-</head>
-<body>
+    # --- Build body HTML sections ---
+    body_parts = []
 
-<div class="top">
-  <h1>{company_name}</h1>
-  <div class="meta">{owner} | {city}, {state} | {vertical} | Est. Revenue: {revenue} | Employees: {employees}</div>
-  <div class="badges">
-    <span class="badge {'green' if status == 'engagement_active' else 'orange' if status == 'certified' else 'blue'}">{status}</span>
-    <span class="badge blue">Quality: {quality}</span>
-    <span class="badge {'green' if total_cost < 1 else 'orange'}">Cost: ${total_cost:.2f}</span>
-    <span class="badge blue">{len(buyers)} Buyers</span>
-    <span class="badge blue">{len(contacts)} Contacts</span>
-  </div>
-</div>
+    # Status bar badges
+    status_class = 'green' if status in ('engagement_active','active') else 'orange' if status == 'certified' else 'blue'
+    cost_class = 'green' if total_cost < 1 else 'orange'
+    body_parts.append(f"""
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px">
+        <span class="badge {status_class}">{_esc(status)}</span>
+        <span class="badge blue">Quality: {_esc(quality)}</span>
+        <span class="badge {cost_class}">Cost: ${total_cost:.2f}</span>
+        <span class="badge blue">{len(buyers)} {framing['buyer_section']}</span>
+        <span class="badge blue">{len(contacts)} Contacts</span>
+    </div>""")
 
-<nav>
-  <a href="#overview">Overview</a>
-  <a href="#contacts">Contacts</a>
-  <a href="#proposal">Proposal</a>
-  <a href="#buyers">Buyers ({len(buyers)})</a>
-  <a href="#scripts">Outreach Scripts</a>
-  <a href="#plays">Plays & Emails</a>
-  <a href="#files">Files</a>
-  <a href="#history">History</a>
-</nav>
+    # Overview
+    body_parts.append(f"""
+    <div class="card" id="overview">
+        <h2>Overview</h2>
+        <div class="grid4">
+            <div class="stat"><div class="num">{len(buyers)}</div><div class="label">{framing['buyer_section']}</div></div>
+            <div class="stat"><div class="num">{sum(1 for b in buyers if b.get('approach_script'))}</div><div class="label">Scripts Ready</div></div>
+            <div class="stat"><div class="num">{sum(1 for b in buyers if b.get('letter_sent_at'))}</div><div class="label">Letters Sent</div></div>
+            <div class="stat"><div class="num">{len(files)}</div><div class="label">Documents</div></div>
+        </div>
+        {'<div style="margin-top:16px"><strong style="color:#f0f6fc">Top 3 Strengths:</strong><ol style="margin-top:8px">' + strengths_html + '</ol></div>' if strengths_html else ''}
+    </div>""")
 
-<div class="container">
+    # Buy-side narrative OR sell-side company story
+    if deal_side == 'buy_side' and buyer_narrative:
+        narrative_title = framing['narrative_label'].replace('{company}', company_name.split(',')[0].split('Inc')[0].strip())
+        body_parts.append(f"""
+    <div class="highlight-card" id="narrative">
+        <h2>{_esc(narrative_title)}</h2>
+        <div class="narrative-box">{_esc(buyer_narrative)}</div>
+        <p style="font-size:12px;color:#8b949e;margin-top:10px">This narrative appears on all outreach to acquisition targets.</p>
+    </div>""")
+    else:
+        narrative_text = proposal.get('company_narrative') or dossier.get('narrative') or ''
+        if narrative_text:
+            body_parts.append(f"""
+    <div class="highlight-card" id="narrative">
+        <h2>{framing['narrative_label']}</h2>
+        <div class="narrative-box">{_esc(narrative_text[:1200])}</div>
+    </div>""")
 
-  <div class="section" id="overview">
-    <h2>Overview</h2>
-    <div class="grid3">
-      <div class="stat"><div class="num">{len(buyers)}</div><div class="label">Buyers Identified</div></div>
-      <div class="stat"><div class="num">{sum(1 for b in buyers if b.get('approach_script'))}</div><div class="label">Scripts Ready</div></div>
-      <div class="stat"><div class="num">{len(files)}</div><div class="label">Documents</div></div>
-    </div>
-    {f'<div style="margin-top:15px"><strong>Top 3 Strengths:</strong><ol>{strengths_html}</ol></div>' if strengths_html else ''}
-  </div>
+    # Contacts
+    body_parts.append(f"""
+    <div class="card" id="contacts">
+        <h2>Contacts</h2>
+        <table>
+            <tr><th>Name</th><th>Title</th><th>Email</th><th>Phone</th><th>LinkedIn</th></tr>
+            {contacts_html or '<tr><td colspan="5" style="color:#8b949e">No contacts on file</td></tr>'}
+        </table>
+    </div>""")
 
-  <div class="section" id="contacts">
-    <h2>Contacts</h2>
-    <table><tr><th>Name</th><th>Title</th><th>Email</th><th>Phone</th></tr>{contacts_html or '<tr><td colspan="4">No contacts on file</td></tr>'}</table>
-  </div>
+    # Proposal & Attack Plan
+    narrative_text = proposal.get('company_narrative') or dossier.get('narrative') or 'No narrative generated yet.'
+    body_parts.append(f"""
+    <div class="card" id="proposal">
+        <h2>{framing['attack_label']}</h2>
+        <p>{_esc(narrative_text[:800])}</p>
+        {'<div style="margin-top:15px"><strong style="color:#f0f6fc">Market Analysis:</strong><p style="margin-top:6px">' + _esc(proposal.get("market_analysis", "")[:500]) + '</p></div>' if proposal.get("market_analysis") else ''}
+        {'<div style="margin-top:15px"><strong style="color:#f0f6fc">Attack Plan:</strong><p style="margin-top:6px">' + _esc(proposal.get("attack_plan", "")[:500]) + '</p></div>' if proposal.get("attack_plan") else ''}
+        {'<div style="margin-top:15px"><strong style="color:#f0f6fc">Timeline:</strong><p style="margin-top:6px">' + _esc(proposal.get("timeline", "")[:300]) + '</p></div>' if proposal.get("timeline") else ''}
+    </div>""")
 
-  <div class="section" id="proposal">
-    <h2>Proposal & Attack Plan</h2>
-    <p>{proposal.get('company_narrative', dossier.get('narrative', 'No narrative generated yet.'))[:800]}</p>
-    {f'<div style="margin-top:15px"><strong>Market Analysis:</strong><p>{proposal.get("market_analysis", "")[:500]}</p></div>' if proposal.get("market_analysis") else ''}
-    {f'<div style="margin-top:15px"><strong>Attack Plan:</strong><p>{proposal.get("attack_plan", "")[:500]}</p></div>' if proposal.get("attack_plan") else ''}
-    {f'<div style="margin-top:15px"><strong>Timeline:</strong><p>{proposal.get("timeline", "")[:300]}</p></div>' if proposal.get("timeline") else ''}
-  </div>
+    # Buyers / Targets table
+    body_parts.append(f"""
+    <div class="card" id="buyers">
+        <h2>{framing['buyer_section']} ({len(buyers)})</h2>
+        <table>
+            <tr><th>Company</th><th>Type</th><th>Location</th><th>Fit</th><th>DNC</th><th>Script</th><th>Status</th></tr>
+            {buyers_html or '<tr><td colspan="7" style="color:#8b949e">No targets identified yet</td></tr>'}
+        </table>
+    </div>""")
 
-  <div class="section" id="buyers">
-    <h2>Buyer Targets ({len(buyers)})</h2>
-    <table><tr><th>Buyer</th><th>Type</th><th>Location</th><th>Fit</th><th>DNC</th><th>Script</th><th>Status</th></tr>{buyers_html}</table>
-  </div>
+    # Outreach Scripts
+    scripts_content = ""
+    if scripts:
+        if scripts.get("email"):
+            scripts_content += f'<div class="script-label">Email</div><div class="script-box">{_esc(scripts["email"])}</div>'
+        if scripts.get("call_script"):
+            scripts_content += f'<div class="script-label">Call Script</div><div class="script-box">{_esc(scripts["call_script"])}</div>'
+        if scripts.get("linkedin"):
+            scripts_content += f'<div class="script-label">LinkedIn</div><div class="script-box">{_esc(scripts["linkedin"])}</div>'
+        if scripts.get("letter"):
+            scripts_content += f'<div class="script-label">Letter</div><div class="script-box">{_esc(str(scripts["letter"])[:500])}</div>'
+    else:
+        scripts_content = '<p style="color:#8b949e">No scripts generated yet</p>'
 
-  <div class="section" id="scripts">
-    <h2>Sample Outreach Scripts</h2>
-    {f'<div class="script-label">📧 Email</div><div class="script-box">{scripts.get("email", "No scripts generated")}</div>' if scripts else '<p>No scripts generated yet</p>'}
-    {f'<div class="script-label">📞 Call Script</div><div class="script-box">{scripts.get("call_script", "")}</div>' if scripts.get("call_script") else ''}
-    {f'<div class="script-label">💼 LinkedIn</div><div class="script-box">{scripts.get("linkedin", "")}</div>' if scripts.get("linkedin") else ''}
-    {f'<div class="script-label">✉️ Letter</div><div class="script-box">{scripts.get("letter", "")[:500]}</div>' if scripts.get("letter") else ''}
-  </div>
+    body_parts.append(f"""
+    <div class="card" id="scripts">
+        <h2>Outreach Scripts</h2>
+        {scripts_content}
+    </div>""")
 
-  <div class="section" id="plays">
-    <h2>Plays & Emails Sent</h2>
-    <table><tr><th>Play</th><th>Status</th><th>Quality</th><th>Date</th></tr>{plays_html or '<tr><td colspan="4">No plays executed yet</td></tr>'}</table>
-  </div>
+    # Plays & Emails
+    body_parts.append(f"""
+    <div class="card" id="plays">
+        <h2>Plays &amp; Emails Sent</h2>
+        <table>
+            <tr><th>Play</th><th>Status</th><th>Quality</th><th>Date</th></tr>
+            {plays_html or '<tr><td colspan="4" style="color:#8b949e">No plays executed yet</td></tr>'}
+        </table>
+    </div>""")
 
-  <div class="section" id="files">
-    <h2>Documents & Files</h2>
-    <ul>{files_html}</ul>
-  </div>
+    # Documents
+    body_parts.append(f"""
+    <div class="card" id="files">
+        <h2>Documents &amp; Files</h2>
+        <ul>{files_html}</ul>
+    </div>""")
 
-  <div class="section" id="history">
-    <h2>Pipeline History</h2>
-    <table><tr><th>Step</th><th>Tool</th><th>Status</th><th>Cost</th><th>Date</th></tr>{steps_html or '<tr><td colspan="5">No pipeline history</td></tr>'}</table>
-  </div>
+    # Pipeline History
+    body_parts.append(f"""
+    <div class="card" id="history">
+        <h2>Pipeline History</h2>
+        <table>
+            <tr><th>Step</th><th>Tool</th><th>Status</th><th>Cost</th><th>Date</th></tr>
+            {steps_html or '<tr><td colspan="5" style="color:#8b949e">No pipeline history</td></tr>'}
+        </table>
+    </div>""")
 
-  <div class="footer">
-    {company_name} — Company Hub | Generated {datetime.now().strftime('%B %d, %Y %I:%M %p')}<br>
-    Next Chapter M&A Advisory | INTERNAL — Admin View
-  </div>
+    body_html = "\n".join(body_parts)
 
-</div>
-<script src="/comment-widget.js"></script>
-<script src="/version-widget.js"></script>
-</body>
-</html>"""
+    # Build subtitle
+    subtitle = f"{owner} | {city}, {state} | {vertical} | Rev: {revenue} | Employees: {employees}"
 
-    return html
+    # Nav links
+    slug = company_name.lower().replace(" ", "-").replace(".", "").replace(",", "").replace("&", "and")[:30]
+    nav_links = [
+        {"label": "Home", "href": "/dashboard.html"},
+        {"label": "Dashboard", "href": "/dashboard.html"},
+        {"label": "Company Hub", "href": f"/{slug}-hub.html", "active": True},
+        {"label": "EBITDA Levers", "href": f"/{slug}-ebitda-levers.html"},
+        {"label": "Version History", "href": "#history"},
+    ]
+
+    return wrap_page(
+        title=company_name,
+        subtitle=subtitle,
+        company_name=company_name,
+        deal_side=deal_side,
+        nav_links=nav_links,
+        body_html=body_html,
+        show_comment_widget=True,
+        show_version_widget=True,
+    )
 
 
 def generate_hub(company_name):
@@ -372,6 +437,7 @@ def generate_hub(company_name):
         f.write(html)
 
     dl = os.path.join(DL_DIR, f"{slug}-hub.html")
+    os.makedirs(os.path.dirname(dl), exist_ok=True)
     with open(dl, 'w') as f:
         f.write(html)
 
@@ -388,13 +454,18 @@ def generate_all_hubs():
     conn.close()
 
     log(f"Generating hubs for {len(companies)} companies")
+    paths = []
     for company in companies:
         try:
-            generate_hub(company)
+            path = generate_hub(company)
+            paths.append(path)
         except Exception as e:
             log(f"  ERROR on {company}: {e}")
+            import traceback
+            traceback.print_exc()
 
     log("All hubs generated")
+    return paths
 
 
 if __name__ == "__main__":
