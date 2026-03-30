@@ -797,3 +797,22 @@ V2 feature — after engines produce output worth refining.
 ---
 
 *This log is append-only. New sessions add entries below this line.*
+
+## SESSION 4: Proposal Template Decisions (2026-03-30)
+
+### Proposal Template V1 Adopted
+**Decision:** Adopt the 10-section proposal template as our first master template.
+**Rules:**
+1. Lead with owner's outcome, not credentials (Rule 1)
+2. 4-phase process with week timelines: Preparation (1-6), Marketing (7-14), Negotiation (15-22), Closing (23-36)
+3. Trades language, not finance language ("your real profit" not "EBITDA adjustments")
+4. Fee illustration table with 3 scenarios at different sale prices
+5. Buyer funnel metrics (universe → outreach → NDAs → IOIs → LOIs)
+6. Monthly retainer = engagement fee paid differently. Don't say "monthly" for now. Leave until client feedback.
+7. DO NOT remove custom research, narratives, or general flow. ADD these sections alongside existing content.
+8. No tail period/exclusivity in the proposal page (belongs in engagement letter)
+9. No anonymous deal history (only real deals or omit)
+10. Credentials section only with real data (leave blank until real testimonials exist)
+
+### Implementation Rule
+**CRITICAL:** When updating proposals, ONLY ADD. Never remove custom research, story narratives, EBITDA levers, buyer analysis, or any company-specific content. The template provides STRUCTURE. The existing content provides SUBSTANCE. Both are needed.
