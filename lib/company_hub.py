@@ -2,6 +2,15 @@
 """
 Company Hub — single page per company linking every asset we've ever created.
 
+SYSTEM RULE: Every page, every section, every element must have feedback capability.
+The comment widget (comment-widget.js) MUST be present on ALL HTML pages.
+Any page generation engine that creates HTML must include:
+  <script src="comment-widget.js"></script>
+  <script src="notification-bell.js"></script>
+  <script src="conflict-resolver.js"></script>
+  <script src="version-widget.js"></script>
+before </body>. No exceptions. This is how we learn.
+
 One URL, one company, everything: proposal, data room, meeting pages, buyer list,
 profile, emails, call scripts, timeline, intelligence, costs.
 

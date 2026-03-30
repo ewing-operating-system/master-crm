@@ -14,7 +14,8 @@ KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY",
 # Tables that do NOT require entity column
 ENTITY_EXEMPT = {"do_not_call", "audits", "harvests", "stories", "analysis", "skills_registry",
                   "campaigns", "forge_boomerang_targets", "and_events", "and_event_targets",
-                  "and_investor_profiles", "nc_owner_profiles", "ru_placements"}
+                  "and_investor_profiles", "nc_owner_profiles", "ru_placements",
+                  "page_comments", "notifications"}
 
 def _headers(prefer=None):
     h = {"apikey": KEY, "Authorization": f"Bearer {KEY}", "Content-Type": "application/json"}

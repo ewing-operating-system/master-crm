@@ -827,3 +827,25 @@ V2 feature — after engines produce output worth refining.
 - Phase 4 — Closing: Weeks 7-9 (due diligence, purchase agreement, close)
 - TOTAL: 60 days
 **This is a competitive advantage.** Traditional brokers quote 6-9 months. We quote 60 days because the technology does in hours what they do in weeks.
+
+---
+
+## SYSTEM RULE: Universal Feedback Capability
+
+**RULE:** Every page, every section, every element must have feedback capability.
+The comment widget (comment-widget.js) MUST be present on ALL HTML pages.
+Any page generation engine that creates HTML must include `<script src="comment-widget.js"></script>` before `</body>`.
+No exceptions. This is how we learn.
+
+Additionally, all pages must include:
+- `<script src="notification-bell.js"></script>` — notification bell widget
+- `<script src="conflict-resolver.js"></script>` — conflict detection and resolution
+- `<script src="version-widget.js"></script>` — version history slider
+
+**Enforced in:** proposal_engine.py, company_hub.py, meeting_engine.py, dashboard.py
+**Created:** 2026-03-28
+**Authority:** Ewing Gillaspy
+
+---
+
+## FEEDBACK LOOP: Resolved Comments (Auto-appended by Step 14)

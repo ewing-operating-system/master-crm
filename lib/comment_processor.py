@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
 """
-D→C Feedback Conversation Processor (Steps 6-9)
+D→C Feedback Conversation Processor (Steps 6-9, 14)
+
+SYSTEM RULE: Every page, every section, every element must have feedback capability.
+The comment widget (comment-widget.js) MUST be present on ALL HTML pages.
+Any page generation engine that creates HTML must include <script src="comment-widget.js"></script> before </body>.
+No exceptions. This is how we learn.
 
 Polls page_comments for pending/responded comments every 60 seconds.
 Uses Claude CLI to generate clarifying questions and revised content.
+Step 14: After resolution, appends to MASTER-QA-LOG.md and audits table.
 
 Statuses:
   pending           → New comment, needs clarifying question
@@ -39,7 +45,6 @@ log = logging.getLogger("comment_processor")
 # Supabase connection — hardcoded to master-crm instance
 # (env vars may point to old instance, so we pin to the correct one)
 # ---------------------------------------------------------------------------
-import urllib.request, ssl
 _ctx = ssl.create_default_context()
 
 SUPA_URL = "https://dwrnfpjcvydhmhnvyzov.supabase.co"
@@ -380,17 +385,133 @@ def infer_entity(company_name):
     return "next_chapter"
 
 # ---------------------------------------------------------------------------
+# Step 14: Q&A Log Append — after any comment is fully resolved
+# ---------------------------------------------------------------------------
+QA_LOG_FILE = os.path.expanduser("~/Projects/master-crm/data/MASTER-QA-LOG.md")
+FEEDBACK_LOG = os.path.join(LOG_DIR, "feedback_steps_10_14.log")
+
+def feedback_log(msg):
+    """Log to the feedback steps 10-14 log file."""
+    line = f"{datetime.now(timezone.utc).isoformat()} | QA_LOG | {msg}"
+    log.info(msg)
+    with open(FEEDBACK_LOG, 'a') as f:
+        f.write(line + '\n')
+
+def append_to_qa_log(comment):
+    """Append a resolved comment to MASTER-QA-LOG.md."""
+    timestamp = comment.get("created_at", datetime.now(timezone.utc).isoformat())
+    commenter = comment.get("commenter", "unknown")
+    company = comment.get("company_name", "unknown")
+    section = comment.get("section_id", "")
+    text = comment.get("comment_text", "")
+    ctype = comment.get("comment_type", "feedback")
+    reply = comment.get("reply", "")
+    resolution = comment.get("resolution", "")
+    revised = comment.get("revised_content", "")
+
+    entry = f"""
+### Comment [{timestamp}]: {commenter} on {company} — {section}
+**Comment:** {text}
+**Type:** {ctype}
+**Clarification:** {reply or 'N/A'}
+**Response:** {comment.get('user_response', 'N/A')}
+**Resolution:** {resolution or revised or 'Applied as stated'}
+**Rule created:** {'Yes — see business rules' if ctype == 'fact_correction' else 'N/A'}
+"""
+
+    try:
+        with open(QA_LOG_FILE, 'a') as f:
+            f.write(entry)
+        feedback_log(f"Appended to QA log: {commenter} on {company}/{section}")
+    except Exception as e:
+        feedback_log(f"Failed to append to QA log: {e}")
+
+
+def store_resolved_in_audits(comment):
+    """Insert resolved comment into audits table for permanent storage."""
+    audit_entry = {
+        "filename": f"comment_{comment.get('id', 'unknown')}",
+        "content": json.dumps({
+            "type": "resolved_comment",
+            "comment_id": comment.get("id"),
+            "commenter": comment.get("commenter"),
+            "company_name": comment.get("company_name"),
+            "section_id": comment.get("section_id"),
+            "comment_text": comment.get("comment_text"),
+            "comment_type": comment.get("comment_type"),
+            "reply": comment.get("reply"),
+            "user_response": comment.get("user_response"),
+            "resolution": comment.get("resolution"),
+            "revised_content": comment.get("revised_content"),
+            "status": comment.get("status"),
+            "created_at": comment.get("created_at"),
+            "resolved_at": datetime.now(timezone.utc).isoformat()
+        }, default=str),
+        "tags": ["feedback", "resolved_comment", comment.get("comment_type", "feedback"),
+                 comment.get("company_name", "")]
+    }
+
+    try:
+        supa_insert("audits", audit_entry)
+        feedback_log(f"Stored in audits: comment {comment.get('id')}")
+    except Exception as e:
+        feedback_log(f"Failed to store in audits: {e}")
+
+
+def process_resolved_comments():
+    """
+    Find all resolved (applied) comments that haven't been logged yet.
+    Log them to QA log and audits table.
+    """
+    feedback_log("Processing resolved comments for QA log...")
+
+    try:
+        comments = get_comments_by_status("applied")
+    except Exception as e:
+        feedback_log(f"Failed to fetch resolved comments: {e}")
+        return
+
+    if not comments:
+        feedback_log("No resolved comments to process")
+        return
+
+    logged = 0
+    for comment in comments:
+        comment_id = comment.get("id")
+
+        # Check if already logged in audits (avoid duplicates)
+        try:
+            existing = supa_get("audits",
+                f"filename=eq.comment_{comment_id}&limit=1")
+            if existing:
+                continue  # Already logged
+        except:
+            pass
+
+        # 1. Append to MASTER-QA-LOG.md
+        append_to_qa_log(comment)
+
+        # 2. Store in audits table
+        store_resolved_in_audits(comment)
+
+        logged += 1
+
+    feedback_log(f"Logged {logged} resolved comments to QA log and audits")
+
+
+# ---------------------------------------------------------------------------
 # Main polling loop
 # ---------------------------------------------------------------------------
 def run_once():
     """Single pass: process all actionable comments."""
     process_pending()
     process_responded()
+    process_resolved_comments()  # Step 14: QA log append
 
 def main():
     """Poll every 60 seconds."""
     log.info("=" * 60)
-    log.info("Comment Processor started (Steps 6-9)")
+    log.info("Comment Processor started (Steps 6-9, 14)")
     log.info(f"Logging to: {LOG_FILE}")
     log.info("=" * 60)
 
@@ -409,5 +530,8 @@ if __name__ == "__main__":
     if "--once" in sys.argv:
         # Single pass mode for testing
         run_once()
+    elif "--qa-only" in sys.argv:
+        # Only process QA log step
+        process_resolved_comments()
     else:
         main()

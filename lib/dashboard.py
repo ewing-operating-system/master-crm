@@ -2,6 +2,15 @@
 """
 Monday Morning Dashboard — the 9-section executive view.
 
+SYSTEM RULE: Every page, every section, every element must have feedback capability.
+The comment widget (comment-widget.js) MUST be present on ALL HTML pages.
+Any page generation engine that creates HTML must include:
+  <script src="comment-widget.js"></script>
+  <script src="notification-bell.js"></script>
+  <script src="conflict-resolver.js"></script>
+  <script src="version-widget.js"></script>
+before </body>. No exceptions. This is how we learn.
+
 Generates an HTML dashboard with:
 1. Campaigns to RUN
 2. Quality tuning

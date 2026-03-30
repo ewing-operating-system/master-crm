@@ -72,6 +72,96 @@ def notify_slack(company_name, asset_type, url=None):
     return message
 
 
+def process_corrections():
+    """
+    Check for applied corrections and regenerate stale pages.
+    This runs as part of the orchestrator's 5-minute cycle.
+    When a correction is applied (step 12 fact_updater), the page is marked stale.
+    Next cycle picks it up and regenerates.
+    """
+    SUPABASE_URL = os.environ.get("SUPABASE_URL", "https://dwrnfpjcvydhmhnvyzov.supabase.co")
+    SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR3cm5mcGpjdnlkaG1obnZ5em92Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NDc1NzI5MCwiZXhwIjoyMDkwMzMzMjkwfQ.7Bd_6aZhpWazv-evA_f1WpocfEHcXX8JATLNSKAC00s")
+    _ctx = ssl.create_default_context()
+
+    def _get(table, params):
+        url = f"{SUPABASE_URL}/rest/v1/{table}?{params}"
+        req = urllib.request.Request(url, headers={
+            "apikey": SUPABASE_KEY,
+            "Authorization": f"Bearer {SUPABASE_KEY}"
+        })
+        resp = urllib.request.urlopen(req, context=_ctx)
+        return json.loads(resp.read())
+
+    def _patch(table, params, data):
+        url = f"{SUPABASE_URL}/rest/v1/{table}?{params}"
+        payload = json.dumps(data, default=str).encode()
+        req = urllib.request.Request(url, data=payload, headers={
+            "apikey": SUPABASE_KEY,
+            "Authorization": f"Bearer {SUPABASE_KEY}",
+            "Content-Type": "application/json",
+            "Prefer": "return=representation"
+        }, method="PATCH")
+        resp = urllib.request.urlopen(req, context=_ctx)
+        return json.loads(resp.read())
+
+    log("Checking for stale pages to regenerate...")
+
+    try:
+        stale_pages = _get("page_versions",
+            "is_stale=eq.true&order=created_at.desc")
+    except Exception as e:
+        log(f"Failed to fetch stale pages: {e}")
+        return
+
+    if not stale_pages:
+        log("No stale pages found")
+        return
+
+    regenerated = 0
+    for page in stale_pages:
+        company = page.get("company_name")
+        page_type = page.get("page_type")
+        version = page.get("version", 1)
+        page_id = page.get("id")
+
+        log(f"Regenerating stale page: {company} / {page_type} (v{version})")
+
+        try:
+            if page_type == "hub":
+                refresh_hub(company)
+            elif page_type in ("proposal", "data_room"):
+                # Re-run proposal engine for this company
+                try:
+                    from lib.proposal_engine import generate_proposal
+                    generate_proposal(company)
+                except ImportError:
+                    log(f"proposal_engine not importable, refreshing hub instead")
+                    refresh_hub(company)
+            elif page_type == "meeting":
+                # Meeting pages are event-specific, just mark as refreshed
+                log(f"Meeting page for {company} marked — manual regeneration needed")
+            else:
+                refresh_hub(company)
+
+            # Clear stale flag
+            _patch("page_versions", f"id=eq.{page_id}",
+                   {"is_stale": False, "stale_reason": None})
+            regenerated += 1
+
+        except Exception as e:
+            log(f"Failed to regenerate {company}/{page_type}: {e}")
+
+    log(f"Regenerated {regenerated}/{len(stale_pages)} stale pages")
+
+    # Also refresh dashboard if any pages were regenerated
+    if regenerated > 0:
+        try:
+            refresh_dashboard()
+        except Exception as e:
+            log(f"Dashboard refresh failed: {e}")
+
+
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "--dashboard":
         refresh_dashboard()
@@ -81,5 +171,7 @@ if __name__ == "__main__":
             refresh_hub(company)
         else:
             refresh_all_hubs()
+    elif len(sys.argv) > 1 and sys.argv[1] == "--corrections":
+        process_corrections()
     else:
         refresh_all()

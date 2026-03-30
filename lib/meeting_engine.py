@@ -2,6 +2,15 @@
 """
 Meeting Engine — generates per-meeting custom web pages.
 
+SYSTEM RULE: Every page, every section, every element must have feedback capability.
+The comment widget (comment-widget.js) MUST be present on ALL HTML pages.
+Any page generation engine that creates HTML must include:
+  <script src="comment-widget.js"></script>
+  <script src="notification-bell.js"></script>
+  <script src="conflict-resolver.js"></script>
+  <script src="version-widget.js"></script>
+before </body>. No exceptions. This is how we learn.
+
 Takes: company_name + meeting_date + meeting_type
 Produces: Custom HTML page with:
   - All relevant data for this meeting
