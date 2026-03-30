@@ -849,3 +849,11 @@ Additionally, all pages must include:
 ---
 
 ## FEEDBACK LOOP: Resolved Comments (Auto-appended by Step 14)
+
+### Comment [2026-03-29 22:16]: mark on Air Control — valuation
+**Comment:** Revenue is wrong. Fred told me on our last call they do $4.2M not $3M. He also mentioned they have 8 employees now, not 5.
+**Type:** fact_correction
+**Response:** Fred told me directly on our call March 28. He said $4.2M in 2025 revenue, 8 full-time employees including 2 new hires in January. I have the Fireflies transcript.
+**Resolution:** Applied — Now I have the full picture. The valuation section uses $3M revenue / 5 employees / $600K EBITDA. With Fred's corrected numbers ($4.2M revenue, 8 full-time employees), I need to recalculate:
+
+- Revenu
