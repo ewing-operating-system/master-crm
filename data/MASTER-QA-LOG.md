@@ -278,4 +278,408 @@ V2 feature — after engines produce output worth refining.
 
 ---
 
+---
+
+## SESSION 2: 2026-03-30 (97 CRM Decisions)
+
+### HARD — Only Ewing Can Answer (13 questions)
+
+**Q1 (2026-03-30):** HVAC company + family office investor: NC or AND Capital?
+**A1:** NC always if there is a next chapter fit. Family office = potential buyer we can match to another company. AND Capital is never automated. System never assumes NC lead is AND lead.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q1
+
+**Q15 (2026-03-30):** Buy-side clients (Weiser, Design Precast) — what does the "proposal" look like?
+**A15:** Targets meeting buyer criteria. First meeting includes criteria selectors. Ad-hoc criterion input pushes to search engines. Matchmaking pitch with 2-3% fee. Buyer suggestions become lookalikes for fit score training.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q15
+
+**Q19 (2026-03-30):** Buy-side: "all about the targets" or "all about the buyer's growth strategy"?
+**A19:** About selection criteria, estimated worth, EBITDA levers. Not McKinsey — we fill the order, not change strategy.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q19
+
+**Q27 (2026-03-30):** Buy-side: how do you source acquisition targets?
+**A27:** Phone, letters, emails, lunch, networking, public listings. Need buying signal agent (Apify on Instagram). Weiser wants 5 vetted targets this year.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q27
+
+**Q33 (2026-03-30):** 30/60/90 timeline — who executes each step?
+**A33:** APIs send automatically. Salesfinity is the calling system. LinkedIn Helper on desktop, need sub-agent for campaign orchestration.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q33
+
+**Q38 (2026-03-30):** Competitive situations — how aggressive?
+**A38:** Build attack plan with detailed research urgently. Don't address competition directly but emphasize "we can dial this list tomorrow." Walk away only on explicit no-opportunity message.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q38
+
+**Q39 (2026-03-30):** Guarantee structure for different deal sizes?
+**A39:** $10K minimum, 10% of transaction. 5% if >$500K commission. Fixed engagement fee + sliding success fee. Buy-side 2-3%. Sell-side 5-7%.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q39
+
+**Q61 (2026-03-30):** Primary feedback provider — Mark or Ewing?
+**A61:** Learn from each. Mark = wordsmith/final copy. Ewing = system architect/content structure. Final say usually Mark (downstream). Lean Ewing on structure, Mark on words.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q61
+
+**Q62 (2026-03-30):** Differentiate learning from Mark vs Ewing?
+**A62:** Yes, differentiate. Both swarm everything client-facing for now.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q62
+
+**Q81 (2026-03-30):** Web server internet-accessible?
+**A81:** Yes. Clients must access data rooms. Public URLs. Email gating. Default passwords = website domain.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q81
+
+**Q82 (2026-03-30):** Authentication story?
+**A82:** Clients get access. Wide open for now. Mark and Ewing both admins.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q82
+
+**Q86 (2026-03-30):** Maximum daily spend across all entities?
+**A86:** Monthly ceiling $500. Alerts at every $50 milestone. Slack + SMS. Need cost monitoring agent to prevent runaway API calls.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q86
+
+**Q91 (2026-03-30):** Listener channel priority — if only ONE?
+**A91:** Salesfinity transcripts first, then email, then Fireflies. Letters + phone are the two methods that work. Email/LinkedIn distant.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q91
+
+**Q96 (2026-03-30):** Research transparency — internal or external?
+**A96:** Build it in. Clients love knowing. Transparency is the brand. Methodology, rigor, precision.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q96
+
+**Q99 (2026-03-30):** Minimum viable data room — what's the floor?
+**A99:** Page showing what we know about them. Who we are, who we represent, what separates us, success history, plan. Interactive (sliders, edits) — store their changes for behavioral learning.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q99
+
+**Q100 (2026-03-30):** When is NC "done enough" for AND Capital & RevsUp?
+**A100:** NC = representing businesses to sell. AND is distant 2nd. Data must be coherent, attack lists built, research engines ready to audit existing data.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q100
+
+---
+
+### NUANCED — Pick A, B, or C (28 questions)
+
+**Q3 (2026-03-30):** Multi-entity people (Mark spans all 3): classify by CAMPAIGN or CONTENT?
+**A3:** Choice C — Hybrid. Both campaign and content context.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q3
+
+**Q4 (2026-03-30):** Entity transitions (NC deal becomes AND investment)?
+**A4:** Choice C — Dual-tag. Both entity tags preserved.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q4
+
+**Q6 (2026-03-30):** "Smallest entity first" vs urgency?
+**A6:** Choice B — Urgency always first.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q6
+
+**Q8 (2026-03-30):** DNC list include "soft DNC"?
+**A8:** Choice C — Binary + inbound exception. DNC blocks outbound, but inbound responses allowed.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q8
+
+**Q12 (2026-03-30):** How often regenerate profiles?
+**A12:** Choice C — Trigger + 24hr cooldown.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q12
+
+**Q14 (2026-03-30):** Minimum data completeness for "ready" profile?
+**A14:** Choice B — 70%.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q14
+
+**Q17 (2026-03-30):** Wrong valuation: deal-killer or conversation-starter?
+**A17:** Choice C — Range + framing.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q17
+
+**Q18 (2026-03-30):** Multiples vary by geography, size, recency?
+**A18:** Choice B — Full segmentation.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q18
+
+**Q20 (2026-03-30):** Revenue from employee count — margin of error?
+**A20:** Choice B — Only with corroboration.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q20
+
+**Q25 (2026-03-30):** Owner-operators — special handling?
+**A25:** Choice B — Treat normally.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q25
+
+**Q26 (2026-03-30):** How many buyers per deal?
+**A26:** Choice C — Adaptive by vertical.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q26
+
+**Q29 (2026-03-30):** Multi-deal buyers: coordinated or independent?
+**A29:** Choice B — Coordinated.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q29
+
+**Q30 (2026-03-30):** Buyer declines — remove from ALL lists?
+**A30:** Choice B — That deal only.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q30
+
+**Q35 (2026-03-30):** Buyer responds positively — what triggers next stage?
+**A35:** Choice C — Multi-signal.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q35
+
+**Q46 (2026-03-30):** Live calls — what data pushed to screen?
+**A46:** Choice B — Smart card.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q46
+
+**Q47 (2026-03-30):** Post-meeting outcomes — how captured?
+**A47:** Choice B — Transcript analysis.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q47
+
+**Q49 (2026-03-30):** Back-to-back meetings with different companies?
+**A49:** Choice B — Context-switch alerts.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q49
+
+**Q52 (2026-03-30):** Dashboard revenue metrics?
+**A52:** Choice B — Pipeline + fees.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q52
+
+**Q57 (2026-03-30):** Budget alert threshold?
+**A57:** Choice C — Anomaly-based.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q57
+
+**Q63 (2026-03-30):** Feedback propagate to similar companies?
+**A63:** Choice B — Suggest, don't auto-apply.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q63
+
+**Q65 (2026-03-30):** Pause auto-learning to prevent rule bloat?
+**A65:** Choice B — Pause at 30 rules.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q65
+
+**Q71 (2026-03-30):** Human review % before auto-approval trusted?
+**A71:** Choice B — Per-vertical graduation.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q71
+
+**Q73 (2026-03-30):** Review queue SLA?
+**A73:** Choice B — 24hr + escalation.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q73
+
+**Q74 (2026-03-30):** Dual-LLM certification worth it at scale?
+**A74:** Choice A — Always dual.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q74
+
+**Q76 (2026-03-30):** Queue items per day at target scale?
+**A76:** Choice B — 200/day.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q76
+
+**Q87 (2026-03-30):** Budget caps: per-company or per-entity?
+**A87:** Choice B — Per-company within entity.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q87
+
+**Q92 (2026-03-30):** Auto-trust thresholds vary by entity?
+**A92:** Choice C — Stake-based.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q92
+
+**Q93 (2026-03-30):** Listener unknown situation: speed or quality?
+**A93:** Choice C — Tier by urgency.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q93
+
+**Q95 (2026-03-30):** Contradictory signals — how resolved?
+**A95:** Choice B — Source hierarchy.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q95
+
+---
+
+### EASY — Approve or Override (42 questions)
+
+**Q2 (2026-03-30):** Classifier auto-reclassify human-tagged record?
+**A2:** APPROVED — No. Human always wins. Log disagreements. Add `manually_tagged` boolean.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q2
+
+**Q5 (2026-03-30):** Confidence floor below which pipeline STOPS?
+**A5:** APPROVED — Floor = 1.5 → human_review_queue. No downstream work.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q5
+
+**Q7 (2026-03-30):** New reps: auto-detected or manual?
+**A7:** APPROVED — Manual for now. New name → human_review_queue. Phase 2: auto-suggest.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q7
+
+**Q9 (2026-03-30):** Companies in multiple verticals?
+**A9:** OVERRIDDEN — Priority: NC > RU > AND.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q9
+
+**Q10 (2026-03-30):** Entity classification visible to client?
+**A10:** APPROVED — No. Internal only. Clients see "Next Chapter Advisory."
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q10
+
+**Q11 (2026-03-30):** Mark says $5M, Exa says $2.25M — who wins?
+**A11:** APPROVED — Human wins. Store both with source. "$5M (owner-reported)" + footnote.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q11
+
+**Q13 (2026-03-30):** Field confidence indicators?
+**A13:** APPROVED — CONFIRMED / ESTIMATED / UNKNOWN. Admin sees labels. Client sees footnotes.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q13
+
+**Q16 (2026-03-30):** Quality 50-79 — proposals to clients?
+**A16:** OVERRIDDEN — Sits in needs_review with instructive details and manual research instructions.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q16
+
+**Q21 (2026-03-30):** Track estimate accuracy?
+**A21:** APPROVED — Create estimate_accuracy table. Log deltas. Monthly aggregate.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q21
+
+**Q22 (2026-03-30):** Two LLMs disagree on a fact?
+**A22:** OVERRIDDEN — Human or agent (third LLM) picks winner. Long-term: agent. Need training injection without blocking.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q22
+
+**Q23 (2026-03-30):** Show methodology on every page?
+**A23:** APPROVED — Yes. This IS the brand. Admin: full. Client: lighter.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q23
+
+**Q24 (2026-03-30):** Sensitive verticals — extra restrictions?
+**A24:** APPROVED — No. Existing guardrails sufficient. HIPAA/SEC case-by-case.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q24
+
+**Q28 (2026-03-30):** Buyer research refresh?
+**A28:** OVERRIDDEN — Signed = weekly. Pipeline = bi-weekly. Unresponded = quarterly.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q28
+
+**Q34 (2026-03-30):** DNC'd buyers in client view?
+**A34:** OVERRIDDEN — Visible with reason. Full disclosure.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q34
+
+**Q36 (2026-03-30):** Buyer fit scores visible to clients?
+**A36:** OVERRIDDEN — Yes. Service to them.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q36
+
+**Q37 (2026-03-30):** Flag buyer who completes acquisition?
+**A37:** APPROVED — "Active Acquirer" flag. Increases fit score.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q37
+
+**Q40 (2026-03-30):** Auto-detect buyer acquisitions?
+**A40:** APPROVED — Monthly Exa scan. Log to buyer_activity. Auto-flag + notify.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q40
+
+**Q41 (2026-03-30):** Meeting prep timing?
+**A41:** APPROVED — 24 hours before. Regenerate if new data. Orchestrator checks calendar daily.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q41
+
+**Q42 (2026-03-30):** Meeting pages phone-optimized?
+**A42:** APPROVED — Key points top, collapsible, large taps, no horizontal scroll.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q42
+
+**Q43 (2026-03-30):** Joint meetings — role assignments?
+**A43:** APPROVED — Ewing: relationship/big picture. Mark: operational/process.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q43
+
+**Q44 (2026-03-30):** Reschedule → regenerate prep?
+**A44:** APPROVED — Yes. Keep old version in page_versions.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q44
+
+**Q45 (2026-03-30):** iMessage prep 30 min before?
+**A45:** OVERRIDDEN — Yes. "Meeting with {company} in 30 min. Key: {5 bullets}. Full: {link}."
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q45
+
+**Q48 (2026-03-30):** Meeting type: enum or free text?
+**A48:** OVERRIDDEN — Needs further review. Meeting page template architecture needed first.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q48 (flagged for TODO)
+
+**Q50 (2026-03-30):** Meeting pages — competitive intel?
+**A50:** APPROVED — Yes if available. Brokers in market, prior M&A, other conversations.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q50
+
+**Q51 (2026-03-30):** Dashboard as landing page?
+**A51:** APPROVED — Yes. Pipeline, reviews, problems, budget, quick links. Companies to sidebar.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q51
+
+**Q53 (2026-03-30):** Dashboard system health?
+**A53:** APPROVED — Green/yellow/red. Red if worker down >15min.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q53
+
+**Q54 (2026-03-30):** Mobile dashboard?
+**A54:** APPROVED — Responsive. Key metrics top. Collapsible.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q54
+
+**Q56 (2026-03-30):** Dashboard entity filters?
+**A56:** APPROVED — [All] [NC] [AND] [RU] + person presets. Cookie-stored.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q56
+
+**Q58 (2026-03-30):** "While you were away" summary?
+**A58:** APPROVED — Changes since last login. Track last_viewed_at.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q58
+
+**Q59 (2026-03-30):** Dashboard refresh frequency?
+**A59:** APPROVED — Live on load. Auto-refresh every 5 min.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q59
+
+**Q60 (2026-03-30):** System confidence metric?
+**A60:** APPROVED — "Data Quality: X% confirmed, Y% estimated, Z% unknown."
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q60
+
+**Q64 (2026-03-30):** Feedback vs guardrails — who wins?
+**A64:** OVERRIDDEN — Guardrails always win. Log violations. Dashboard feed. Weekly review. Only Ewing updates North Star.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q64
+
+**Q66 (2026-03-30):** Version history depth?
+**A66:** APPROVED — Last 10 per page. Older → archive (queryable, not in UI).
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q66
+
+**Q67 (2026-03-30):** Edit = auto-create version?
+**A67:** OVERRIDDEN — Yes, every edit = new version. But ASK before regenerating.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q67
+
+**Q68 (2026-03-30):** Version history visible to clients?
+**A68:** APPROVED — No. Current only.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q68
+
+**Q69 (2026-03-30):** Rule change → rebuild 20 pages?
+**A69:** APPROVED — Lazy. Mark stale, rebuild on view. Active engagements: background rebuild <1hr.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q69
+
+**Q70 (2026-03-30):** Version-level commenting?
+**A70:** APPROVED — One field: "Why was this changed?"
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q70
+
+**Q72 (2026-03-30):** Certifier approves, Mark disagrees?
+**A72:** APPROVED — Mark wins. Reverts to needs_review. 3 overrides → rule proposal.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q72
+
+**Q75 (2026-03-30):** Pre-certification quick check?
+**A75:** APPROVED — 5-point code check before LLM. Fail = skip cert, route to human.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q75
+
+**Q77 (2026-03-30):** Orchestrator: entity or urgency priority?
+**A77:** APPROVED — Urgency first, entity second. Round-robin within tiers.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q77
+
+**Q78 (2026-03-30):** Orchestrator down 4hr — burst or pace?
+**A78:** APPROVED — Pace at 2x. No bursting. Catch-up flag at backlog >20.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q78
+
+**Q79 (2026-03-30):** Maintenance mode?
+**A79:** APPROVED — active/maintenance/paused. Orchestrator stops, workers finish, watchdog runs.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q79
+
+**Q80 (2026-03-30):** 5min orchestrator / 10sec worker correct?
+**A80:** APPROVED — No change.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q80
+
+**Q83 (2026-03-30):** Keep static HTML alongside server?
+**A83:** APPROVED — Offline backup, email attachments, PDF gen. Server primary, files backup.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q83
+
+**Q84 (2026-03-30):** Multiple simultaneous users?
+**A84:** APPROVED — Flask/FastAPI. Multi-threading. Writes through queue.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q84
+
+**Q85 (2026-03-30):** WebSockets needed?
+**A85:** APPROVED — No. Page refresh + auto-refresh every 5 min.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q85
+
+**Q88 (2026-03-30):** Budget exhausted — queue or skip?
+**A88:** APPROVED — Queue for tomorrow. deferred_until timestamp. No work lost.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q88
+
+**Q89 (2026-03-30):** API key expiration alerts?
+**A89:** APPROVED — Weekly health check. 401/403 → iMessage alert.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q89
+
+**Q90 (2026-03-30):** Deployment process?
+**A90:** APPROVED — Manual git pull. Phase 2: deploy script. Phase 3: webhook.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q90
+
+**Q94 (2026-03-30):** Listener scan historical on deploy?
+**A94:** APPROVED — No. Start fresh. Historical = stale flood.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q94
+
+**Q97 (2026-03-30):** Show failed research?
+**A97:** APPROVED — Yes internally, no externally. Admin sees attempts.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q97
+
+**Q98 (2026-03-30):** Research cost visible to clients?
+**A98:** APPROVED — No. "$0.15" kills premium positioning.
+**Rule created:** CRM-DECISIONS-RULES.md Rule Q98
+
+---
+
 *This log is append-only. New sessions add entries below this line.*
