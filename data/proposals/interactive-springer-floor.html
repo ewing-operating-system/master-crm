@@ -637,6 +637,150 @@ input[type="range"]::-moz-range-thumb {
     .fee-card { break-inside: avoid; }
     input[type="range"] { display: none; }
 }
+
+/* ─── Attack Plan Pipeline ─── */
+.attack-pipeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 24px;
+    position: relative;
+}
+.pipeline-phase {
+    position: relative;
+    padding: 0 8px;
+}
+.pipeline-phase:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 48px;
+    right: -2px;
+    width: 20px;
+    height: 2px;
+    background: var(--border);
+    z-index: 2;
+}
+.pipeline-phase:not(:last-child)::before {
+    content: '\25B6';
+    position: absolute;
+    top: 40px;
+    right: -10px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    z-index: 3;
+}
+.phase-header {
+    text-align: center;
+    margin-bottom: 16px;
+}
+.phase-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 8px;
+}
+.phase-badge.phase-1 { background: #58a6ff; }
+.phase-badge.phase-2 { background: #3fb950; }
+.phase-badge.phase-3 { background: #d29922; }
+.phase-badge.phase-4 { background: #1f3a5f; }
+.phase-icon {
+    font-size: 28px;
+    display: block;
+    margin-bottom: 6px;
+}
+.phase-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-heading);
+    line-height: 1.3;
+}
+.phase-weeks {
+    font-size: 11px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+}
+.phase-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 14px;
+    min-height: 220px;
+    position: relative;
+    overflow: hidden;
+}
+.phase-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+}
+.phase-card.border-blue::before { background: #58a6ff; }
+.phase-card.border-green::before { background: #3fb950; }
+.phase-card.border-gold::before { background: #d29922; }
+.phase-card.border-navy::before { background: #1f3a5f; }
+.phase-activities {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.phase-activities li {
+    font-size: 13px;
+    color: var(--text-primary);
+    padding: 4px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    line-height: 1.4;
+}
+.phase-activities li .act-icon {
+    flex-shrink: 0;
+    width: 18px;
+    text-align: center;
+    font-size: 13px;
+}
+.phase-activities li.done {
+    color: var(--green);
+}
+.phase-activities li.done .act-icon::after {
+    content: ' \2713';
+    font-size: 10px;
+    color: var(--green);
+}
+.phase-tagline {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    font-style: italic;
+    color: var(--text-secondary);
+    text-align: center;
+    line-height: 1.4;
+}
+@media (max-width: 768px) {
+    .attack-pipeline {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .pipeline-phase:not(:last-child)::after,
+    .pipeline-phase:not(:last-child)::before {
+        display: none;
+    }
+    .pipeline-phase {
+        padding: 0;
+    }
+    .phase-card {
+        min-height: auto;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -1206,14 +1350,87 @@ input[type="range"]::-moz-range-thumb {
         </div>
     </div>
 
-    <!-- EXISTING: Attack Plan / How We Would Sell -->
+    <!-- Attack Plan / How We Would Sell — Visual Pipeline -->
     <div class="section" id="attack">
         <div class="section-title"><div class="icon">&#128640;</div> How We Would Sell Your Business</div>
-        <p>Phase 1 — Targeted Buyer Identification (Days 1-15): Build a buyer list of 75-100 prospects across three tiers. For strategic buyers, identify every PE-backed home services platform operating in Iowa, Nebraska, Minnesota, Missouri, and Illinois — these are the most likely geographic acquirers. Cross-reference with platforms that have publicly announced floor care or facilities services as growth verticals. For financial buyers, pull all search funds and independent sponsors who have expressed interest in home services, recurring revenue, or Midwest businesses through Searchfunder, NACO, and direct LinkedIn research. For individual operators, identify high-net-worth professionals in the Des Moines metro who have expressed interest in business ownership through SBA lender relationships and ETA networks.
-
-Phase 2 — Multi-Channel Outreach (Days 15-45): Execute a coordinated campaign across direct mail, cold calls, LinkedIn, and email. Every buyer receives a personalized approach based on their tier. Strategic buyers get a one-page teaser emphasizing recurring revenue metrics and geographic coverage. Financial buyers get a deal summary highlighting EBITDA margin, growth trajectory, and SBA eligibility. Individual operators get a lifestyle-focused pitch about owning a profitable Central Iowa business. All outreach is blind (no company name disclosed) until an NDA is signed.
-
-Phase 3 — Qualification and Negotiation (Days 45-90): Manage buyer conversations, distribute the Confidential Information Memorandum to qualified buyers, facilitate management presentations, and drive toward LOI submission. Target 5-8 qualified buyers submitting IOIs by Day 60, narrowing to 2-3 LOIs by Day 75, with a signed LOI by Day 90.</p>
+        <div class="attack-pipeline">
+            <!-- Phase 1 -->
+            <div class="pipeline-phase">
+                <div class="phase-header">
+                    <span class="phase-icon">&#128203;</span>
+                    <div class="phase-badge phase-1">1</div>
+                    <div class="phase-name">Preparation &amp; First Contact</div>
+                    <div class="phase-weeks">Week 1</div>
+                </div>
+                <div class="phase-card border-blue">
+                    <ul class="phase-activities">
+                        <li class="done"><span class="act-icon">&#9993;&#65039;</span> Letters mailed</li>
+                        <li class="done"><span class="act-icon">&#128222;</span> Call campaign launched</li>
+                        <li><span class="act-icon">&#128188;</span> LinkedIn outreach</li>
+                        <li class="done"><span class="act-icon">&#128196;</span> CIM prepared</li>
+                        <li class="done"><span class="act-icon">&#127919;</span> Buyer list ready</li>
+                    </ul>
+                    <div class="phase-tagline">Research already done &mdash; we start outreach Day 1</div>
+                </div>
+            </div>
+            <!-- Phase 2 -->
+            <div class="pipeline-phase">
+                <div class="phase-header">
+                    <span class="phase-icon">&#128236;</span>
+                    <div class="phase-badge phase-2">2</div>
+                    <div class="phase-name">Active Marketing &amp; Outreach</div>
+                    <div class="phase-weeks">Weeks 2 &ndash; 4</div>
+                </div>
+                <div class="phase-card border-green">
+                    <ul class="phase-activities">
+                        <li><span class="act-icon">&#128222;</span> Follow-up calls</li>
+                        <li><span class="act-icon">&#128231;</span> Email sequences</li>
+                        <li><span class="act-icon">&#128274;</span> NDAs executed</li>
+                        <li><span class="act-icon">&#128214;</span> CIM distributed</li>
+                        <li><span class="act-icon">&#128203;</span> Q&amp;A managed</li>
+                    </ul>
+                    <div class="phase-tagline">Letters to Riverside/milliCare, ServiceMaster, Marsden and 32 others</div>
+                </div>
+            </div>
+            <!-- Phase 3 -->
+            <div class="pipeline-phase">
+                <div class="phase-header">
+                    <span class="phase-icon">&#129309;</span>
+                    <div class="phase-badge phase-3">3</div>
+                    <div class="phase-name">Negotiation &amp; Deal Selection</div>
+                    <div class="phase-weeks">Weeks 5 &ndash; 7</div>
+                </div>
+                <div class="phase-card border-gold">
+                    <ul class="phase-activities">
+                        <li><span class="act-icon">&#128202;</span> IOIs received</li>
+                        <li><span class="act-icon">&#128101;</span> Mgmt meetings</li>
+                        <li><span class="act-icon">&#128176;</span> LOIs negotiated</li>
+                        <li><span class="act-icon">&#9878;&#65039;</span> Terms finalized</li>
+                        <li><span class="act-icon">&#9997;&#65039;</span> LOI signed</li>
+                    </ul>
+                    <div class="phase-tagline">2&ndash;3 competing offers on the table</div>
+                </div>
+            </div>
+            <!-- Phase 4 -->
+            <div class="pipeline-phase">
+                <div class="phase-header">
+                    <span class="phase-icon">&#9989;</span>
+                    <div class="phase-badge phase-4">4</div>
+                    <div class="phase-name">Closing &amp; Transfer</div>
+                    <div class="phase-weeks">Weeks 7 &ndash; 9</div>
+                </div>
+                <div class="phase-card border-navy">
+                    <ul class="phase-activities">
+                        <li><span class="act-icon">&#128269;</span> Due diligence</li>
+                        <li><span class="act-icon">&#128221;</span> Purchase agreement</li>
+                        <li><span class="act-icon">&#128181;</span> Working capital</li>
+                        <li><span class="act-icon">&#127937;</span> Close &amp; transfer</li>
+                        <li><span class="act-icon">&#127881;</span> Deal done</li>
+                    </ul>
+                    <div class="phase-tagline">You get paid</div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- SECTION 10: NEXT STEPS -->

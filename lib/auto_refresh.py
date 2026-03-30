@@ -2,11 +2,17 @@
 """
 Auto-Refresh — regenerates company hubs and dashboard after any engine produces output.
 
+SYSTEM RULE: Every page, every section, every element must have feedback capability.
+The comment widget (comment-widget.js) MUST be present on ALL HTML pages.
+Any page generation engine that creates HTML must include <script src="comment-widget.js"></script> before </body>.
+No exceptions. This is how we learn.
+
 Call this after any proposal, profile, engagement, or meeting page is generated.
 Also runs on a schedule to keep everything current.
+Includes process_corrections() for the feedback loop (Step 13).
 """
 
-import os, sys, time
+import json, os, sys, time, urllib.request, ssl
 from datetime import datetime
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
