@@ -682,4 +682,118 @@ V2 feature — after engines produce output worth refining.
 
 ---
 
+## SESSION 3: Research Pipeline Decisions (2026-03-30)
+
+**Context:** 22 decisions from RESEARCH-PIPELINE-DECISIONS.md covering search strategy, data assembly, page population, quality/certification, and pipeline orchestration. 3 questions skipped (Q4, Q10, Q16).
+
+### Search Strategy
+
+**Q1 (2026-03-30):** Exa returns articles without actual CEO quotes -- what next?
+**A1:** Choice D -- Search different source (SEC filings, investor decks)
+**Rule created:** RESEARCH-PIPELINE-RULES.md Rule R1
+
+**Q2 (2026-03-30):** Private companies have no earnings calls. What's the equivalent?
+**A2:** Choice E -- All of the above in priority order (podcasts -> conferences -> local press -> industry data)
+**Rule created:** RESEARCH-PIPELINE-RULES.md Rule R2
+
+**Q3 (2026-03-30):** Include buyer COMPETITOR searches? Creates urgency in pitch.
+**A3:** Choice A -- Yes, 2 competitors per buyer
+**Rule created:** RESEARCH-PIPELINE-RULES.md Rule R3
+
+**Q5 (2026-03-30):** Different search templates per buyer type (PE vs strategic vs consolidator)?
+**A5:** Choice A -- Yes, 3 distinct templates
+**Rule created:** RESEARCH-PIPELINE-RULES.md Rule R5
+
+### Data Assembly
+
+**Q6 (2026-03-30):** Conflicting data (Exa says 15 employees, deal_research says 45) -- who wins?
+**A6:** Choice C -- Show both with sources, never silently pick one
+**Rule created:** RESEARCH-PIPELINE-RULES.md Rule R6
+**Schema:** Added `data_conflicts JSONB` to companies table
+
+**Q7 (2026-03-30):** Slider fields (revenue, employees, com/res split) -- default to estimate or blank?
+**A7:** Choice C -- Estimate if confidence > MEDIUM, blank if LOW
+**Rule created:** RESEARCH-PIPELINE-RULES.md Rule R7
+
+**Q8 (2026-03-30):** Story narrative minimum length? System generated 3K chars instead of 14K target.
+**A8:** Choice B -- Publish what it has + flag as thin ("THIN RESEARCH -- enrichment pending")
+**Rule created:** RESEARCH-PIPELINE-RULES.md Rule R8
+
+**Q9 (2026-03-30):** dossier_final vs proposals table have different revenue numbers -- which is truth?
+**A9:** Choice A -- proposals table is canonical source of truth
+**Rule created:** RESEARCH-PIPELINE-RULES.md Rule R9
+
+### Page Population
+
+**Q11 (2026-03-30):** Proposal page order: narrative -> strengths -> market -> valuation -> attack -> timeline. Right order?
+**A11:** Choice A -- Current order is right (trust first)
+**Rule created:** RESEARCH-PIPELINE-RULES.md Rule R11
+
+**Q12 (2026-03-30):** Buyer 1-pager has 7 SAP sections. Show all even if some are thin?
+**A12:** Choice B -- Hide sections without enough data
+**Rule created:** RESEARCH-PIPELINE-RULES.md Rule R12
+
+**Q13 (2026-03-30):** Data room (client-facing): show methodology by default or hide behind expandable?
+**A13:** Choice C -- Admin sees full methodology; client sees expandable
+**Rule created:** RESEARCH-PIPELINE-RULES.md Rule R13
+
+**Q14 (2026-03-30):** EBITDA levers: show MISSING levers as red flags or only show strengths?
+**A14:** Choice C -- Strengths prominent, gaps in separate "Growth Opportunities" section
+**Rule created:** RESEARCH-PIPELINE-RULES.md Rule R14
+
+**Q15 (2026-03-30):** Attack plan: generic or specific?
+**A15:** Choice A -- Specific (named contacts, referenced acquisitions, actual scripts). SAP standard.
+**Rule created:** RESEARCH-PIPELINE-RULES.md Rule R15
+
+### Quality & Certification
+
+**Q17 (2026-03-30):** Certifier flags NEEDS_REVIEW -- what does "instructive" look like?
+**A17:** Choice C -- Both issues AND fix instructions
+**Rule created:** RESEARCH-PIPELINE-RULES.md Rule R17
+
+**Q18 (2026-03-30):** Confidence score badge on every page?
+**A18:** Choice C -- No badge, per-field indicators instead
+**Rule created:** RESEARCH-PIPELINE-RULES.md Rule R18
+**Schema:** Verified `field_confidence JSONB` exists on companies and dossier_final
+
+**Q19 (2026-03-30):** Track which facts came from which sources? Footnotes like academic papers?
+**A19:** Choice A -- Yes, full source attribution
+**Rule created:** RESEARCH-PIPELINE-RULES.md Rule R19
+**Schema:** Added `source_attribution JSONB` to dossier_final, proposals, engagement_buyers
+
+**Q20 (2026-03-30):** On page regeneration: show a diff of what changed?
+**A20:** Choice A -- Yes, always show diff
+**Rule created:** RESEARCH-PIPELINE-RULES.md Rule R20
+**Schema:** Added `previous_version_diff TEXT` to page_versions
+
+### Pipeline Orchestration
+
+**Q21 (2026-03-30):** Buyer enrichment: 5 Exa searches per buyer -- parallel or sequential?
+**A21:** Choice C -- 2 at a time (balanced)
+**Rule created:** RESEARCH-PIPELINE-RULES.md Rule R21
+
+**Q22 (2026-03-30):** New company enters pipeline -- minimum research before ANY page appears?
+**A22:** Choice D -- Research + validation + certification all complete first
+**Rule created:** RESEARCH-PIPELINE-RULES.md Rule R22
+
+**Q23 (2026-03-30):** Research depth setting per deal?
+**A23:** Choice C -- No, same depth for everything
+**Rule created:** RESEARCH-PIPELINE-RULES.md Rule R23
+
+**Q24 (2026-03-30):** SAP audit found 7 missing sections. Build all at once or prioritize?
+**A24:** Choice A -- All 7 at once
+**Rule created:** RESEARCH-PIPELINE-RULES.md Rule R24
+
+**Q25 (2026-03-30):** Goal tracker per deal driving orchestrator priority?
+**A25:** Choice A -- Yes, drives orchestrator priority
+**Rule created:** RESEARCH-PIPELINE-RULES.md Rule R25
+**Schema:** Created `deal_goals` table. Seeded Wieser: meetings_booked target=5 by 2026-12-31
+
+### Skipped (3)
+- Q4: Found buyer's VP Corp Dev on LinkedIn -- also search for direct email? (DEFERRED)
+- Q10: Company has old deal_research data but NO new Exa research -- publish or force refresh? (DEFERRED)
+- Q16: Dual-LLM certification -- what should the SECOND model be? (DEFERRED)
+
+---
+
 *This log is append-only. New sessions add entries below this line.*

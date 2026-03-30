@@ -175,14 +175,28 @@ def generate_hub_html(company_name, assets):
     for c in contacts:
         contacts_html += f"<tr><td>{c.get('name','')}</td><td>{c.get('title','')}</td><td>{c.get('email','')}</td><td>{c.get('phone') or c.get('cell','')}</td></tr>"
 
-    # Buyers table
+    # Buyers table — with links to individual buyer pages
     buyers_html = ""
+    company_slug = company_name.lower().replace(" ", "-").replace(".", "").replace(",", "").replace("&", "and")[:30]
+    buyer_dir = os.path.expanduser("~/Projects/master-crm/data/buyer-1pagers")
     for b in buyers[:15]:
         fit = str(b.get("fit_score", "")) if b.get("fit_score") else "—"
         dnc = "✅" if b.get("dnc_clear") else "🚫"
         has_script = "📝" if b.get("approach_script") else "—"
         bstatus = b.get("status", "identified")
-        buyers_html += f"<tr><td>{b.get('buyer_company_name','')}</td><td>{b.get('buyer_type','')}</td><td>{b.get('buyer_city','')}, {b.get('buyer_state','')}</td><td>{fit}</td><td>{dnc}</td><td>{has_script}</td><td>{bstatus}</td></tr>"
+        buyer_name = b.get('buyer_company_name', '')
+
+        # Find matching buyer page file
+        buyer_slug = buyer_name.lower().replace(" ", "-").replace(".", "").replace(",", "").replace("&", "and").replace("(", "").replace(")", "")[:40]
+        buyer_link = None
+        if os.path.exists(buyer_dir):
+            for f in os.listdir(buyer_dir):
+                if (company_slug[:10] in f.lower() and buyer_slug[:10] in f.lower()) or buyer_slug[:15] in f.lower():
+                    buyer_link = f
+                    break
+
+        name_cell = f'<a href="{buyer_link}" style="color:#58a6ff;text-decoration:none">{buyer_name}</a>' if buyer_link else buyer_name
+        buyers_html += f"<tr><td>{name_cell}</td><td>{b.get('buyer_type','')}</td><td>{b.get('buyer_city','')}, {b.get('buyer_state','')}</td><td>{fit}</td><td>{dnc}</td><td>{has_script}</td><td>{bstatus}</td></tr>"
 
     # Files links
     files_html = ""
