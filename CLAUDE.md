@@ -49,6 +49,30 @@ Use `lib/classification.py` for deterministic entity classification. It implemen
 - **John Kelly:** Next Chapter + RevsUp ONLY. NEVER AND Capital.
 - **Chris Rex:** AND Capital ONLY. Separate Microsoft stack, invisible to this workspace.
 
+## BUYER HUB MAINTENANCE
+
+Whenever buyers are added to `engagement_buyers` OR new buyer 1-pager HTML files are generated, run:
+
+```bash
+python3 scripts/refresh_hub_buyers.py \
+  --proposal <proposal_id> \
+  --hub public/<seller-slug>-hub.html \
+  --prefix <seller-slug>
+```
+
+This script:
+1. Backfills `buyer_city`, `buyer_state` from `HQ_MAP` (add new companies there)
+2. Backfills `fit_score` from `confidence` field (HIGH=8, MEDIUM=6, LOW=4)
+3. Regenerates the hub buyer table with all rows linked and sorted by fit score
+
+**Never deploy a hub page without running this first.** If a buyer has no HQ in the map, the script exits with an error — add it before rerunning.
+
+Known proposal IDs:
+- HR.com Ltd: `63642786-ab16-456d-bac3-8f277f36ddc5` → prefix `hr-com-ltd`
+- Springer Floor: `deed565b-156f-4d92-aa51-254802c71c6a` → prefix `springer-floor`
+- AquaScience: *(look up from proposals table)*
+- Air Control: *(look up from proposals table)*
+
 ## HARD RULES
 
 1. **EVERY ROW** gets an entity tag. No exceptions. No untagged data enters the system.
