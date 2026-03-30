@@ -816,3 +816,14 @@ V2 feature — after engines produce output worth refining.
 
 ### Implementation Rule
 **CRITICAL:** When updating proposals, ONLY ADD. Never remove custom research, story narratives, EBITDA levers, buyer analysis, or any company-specific content. The template provides STRUCTURE. The existing content provides SUBSTANCE. Both are needed.
+
+### MASTER BUSINESS RULE: 60-Day Deal Timeline
+**Decision:** Total process from engagement to close is 60 days, not 6-9 months.
+**Rationale:** Our pre-work, AI research, and agent-built buyer lists eliminate weeks of traditional preparation. First contact happens in Week 1 because buyer lists are already built.
+**Timeline:**
+- Phase 1 — Preparation & First Contact: Week 1 (research already done, buyers identified)
+- Phase 2 — Active Marketing: Weeks 2-4 (outreach, NDAs, CIM distribution)
+- Phase 3 — Negotiation: Weeks 5-7 (IOIs, management meetings, LOIs)
+- Phase 4 — Closing: Weeks 7-9 (due diligence, purchase agreement, close)
+- TOTAL: 60 days
+**This is a competitive advantage.** Traditional brokers quote 6-9 months. We quote 60 days because the technology does in hours what they do in weeks.
