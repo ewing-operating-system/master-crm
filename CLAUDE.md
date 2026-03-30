@@ -67,6 +67,22 @@ This script:
 
 **Never deploy a hub page without running this first.** If a buyer has no HQ in the map, the script exits with an error — add it before rerunning.
 
+### Buyer Scoring Rule — Fit Score 8 Requires Confirmed Acquisition in Vertical
+
+**A buyer scores 8 (HIGH) ONLY if they have a confirmed prior acquisition in the same or adjacent vertical as the seller.**
+
+For a home services / commercial services seller, adjacent verticals = cleaning, restoration, floor care, janitorial, facility services, pest, HVAC, plumbing, or home services roll-ups.
+
+| Score | Confidence | Meaning |
+|-------|-----------|---------|
+| 8 | HIGH | Bona fide acquirer — confirmed deal in cleaning/restoration/floor/facility vertical |
+| 6 | MEDIUM | Plausible buyer — operates in adjacent space but no confirmed acquisition in this vertical |
+| 4 | LOW | Weak fit — wrong vertical, franchise system that doesn't acquire operators, or too small |
+
+**Rationale:** The top of the buyer list must be actionable. Buyers who have already executed deals in the vertical are the ones most likely to understand the asset, move quickly, and close. Scoring 8 for "they could theoretically buy this" inflates the list and wastes outreach capacity.
+
+When in doubt, score 6 and upgrade to 8 only after acquisition evidence is confirmed via Exa or primary source.
+
 Known proposal IDs:
 - HR.com Ltd: `63642786-ab16-456d-bac3-8f277f36ddc5` → prefix `hr-com-ltd`
 - Springer Floor: `deed565b-156f-4d92-aa51-254802c71c6a` → prefix `springer-floor`
