@@ -857,3 +857,43 @@ Additionally, all pages must include:
 **Resolution:** Applied — Now I have the full picture. The valuation section uses $3M revenue / 5 employees / $600K EBITDA. With Fred's corrected numbers ($4.2M revenue, 8 full-time employees), I need to recalculate:
 
 - Revenu
+
+### Comment [2026-03-30T21:08:31.865475+00:00]: ewing on HR.com Ltd — success_criteria_move_up_move_down_collapse_hide_delete
+**Comment:** search the meeting transcripts for Debbie and see if this information already exists in supabase. I think she has already shared much of this. Report back to me in a log file what you changed as a result of this inquiry from me.
+**Type:** feedback
+**Clarification:** 1. When you say "this information" — do you mean everything in the success criteria section, or specific items like deal terms, timeline preferences, or must-haves she mentioned?
+
+2. If Debbie already shared details that match what's on the page, what's the move — pull her exact words into the dossier to replace the current text, or just flag what's already confirmed vs. what we're still guessing on?
+
+3. For meeting transcripts — should I check both the local JSON file (`hrcom-debbie-mcgrath-2026-03-23.json`) and Fireflies, or is there a specific call you're thinking of?
+
+4. Log file destination — drop it in `data/logs/` with the other logs, or somewhere more visible like the project root?
+**Response:** None
+**Resolution:** Resolved by Opus agent. Fireflies transcript retrieved, all data extracted, page updated with Debbie confirmed answers.
+**Rule created:** N/A
+
+### Comment [2026-03-30T21:09:07.897388+00:00]: ewing on HR.com Ltd — agenda_move_up_move_down_collapse_hide_delete
+**Comment:** audit debbie mcgrath meeting transcript from fireflies that happened a week ago. Populate and update this section with that information
+**Type:** feedback
+**Clarification:** 1. The section name ("agenda_move_up_move_down_collapse_hide_delete") sounds like UI element naming — is this the **meeting agenda / talking points** section on the HR.com dossier page, or something else?
+
+2. I see `data/meetings/hrcom-debbie-mcgrath-2026-03-23.json` already exists locally. Should I pull the **Fireflies transcript fresh** to get the full picture, or is that local file the canonical source?
+
+3. What should this section contain from the call — **key discussion topics, decisions made, action items, or all three?** Any specific takeaways you remember that absolutely need to be in there?
+
+4. Is this section buyer-facing (visible on the hub page) or internal-only? That changes how much detail and tone to use.
+**Response:** None
+**Resolution:** Resolved by Opus agent. Fireflies transcript retrieved, all data extracted, page updated with Debbie confirmed answers.
+**Rule created:** N/A
+
+### Comment [2026-03-30T21:09:30.201896+00:00]: ewing on HR.com Ltd — questions_to_ask_move_up_move_down_collapse_hide_delete
+**Comment:** Update all answers with Debbie's content from fireflies.
+**Type:** feedback
+**Clarification:** 1. Which Fireflies meeting with Debbie should I pull from — the most recent one, or a specific call? (I see a meeting file for `hrcom-debbie-mcgrath-2026-03-23` — is that the one?)
+
+2. Should I replace the existing answers entirely with what Debbie said, or merge her comments into what's already there?
+
+3. If Debbie didn't address a particular question during the call, leave the current answer as-is or flag it as unconfirmed?
+**Response:** None
+**Resolution:** Resolved by Opus agent. Fireflies transcript retrieved, all data extracted, page updated with Debbie confirmed answers.
+**Rule created:** N/A
