@@ -15,10 +15,19 @@ import psycopg2.extras
 from urllib.parse import urlparse, parse_qs, unquote
 from datetime import datetime
 from decimal import Decimal
+from dotenv import load_dotenv
+load_dotenv(os.path.join(os.path.dirname(__file__), '.env'))
+
+# Import Lob client (lazy — only used in POST handlers)
+import sys
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'lib'))
+
+SUPABASE_URL = os.environ.get("SUPABASE_URL", "https://dwrnfpjcvydhmhnvyzov.supabase.co")
+SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
 
 PORT = 8080
 BASE_DIR = os.path.expanduser("~/Projects/master-crm/data")
-DB_CONN = "postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase.co:6543/postgres"
+DB_CONN = f"postgresql://postgres:{os.environ.get('DB_PASSWORD', '')}@db.dwrnfpjcvydhmhnvyzov.supabase.co:6543/postgres"
 
 # Kill any existing server on 8080
 subprocess.run(["pkill", "-f", "server.py"], capture_output=True)
@@ -819,14 +828,26 @@ class MasterCRMHandler(http.server.BaseHTTPRequestHandler):
                     self.wfile.write(content)
                     return
 
-            # Static file fallback
+            # Static file fallback — check data dir first, then master-crm-web/public
             filepath = os.path.join(BASE_DIR, path.lstrip("/"))
+            web_public = os.path.expanduser("~/Projects/master-crm-web/public")
+            filepath_web = os.path.join(web_public, path.lstrip("/"))
+
+            static_path = None
             if os.path.exists(filepath) and os.path.isfile(filepath):
-                with open(filepath, 'rb') as f:
+                static_path = filepath
+            elif os.path.exists(filepath_web) and os.path.isfile(filepath_web):
+                static_path = filepath_web
+
+            if static_path:
+                with open(static_path, 'rb') as f:
                     content = f.read()
                 self.send_response(200)
-                ct = 'text/html' if filepath.endswith('.html') else 'application/json' if filepath.endswith('.json') else 'application/octet-stream'
+                ext = static_path.rsplit('.', 1)[-1] if '.' in static_path else ''
+                ct_map = {'html': 'text/html', 'json': 'application/json', 'js': 'application/javascript', 'css': 'text/css', 'png': 'image/png', 'svg': 'image/svg+xml'}
+                ct = ct_map.get(ext, 'application/octet-stream')
                 self.send_header('Content-Type', ct)
+                self.send_header('Access-Control-Allow-Origin', '*')
                 self.end_headers()
                 self.wfile.write(content)
                 return
@@ -910,7 +931,381 @@ class MasterCRMHandler(http.server.BaseHTTPRequestHandler):
             except Exception as e:
                 return self.send_json({"error": str(e)}, 500)
 
+        # GET /api/buyers/feedback?proposal_id=xxx
+        if path == '/api/buyers/feedback':
+            proposal_id = qs.get('proposal_id', [None])[0]
+            if not proposal_id:
+                return self.send_json({"error": "proposal_id required"}, 400)
+            conn = get_db()
+            cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+            cur.execute("""SELECT id, buyer_company_name, expert_comment, expert_verdict, expert_name, expert_verdict_at, fit_score, buyer_type
+                          FROM engagement_buyers WHERE proposal_id = %s AND (expert_comment IS NOT NULL OR expert_verdict IS NOT NULL)
+                          ORDER BY expert_verdict_at DESC NULLS LAST""", (proposal_id,))
+            rows = [dict(r) for r in cur.fetchall()]
+            conn.close()
+            return self.send_json(rows)
+
         return self.send_json({"error": "Unknown API endpoint"}, 404)
+
+    # ------------------------------------------------------------------
+    # POST handlers
+    # ------------------------------------------------------------------
+
+    def do_OPTIONS(self):
+        """Handle CORS preflight."""
+        self.send_response(200)
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+        self.end_headers()
+
+    def _read_body(self):
+        """Read and parse JSON body from POST request."""
+        length = int(self.headers.get('Content-Length', 0))
+        raw = self.rfile.read(length) if length else b'{}'
+        return json.loads(raw)
+
+    def do_POST(self):
+        parsed = urlparse(self.path)
+        path = parsed.path.rstrip('/')
+
+        try:
+            body = self._read_body()
+        except Exception as e:
+            return self.send_json({"error": f"Invalid JSON: {e}"}, 400)
+
+        try:
+            # POST /api/letters/approve
+            if path == '/api/letters/approve':
+                return self._handle_letter_approve(body)
+
+            # POST /api/letters/send
+            elif path == '/api/letters/send':
+                return self._handle_letter_send(body)
+
+            # POST /api/webhooks/lob
+            elif path == '/api/webhooks/lob':
+                return self._handle_lob_webhook(body)
+
+            # POST /api/meetings/save
+            elif path == '/api/meetings/save':
+                return self._handle_meeting_save(body)
+
+            # POST /api/campaigns/create
+            elif path == '/api/campaigns/create':
+                return self._handle_campaign_create(body)
+
+            # POST /api/sections/save-order
+            elif path == '/api/sections/save-order':
+                return self._handle_save_section_order(body)
+
+            # POST /api/sections/get-order
+            elif path == '/api/sections/get-order':
+                return self._handle_get_section_order(body)
+
+            # POST /api/buyers/feedback
+            elif path == '/api/buyers/feedback':
+                return self._handle_buyer_feedback(body)
+
+            else:
+                return self.send_json({"error": "Unknown POST endpoint"}, 404)
+
+        except Exception as e:
+            import traceback
+            return self.send_json({"error": str(e), "trace": traceback.format_exc()}, 500)
+
+    def _handle_letter_approve(self, body):
+        """
+        POST /api/letters/approve
+        Body: {letter_id: uuid, action: "approved"|"rejected", rejected_reason: "...", approved_by: "..."}
+        """
+        letter_id = body.get("letter_id")
+        action = body.get("action")  # "approved" or "rejected"
+        if not letter_id or action not in ("approved", "rejected"):
+            return self.send_json({"error": "letter_id and action (approved/rejected) required"}, 400)
+
+        conn = get_db()
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+
+        if action == "approved":
+            cur.execute("""UPDATE letter_approvals
+                          SET status = 'approved', approved_by = %s, approved_at = NOW(), updated_at = NOW()
+                          WHERE id = %s AND status = 'pending'
+                          RETURNING *""",
+                       (body.get("approved_by", "system"), letter_id))
+        else:
+            cur.execute("""UPDATE letter_approvals
+                          SET status = 'rejected', rejected_reason = %s, updated_at = NOW()
+                          WHERE id = %s AND status = 'pending'
+                          RETURNING *""",
+                       (body.get("rejected_reason", ""), letter_id))
+
+        row = cur.fetchone()
+        conn.commit()
+        conn.close()
+
+        if not row:
+            return self.send_json({"error": "Letter not found or already processed"}, 404)
+        return self.send_json({"status": "ok", "letter": dict(row)})
+
+    def _handle_letter_send(self, body):
+        """
+        POST /api/letters/send
+        Body: {letter_id: uuid}  — sends an approved letter via Lob
+        """
+        letter_id = body.get("letter_id")
+        if not letter_id:
+            return self.send_json({"error": "letter_id required"}, 400)
+
+        conn = get_db()
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        cur.execute("SELECT * FROM letter_approvals WHERE id = %s AND status = 'approved'", (letter_id,))
+        letter = cur.fetchone()
+        if not letter:
+            conn.close()
+            return self.send_json({"error": "Letter not found or not approved"}, 404)
+
+        # Build Lob address from letter data
+        addr = letter.get("recipient_address") or {}
+        if isinstance(addr, str):
+            addr = json.loads(addr)
+
+        to_address = {
+            "name": letter.get("recipient_name", ""),
+            "address_line1": addr.get("address_line1", ""),
+            "address_city": addr.get("address_city", ""),
+            "address_state": addr.get("address_state", ""),
+            "address_zip": addr.get("address_zip", ""),
+        }
+        if addr.get("company"):
+            to_address["company"] = addr["company"]
+
+        try:
+            import lob_client
+            lob_resp = lob_client.send_letter(
+                to_address=to_address,
+                from_address=lob_client.NC_RETURN_ADDRESS,
+                html_content=letter.get("letter_html") or letter.get("letter_text", ""),
+                description=f"NC letter to {letter.get('recipient_name', '')}",
+                metadata={"letter_id": str(letter_id), "entity": letter.get("entity", "next_chapter")}
+            )
+        except Exception as e:
+            conn.close()
+            return self.send_json({"error": f"Lob API error: {e}"}, 502)
+
+        lob_id = lob_resp.get("id", "")
+        lob_url = lob_resp.get("url", "")
+
+        cur.execute("""UPDATE letter_approvals
+                      SET status = 'sent', lob_letter_id = %s, lob_tracking_url = %s,
+                          sent_at = NOW(), updated_at = NOW()
+                      WHERE id = %s""",
+                   (lob_id, lob_url, letter_id))
+
+        # Log cost
+        cur.execute("""INSERT INTO cost_ledger (entity, cost_source, cost_amount, letter_id, company_id, description)
+                      VALUES (%s, 'lob', 1.50, %s, %s, %s)""",
+                   (letter.get("entity", "next_chapter"), letter_id,
+                    letter.get("company_id"), f"Letter to {letter.get('recipient_name', '')}"))
+
+        conn.commit()
+        conn.close()
+        return self.send_json({"status": "sent", "lob_id": lob_id, "lob_url": lob_url})
+
+    def _handle_lob_webhook(self, body):
+        """
+        POST /api/webhooks/lob
+        Lob sends delivery status updates here.
+        """
+        event_type = body.get("event_type", {})
+        lob_data = body.get("body", {})
+        lob_id = lob_data.get("id", "")
+
+        if not lob_id:
+            return self.send_json({"status": "ignored"})
+
+        conn = get_db()
+        cur = conn.cursor()
+
+        # Map Lob events to our statuses
+        event_id = event_type.get("id", "") if isinstance(event_type, dict) else str(event_type)
+
+        if "delivered" in event_id:
+            cur.execute("""UPDATE letter_approvals
+                          SET status = 'delivered', delivered_at = NOW(), updated_at = NOW()
+                          WHERE lob_letter_id = %s""", (lob_id,))
+        elif "returned" in event_id or "re-routed" in event_id:
+            cur.execute("""UPDATE letter_approvals
+                          SET status = 'returned', updated_at = NOW(),
+                              notes = COALESCE(notes, '') || %s
+                          WHERE lob_letter_id = %s""",
+                       (f"\nReturned: {event_id} at {datetime.utcnow().isoformat()}", lob_id))
+
+        conn.commit()
+        conn.close()
+        return self.send_json({"status": "ok"})
+
+    def _handle_meeting_save(self, body):
+        """
+        POST /api/meetings/save
+        Body: {company_slug, meeting_date, meeting_notes, attendees, action_items}
+        """
+        slug = body.get("company_slug")
+        if not slug:
+            return self.send_json({"error": "company_slug required"}, 400)
+
+        conn = get_db()
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+
+        # Find company by slug
+        cur.execute("SELECT id, company_name FROM proposals")
+        proposals = cur.fetchall()
+        company = None
+        for p in proposals:
+            if slugify(p['company_name']) == slug:
+                company = p
+                break
+        if not company:
+            conn.close()
+            return self.send_json({"error": f"Company not found: {slug}"}, 404)
+
+        # Store meeting in intelligence_cache
+        meeting_data = {
+            "meeting_date": body.get("meeting_date", datetime.utcnow().isoformat()),
+            "notes": body.get("meeting_notes", ""),
+            "attendees": body.get("attendees", []),
+            "action_items": body.get("action_items", []),
+            "saved_at": datetime.utcnow().isoformat()
+        }
+
+        cur.execute("""INSERT INTO intelligence_cache (company_id, entity, key, value, source_agent)
+                      VALUES (%s, %s, %s, %s, 'meeting_save')""",
+                   (company['id'], body.get("entity", "next_chapter"),
+                    f"meeting_{body.get('meeting_date', 'latest')}",
+                    json.dumps(meeting_data, default=str)))
+
+        conn.commit()
+        conn.close()
+        return self.send_json({"status": "saved", "company": company['company_name']})
+
+    def _handle_campaign_create(self, body):
+        """
+        POST /api/campaigns/create
+        Body: {entity, campaign_id, batch_number, target_total, pause_threshold}
+        """
+        entity = body.get("entity")
+        campaign_id = body.get("campaign_id")
+        batch_number = body.get("batch_number")
+        if not all([entity, campaign_id, batch_number]):
+            return self.send_json({"error": "entity, campaign_id, and batch_number required"}, 400)
+
+        conn = get_db()
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+
+        try:
+            cur.execute("""INSERT INTO letter_campaigns (entity, campaign_id, batch_number, target_total, pause_threshold)
+                          VALUES (%s, %s, %s, %s, %s)
+                          RETURNING *""",
+                       (entity, campaign_id, batch_number,
+                        body.get("target_total", 250),
+                        body.get("pause_threshold", 150)))
+            campaign = cur.fetchone()
+            conn.commit()
+        except psycopg2.errors.UniqueViolation:
+            conn.rollback()
+            conn.close()
+            return self.send_json({"error": f"Batch number {batch_number} already exists"}, 409)
+
+        conn.close()
+        return self.send_json({"status": "created", "campaign": dict(campaign)}, 201)
+
+    def _handle_save_section_order(self, body):
+        """
+        POST /api/sections/save-order
+        Body: {page_path: "/company/air-control/buyers/1", user_id: "ewing", section_order: {order: [2,0,1,3], sections: [...]}}
+        """
+        page_path = body.get("page_path")
+        if not page_path:
+            return self.send_json({"error": "page_path required"}, 400)
+
+        user_id = body.get("user_id", "default")
+        section_order = body.get("section_order", {})
+
+        conn = get_db()
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        cur.execute("""INSERT INTO section_order (page_path, user_id, section_order, updated_at)
+                      VALUES (%s, %s, %s, NOW())
+                      ON CONFLICT (page_path, user_id)
+                      DO UPDATE SET section_order = %s, updated_at = NOW()
+                      RETURNING *""",
+                   (page_path, user_id, json.dumps(section_order), json.dumps(section_order)))
+        row = cur.fetchone()
+        conn.commit()
+        conn.close()
+        return self.send_json({"status": "saved", "record": dict(row)})
+
+    def _handle_get_section_order(self, body):
+        """
+        POST /api/sections/get-order
+        Body: {page_path: "/company/air-control/buyers/1", user_id: "ewing"}
+        """
+        page_path = body.get("page_path")
+        if not page_path:
+            return self.send_json({"error": "page_path required"}, 400)
+
+        user_id = body.get("user_id", "default")
+
+        conn = get_db()
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        cur.execute("SELECT * FROM section_order WHERE page_path = %s AND user_id = %s",
+                   (page_path, user_id))
+        row = cur.fetchone()
+        conn.close()
+
+        if not row:
+            return self.send_json({"section_order": None})
+        return self.send_json({"section_order": row["section_order"], "updated_at": str(row["updated_at"])})
+
+    def _handle_buyer_feedback(self, body):
+        """
+        POST /api/buyers/feedback
+        Body: {buyer_id: uuid, expert_comment: "text", expert_verdict: "accept"|"reject"|null, expert_name: "Debbie"}
+        """
+        buyer_id = body.get("buyer_id")
+        if not buyer_id:
+            return self.send_json({"error": "buyer_id required"}, 400)
+
+        conn = get_db()
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+
+        updates = []
+        values = []
+
+        if "expert_comment" in body:
+            updates.append("expert_comment = %s")
+            values.append(body["expert_comment"])
+        if "expert_verdict" in body:
+            updates.append("expert_verdict = %s")
+            values.append(body["expert_verdict"])
+            updates.append("expert_verdict_at = NOW()")
+        if "expert_name" in body:
+            updates.append("expert_name = %s")
+            values.append(body["expert_name"])
+
+        if not updates:
+            conn.close()
+            return self.send_json({"error": "No fields to update"}, 400)
+
+        values.append(buyer_id)
+        cur.execute(f"UPDATE engagement_buyers SET {', '.join(updates)} WHERE id = %s RETURNING id, buyer_company_name, expert_comment, expert_verdict, expert_name, expert_verdict_at",
+                   values)
+        row = cur.fetchone()
+        conn.commit()
+        conn.close()
+
+        if not row:
+            return self.send_json({"error": "Buyer not found"}, 404)
+        return self.send_json({"status": "saved", "buyer": dict(row)})
 
     def error_page(self, message, companies):
         body = f'<div class="coming-soon"><p style="font-size:48px;margin-bottom:16px">&#128683;</p><p>{message}</p></div>'
@@ -936,10 +1331,16 @@ class MasterCRMHandler(http.server.BaseHTTPRequestHandler):
 
 if __name__ == "__main__":
     print(f"Master CRM server starting on http://localhost:{PORT}")
-    print(f"  Landing:   http://localhost:{PORT}/")
-    print(f"  Dashboard: http://localhost:{PORT}/dashboard")
-    print(f"  Company:   http://localhost:{PORT}/company/air-control")
-    print(f"  Buyers:    http://localhost:{PORT}/company/air-control/buyers")
-    print(f"  API:       http://localhost:{PORT}/api/company/air-control")
+    print(f"  Landing:     http://localhost:{PORT}/")
+    print(f"  Dashboard:   http://localhost:{PORT}/dashboard")
+    print(f"  Company:     http://localhost:{PORT}/company/air-control")
+    print(f"  Buyers:      http://localhost:{PORT}/company/air-control/buyers")
+    print(f"  API GET:     http://localhost:{PORT}/api/company/air-control")
+    print(f"  POST endpoints:")
+    print(f"    /api/letters/approve   — approve/reject a letter")
+    print(f"    /api/letters/send      — send approved letter via Lob")
+    print(f"    /api/webhooks/lob      — Lob delivery webhook")
+    print(f"    /api/meetings/save     — save meeting notes")
+    print(f"    /api/campaigns/create  — create letter campaign")
     server = http.server.HTTPServer(("0.0.0.0", PORT), MasterCRMHandler)
     server.serve_forever()

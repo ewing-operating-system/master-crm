@@ -24,6 +24,10 @@ Statuses:
 import json, os, sys, time, subprocess, logging, urllib.request, ssl
 from datetime import datetime, timezone
 
+# fact_updater is in the same lib/ directory
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from fact_updater import apply_fact_correction
+
 # ---------------------------------------------------------------------------
 # Logging
 # ---------------------------------------------------------------------------
@@ -487,6 +491,14 @@ def process_resolved_comments():
                 continue  # Already logged
         except:
             pass
+
+        # 0. If fact_correction, apply to canonical data via fact_updater
+        if comment.get("comment_type") == "fact_correction":
+            try:
+                apply_fact_correction(comment_id)
+                feedback_log(f"fact_updater applied for comment {comment_id} ({comment.get('company_name')})")
+            except Exception as e:
+                feedback_log(f"fact_updater failed for comment {comment_id}: {e}")
 
         # 1. Append to MASTER-QA-LOG.md
         append_to_qa_log(comment)

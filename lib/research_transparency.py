@@ -16,10 +16,12 @@ DDL statements are executed via the Supabase Management API.
 
 import json, os, sys, time, shutil, re, urllib.request, urllib.parse, ssl
 from datetime import datetime
+from dotenv import load_dotenv
+load_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env'))
 
-SUPABASE_URL = "https://dwrnfpjcvydhmhnvyzov.supabase.co"
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR3cm5mcGpjdnlkaG1obnZ5em92Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NDc1NzI5MCwiZXhwIjoyMDkwMzMzMjkwfQ.7Bd_6aZhpWazv-evA_f1WpocfEHcXX8JATLNSKAC00s"
-DB_PASSWORD = "MakeMoneyNow1!"
+SUPABASE_URL = os.environ.get("SUPABASE_URL", "https://dwrnfpjcvydhmhnvyzov.supabase.co")
+SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
+DB_PASSWORD = os.environ.get("DB_PASSWORD", "")
 
 LOG_FILE = os.path.expanduser("~/Projects/dossier-pipeline/data/audit-logs/research_transparency.log")
 HTML_DIR = os.path.expanduser("~/Projects/master-crm/data/research-views")

@@ -1,0 +1,58 @@
+{
+  "client_name": "Debbie McGrath",
+  "client_email": "dmcgrath@hr.com",
+  "company_name": "HR.com Ltd",
+  "exit_timeline": "12-24 months with 2-year transition commitment acceptable",
+  "exit_motivation": "Age 63 turning 64, wants to ski more, spend time with 4 grandchildren (5th on the way), hip replacement surgery in May blocking travel until June 8, has been working 12-hour days for years",
+  "vertical": "HR Technology / B2B Digital Media",
+  "city": "Burlington",
+  "state": "ON",
+  "assets": [
+    {
+      "name": "hr.com domain name",
+      "description": "Premium 2-letter .com domain. Domain brokers estimate $15-20M. SAP, Oracle, Workday, OpenAI, Anthropic, Deloitte, Accenture, PWC all interested. Current domain broker negotiated down from 20% to 10% commission.",
+      "estimated_value_low": 15000000,
+      "estimated_value_high": 20000000,
+      "notes": "Can sell domain separately and rebrand business under HR West, HR Certification, Human Resource Research Institute domains. Already separating content to alternative domains."
+    },
+    {
+      "name": "HR.com media business",
+      "description": "27-year profitable B2B digital media/community platform for HR professionals. LinkedIn for HR people. Content from community. Conference business (HR West). Research division. Cert prep business.",
+      "estimated_value_low": 7000000,
+      "estimated_value_high": 10000000,
+      "notes": "Traditional media companies offered 1.2-1.5x revenue multiple. EBITDA ~20%. Revenue used to be larger but last 3 years focused on My People. 2022 process had 8 offers: lowest $9M (industry association), highest $45M. Took one in between that fell through."
+    },
+    {
+      "name": "My People (community platform)",
+      "description": "Spun-out B2B community platform technology. TypeScript, Node.js, React, API-first, native AI. Rebuilt backend in 2023, went live June 2, 2025. 35 HR tech clients interested, first 7 going live in 45 days. SSO, Salesforce/HubSpot integration, health scores, customer support communities.",
+      "estimated_value_low": 250000,
+      "estimated_value_high": 5000000,
+      "notes": "Currently funded by HR.com at $250K/year. Needs a CEO (previous partner/co-founder didn't work out). Previous attempt: Forge (F-O-R-J) raised $8M with Baer Baird money, went through 4 CTOs in 3 years, failed. Debbie got IP back in 2023 for $1M. Ready to be funded and spun out once CEO is in place."
+    }
+  ],
+  "action_items": [
+    {"owner": "Debbie McGrath", "task": "Send detailed document outlining HR.com assets and potential acquirers", "due": "2026-03-24"},
+    {"owner": "Debbie McGrath", "task": "Provide available times for follow-up call Thursday while traveling", "due": "2026-03-27"},
+    {"owner": "Ewing Gillaspy", "task": "Review asset document and prepare strategic plan with 3 options within 24-48 hours", "due": "2026-03-25"},
+    {"owner": "John Kelly", "task": "Collaborate with Ewing to analyze asset document and develop exit strategy and leadership placement plan", "due": "2026-03-25"}
+  ],
+  "key_relationships": [
+    "Glenn (Daddy Shark) - Ewing's former boss, Debbie's ski buddy and longtime friend. Was her employee 30+ years ago. Lives in Santa Barbara, drives Mercedes Sprinter van. Debbie skiing with him at Mammoth this week.",
+    "Bill Philip (Delancey and Partners) - Brought the previous CEO for Forge",
+    "Doug Merritt - Mutual contact with John Kelly, Splunk connection",
+    "Adam - Former My People co-founder/CEO who didn't work out, had 4-person dev team",
+    "Domain broker - Has broker at 10% commission (down from 20%), handles 90% of 2-letter domain sales"
+  ],
+  "deal_notes": "Three-asset deal with optionality: can sell bundled or individually. Domain is the crown jewel ($15-20M standalone). Media business is solid but declining from peak. My People is the growth play but needs CEO and funding. Debbie knows all the potential buyers personally — needs us for leverage in negotiations, not introductions. 2022 process produced 8 offers ($9M-$45M range) — high variance suggests packaging matters enormously. She explicitly said doing her own negotiations is 'not the best thing.' Just moved off AWS for data ownership — critical competitive positioning.",
+  "competitive_intel": "Domain broker already engaged at 10% commission. 2022 process had 8 offers from $9M to $45M. One buyer today showed agentic HR workflow on SAP/Oracle/Workday — only 6 clients, launched January. AI.com domain sold in January as comp. SAP, Workday, Oracle, OpenAI, Anthropic, Deloitte, Accenture, PWC all potential buyers for domain.",
+  "owner_personal": "Debbie is 63, turning 64 in May. Hip replacement surgery coming — can't travel until June 8. Has 4 grandchildren with 5th on the way. Works 12-hour days. Wants to ski more with Glenn. In Vegas for conference, then Mammoth with Glenn Thurs-Sun. Canadian citizen (was blocked from entering US during COVID). Not miserable — loves to work — but intentionally transitioning. Open to 2-year commitment post-sale. Employees with 20-30 year tenure she wants to protect.",
+  "_meta": {
+    "proposal_id": "63642786-ab16-456d-bac3-8f277f36ddc5",
+    "transcript_id": "01KM9J1A8SYJXTWXVP68BFZHEM",
+    "meeting_date": "2026-03-23T20:00:00Z",
+    "source": "fireflies_transcript",
+    "processed_at": "2026-03-30",
+    "client_validated": true,
+    "processor": "meeting_processor.py"
+  }
+}
