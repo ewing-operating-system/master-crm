@@ -23,7 +23,7 @@ DB_CONN = "postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase
 SUPABASE_URL = "https://dwrnfpjcvydhmhnvyzov.supabase.co"
 SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR3cm5mcGpjdnlkaG1obnZ5em92Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NDc1NzI5MCwiZXhwIjoyMDkwMzMzMjkwfQ.7Bd_6aZhpWazv-evA_f1WpocfEHcXX8JATLNSKAC00s"
 OPENROUTER_KEY = "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"
-EXA_KEY = "97e41046-ec91-4647-8e80-f6da354e2641"
+EXA_KEY = "fd8eb73b-d966-4f8b-8699-0ce357dffeea"
 LOG_FILE = os.path.expanduser("~/Projects/dossier-pipeline/data/audit-logs/overnight-build.log")
 MULTIPLES_FILE = os.path.expanduser("~/Projects/dossier-pipeline/data/data-export/market_multiples.json")
 
