@@ -217,6 +217,8 @@ def generate_hub_html(company_name, assets):
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{company_name} — Company Hub</title>
+<meta name="company-name" content="{company_name}">
+<meta name="page-type" content="hub">
 <style>
   * {{ margin: 0; padding: 0; box-sizing: border-box; }}
   body {{ font-family: 'Segoe UI', system-ui, sans-serif; background: #f5f6fa; color: #1a1a2e; }}
@@ -335,6 +337,8 @@ def generate_hub_html(company_name, assets):
   </div>
 
 </div>
+<script src="/comment-widget.js"></script>
+<script src="/version-widget.js"></script>
 </body>
 </html>"""
 

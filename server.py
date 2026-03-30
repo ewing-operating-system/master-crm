@@ -806,6 +806,19 @@ class MasterCRMHandler(http.server.BaseHTTPRequestHandler):
                 else:
                     return self.send_html(self.error_page(f"Page not found: /company/{slug}/{sub}", companies), 404)
 
+            # Serve comment widget JS
+            if path == '/comment-widget.js':
+                js_path = os.path.join(os.path.expanduser("~/Projects/master-crm/lib"), "comment-widget.js")
+                if os.path.exists(js_path):
+                    with open(js_path, 'rb') as f:
+                        content = f.read()
+                    self.send_response(200)
+                    self.send_header('Content-Type', 'application/javascript')
+                    self.send_header('Cache-Control', 'no-cache')
+                    self.end_headers()
+                    self.wfile.write(content)
+                    return
+
             # Static file fallback
             filepath = os.path.join(BASE_DIR, path.lstrip("/"))
             if os.path.exists(filepath) and os.path.isfile(filepath):
