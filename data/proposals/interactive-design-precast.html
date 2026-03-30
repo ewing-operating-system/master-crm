@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acquisition Target Search &mdash; Design Precast &amp; Pipe | Next Chapter M&amp;A Advisory</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg-primary: #0d1117;
+    --bg-secondary: #161b22;
+    --bg-tertiary: #21262d;
+    --bg-card: #1c2128;
+    --text-primary: #c9d1d9;
+    --text-secondary: #8b949e;
+    --text-heading: #e6edf3;
+    --accent: #f0883e;
+    --accent-hover: #f4a261;
+    --accent-bg: rgba(240, 136, 62, 0.1);
+    --accent-border: rgba(240, 136, 62, 0.3);
+    --green: #3fb950;
+    --green-bg: rgba(63, 185, 80, 0.1);
+    --green-border: rgba(63, 185, 80, 0.3);
+    --amber: #d29922;
+    --amber-bg: rgba(210, 153, 34, 0.1);
+    --amber-border: rgba(210, 153, 34, 0.3);
+    --red: #f85149;
+    --red-bg: rgba(248, 81, 73, 0.1);
+    --red-border: rgba(248, 81, 73, 0.3);
+    --border: #30363d;
+    --border-light: #21262d;
+    --gradient-start: #f0883e;
+    --gradient-end: #f4a261;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-size: 15px;
+}
+.container { max-width: 1000px; margin: 0 auto; padding: 40px 24px; }
+.header {
+    background: linear-gradient(135deg, #161b22 0%, #0d1117 50%, #161b22 100%);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 48px 40px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+}
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+}
+.header h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--text-heading);
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+.header-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+.header-meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.header-meta .dot { color: var(--accent); }
+.badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+}
+.confidential {
+    margin-top: 20px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+.section {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 36px;
+    margin-bottom: 24px;
+}
+.section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.section-title .icon {
+    font-size: 20px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: var(--accent-bg);
+}
+.section p { margin-bottom: 14px; color: var(--text-primary); }
+.toc {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 36px;
+    margin-bottom: 24px;
+}
+.toc-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+.toc-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 24px;
+}
+.toc-list a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 14px;
+    padding: 4px 0;
+    display: block;
+    transition: color 0.15s;
+}
+.toc-list a:hover { color: var(--accent-hover); text-decoration: underline; }
+.narrative-text {
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--text-primary);
+}
+.narrative-text p { margin-bottom: 18px; }
+.slider-group { margin-bottom: 28px; }
+.slider-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.slider-label-text { font-weight: 600; font-size: 14px; color: var(--text-heading); }
+.slider-value {
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--accent);
+    min-width: 120px;
+    text-align: right;
+}
+.slider-row { display: flex; align-items: center; gap: 16px; }
+.slider-row input[type="range"] { flex: 1; }
+.slider-row input[type="number"] {
+    width: 130px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: var(--text-heading);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: right;
+}
+.slider-row input[type="number"]:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(240, 136, 62, 0.15);
+}
+.slider-row select {
+    flex: 1;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: var(--text-heading);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.slider-row select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(240, 136, 62, 0.15);
+}
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+}
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--text-heading);
+    transition: all 0.2s;
+}
+.checkbox-label:hover { border-color: var(--accent); }
+.checkbox-label input[type="checkbox"] { accent-color: var(--accent); width: 16px; height: 16px; }
+.checkbox-label.checked { background: var(--accent-bg); border-color: var(--accent); }
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--bg-tertiary);
+    outline: none;
+    cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(240, 136, 62, 0.3);
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+    box-shadow: 0 2px 12px rgba(240, 136, 62, 0.5);
+}
+input[type="range"]::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    border: none;
+}
+.match-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 24px;
+    padding: 20px;
+    background: var(--accent-bg);
+    border: 1px solid var(--accent-border);
+    border-radius: 12px;
+}
+.match-counter .count {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--accent);
+}
+.match-counter .label {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+.match-counter .fee-est {
+    font-size: 14px;
+    color: var(--text-heading);
+    margin-top: 4px;
+}
+.target-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+.target-table th {
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    border-bottom: 2px solid var(--border);
+    background: var(--bg-tertiary);
+}
+.target-table th:first-child { border-radius: 8px 0 0 0; }
+.target-table th:last-child { border-radius: 0 8px 0 0; }
+.target-table td {
+    padding: 14px 16px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-primary);
+}
+.target-table tr:hover td { background: var(--bg-tertiary); }
+.target-table .target-name {
+    font-weight: 600;
+    color: var(--accent);
+}
+.fit-score {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 13px;
+}
+.fit-high { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+.fit-mid { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
+.status-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+    background: var(--accent-bg);
+    color: var(--accent);
+    border: 1px solid var(--accent-border);
+}
+.levers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.levers-column h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+.levers-column.positive h3 { color: var(--green); }
+.levers-column.redflags h3 { color: var(--red); }
+.lever-card {
+    display: flex;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: transform 0.15s;
+}
+.lever-card:hover { transform: translateX(4px); }
+.lever-positive { background: var(--green-bg); border: 1px solid var(--green-border); }
+.lever-redflag { background: var(--red-bg); border: 1px solid var(--red-border); }
+.lever-icon {
+    font-size: 12px;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-top: 2px;
+}
+.lever-positive .lever-icon { color: var(--green); background: rgba(63,185,80,0.15); }
+.lever-redflag .lever-icon { color: var(--red); background: rgba(248,81,73,0.15); }
+.lever-name { font-weight: 600; font-size: 14px; color: var(--text-heading); margin-bottom: 4px; }
+.lever-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+.fee-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+.fee-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 24px;
+    cursor: pointer;
+    transition: all 0.25s;
+    position: relative;
+    text-align: center;
+}
+.fee-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+.fee-card.selected {
+    border-color: var(--accent);
+    background: rgba(240, 136, 62, 0.06);
+    box-shadow: 0 0 30px rgba(240, 136, 62, 0.15);
+}
+.fee-card.popular::before {
+    content: 'RECOMMENDED';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 3px 12px;
+    border-radius: 10px;
+}
+.fee-option-name { font-size: 18px; font-weight: 700; color: var(--text-heading); margin-bottom: 4px; }
+.fee-option-subtitle { font-size: 12px; color: var(--text-secondary); margin-bottom: 20px; }
+.fee-detail { padding: 8px 0; border-bottom: 1px solid var(--border-light); font-size: 14px; }
+.fee-detail:last-child { border-bottom: none; }
+.fee-detail .label { color: var(--text-secondary); font-size: 12px; }
+.fee-detail .value { font-weight: 700; color: var(--text-heading); font-size: 20px; }
+.fee-tagline { margin-top: 16px; font-size: 13px; font-style: italic; color: var(--text-secondary); }
+.checkmark {
+    display: none;
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: 16px;
+    align-items: center;
+    justify-content: center;
+}
+.fee-card.selected .checkmark { display: flex; }
+.cta-section { text-align: center; padding: 40px; }
+.cta-btn {
+    display: none;
+    margin: 0 auto;
+    padding: 18px 48px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: inherit;
+    letter-spacing: 0.5px;
+}
+.cta-btn.visible { display: inline-block; }
+.cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(240, 136, 62, 0.3);
+}
+.confirmation {
+    display: none;
+    text-align: center;
+    padding: 40px;
+    background: var(--green-bg);
+    border: 1px solid var(--green-border);
+    border-radius: 12px;
+    margin-top: 20px;
+}
+.confirmation.show { display: block; }
+.confirmation h3 { color: var(--green); font-size: 24px; margin-bottom: 12px; }
+.confirmation p { color: var(--text-primary); font-size: 16px; }
+.strengths-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+.strength-card {
+    background: var(--accent-bg);
+    border: 1px solid var(--accent-border);
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+}
+.strength-card .strength-number {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--accent);
+    opacity: 0.2;
+}
+.strength-card p { font-size: 14px; line-height: 1.6; color: var(--text-primary); margin: 0; }
+@media (max-width: 768px) {
+    .container { padding: 16px; }
+    .header { padding: 28px 20px; }
+    .header h1 { font-size: 22px; }
+    .section { padding: 24px 20px; }
+    .fee-grid { grid-template-columns: 1fr; }
+    .levers-grid { grid-template-columns: 1fr; }
+    .toc-list { grid-template-columns: 1fr; }
+    .slider-row { flex-direction: column; }
+    .slider-row input[type="number"] { width: 100%; }
+    .target-table { font-size: 12px; }
+    .target-table th, .target-table td { padding: 10px 8px; }
+    .match-counter { flex-direction: column; text-align: center; }
+}
+@media print {
+    body { background: #fff; color: #1a1a2e; }
+    .section { border: 1px solid #ddd; break-inside: avoid; }
+    .fee-card { break-inside: avoid; }
+    input[type="range"] { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="header" id="top">
+        <div class="badge">BUY-SIDE ADVISORY</div>
+        <h1>Acquisition Target Search</h1>
+        <div style="font-size: 18px; color: var(--text-heading); font-weight: 600; margin-top: 4px;">Prepared for Design Precast &amp; Pipe, Inc.</div>
+        <div class="header-meta">
+            <span><span class="dot">&#9679;</span> Pat Fore III (Founder/President/Owner)</span>
+            <span><span class="dot">&#9679;</span> Precast Concrete &amp; Pipe Manufacturing</span>
+            <span><span class="dot">&#9679;</span> Gulfport, MS</span>
+            <span><span class="dot">&#9679;</span> Est. 2004</span>
+        </div>
+        <div class="confidential">Confidential &mdash; Prepared by Next Chapter M&amp;A Advisory &mdash; March 2026</div>
+    </div>
+
+    <div class="toc">
+        <div class="toc-title">Quick Navigation</div>
+        <ul class="toc-list">
+            <li><a href="#pitch">Why Sell to Design Precast</a></li>
+            <li><a href="#criteria">Your Acquisition Criteria</a></li>
+            <li><a href="#targets">Targets We've Identified</a></li>
+            <li><a href="#scoring">Acquisition Scoring Criteria</a></li>
+            <li><a href="#strengths">Your Buyer Strengths</a></li>
+            <li><a href="#fees">Fee Structure Options</a></li>
+        </ul>
+    </div>
+
+    <!-- SECTION 1: Why Sell to Design Precast -->
+    <div class="section" id="pitch">
+        <div class="section-title"><div class="icon">&#128172;</div> Why Sell to Design Precast &amp; Pipe</div>
+        <div class="narrative-text">
+            <p>When Pat Fore III started Design Precast &amp; Pipe in Gulfport, Mississippi, he wasn't working from a boardroom &mdash; he was on the yard, learning every pour, every form, every delivery route that built the company into what it is today. With two plants now running across the Gulf Coast in Gulfport and Arnaudville, Louisiana, and a team of 52 people who show up every day because they believe in the work, Pat knows exactly what it takes to build a precast company from nothing into a $15 million operation. He's not looking at your business as a line item on a spreadsheet. He's looking at it the way you do &mdash; as something you built with your hands, your name, and your word.</p>
+            <p>That's why a conversation with Design Precast feels different. Your crew keeps their jobs. Your customers keep the relationships they trust. Your name in the market doesn't disappear behind some corporate rebrand. What changes is what's behind you: a partner with patented Lifting Eye technology that's reshaping how the industry thinks about precast safety and efficiency, purchasing power that comes from running two plants and growing, and an engineering bench that can take on projects you might be turning away today. Pat isn't buying companies to flip them. He's building something that lasts, and he wants operators like you standing next to him while he does it.</p>
+            <p>If you've been thinking about what comes next &mdash; whether that's slowing down, unlocking some liquidity, or just finding a partner who actually understands this business &mdash; it's worth a conversation. No pressure, no bankers running the meeting, just one precast owner talking to another about what the future could look like together. Pat built Design Precast the same way you built yours: one job, one customer, one handshake at a time. That's exactly how he'd like to start this conversation with you.</p>
+        </div>
+    </div>
+
+    <!-- SECTION 2: Acquisition Criteria (Interactive Sliders) -->
+    <div class="section" id="criteria">
+        <div class="section-title"><div class="icon">&#9881;</div> Your Acquisition Criteria</div>
+        <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 24px;">
+            Adjust these sliders to refine your acquisition search parameters. All changes are saved automatically.
+        </p>
+
+        <div class="slider-group">
+            <div class="slider-label">
+                <span class="slider-label-text">Max Acquisition Price</span>
+                <span class="slider-value" id="price-display">$8.0M</span>
+            </div>
+            <div class="slider-row">
+                <input type="range" id="price-slider" min="500000" max="50000000" step="500000" value="8000000">
+                <input type="number" id="price-input" min="500000" max="50000000" step="500000" value="8000000">
+            </div>
+        </div>
+
+        <div class="slider-group">
+            <div class="slider-label">
+                <span class="slider-label-text">Min Target Revenue</span>
+                <span class="slider-value" id="revenue-display">$2.0M</span>
+            </div>
+            <div class="slider-row">
+                <input type="range" id="revenue-slider" min="500000" max="20000000" step="500000" value="2000000">
+                <input type="number" id="revenue-input" min="500000" max="20000000" step="500000" value="2000000">
+            </div>
+        </div>
+
+        <div class="slider-group">
+            <div class="slider-label">
+                <span class="slider-label-text">Max Distance from HQ (miles)</span>
+                <span class="slider-value" id="distance-display">500 mi</span>
+            </div>
+            <div class="slider-row">
+                <input type="range" id="distance-slider" min="50" max="1000" step="25" value="500">
+                <input type="number" id="distance-input" min="50" max="1000" step="25" value="500">
+            </div>
+        </div>
+
+        <div class="slider-group">
+            <div class="slider-label">
+                <span class="slider-label-text">Min Employee Count</span>
+                <span class="slider-value" id="employees-display">10</span>
+            </div>
+            <div class="slider-row">
+                <input type="range" id="employees-slider" min="1" max="100" step="1" value="10">
+                <input type="number" id="employees-input" min="1" max="100" step="1" value="10">
+            </div>
+        </div>
+
+        <div class="slider-group">
+            <div class="slider-label">
+                <span class="slider-label-text">Target Vertical</span>
+            </div>
+            <div class="slider-row">
+                <select id="vertical-select" onchange="onVerticalChange()">
+                    <option value="Concrete/Precast">Concrete / Precast</option>
+                    <option value="Pipe" selected>Pipe Manufacturing</option>
+                    <option value="Infrastructure">Infrastructure Products</option>
+                    <option value="Concrete/Precast,Pipe">Precast + Pipe (Combined)</option>
+                    <option value="All">All Verticals</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="slider-group">
+            <div class="slider-label">
+                <span class="slider-label-text">Preferred Ownership Type</span>
+            </div>
+            <div class="checkbox-group" id="ownership-checkboxes">
+                <label class="checkbox-label checked">
+                    <input type="checkbox" value="Family-owned" checked onchange="onOwnershipChange(this)"> Family-owned
+                </label>
+                <label class="checkbox-label checked">
+                    <input type="checkbox" value="2nd generation" checked onchange="onOwnershipChange(this)"> 2nd generation+
+                </label>
+                <label class="checkbox-label checked">
+                    <input type="checkbox" value="Retiring owner" checked onchange="onOwnershipChange(this)"> Retiring owner
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" value="Partnership" onchange="onOwnershipChange(this)"> Partnership
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" value="Distressed" onchange="onOwnershipChange(this)"> Distressed
+                </label>
+            </div>
+        </div>
+
+        <div class="match-counter">
+            <div>
+                <div class="count" id="match-count">10 of 10</div>
+                <div class="label">Matching Targets</div>
+                <div class="fee-est" id="fee-estimate">Estimated advisory fee at 2.5%: <strong>$200,000</strong></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 3: Targets We've Identified -->
+    <div class="section" id="targets">
+        <div class="section-title"><div class="icon">&#127919;</div> Targets We've Identified</div>
+        <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 16px;">
+            These acquisition targets have been vetted against your criteria and ranked by fit score.
+        </p>
+        <table class="target-table">
+            <thead>
+                <tr>
+                    <th>Target Name</th>
+                    <th>Location</th>
+                    <th>Est. Revenue</th>
+                    <th>Fit Score</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="target-name">The Shaddix Company</td>
+                    <td>Cullman, AL</td>
+                    <td>$3-6M</td>
+                    <td><span class="fit-score fit-high">8.8</span></td>
+                    <td><span class="status-badge">New</span></td>
+                </tr>
+                <tr>
+                    <td class="target-name">Permatile Concrete Products</td>
+                    <td>Various, SE US</td>
+                    <td>$8-15M</td>
+                    <td><span class="fit-score fit-high">8.4</span></td>
+                    <td><span class="status-badge">New</span></td>
+                </tr>
+                <tr>
+                    <td class="target-name">The Concrete Company</td>
+                    <td>Various, SE US</td>
+                    <td>$10-20M</td>
+                    <td><span class="fit-score fit-high">8.3</span></td>
+                    <td><span class="status-badge">New</span></td>
+                </tr>
+                <tr>
+                    <td class="target-name">The Precast Company</td>
+                    <td>Houston, TX</td>
+                    <td>$5-10M</td>
+                    <td><span class="fit-score fit-high">8.1</span></td>
+                    <td><span class="status-badge">New</span></td>
+                </tr>
+                <tr>
+                    <td class="target-name">Delta Industries (Gulf Coast)</td>
+                    <td>Gulfport, MS</td>
+                    <td>$5-10M</td>
+                    <td><span class="fit-score fit-high">8.0</span></td>
+                    <td><span class="status-badge">New</span></td>
+                </tr>
+                <tr>
+                    <td class="target-name">Southern Precast (Morvant)</td>
+                    <td>Raceland, LA</td>
+                    <td>$3-5M</td>
+                    <td><span class="fit-score fit-mid">7.9</span></td>
+                    <td><span class="status-badge">New</span></td>
+                </tr>
+                <tr>
+                    <td class="target-name">Coastal Precast Systems</td>
+                    <td>Mobile, AL</td>
+                    <td>$3-6M</td>
+                    <td><span class="fit-score fit-mid">7.8</span></td>
+                    <td><span class="status-badge">New</span></td>
+                </tr>
+                <tr>
+                    <td class="target-name">Georgialina Precast</td>
+                    <td>Augusta, GA/SC</td>
+                    <td>$4-8M</td>
+                    <td><span class="fit-score fit-mid">7.7</span></td>
+                    <td><span class="status-badge">New</span></td>
+                </tr>
+                <tr>
+                    <td class="target-name">SI Precast Concrete</td>
+                    <td>Louisiana/Oklahoma</td>
+                    <td>$5-10M</td>
+                    <td><span class="fit-score fit-mid">7.6</span></td>
+                    <td><span class="status-badge">New</span></td>
+                </tr>
+                <tr>
+                    <td class="target-name">Alfred Miller Precast</td>
+                    <td>Various, LA</td>
+                    <td>$8-15M</td>
+                    <td><span class="fit-score fit-mid">7.5</span></td>
+                    <td><span class="status-badge">New</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 4: Acquisition Scoring Criteria -->
+    <div class="section" id="scoring">
+        <div class="section-title"><div class="icon">&#9878;</div> Acquisition Scoring Criteria &mdash; What to Look for in a Target</div>
+        <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 20px;">
+            Key indicators we evaluate when scoring potential acquisition targets in the Precast Concrete &amp; Pipe vertical.
+        </p>
+        <div class="levers-grid">
+            <div class="levers-column positive">
+                <h3>&#9650; Top 5 Positive Indicators</h3>
+                <div class="lever-card lever-positive">
+                    <div class="lever-icon">&#9650;</div>
+                    <div>
+                        <div class="lever-name">Gulf Coast / Southeast Footprint</div>
+                        <div class="lever-desc">Targets within the Houston-to-Tallahassee corridor align with DPPI's existing logistics network and can be serviced from Gulfport or Arnaudville plants.</div>
+                    </div>
+                </div>
+                <div class="lever-card lever-positive">
+                    <div class="lever-icon">&#9650;</div>
+                    <div>
+                        <div class="lever-name">Pipe &amp; Infrastructure Product Lines</div>
+                        <div class="lever-desc">Targets producing RCP, RCB, manholes, or stormwater products create immediate cross-sell opportunities and shared raw material purchasing leverage.</div>
+                    </div>
+                </div>
+                <div class="lever-card lever-positive">
+                    <div class="lever-icon">&#9650;</div>
+                    <div>
+                        <div class="lever-name">Retiring Owner / Succession Gap</div>
+                        <div class="lever-desc">Owners approaching retirement without a succession plan are the most motivated sellers &mdash; and most likely to accept operator-to-operator deal structures.</div>
+                    </div>
+                </div>
+                <div class="lever-card lever-positive">
+                    <div class="lever-icon">&#9650;</div>
+                    <div>
+                        <div class="lever-name">Municipal &amp; DOT Contract Base</div>
+                        <div class="lever-desc">Pre-qualified vendor relationships with state DOTs and municipal utilities represent years of qualification effort and provide predictable project pipelines.</div>
+                    </div>
+                </div>
+                <div class="lever-card lever-positive">
+                    <div class="lever-icon">&#9650;</div>
+                    <div>
+                        <div class="lever-name">Custom Design-Build Capability</div>
+                        <div class="lever-desc">Targets with engineering teams that can handle custom precast work complement DPPI's own design-build strengths and expand the combined project scope.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="levers-column redflags">
+                <h3>&#9660; Top 5 Red Flags</h3>
+                <div class="lever-card lever-redflag">
+                    <div class="lever-icon">&#9660;</div>
+                    <div>
+                        <div class="lever-name">Hurricane / Flood Zone Exposure</div>
+                        <div class="lever-desc">Gulf Coast plants in unmitigated flood zones carry catastrophic risk &mdash; insurance costs and production downtime from storms can erase years of profit.</div>
+                    </div>
+                </div>
+                <div class="lever-card lever-redflag">
+                    <div class="lever-icon">&#9660;</div>
+                    <div>
+                        <div class="lever-name">Single-Customer Concentration</div>
+                        <div class="lever-desc">If one contractor or municipality represents &gt;30% of revenue, the business carries significant key-customer risk that could vaporize post-acquisition.</div>
+                    </div>
+                </div>
+                <div class="lever-card lever-redflag">
+                    <div class="lever-icon">&#9660;</div>
+                    <div>
+                        <div class="lever-name">Owner-Dependent Operations</div>
+                        <div class="lever-desc">If the owner handles estimating, sales, and production management personally, the business cannot function without them during the transition period.</div>
+                    </div>
+                </div>
+                <div class="lever-card lever-redflag">
+                    <div class="lever-icon">&#9660;</div>
+                    <div>
+                        <div class="lever-name">Aging Forms &amp; Batch Equipment</div>
+                        <div class="lever-desc">Deteriorating forms and outdated batch plants require immediate capital injection post-close &mdash; $500K-$2M in hidden capex that compresses deal value.</div>
+                    </div>
+                </div>
+                <div class="lever-card lever-redflag">
+                    <div class="lever-icon">&#9660;</div>
+                    <div>
+                        <div class="lever-name">Environmental Compliance Issues</div>
+                        <div class="lever-desc">Unresolved EPA or state environmental violations at production sites create hidden liabilities that can exceed the purchase price in remediation costs.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 5: Buyer Strengths -->
+    <div class="section" id="strengths">
+        <div class="section-title"><div class="icon">&#9733;</div> Your Buyer Strengths</div>
+        <div class="strengths-grid">
+            <div class="strength-card">
+                <div class="strength-number">1</div>
+                <p>Patented Lifting Eye technology (PF3 Global/DPPI patent) &mdash; proprietary IP in a commodity industry creates defensible competitive moat and margin premium that no competitor can replicate without licensing</p>
+            </div>
+            <div class="strength-card">
+                <div class="strength-number">2</div>
+                <p>Two-plant regional footprint spanning Houston TX to Tallahassee FL &mdash; dual manufacturing facilities in Gulfport MS and Arnaudville LA provide geographic coverage across the fastest-growing infrastructure corridor in the US</p>
+            </div>
+            <div class="strength-card">
+                <div class="strength-number">3</div>
+                <p>Exceptional product breadth with custom design-build capability &mdash; full-spectrum precast and pipe manufacturing (RCP, RCAP, RCB, manholes, lift stations, marine structures, custom work) makes them a one-stop shop for contractors</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 6: Fee Structure -->
+    <div class="section" id="fees">
+        <div class="section-title"><div class="icon">&#128178;</div> Fee Structure Options</div>
+        <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 24px;">
+            Click on the option that works best for your acquisition search. Your selection is saved automatically.
+        </p>
+        <div class="fee-grid">
+            <div class="fee-card" data-option="A" onclick="selectFee('A')">
+                <div class="checkmark">&#10003;</div>
+                <div class="fee-option-name">Retainer Only</div>
+                <div class="fee-option-subtitle">Pay-as-you-go search</div>
+                <div class="fee-detail"><div class="label">Monthly Retainer</div><div class="value">$5,000</div></div>
+                <div class="fee-detail"><div class="label">Success Fee</div><div class="value">2%</div></div>
+                <div class="fee-tagline">"Lowest commitment &mdash; ideal for exploratory searches"</div>
+            </div>
+            <div class="fee-card popular" data-option="B" onclick="selectFee('B')">
+                <div class="checkmark">&#10003;</div>
+                <div class="fee-option-name">Standard</div>
+                <div class="fee-option-subtitle">Active acquisition campaign</div>
+                <div class="fee-detail"><div class="label">Engagement Fee</div><div class="value">$10,000</div></div>
+                <div class="fee-detail"><div class="label">Success Fee</div><div class="value">2.5%</div></div>
+                <div class="fee-tagline">"Best value &mdash; dedicated outreach to vetted targets"</div>
+            </div>
+            <div class="fee-card" data-option="C" onclick="selectFee('C')">
+                <div class="checkmark">&#10003;</div>
+                <div class="fee-option-name">Full Service</div>
+                <div class="fee-option-subtitle">White-glove acquisition support</div>
+                <div class="fee-detail"><div class="label">Engagement Fee</div><div class="value">$15,000</div></div>
+                <div class="fee-detail"><div class="label">Success Fee</div><div class="value">3%</div></div>
+                <div class="fee-detail"><div class="label">Includes</div><div class="value" style="font-size:13px;">Monthly Reporting</div></div>
+                <div class="fee-tagline">"Full white-glove &mdash; we manage the entire acquisition process"</div>
+            </div>
+        </div>
+        <div class="cta-section">
+            <button class="cta-btn" id="cta-button" onclick="letsGetStarted()">Let's Get Started &#10132;</button>
+        </div>
+        <div class="confirmation" id="confirmation">
+            <h3>&#10003; Thank You, Pat!</h3>
+            <p>Your acquisition search preferences have been saved. Look for an email in the next 24 hours with your engagement letter and the first batch of target dossiers.</p>
+            <p style="margin-top: 12px; font-size: 14px; color: var(--text-secondary);">
+                Next steps: We'll begin outreach to your top-ranked targets immediately. You'll receive weekly status updates on every conversation.
+            </p>
+        </div>
+    </div>
+
+    <div style="text-align:center; padding: 32px 0; color: var(--text-secondary); font-size: 12px;">
+        <p>This proposal is confidential and intended solely for Pat Fore III, Design Precast &amp; Pipe, Inc.</p>
+        <p style="margin-top:4px;">&copy; 2026 Next Chapter M&amp;A Advisory. All rights reserved.</p>
+    </div>
+</div>
+
+<script>
+const SUPABASE_URL = 'https://dwrnfpjcvydhmhnvyzov.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR3cm5mcGpjdnlkaG1obnZ5em92Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ3NTcyOTAsImV4cCI6MjA5MDMzMzI5MH0.z0Gu1TWdGPcdptB5W7efnYMmxBbvD353ExG99ftQivY';
+const COMPANY_NAME = 'Design Precast & Pipe, Inc.';
+const PROPOSAL_ID = 'd55f982f-2993-4794-9f05-155924ad4ad2';
+const TOTAL_TARGETS = 10;
+
+async function logInteraction(type, fieldName, oldVal, newVal, metadata) {
+    try {
+        await fetch(SUPABASE_URL + '/rest/v1/client_interactions', {
+            method: 'POST',
+            headers: {
+                'apikey': SUPABASE_KEY,
+                'Authorization': 'Bearer ' + SUPABASE_KEY,
+                'Content-Type': 'application/json',
+                'Prefer': 'return=minimal'
+            },
+            body: JSON.stringify({
+                company_name: COMPANY_NAME,
+                interaction_type: type,
+                field_name: fieldName,
+                old_value: oldVal != null ? String(oldVal) : null,
+                new_value: newVal != null ? String(newVal) : null,
+                metadata: metadata || null
+            })
+        });
+    } catch (e) { console.warn('Failed to log interaction:', e); }
+}
+
+logInteraction('page_view', null, null, null, {
+    user_agent: navigator.userAgent,
+    referrer: document.referrer,
+    timestamp: new Date().toISOString(),
+    deal_side: 'buy_side'
+});
+
+const sliders = {
+    price: { slider: 'price-slider', input: 'price-input', display: 'price-display', format: 'currency' },
+    revenue: { slider: 'revenue-slider', input: 'revenue-input', display: 'revenue-display', format: 'currency' },
+    distance: { slider: 'distance-slider', input: 'distance-input', display: 'distance-display', format: 'miles' },
+    employees: { slider: 'employees-slider', input: 'employees-input', display: 'employees-display', format: 'number' }
+};
+
+let debounceTimers = {};
+
+function formatCurrency(val) {
+    if (val >= 1000000) return '$' + (val / 1000000).toFixed(1) + 'M';
+    if (val >= 1000) return '$' + (val / 1000).toFixed(0) + 'K';
+    return '$' + val.toLocaleString();
+}
+
+function updateDisplay(key) {
+    const cfg = sliders[key];
+    const val = parseInt(document.getElementById(cfg.slider).value);
+    if (cfg.format === 'currency') {
+        document.getElementById(cfg.display).textContent = formatCurrency(val);
+    } else if (cfg.format === 'miles') {
+        document.getElementById(cfg.display).textContent = val + ' mi';
+    } else {
+        document.getElementById(cfg.display).textContent = val;
+    }
+}
+
+function syncSliderAndInput(key, source) {
+    const cfg = sliders[key];
+    const sliderEl = document.getElementById(cfg.slider);
+    const inputEl = document.getElementById(cfg.input);
+    if (source === 'slider') { inputEl.value = sliderEl.value; }
+    else { sliderEl.value = inputEl.value; }
+    updateDisplay(key);
+    recalculateMatches();
+}
+
+Object.keys(sliders).forEach(key => {
+    const cfg = sliders[key];
+    const sliderEl = document.getElementById(cfg.slider);
+    const inputEl = document.getElementById(cfg.input);
+    sliderEl.addEventListener('input', () => {
+        const oldVal = inputEl.value;
+        syncSliderAndInput(key, 'slider');
+        clearTimeout(debounceTimers[key]);
+        debounceTimers[key] = setTimeout(() => {
+            logInteraction('slider_change', key, oldVal, sliderEl.value, { deal_side: 'buy_side' });
+        }, 1000);
+    });
+    inputEl.addEventListener('input', () => {
+        const oldVal = sliderEl.value;
+        syncSliderAndInput(key, 'input');
+        clearTimeout(debounceTimers[key]);
+        debounceTimers[key] = setTimeout(() => {
+            logInteraction('slider_change', key, oldVal, inputEl.value, { deal_side: 'buy_side' });
+        }, 1000);
+    });
+});
+
+const targets = [
+    { name: 'The Shaddix Company', rev_low: 3000000, rev_high: 6000000, employees: 30, distance: 200, score: 8.8 },
+    { name: 'Permatile Concrete Products', rev_low: 8000000, rev_high: 15000000, employees: 60, distance: 350, score: 8.4 },
+    { name: 'The Concrete Company', rev_low: 10000000, rev_high: 20000000, employees: 80, distance: 400, score: 8.3 },
+    { name: 'The Precast Company', rev_low: 5000000, rev_high: 10000000, employees: 40, distance: 350, score: 8.1 },
+    { name: 'Delta Industries', rev_low: 5000000, rev_high: 10000000, employees: 40, distance: 15, score: 8.0 },
+    { name: 'Southern Precast', rev_low: 3000000, rev_high: 5000000, employees: 20, distance: 120, score: 7.9 },
+    { name: 'Coastal Precast Systems', rev_low: 3000000, rev_high: 6000000, employees: 25, distance: 90, score: 7.8 },
+    { name: 'Georgialina Precast', rev_low: 4000000, rev_high: 8000000, employees: 30, distance: 500, score: 7.7 },
+    { name: 'SI Precast Concrete', rev_low: 5000000, rev_high: 10000000, employees: 35, distance: 300, score: 7.6 },
+    { name: 'Alfred Miller Precast', rev_low: 8000000, rev_high: 15000000, employees: 50, distance: 250, score: 7.5 }
+];
+
+function recalculateMatches() {
+    const maxPrice = parseInt(document.getElementById('price-slider').value);
+    const minRevenue = parseInt(document.getElementById('revenue-slider').value);
+    const maxDistance = parseInt(document.getElementById('distance-slider').value);
+    const minEmployees = parseInt(document.getElementById('employees-slider').value);
+
+    let matching = 0;
+    targets.forEach(t => {
+        const estPrice = t.rev_high * 1.2;
+        if (estPrice <= maxPrice && t.rev_high >= minRevenue && t.distance <= maxDistance && t.employees >= minEmployees) {
+            matching++;
+        }
+    });
+
+    document.getElementById('match-count').textContent = matching + ' of ' + TOTAL_TARGETS;
+    const advisoryFee = maxPrice * 0.025;
+    document.getElementById('fee-estimate').innerHTML = 'Estimated advisory fee at 2.5%: <strong>' + formatCurrency(advisoryFee) + '</strong>';
+}
+
+function onVerticalChange() {
+    const val = document.getElementById('vertical-select').value;
+    logInteraction('dropdown_change', 'target_vertical', null, val, { deal_side: 'buy_side' });
+    recalculateMatches();
+}
+
+function onOwnershipChange(el) {
+    const label = el.closest('.checkbox-label');
+    if (el.checked) { label.classList.add('checked'); }
+    else { label.classList.remove('checked'); }
+    const checked = [];
+    document.querySelectorAll('#ownership-checkboxes input[type="checkbox"]:checked').forEach(cb => checked.push(cb.value));
+    logInteraction('checkbox_change', 'ownership_type', null, checked.join(', '), { deal_side: 'buy_side' });
+}
+
+recalculateMatches();
+
+let selectedFee = null;
+
+function selectFee(option) {
+    const oldSelection = selectedFee;
+    selectedFee = option;
+    document.querySelectorAll('.fee-card').forEach(card => { card.classList.remove('selected'); });
+    document.querySelector('.fee-card[data-option="' + option + '"]').classList.add('selected');
+    document.getElementById('cta-button').classList.add('visible');
+    logInteraction('fee_selection', 'fee_option', oldSelection, option, {
+        deal_side: 'buy_side',
+        option_details: {
+            'A': { monthly_retainer: 5000, success_fee: '2%', name: 'Retainer Only' },
+            'B': { engagement_fee: 10000, success_fee: '2.5%', name: 'Standard' },
+            'C': { engagement_fee: 15000, success_fee: '3%', name: 'Full Service' }
+        }[option]
+    });
+}
+
+function letsGetStarted() {
+    if (!selectedFee) return;
+    const state = {
+        max_acquisition_price: document.getElementById('price-slider').value,
+        min_target_revenue: document.getElementById('revenue-slider').value,
+        max_distance: document.getElementById('distance-slider').value,
+        min_employees: document.getElementById('employees-slider').value,
+        target_vertical: document.getElementById('vertical-select').value,
+        fee_option: selectedFee,
+        deal_side: 'buy_side'
+    };
+    const checked = [];
+    document.querySelectorAll('#ownership-checkboxes input[type="checkbox"]:checked').forEach(cb => checked.push(cb.value));
+    state.preferred_ownership = checked.join(', ');
+    logInteraction('lets_get_started', 'fee_option_chosen', null, selectedFee, state);
+    document.getElementById('cta-button').style.display = 'none';
+    document.getElementById('confirmation').classList.add('show');
+    document.getElementById('confirmation').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+</script>
+</body>
+</html>
