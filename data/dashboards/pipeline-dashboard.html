@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="refresh" content="300">
+<title>Pipeline Dashboard — Next Chapter</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0d1117;color:#c9d1d9}
+.header{background:linear-gradient(135deg,#161b22,#1a5276);padding:25px 30px}
+.header h1{color:#58a6ff;font-size:24px}
+.header .meta{color:#8b949e;font-size:13px;margin-top:5px}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:15px;padding:20px 30px;max-width:1400px;margin:0 auto}
+.kpi{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:20px;text-align:center}
+.kpi .num{font-size:32px;font-weight:bold;color:#f0f6fc}
+.kpi .label{font-size:11px;color:#8b949e;text-transform:uppercase;margin-top:5px}
+.kpi.highlight .num{color:#27ae60}
+.kpi.blue .num{color:#58a6ff}
+.container{max-width:1400px;margin:20px auto;padding:0 20px}
+.card{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:20px;margin-bottom:20px}
+.card h2{font-size:16px;color:#58a6ff;margin-bottom:15px;padding-bottom:8px;border-bottom:1px solid #30363d}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;padding:10px 8px;color:#8b949e;border-bottom:1px solid #30363d;font-weight:600}
+td{padding:10px 8px;border-bottom:1px solid #21262d}
+tr:hover{background:#21262d}
+.totals td{font-weight:bold;border-top:2px solid #30363d;color:#f0f6fc}
+.nav{text-align:center;padding:10px;background:#161b22;border-bottom:1px solid #30363d}
+.nav a{color:#58a6ff;margin:0 12px;text-decoration:none;font-size:13px}
+.range{font-size:11px;color:#8b949e}
+.footer{text-align:center;padding:20px;color:#484f58;font-size:11px}
+@media(max-width:800px){.kpis{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Next Chapter — Pipeline Dashboard</h1>
+    <div class="meta">Sunday, March 29, 2026 08:23 PM | Auto-refreshes every 5 minutes</div>
+</div>
+
+<div class="nav">
+    <a href="index.html">🏠 Companies</a>
+    <a href="ebitda-levers.html">📊 EBITDA Levers</a>
+    <a href="version-history.html">🕐 Version History</a>
+</div>
+
+<div class="kpis">
+    <div class="kpi highlight">
+        <div class="num">$914K</div>
+        <div class="label">Weighted Pipeline</div>
+    </div>
+    <div class="kpi">
+        <div class="num">$5.2M</div>
+        <div class="label">Total Fee Potential</div>
+    </div>
+    <div class="kpi blue">
+        <div class="num">6</div>
+        <div class="label">Active Deals</div>
+    </div>
+    <div class="kpi">
+        <div class="num">193</div>
+        <div class="label">Buyers Identified</div>
+    </div>
+    <div class="kpi">
+        <div class="num">2,191</div>
+        <div class="label">Contacts</div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="card">
+        <h2>💰 Revenue Forecast by Deal</h2>
+        <table>
+            <tr>
+                <th>Company</th>
+                <th>Side</th>
+                <th style="text-align:right">Enterprise Value</th>
+                <th style="text-align:right">Fee %</th>
+                <th style="text-align:right">Success Fee</th>
+                <th style="text-align:center">Probability</th>
+                <th style="text-align:right">Weighted</th>
+                <th style="text-align:center">Quality</th>
+            </tr>
+            <tr>
+        <td><strong>HR.com Ltd</strong></td>
+        <td><span style="color:#3498db;font-weight:600">SELL</span></td>
+        <td style="text-align:right">$64.0M</td>
+        <td style="text-align:right">5%</td>
+        <td style="text-align:right;font-weight:600;color:#27ae60">$3.2M</td>
+        <td style="text-align:center"><span style="color:#f39c12;font-weight:600">15%</span></td>
+        <td style="text-align:right;font-weight:600;color:#58a6ff">$480K</td>
+        <td style="text-align:center">90</td>
+    </tr><tr>
+        <td><strong>AquaScience</strong></td>
+        <td><span style="color:#3498db;font-weight:600">SELL</span></td>
+        <td style="text-align:right">$8.8M</td>
+        <td style="text-align:right">7%</td>
+        <td style="text-align:right;font-weight:600;color:#27ae60">$616K</td>
+        <td style="text-align:center"><span style="color:#27ae60;font-weight:600">25%</span></td>
+        <td style="text-align:right;font-weight:600;color:#58a6ff">$154K</td>
+        <td style="text-align:center">88</td>
+    </tr><tr>
+        <td><strong>Wieser Concrete Products, Inc.</strong></td>
+        <td><span style="color:#e67e22;font-weight:600">BUY</span></td>
+        <td style="text-align:right">$28.0M</td>
+        <td style="text-align:right">2%</td>
+        <td style="text-align:right;font-weight:600;color:#27ae60">$700K</td>
+        <td style="text-align:center"><span style="color:#f39c12;font-weight:600">20%</span></td>
+        <td style="text-align:right;font-weight:600;color:#58a6ff">$140K</td>
+        <td style="text-align:center">82</td>
+    </tr><tr>
+        <td><strong>Air Control</strong></td>
+        <td><span style="color:#3498db;font-weight:600">SELL</span></td>
+        <td style="text-align:right">$3.6M</td>
+        <td style="text-align:right">10%</td>
+        <td style="text-align:right;font-weight:600;color:#27ae60">$360K</td>
+        <td style="text-align:center"><span style="color:#f39c12;font-weight:600">20%</span></td>
+        <td style="text-align:right;font-weight:600;color:#58a6ff">$72K</td>
+        <td style="text-align:center">82</td>
+    </tr><tr>
+        <td><strong>Design Precast & Pipe, Inc.</strong></td>
+        <td><span style="color:#e67e22;font-weight:600">BUY</span></td>
+        <td style="text-align:right">$10.8M</td>
+        <td style="text-align:right">2%</td>
+        <td style="text-align:right;font-weight:600;color:#27ae60">$270K</td>
+        <td style="text-align:center"><span style="color:#f39c12;font-weight:600">20%</span></td>
+        <td style="text-align:right;font-weight:600;color:#58a6ff">$54K</td>
+        <td style="text-align:center">82</td>
+    </tr><tr>
+        <td><strong>Springer Floor</strong></td>
+        <td><span style="color:#3498db;font-weight:600">SELL</span></td>
+        <td style="text-align:right">$900K</td>
+        <td style="text-align:right">10%</td>
+        <td style="text-align:right;font-weight:600;color:#27ae60">$90K</td>
+        <td style="text-align:center"><span style="color:#f39c12;font-weight:600">15%</span></td>
+        <td style="text-align:right;font-weight:600;color:#58a6ff">$14K</td>
+        <td style="text-align:center">82</td>
+    </tr>
+            <tr class="totals">
+                <td>TOTAL (6 deals)</td>
+                <td></td>
+                <td style="text-align:right">$116.1M</td>
+                <td></td>
+                <td style="text-align:right;color:#27ae60">$5.2M</td>
+                <td></td>
+                <td style="text-align:right;color:#58a6ff">$914K</td>
+                <td></td>
+            </tr>
+        </table>
+        <div class="range" style="margin-top:15px">
+            Fee range: $3.5M — $5.2M — $9.2M | 
+            Engagement fees (if all sign): $60K |
+            Fee structure: Sell-side 5-10%, Buy-side 2-3%, $10K minimum
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>📋 Deal Activity</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:15px">
+            <div style="text-align:center;padding:15px;background:#21262d;border-radius:8px">
+                <div style="font-size:24px;font-weight:bold;color:#f0f6fc">1</div>
+                <div style="font-size:11px;color:#8b949e">Pending Comments</div>
+            </div>
+            <div style="text-align:center;padding:15px;background:#21262d;border-radius:8px">
+                <div style="font-size:24px;font-weight:bold;color:#f0f6fc">287</div>
+                <div style="font-size:11px;color:#8b949e">Companies Researched</div>
+            </div>
+            <div style="text-align:center;padding:15px;background:#21262d;border-radius:8px">
+                <div style="font-size:24px;font-weight:bold;color:#f0f6fc">193</div>
+                <div style="font-size:11px;color:#8b949e">Buyer Targets</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    Next Chapter M&A Advisory — Pipeline Dashboard<br>
+    Fee assumptions: Q39 structure ($10K min, 5-10% sell-side, 2-3% buy-side)<br>
+    Probability estimates are preliminary — adjust per deal as engagement progresses
+</div>
+
+</body>
+</html>
