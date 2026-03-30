@@ -161,6 +161,18 @@ HQ_MAP = {
     'Rainbow International (Neighborly/KKR)':('Waco', 'TX'),
     'Building Services of America (BSA)':   ('Overland Park', 'KS'),
     'GI Partners':                          ('San Francisco', 'CA'),
+    # Net new — CII Advisors PDF March 2026
+    'Guardian Restoration Partners':        ('Denver', 'CO'),
+    'Zerorez':                              ('Pleasant Grove', 'UT'),
+    'QuickDry Pro':                         ('Gardner', 'KS'),
+    'Chem-Dry International':               ('Nashville', 'TN'),
+    'Oxi Fresh Carpet Cleaning':            ('Lakewood', 'CO'),
+    "Heaven's Best Carpet Cleaning":        ('Rexburg', 'ID'),
+    'SERVPRO Industries':                   ('Gallatin', 'TN'),
+    'PuroClean':                            ('Tamarac', 'FL'),
+    'City Wide Facility Solutions':         ('Lenexa', 'KS'),
+    'Corvus Janitorial':                    ('Chicago', 'IL'),
+    'Heartland Home Services':              ('Macomb', 'MI'),
 }
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
