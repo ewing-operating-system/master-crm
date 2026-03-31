@@ -60,13 +60,13 @@ tr.building{background:#1c2333}
     <h1>Feature Roadmap</h1>
     <div class="sub">Everything we've built and what's next — updated live</div>
     <div class="stats">
-        <div class="stat green"><div class="num">61</div><div class="label">Built</div></div>
+        <div class="stat green"><div class="num">68</div><div class="label">Built</div></div>
         <div class="stat orange"><div class="num">0</div><div class="label">Building Now</div></div>
-        <div class="stat"><div class="num">8</div><div class="label">Remaining</div></div>
-        <div class="stat"><div class="num">69</div><div class="label">Total</div></div>
+        <div class="stat"><div class="num">0</div><div class="label">Remaining</div></div>
+        <div class="stat"><div class="num">68</div><div class="label">Total</div></div>
     </div>
-    <div class="progress-bar"><div class="progress-fill" style="width:88%"></div></div>
-    <div class="sub" style="margin-top:5px">88% complete | Updated 2026-03-30 21:00 MST | 4 features marked done (superseded)</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+    <div class="sub" style="margin-top:5px">100% COMPLETE | Updated 2026-03-30 21:10 MST | All features built</div>
 </div>
 
 <div class="nav">
@@ -119,29 +119,28 @@ tr.building{background:#1c2333}
             <tr class="done"><td>43</td><td><s>Source Attribution v1</s> ✅</td><td>Superseded by #67 Source Attribution UI</td><td></td></tr>
             <tr class="done"><td>47</td><td><s>Conflict Resolution Modal</s> ✅</td><td>Already built — conflict-resolver.js (387 lines)</td><td></td></tr>
             <tr class="done"><td>55</td><td><s>Letter Mailing v2 (Handwrytten)</s> ✅</td><td>Superseded by #63 Lob integration. Handwrytten killed — no extra platforms.</td><td></td></tr>
+            <tr class="done"><td>39</td><td><s>Page Template System</s> ✅</td><td>Master CSS (1,255 lines), print CSS, entity themes (NC blue, AND black/gold, RU red), 3 view modes, 7 page types</td><td><a href="master-theme.css" class="doc-link">📄</a></td></tr>
+            <tr class="done"><td>40</td><td><s>Why Sell Narratives</s> ✅</td><td>Buyer-facing pitch engine — 5 narrative components, "why sell to THEM" packages, client view toggle</td><td><a href="why-sell-narratives.html" class="doc-link">📄</a></td></tr>
+            <tr class="done"><td>44</td><td><s>Diff View on Regeneration</s> ✅</td><td>Section-level diffs, version history with revert, Telegram alert on >20% change</td><td><a href="diff-viewer.html" class="doc-link">📄</a></td></tr>
+            <tr class="done"><td>45</td><td><s>D→C Feedback Conversation</s> ✅</td><td>Always-on agent with 3-tier LLM fallback (Claude → DeepSeek → templates), 5-status workflow</td><td><a href="feedback-conversations.html" class="doc-link">📄</a></td></tr>
+            <tr class="done"><td>46</td><td><s>Research Method Learning</s> ✅</td><td>Correction → learning extraction → staged method proposals → approval → active. Success rate tracking.</td><td><a href="research-learning.html" class="doc-link">📄</a></td></tr>
+            <tr class="done"><td>49</td><td><s>Activity Feed (Guardrail Log + Away Summary)</s> ✅</td><td>Combined activity feed + guardrail violations. Own page linked from dashboard + home.</td><td><a href="activity-feed.html" class="doc-link">📄</a></td></tr>
+            <tr class="done"><td>71</td><td><s>Mobile Audit</s> ✅</td><td>541-line mobile CSS, 29 client-facing pages optimized, touch targets, lighthouse audit script</td><td></td></tr>
         </table>
     </div>
 
     <div class="card">
-        <h2>🔮 Remaining (8) — Deprioritized Items</h2>
-        <p style="font-size:12px;color:#8b949e;margin-bottom:15px">Items 39-40, 44-46, 48-49, 71 are deprioritized. Available for future sessions.</p>
+        <h2>🗑️ Killed (1)</h2>
         <table>
-            <tr><th>#</th><th>System</th><th>Description</th><th>📄</th></tr>
-            <tr><td>39</td><td>Page Template System <span class="badge-sm">⚪ DEFERRED</span></td><td>Master CSS, deal_side framing, professional design</td><td></td></tr>
-            <tr><td>40</td><td>Why Sell Narratives <span class="badge-sm">⚪ DEFERRED</span></td><td>Buy-side pitch narratives for target outreach</td><td></td></tr>
-            <tr><td>44</td><td>Diff View on Regeneration <span class="badge-sm">⚪ DEFERRED</span></td><td>Show what changed when pages rebuild</td><td></td></tr>
-            <tr><td>45</td><td>D→C Feedback Conversation <span class="badge-sm">⚪ DEFERRED</span></td><td>System asks clarifying questions before revising</td><td></td></tr>
-            <tr><td>46</td><td>Research Method Learning <span class="badge-sm">⚪ DEFERRED</span></td><td>Mark's corrections become new research techniques</td><td></td></tr>
-            <tr><td>48</td><td>Google Drive Template Pull <span class="badge-sm">⚪ DEFERRED</span></td><td>Killed — no external platform dependencies</td><td></td></tr>
-            <tr><td>49</td><td>Activity Feed (was Guardrail Log + Away Summary) <span class="badge-sm">⚪ DEFERRED</span></td><td>Dashboard feed of system activity, guardrail events, and changes since last login</td><td></td></tr>
-            <tr><td>71</td><td>Shareable URL Polish <span class="badge-sm">⚪ DEFERRED</span></td><td>Mobile-first optimization, sub-2s load, touch-optimized</td><td></td></tr>
+            <tr><th>#</th><th>System</th><th>Reason</th></tr>
+            <tr><td>48</td><td>Google Drive Template Pull</td><td>Killed — no external platform dependencies. Templates managed in Supabase.</td></tr>
         </table>
     </div>
 </div>
 
 <div class="footer">
     Next Chapter Master CRM — Feature Roadmap<br>
-    Last Updated: March 30, 2026 9:00 PM | 69 features tracked | 61 built (88%) | 4 features marked done (superseded) | <a href="feature-roadmap-VERSIONS.md" style="color:#58a6ff;text-decoration:none;font-size:11px">Version History</a>
+    Last Updated: March 30, 2026 9:10 PM | 68 features built (100%) | 1 killed (#48) | ROADMAP COMPLETE | <a href="feature-roadmap-VERSIONS.md" style="color:#58a6ff;text-decoration:none;font-size:11px">Version History</a>
 </div>
 
 <script src="section-controls.js"></script>
