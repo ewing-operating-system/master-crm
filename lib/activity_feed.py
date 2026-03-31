@@ -5,20 +5,20 @@ Aggregates activity and guardrail violations for the "While You Were Away" dashb
 
 Public API
 ----------
-get_activity_since(last_seen_at, entity=None)
+get_activity_since(last_viewed_at, entity=None)
     Returns grouped activity events since the given timestamp.
 
-get_guardrail_violations(since=None, severity=None)
+get_guardrail_log(since=None, severity=None)
     Returns guardrail violation rows, newest first.
 
 log_guardrail_violation(violation_type, entity, target_id, details, severity)
-    Writes a violation record to the guardrail_violations table.
+    Writes a violation record to the guardrail_log table.
 
 update_last_seen(user_id)
     Stamps user_sessions with the current UTC time.
 
 get_last_seen(user_id)
-    Returns the last_seen_at timestamp for a user (or epoch if never seen).
+    Returns the last_viewed_at timestamp for a user (or epoch if never seen).
 """
 
 import json
@@ -128,27 +128,27 @@ CATEGORIES = {
 # ---------------------------------------------------------------------------
 
 def get_last_seen(user_id: str) -> datetime:
-    """Return last_seen_at for user_id, or epoch if no record exists."""
-    rows = _get("user_sessions", f"user_id=eq.{user_id}&select=last_seen_at")
-    if rows and rows[0].get("last_seen_at"):
-        ts = rows[0]["last_seen_at"].replace("Z", "+00:00")
+    """Return last_viewed_at for user_id, or epoch if no record exists."""
+    rows = _get("user_sessions", f"user_name=eq.{user_id}&select=last_viewed_at")
+    if rows and rows[0].get("last_viewed_at"):
+        ts = rows[0]["last_viewed_at"].replace("Z", "+00:00")
         return datetime.fromisoformat(ts)
     return datetime(1970, 1, 1, tzinfo=timezone.utc)
 
 
 def update_last_seen(user_id: str) -> datetime:
-    """Upsert user_sessions.last_seen_at = now(). Returns the new timestamp."""
+    """Upsert user_sessions.last_viewed_at = now(). Returns the new timestamp."""
     now = datetime.now(timezone.utc)
     now_iso = now.isoformat()
 
     # Try update first; insert if no row exists.
-    existing = _get("user_sessions", f"user_id=eq.{user_id}&select=user_id")
+    existing = _get("user_sessions", f"user_name=eq.{user_id}&select=user_id")
     if existing:
-        _patch("user_sessions", f"user_id=eq.{user_id}", {"last_seen_at": now_iso})
+        _patch("user_sessions", f"user_name=eq.{user_id}", {"last_viewed_at": now_iso})
     else:
         _post(
             "user_sessions",
-            {"user_id": user_id, "last_seen_at": now_iso},
+            {"user_id": user_id, "last_viewed_at": now_iso},
             prefer="return=minimal",
         )
     return now
@@ -159,10 +159,10 @@ def update_last_seen(user_id: str) -> datetime:
 # ---------------------------------------------------------------------------
 
 def get_activity_since(
-    last_seen_at: datetime, entity: Optional[str] = None
+    last_viewed_at: datetime, entity: Optional[str] = None
 ) -> dict:
     """
-    Aggregate activity events from multiple tables since last_seen_at.
+    Aggregate activity events from multiple tables since last_viewed_at.
 
     Returns:
         {
@@ -179,7 +179,7 @@ def get_activity_since(
             "highlights": [event, ...],   # unusual / high-urgency events
         }
     """
-    since_iso = last_seen_at.isoformat().replace("+00:00", "Z")
+    since_iso = last_viewed_at.isoformat().replace("+00:00", "Z")
     entity_filter = f"&entity=eq.{entity}" if entity else ""
 
     result: dict = {
@@ -303,9 +303,9 @@ def get_activity_since(
         except RuntimeError:
             continue
 
-    # ---- guardrail_violations → Alerts ----------------------------------
+    # ---- guardrail_log → Alerts ----------------------------------
     try:
-        viol_rows = get_guardrail_violations(since=last_seen_at)
+        viol_rows = get_guardrail_log(since=last_viewed_at)
         if entity:
             viol_rows = [r for r in viol_rows if r.get("entity") == entity]
         for row in viol_rows:
@@ -367,7 +367,7 @@ def get_activity_since(
 # Guardrail violations
 # ---------------------------------------------------------------------------
 
-def get_guardrail_violations(
+def get_guardrail_log(
     since: Optional[datetime] = None,
     severity: Optional[str] = None,
 ) -> list:
@@ -385,8 +385,8 @@ def get_guardrail_violations(
     if severity:
         if severity not in SEVERITY_LEVELS:
             raise ValueError(f"severity must be one of {SEVERITY_LEVELS}")
-        params += f"&severity=eq.{severity}"
-    return _get("guardrail_violations", params)
+        params += f"&rule_name=like.{severity}_*"
+    return _get("guardrail_log", params)
 
 
 def log_guardrail_violation(
@@ -421,14 +421,12 @@ def log_guardrail_violation(
         )
 
     row = {
+        "rule_name": f"{severity}_{violation_type}",
         "violation_type": violation_type,
         "entity": entity,
-        "target_id": target_id,
-        "details": details,
-        "severity": severity,
-        "created_at": datetime.now(timezone.utc).isoformat(),
+        "context": json.dumps({"target_id": target_id, "details": details, "severity": severity}),
     }
-    result = _post("guardrail_violations", row)
+    result = _post("guardrail_log", row)
     return result[0] if isinstance(result, list) else result
 
 
@@ -466,7 +464,7 @@ def get_violation_trend(days: int = 7) -> list:
         [{"date": "2026-03-24", "critical": 2, "warning": 5, "info": 1}, ...]
     """
     since = datetime.now(timezone.utc) - timedelta(days=days)
-    rows = get_guardrail_violations(since=since)
+    rows = get_guardrail_log(since=since)
 
     # Group by date and severity
     buckets: dict = {}

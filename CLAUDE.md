@@ -117,6 +117,8 @@ Known proposal IDs:
 9. Letters send BEFORE phone calls. Enrichment is post-letter investment.
 10. Multi-LLM consensus required before customer-facing documents.
 11. If a key fails, STOP and report. Do NOT sign up for a replacement.
+12. **ALWAYS** verify Supabase tables exist before writing code that references them. Query the table with `?limit=0` via REST to confirm. If the table doesn't exist, create it via migration SQL BEFORE writing the feature code. Never ship code that references non-existent tables.
+13. **ALWAYS** check actual column names in Supabase before coding. Use a probe insert or `?limit=1&select=*` to discover the real schema. Never assume column names — they may differ from your design (e.g. `last_viewed_at` not `last_seen_at`, `guardrail_log` not `guardrail_violations`).
 
 ## CAMPAIGNS (17)
 
