@@ -7,7 +7,7 @@ Runs continuously on Mac mini. Scans for work, dispatches to agent_queue.
 import json, os, time, sys, psycopg2
 from datetime import datetime, timedelta
 
-DB_CONN = "postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase.co:5432/postgres"
+DB_CONN = os.environ.get("DATABASE_URL", "postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase.co:6543/postgres")
 LOG_FILE = os.path.expanduser("~/Projects/master-crm/data/logs/orchestrator.log")
 os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
 

@@ -23,7 +23,7 @@ import json, os, sys, time, psycopg2
 from datetime import datetime
 from page_template import wrap_page, get_page_framing
 
-DB_CONN = "postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase.co:6543/postgres"
+DB_CONN = os.environ.get("DATABASE_URL", "postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase.co:6543/postgres")
 HUB_DIR = os.path.expanduser("~/Projects/master-crm/data/company-hubs")
 DL_DIR = os.path.expanduser("~/Downloads/master-crm-proposals")
 os.makedirs(HUB_DIR, exist_ok=True)

@@ -10,8 +10,8 @@ const COPY_DIR = join(HOME, 'Downloads/master-crm-proposals');
 const LOG_FILE = join(HOME, 'Projects/dossier-pipeline/data/audit-logs/buyer_1pagers.log');
 
 const SUPABASE_URL = 'https://dwrnfpjcvydhmhnvyzov.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR3cm5mcGpjdnlkaG1obnZ5em92Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NDc1NzI5MCwiZXhwIjoyMDkwMzMzMjkwfQ.7Bd_6aZhpWazv-evA_f1WpocfEHcXX8JATLNSKAC00s';
-const OPENROUTER_KEY = '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';
+const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR3cm5mcGpjdnlkaG1obnZ5em92Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NDc1NzI5MCwiZXhwIjoyMDkwMzMzMjkwfQ.7Bd_6aZhpWazv-evA_f1WpocfEHcXX8JATLNSKAC00s';
+const OPENROUTER_KEY = process.env.OPENROUTER_API_KEY || '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';
 
 [OUTPUT_DIR, COPY_DIR, join(HOME, 'Projects/dossier-pipeline/data/audit-logs')].forEach(d => mkdirSync(d, { recursive: true }));
 

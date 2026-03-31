@@ -7,8 +7,8 @@ Routes to the correct agent module based on agent_name.
 import json, os, time, sys, subprocess, psycopg2, urllib.request, ssl
 from datetime import datetime
 
-DB_CONN = "postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase.co:5432/postgres"
-OPENROUTER_KEY = "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"
+DB_CONN = os.environ.get("DATABASE_URL", "postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase.co:6543/postgres")
+OPENROUTER_KEY = os.environ.get("OPENROUTER_API_KEY", "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")
 LOG_FILE = os.path.expanduser("~/Projects/master-crm/data/logs/worker.log")
 os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
 ctx = ssl.create_default_context()

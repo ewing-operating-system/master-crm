@@ -12,7 +12,7 @@ The profile feeds: proposals, data rooms, buyer targeting, outreach scripts.
 import json, os, sys, subprocess, time, psycopg2
 from datetime import datetime
 
-DB_CONN = "postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase.co:5432/postgres"
+DB_CONN = os.environ.get("DATABASE_URL", "postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase.co:6543/postgres")
 LOG_FILE = os.path.expanduser("~/Projects/master-crm/data/logs/profile_engine.log")
 os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
 
@@ -219,7 +219,7 @@ Return ONLY valid JSON."""
                               "max_tokens": 6000, "temperature": 0.2}).encode()
         try:
             req = urllib.request.Request("https://openrouter.ai/api/v1/chat/completions", data=payload,
-                headers={"Authorization": "Bearer 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",
+                headers={"Authorization": f"Bearer {os.environ.get('OPENROUTER_API_KEY', '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')}",
                          "Content-Type": "application/json"}, method="POST")
             resp = urllib.request.urlopen(req, context=ctx, timeout=120)
             result = json.loads(resp.read())["choices"][0]["message"]["content"]

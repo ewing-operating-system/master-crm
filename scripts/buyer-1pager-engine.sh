@@ -7,9 +7,9 @@ LOG_FILE="$HOME/Projects/dossier-pipeline/data/audit-logs/buyer_1pagers.log"
 OUTPUT_DIR="$HOME/Projects/master-crm/data/buyer-1pagers"
 COPY_DIR="$HOME/Downloads/master-crm-proposals"
 DATA_FILE="/tmp/buyers_data.json"
-DB_URL="postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase.co:5432/postgres"
+DB_URL="${DATABASE_URL:-"postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase.co:6543/postgres"}"
 
-OPENROUTER_KEY="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"
+OPENROUTER_KEY="${OPENROUTER_API_KEY:-"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"}"
 OPENROUTER_MODEL="deepseek/deepseek-chat-v3-0324"
 
 log() {

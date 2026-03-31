@@ -28,11 +28,11 @@ import json, os, sys, subprocess, time, urllib.request, ssl, psycopg2
 
 # ─── Config ──────────────────────────────────────────────────────────────────
 
-DB_CONN = "postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase.co:5432/postgres"
+DB_CONN = os.environ.get("DATABASE_URL", "postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase.co:6543/postgres")
 SUPABASE_URL = "https://dwrnfpjcvydhmhnvyzov.supabase.co"
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR3cm5mcGpjdnlkaG1obnZ5em92Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NDc1NzI5MCwiZXhwIjoyMDkwMzMzMjkwfQ.7Bd_6aZhpWazv-evA_f1WpocfEHcXX8JATLNSKAC00s"
-OPENROUTER_KEY = "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"
-EXA_KEY = "fd8eb73b-d966-4f8b-8699-0ce357dffeea"
+SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR3cm5mcGpjdnlkaG1obnZ5em92Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NDc1NzI5MCwiZXhwIjoyMDkwMzMzMjkwfQ.7Bd_6aZhpWazv-evA_f1WpocfEHcXX8JATLNSKAC00s")
+OPENROUTER_KEY = os.environ.get("OPENROUTER_API_KEY", "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")
+EXA_KEY = os.environ.get("EXA_API_KEY", "fd8eb73b-d966-4f8b-8699-0ce357dffeea")
 LOG_FILE = os.path.expanduser("~/Projects/dossier-pipeline/data/audit-logs/overnight-build.log")
 MULTIPLES_FILE = os.path.expanduser("~/Projects/dossier-pipeline/data/data-export/market_multiples.json")
 
@@ -160,6 +160,7 @@ def exa_search(query, num_results=5):
                 "x-api-key": EXA_KEY,
                 "Content-Type": "application/json",
                 "Accept": "application/json",
+                "User-Agent": "NextChapter-CRM/1.0",
             },
             method="POST"
         )

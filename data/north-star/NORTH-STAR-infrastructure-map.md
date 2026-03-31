@@ -34,7 +34,8 @@ The Forge (Boomerang), BioLev, Sea Sweet, and Precision Exploration each need st
 
 | # | Instance ID | Current Label | Correct Entity | Status | Action |
 |---|---|---|---|---|---|
-| 1 | `rdnnhxhohwjucvjwbwch` | AND Call Command | **SHARED — contains NC + AND + standalone data. Name is WRONG.** | **LIVE** | Add `entity` column to all transactional tables. Retroactively tag ~4,000+ rows. |
+| 1 | `dwrnfpjcvydhmhnvyzov` | Master CRM | **SHARED — contains NC + AND + standalone data. Entity-tagged.** | **LIVE** | Single source of truth. All transactional tables have `entity` column. |
+| 1b | `rdnnhxhohwjucvjwbwch` | AND Call Command (OLD) | **RETIRED — data migrated to dwrnfpjcvydhmhnvyzov on 2026-03-30** | **RETIRED** | Do not use. All data migrated to master-crm instance. |
 | 2 | `lhmuwrlpcdlzpfthrodm` | ColdCall Universe | **MIXED — NC + AND, intentionally built as mixed before entity separation** | **RETIRED** | Migrate data with entity tags. Repoint 2 Lovable apps. Delete after. |
 | 3 | `asavljgcnresdnadblse` | Phoenix TAM Engine | Next Chapter | **RETIRED** | Already migrated to rdnn. No action. |
 | 4 | `ginqabezgxaazkhuuvvw` | Empty project | None | **RETIRED** | Delete. |
@@ -45,9 +46,14 @@ The Forge (Boomerang), BioLev, Sea Sweet, and Precision Exploration each need st
 | 9 | `pgoogsxaljtjhwhydqtg` | NYC Outreach Hub | **AND Capital — 100% confirmed. Any NC data found is an ERROR — strip it.** | **NEW** | Consolidate into rdnn. Most sophisticated schema — preserve views and enums. |
 | 10 | (unknown — Lovable-managed) | Precision Exploration | Precision Exploration (STANDALONE) | **ACTIVE — MANUAL ONLY** | DO NOT TOUCH. Managed by Lovable env vars. |
 
-### 1.1 LIVE Instance Connection Details (`rdnnhxhohwjucvjwbwch`)
+### 1.1 LIVE Instance Connection Details (`dwrnfpjcvydhmhnvyzov` — Master CRM)
+- **URL:** `https://dwrnfpjcvydhmhnvyzov.supabase.co`
+- **Anon key:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR3cm5mcGpjdnlkaG1obnZ5em92Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ3NTcyOTAsImV4cCI6MjA5MDMzMzI5MH0.z0Gu1TWdGPcdptB5W7efnYMmxBbvD353ExG99ftQivY`
+- **Service role key:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR3cm5mcGpjdnlkaG1obnZ5em92Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NDc1NzI5MCwiZXhwIjoyMDkwMzMzMjkwfQ.7Bd_6aZhpWazv-evA_f1WpocfEHcXX8JATLNSKAC00s`
+
+### 1.1b RETIRED Instance (`rdnnhxhohwjucvjwbwch` — OLD AND Call Command)
 - **URL:** `https://rdnnhxhohwjucvjwbwch.supabase.co`
-- **Anon key:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJkbm5oeGhvaHdqdWN2andid2NoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM4NzI3MzYsImV4cCI6MjA4OTQ0ODczNn0.SZJlQgqtAtdF11CDGofgkF-tz_2W2bCQx3q4hpGRlPU`
+- **Status:** RETIRED as of 2026-03-30. Data migrated to `dwrnfpjcvydhmhnvyzov`.
 
 ### 1.2 RETIRED Instance Connection Details (`lhmuwrlpcdlzpfthrodm`)
 - **URL:** `https://lhmuwrlpcdlzpfthrodm.supabase.co`
@@ -78,7 +84,7 @@ The Forge (Boomerang), BioLev, Sea Sweet, and Precision Exploration each need st
 
 ---
 
-## SECTION 2: TABLE-BY-TABLE CONTAMINATION REGISTRY (LIVE instance `rdnnhxhohwjucvjwbwch`)
+## SECTION 2: TABLE-BY-TABLE CONTAMINATION REGISTRY (LIVE instance `dwrnfpjcvydhmhnvyzov`)
 
 Every table, its row count, its current entity contamination status, and the specific method to fix it.
 
@@ -357,7 +363,7 @@ These tables returned ERROR on the LIVE instance. They were never migrated from 
 ## SECTION 9: PHASE 1 vs PHASE 2 ACTIONS
 
 ### Phase 1 (Now — before the big build)
-1. Add `entity` column to every transactional table in `rdnnhxhohwjucvjwbwch` EXCEPT `do_not_call` (universal by design)
+1. Add `entity` column to every transactional table in `dwrnfpjcvydhmhnvyzov` (master-crm) EXCEPT `do_not_call` (universal by design)
 2. Retroactively tag ~4,000+ existing rows using Entity Classification Guide decision tree. Domain name and title are the only reliable classification signals for ambiguous rows.
 3. Make `call_analysis` output an entity tag with every scored call — this table is both the problem and the solution
 4. Repoint Cold Call Universe v2 (`cd956a91`) and Cold Call CRM (`8724256f`) from `lhmuw` to `rdnn`
@@ -384,7 +390,8 @@ Every name an agent will encounter in the wild, mapped to the correct entity.
 ### Supabase Instance Names
 | Name Agent Will See | Instance ID | Correct Entity |
 |---|---|---|
-| AND Call Command | `rdnnhxhohwjucvjwbwch` | **SHARED (NC + AND + standalone) — name is WRONG** |
+| Master CRM | `dwrnfpjcvydhmhnvyzov` | **SHARED (NC + AND + standalone) — LIVE instance** |
+| AND Call Command (OLD) | `rdnnhxhohwjucvjwbwch` | **RETIRED — migrated to dwrnfpjcvydhmhnvyzov 2026-03-30** |
 | ColdCall Universe | `lhmuwrlpcdlzpfthrodm` | **MIXED (NC + AND) — retired** |
 | Phoenix TAM Engine | `asavljgcnresdnadblse` | Next Chapter — retired |
 | Marks NYC Hunt | `iumytggxqtfyaxewgghb` | AND Capital |
@@ -491,7 +498,7 @@ All campaign names MUST carry an entity prefix: `AND-`, `NC-`, `RU-`. This allow
 
 | Campaign ID | Entity | Supabase Tables | Supabase Instance | Repos | Lovable Apps | Skills | Scheduled Tasks | Firewall Status |
 |---|---|---|---|---|---|---|---|---|
-| `FORGE-BOOMERANG` | The Forge (Atlanta) | `boomerang_targets` (227 rows) | `rdnnhxhohwjucvjwbwch` (LIVE — **SHOULD NOT BE HERE**) | None | None | None | None | **VIOLATED** — standalone data in shared DB. Needs own GitHub org + Supabase project in Phase 2. |
+| `FORGE-BOOMERANG` | The Forge (Atlanta) | `boomerang_targets` (227 rows) | `dwrnfpjcvydhmhnvyzov` (LIVE — **SHOULD NOT BE HERE**) | None | None | None | None | **VIOLATED** — standalone data in shared DB. Needs own GitHub org + Supabase project in Phase 2. |
 | `BIOLEV-SALE` | BioLev (Ewing 50% / Rex 50%) | None (static assets only) | None | None | Fitness Pitch Builder (`3d4ee5fc`) | None | None | **CLEAN** — no DB contamination. 31 PPTX + 4 Python + 1 Excel in Google Drive `00 - BioLev Sale/`. Needs own repo in Phase 2. |
 | `SEASWEET-ROOFING` | Sea Sweet (Jeremy Christopher) | None | None | None | None | None | None | **CLEAN** — no DB contamination. Google Drive folders `04 - Sea Sweet` + `13 - New Roofing Rollup` only. NOT Next Chapter. Needs own repo in Phase 2. |
 | `PEC-FRAUD` | Precision Exploration Corp | Unknown (Lovable-managed) | Lovable-managed (unknown instance ID) | None | Precision Exploration (`239c9bb2`), Remix (`63c4f5cd`), NMR Science Showcase (`f2fc9365`) | `pec-case-manager` | `pec-evidence-logger` (DISABLED), `pec-fact-finder` (DISABLED) | **CLEAN** — has own Supabase via Lovable. MANUAL ONLY. Never automate. |

@@ -16,7 +16,7 @@ import datetime
 import html as html_mod
 
 # --- Config ---
-DB_URL = "postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase.co:6543/postgres"
+DB_URL = os.environ.get("DATABASE_URL", "postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase.co:6543/postgres")
 OUTPUT_DIR = os.path.expanduser("~/Projects/master-crm/data/buyer-1pagers")
 WEB_DIR = os.path.expanduser("~/Projects/master-crm-web/public")
 LOG_FILE = os.path.expanduser("~/Projects/dossier-pipeline/data/audit-logs/buyer_page_fix.log")

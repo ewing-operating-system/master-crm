@@ -11,11 +11,11 @@ import sys
 import datetime
 import requests
 
-DB_URL = "postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase.co:6543/postgres"
+DB_URL = os.environ.get("DATABASE_URL", "postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase.co:6543/postgres")
 OUTPUT_DIR = os.path.expanduser("~/Projects/master-crm/data/buyer-1pagers")
 COPY_DIR = os.path.expanduser("~/Downloads/master-crm-proposals")
 LOG_FILE = os.path.expanduser("~/Projects/dossier-pipeline/data/audit-logs/buyer_1pagers.log")
-OPENROUTER_KEY = "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"
+OPENROUTER_KEY = os.environ.get("OPENROUTER_API_KEY", "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")
 OPENROUTER_MODEL = "deepseek/deepseek-chat-v3-0324"
 
 def log(msg):

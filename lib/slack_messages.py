@@ -12,7 +12,7 @@ Until then, uses localhost (only works on local network).
 import json, os, psycopg2
 from datetime import datetime
 
-DB_CONN = "postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase.co:5432/postgres"
+DB_CONN = os.environ.get("DATABASE_URL", "postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase.co:6543/postgres")
 BASE_URL = os.environ.get("MASTER_CRM_URL", "http://localhost:8080")
 
 

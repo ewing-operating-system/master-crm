@@ -26,7 +26,7 @@ Generates an HTML dashboard with:
 import json, os, time, psycopg2
 from datetime import datetime, timedelta
 
-DB_CONN = "postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase.co:6543/postgres"
+DB_CONN = os.environ.get("DATABASE_URL", "postgresql://postgres:MakeMoneyNow1!@db.dwrnfpjcvydhmhnvyzov.supabase.co:6543/postgres")
 DASHBOARD_DIR = os.path.expanduser("~/Projects/master-crm/data/dashboards")
 os.makedirs(DASHBOARD_DIR, exist_ok=True)
 
