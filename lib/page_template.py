@@ -6,10 +6,343 @@ Wraps any page content in a professional, responsive template with consistent
 styling, navigation, sidebar, comment/version widgets, and deal-side framing.
 
 Used by company_hub.py and any future page generators.
+
+Feature #39 additions:
+  - PAGE_TYPES   : layout configs for every typed page
+  - ENTITY_THEMES: color palettes for nc, and_capital, revsup
+  - render_page() : typed, entity-aware, view-mode-aware renderer
+  - wrap_page()  : unchanged for backward compatibility
 """
 
 import re
 from datetime import datetime
+
+
+# ============================================================
+# PAGE TYPES — layout config for each typed page
+# ============================================================
+
+PAGE_TYPES = {
+    'buyer_dossier': {
+        'css_class':     'page-dossier',
+        'meta_type':     'buyer_dossier',
+        'title_suffix':  'Buyer Dossier',
+        'sidebar':       True,
+        'supabase_table': 'dossier_final',
+        'key_fields': [
+            'company_name', 'hq_city', 'hq_state', 'revenue', 'ebitda',
+            'employees', 'founded_year', 'industry', 'fit_score',
+            'buyer_acquisition_history', 'contact_name', 'contact_title',
+            'contact_email', 'contact_phone',
+        ],
+    },
+    'target_profile': {
+        'css_class':     'page-target',
+        'meta_type':     'target_profile',
+        'title_suffix':  'Target Profile',
+        'sidebar':       True,
+        'supabase_table': 'companies',
+        'key_fields': [
+            'company_name', 'hq_city', 'hq_state', 'revenue', 'ebitda',
+            'employees', 'industry', 'vertical', 'fit_score',
+            'owner_name', 'owner_email', 'owner_phone',
+        ],
+    },
+    'hub': {
+        'css_class':     'page-hub',
+        'meta_type':     'hub',
+        'title_suffix':  'Company Hub',
+        'sidebar':       True,
+        'supabase_table': 'companies',
+        'key_fields': [
+            'company_name', 'revenue', 'ebitda', 'employees',
+            'deal_side', 'stage', 'assigned_to',
+        ],
+    },
+    'proposal': {
+        'css_class':     'page-proposal',
+        'meta_type':     'proposal',
+        'title_suffix':  'Advisory Proposal',
+        'sidebar':       False,
+        'supabase_table': 'proposals',
+        'key_fields': [
+            'company_name', 'deal_side', 'fee_structure', 'retainer',
+            'success_fee_pct', 'engagement_start', 'advisor_name',
+        ],
+    },
+    'meeting': {
+        'css_class':     'page-meeting',
+        'meta_type':     'meeting',
+        'title_suffix':  'Meeting Notes',
+        'sidebar':       False,
+        'supabase_table': 'meetings',
+        'key_fields': [
+            'meeting_date', 'company_name', 'attendees', 'summary',
+            'action_items', 'next_steps', 'transcript_url',
+        ],
+    },
+    'activity_feed': {
+        'css_class':     'page-activity',
+        'meta_type':     'activity_feed',
+        'title_suffix':  'Activity Feed',
+        'sidebar':       True,
+        'supabase_table': 'activities',
+        'key_fields': [
+            'activity_type', 'company_name', 'contact_name',
+            'notes', 'created_at', 'created_by',
+        ],
+    },
+    'dashboard': {
+        'css_class':     'page-dashboard',
+        'meta_type':     'dashboard',
+        'title_suffix':  'Dashboard',
+        'sidebar':       False,
+        'supabase_table': None,
+        'key_fields': [],
+    },
+}
+
+
+# ============================================================
+# ENTITY THEMES — color palettes
+# ============================================================
+
+ENTITY_THEMES = {
+    'nc': {
+        'css_class':   'theme-nc',
+        'name':        'Next Chapter',
+        'primary':     '#58a6ff',
+        'secondary':   '#1f6feb',
+        'background':  '#0d1117',
+        'surface':     '#161b22',
+        'badge_bg':    '#1f6feb',
+        'badge_text':  '#f0f6fc',
+        'gradient':    'linear-gradient(135deg, #161b22 0%, #0d1117 50%, #161b22 100%)',
+    },
+    'next_chapter': {  # alias used in existing code
+        'css_class':   'theme-nc',
+        'name':        'Next Chapter',
+        'primary':     '#58a6ff',
+        'secondary':   '#1f6feb',
+        'background':  '#0d1117',
+        'surface':     '#161b22',
+        'badge_bg':    '#1f6feb',
+        'badge_text':  '#f0f6fc',
+        'gradient':    'linear-gradient(135deg, #161b22 0%, #0d1117 50%, #161b22 100%)',
+    },
+    'and_capital': {
+        'css_class':   'theme-and',
+        'name':        'AND Capital',
+        'primary':     '#d4af37',
+        'secondary':   '#b8922a',
+        'background':  '#0e0e1a',
+        'surface':     '#1a1a2e',
+        'badge_bg':    '#d4af37',
+        'badge_text':  '#0e0e1a',
+        'gradient':    'linear-gradient(135deg, #1a1a2e 0%, #0e0e1a 50%, #1a1a2e 100%)',
+    },
+    'and': {  # short alias
+        'css_class':   'theme-and',
+        'name':        'AND Capital',
+        'primary':     '#d4af37',
+        'secondary':   '#b8922a',
+        'background':  '#0e0e1a',
+        'surface':     '#1a1a2e',
+        'badge_bg':    '#d4af37',
+        'badge_text':  '#0e0e1a',
+        'gradient':    'linear-gradient(135deg, #1a1a2e 0%, #0e0e1a 50%, #1a1a2e 100%)',
+    },
+    'revsup': {
+        'css_class':   'theme-ru',
+        'name':        'RevsUp',
+        'primary':     '#dc3545',
+        'secondary':   '#a71d2a',
+        'background':  '#120505',
+        'surface':     '#1e0808',
+        'badge_bg':    '#dc3545',
+        'badge_text':  '#f0f6fc',
+        'gradient':    'linear-gradient(135deg, #2d0a0a 0%, #120505 50%, #2d0a0a 100%)',
+    },
+    'ru': {  # short alias
+        'css_class':   'theme-ru',
+        'name':        'RevsUp',
+        'primary':     '#dc3545',
+        'secondary':   '#a71d2a',
+        'background':  '#120505',
+        'surface':     '#1e0808',
+        'badge_bg':    '#dc3545',
+        'badge_text':  '#f0f6fc',
+        'gradient':    'linear-gradient(135deg, #2d0a0a 0%, #120505 50%, #2d0a0a 100%)',
+    },
+    'default': {
+        'css_class':   'theme-default',
+        'name':        '',
+        'primary':     '#58a6ff',
+        'secondary':   '#1f6feb',
+        'background':  '#0d1117',
+        'surface':     '#161b22',
+        'badge_bg':    '#30363d',
+        'badge_text':  '#f0f6fc',
+        'gradient':    'linear-gradient(135deg, #161b22 0%, #0d1117 50%, #161b22 100%)',
+    },
+}
+
+
+# ============================================================
+# VIEW MODE LABELS
+# ============================================================
+
+VIEW_MODES = {
+    'internal': {'label': 'INTERNAL VIEW — admin only',  'css_class': 'view-internal'},
+    'client':   {'label': 'CLIENT VIEW — editable draft', 'css_class': 'view-client'},
+    'buyer':    {'label': 'BUYER VIEW — polished package', 'css_class': 'view-buyer'},
+}
+
+
+# ============================================================
+# render_page() — typed, entity-aware, view-mode-aware
+# ============================================================
+
+def render_page(page_type, entity, data, view_mode='internal',
+                nav_links=None, show_comment_widget=True,
+                show_version_widget=True):
+    """
+    Render a typed CRM page using master-theme.css design system.
+
+    Args:
+        page_type (str): One of the PAGE_TYPES keys
+                         (e.g. 'hub', 'buyer_dossier', 'proposal', 'meeting',
+                          'activity_feed', 'dashboard', 'target_profile')
+        entity (str)   : One of the ENTITY_THEMES keys
+                         (e.g. 'nc', 'next_chapter', 'and_capital', 'revsup', 'default')
+        data (dict)    : Page data. Expected keys vary by page_type (see PAGE_TYPES).
+                         At minimum should contain 'title' and optionally 'subtitle',
+                         'body_html', 'company_name'.
+        view_mode (str): 'internal' | 'client' | 'buyer'  (default: 'internal')
+        nav_links (list): list of dicts with 'label', 'href', optional 'active'
+        show_comment_widget (bool): include comment-widget.js
+        show_version_widget (bool): include version-widget.js
+
+    Returns:
+        str: Complete HTML document
+    """
+    # Resolve type config
+    type_cfg   = PAGE_TYPES.get(page_type, PAGE_TYPES['hub'])
+    theme_cfg  = ENTITY_THEMES.get(entity, ENTITY_THEMES['default'])
+    view_cfg   = VIEW_MODES.get(view_mode, VIEW_MODES['internal'])
+
+    page_css   = type_cfg['css_class']
+    entity_css = theme_cfg['css_class']
+    view_css   = view_cfg['css_class']
+    body_class = f"{entity_css} {page_css} {view_css}"
+
+    title        = data.get('title', data.get('company_name', 'CRM Page'))
+    subtitle     = data.get('subtitle', '')
+    company_name = data.get('company_name', title)
+    body_html    = data.get('body_html', '')
+
+    # Deduce deal_side for framing (fall back to sell_side)
+    deal_side    = data.get('deal_side', 'sell_side')
+    framing      = get_page_framing(deal_side)
+
+    sections     = _extract_sections(body_html)
+    now          = datetime.now().strftime('%B %d, %Y %I:%M %p')
+
+    # Build navigation
+    nav_links = nav_links or []
+    nav_html = ''
+    for link in nav_links:
+        active = ' class="active"' if link.get('active') else ''
+        nav_html += f'<a href="{link["href"]}"{active}>{link["label"]}</a>\n'
+
+    # Build sidebar (only for types that use it)
+    sidebar_html = ''
+    if type_cfg.get('sidebar', True) and sections:
+        for s in sections:
+            sidebar_html += f'<a href="#{s["id"]}" class="sidebar-link">{s["title"]}</a>\n'
+
+    sidebar_block = ''
+    if sidebar_html:
+        sidebar_block = f'''
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-heading">Page Sections</div>
+    {sidebar_html}
+  </div>'''
+
+    # Widget scripts
+    widgets = ''
+    if show_comment_widget:
+        widgets += '<script src="/comment-widget.js"></script>\n'
+    if show_version_widget:
+        widgets += '<script src="/version-widget.js"></script>\n'
+
+    # View mode banner
+    view_banner = f'<div class="view-mode-bar">{view_cfg["label"]}</div>'
+
+    # Entity badge text
+    entity_label = theme_cfg['name'] or framing['badge_text']
+
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title} — {type_cfg['title_suffix']}</title>
+<meta name="company-name" content="{company_name}">
+<meta name="page-type" content="{type_cfg['meta_type']}">
+<meta name="entity" content="{entity}">
+<meta name="view-mode" content="{view_mode}">
+<meta name="deal-side" content="{deal_side}">
+<link rel="stylesheet" href="/master-theme.css">
+<link rel="stylesheet" href="/print-theme.css" media="print">
+</head>
+<body class="{body_class}">
+
+{view_banner}
+
+<!-- HEADER -->
+<div class="page-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <h1>{title}</h1>
+      <div class="subtitle">{subtitle}</div>
+    </div>
+    <div class="header-right">
+      <span class="deal-badge">{framing['badge_text']}</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAVIGATION -->
+<div class="top-nav">
+  {nav_html}
+</div>
+
+<!-- LAYOUT -->
+<div class="page-layout">
+{sidebar_block}
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+    {body_html}
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="page-footer">
+  <strong>{entity_label or 'Next Chapter M&A Advisory'}</strong> | {framing['deal_description']}<br>
+  Generated {now} | {view_cfg['label']}
+</div>
+
+<!-- WIDGETS -->
+{widgets}
+
+</body>
+</html>"""
+
+    return html
 
 
 def get_page_framing(deal_side):
