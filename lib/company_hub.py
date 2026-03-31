@@ -210,7 +210,7 @@ def generate_hub_html(company_name, assets):
     buyers_html = ""
     company_slug = company_name.lower().replace(" ", "-").replace(".", "").replace(",", "").replace("&", "and")[:30]
     buyer_dir = os.path.expanduser("~/Projects/master-crm/data/buyer-1pagers")
-    for b in buyers[:15]:
+    for b in buyers[:50]:
         fit = str(b.get("fit_score", "")) if b.get("fit_score") else "—"
         dnc = '<span class="badge green" style="font-size:10px">Clear</span>' if b.get("dnc_clear") else '<span class="badge red" style="font-size:10px">DNC</span>'
         has_script = '<span class="badge blue" style="font-size:10px">Ready</span>' if b.get("approach_script") else "—"

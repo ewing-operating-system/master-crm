@@ -558,7 +558,7 @@ def batch_generate(proposal_id, entity="next_chapter"):
     # Step 3: Per-buyer pitches
     buyers = load_buyers_for_proposal(proposal_id)
     log(f"  Buyers loaded: {len(buyers)}")
-    capped = buyers[:20]
+    capped = buyers[:50]
 
     for i, buyer in enumerate(capped):
         buyer_id = buyer.get("id")

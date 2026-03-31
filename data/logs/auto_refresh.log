@@ -29,3 +29,9 @@
 2026-03-30T21:50:14.506999 | REFRESH | Checking for stale pages to regenerate...
 2026-03-30T21:50:14.749392 | REFRESH | Failed to fetch stale pages: HTTP Error 401: Unauthorized
 2026-03-30T21:50:14.749392 | REFRESH | Failed to fetch stale pages: HTTP Error 401: Unauthorized
+2026-03-31T04:14:53.271119 | REFRESH | Checking for stale pages to regenerate...
+2026-03-31T04:14:53.479752 | REFRESH | Regenerating stale page: Air Control / hub (v1)
+2026-03-31T04:14:53.537916 | REFRESH | Refreshing hub: Air Control
+2026-03-31T04:14:55.306641 | REFRESH | Regenerating stale page: Air Control / meeting (v1)
+2026-03-31T04:14:55.307005 | REFRESH | Meeting page for Air Control marked — manual regeneration needed
+2026-03-31T04:14:55.435516 | REFRESH | Regenerating stale page: Air Control / data_room (v1)
