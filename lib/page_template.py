@@ -339,6 +339,31 @@ def render_page(page_type, entity, data, view_mode='internal',
 <!-- WIDGETS -->
 {widgets}
 
+<!-- SCROLL-SPY: highlights active sidebar link as user scrolls -->
+<script>
+(function() {{
+  var links = document.querySelectorAll('.sidebar-link');
+  var sections = [];
+  links.forEach(function(link) {{
+    var id = link.getAttribute('href');
+    if (id) id = id.replace('#', '');
+    var el = id && document.getElementById(id);
+    if (el) sections.push({{ id: id, el: el, link: link }});
+  }});
+  if (!sections.length) return;
+  function updateActive() {{
+    var current = sections[0];
+    for (var i = 0; i < sections.length; i++) {{
+      if (sections[i].el.getBoundingClientRect().top <= 120) current = sections[i];
+    }}
+    links.forEach(function(l) {{ l.classList.remove('active'); }});
+    current.link.classList.add('active');
+  }}
+  window.addEventListener('scroll', updateActive, {{ passive: true }});
+  updateActive();
+}})();
+</script>
+
 </body>
 </html>"""
 
@@ -538,6 +563,14 @@ def wrap_page(title, subtitle, company_name, deal_side, nav_links, body_html,
     min-height: calc(100vh - 160px);
   }}
 
+  /* === SCROLL BEHAVIOR === */
+  html {{
+    scroll-behavior: smooth;
+  }}
+  .card[id] {{
+    scroll-margin-top: 100px;
+  }}
+
   /* === SIDEBAR === */
   .sidebar {{
     width: 220px;
@@ -547,9 +580,11 @@ def wrap_page(title, subtitle, company_name, deal_side, nav_links, body_html,
     padding: 20px 0;
     position: sticky;
     top: 90px;
+    align-self: flex-start;
     height: fit-content;
     max-height: calc(100vh - 120px);
     overflow-y: auto;
+    z-index: 50;
   }}
   .sidebar-heading {{
     font-size: 11px;
@@ -796,6 +831,31 @@ def wrap_page(title, subtitle, company_name, deal_side, nav_links, body_html,
 
 <!-- WIDGETS -->
 {widgets}
+
+<!-- SCROLL-SPY: highlights active sidebar link as user scrolls -->
+<script>
+(function() {{
+  var links = document.querySelectorAll('.sidebar-link');
+  var sections = [];
+  links.forEach(function(link) {{
+    var id = link.getAttribute('href');
+    if (id) id = id.replace('#', '');
+    var el = id && document.getElementById(id);
+    if (el) sections.push({{ id: id, el: el, link: link }});
+  }});
+  if (!sections.length) return;
+  function updateActive() {{
+    var current = sections[0];
+    for (var i = 0; i < sections.length; i++) {{
+      if (sections[i].el.getBoundingClientRect().top <= 120) current = sections[i];
+    }}
+    links.forEach(function(l) {{ l.classList.remove('active'); }});
+    current.link.classList.add('active');
+  }}
+  window.addEventListener('scroll', updateActive, {{ passive: true }});
+  updateActive();
+}})();
+</script>
 
 </body>
 </html>"""
